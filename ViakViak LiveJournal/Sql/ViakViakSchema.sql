@@ -337,7 +337,7 @@ INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'музы
 --INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (39064, N'Что в имени твоем: Пешка');
 --INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (38894, N'Что в имени твоем: Пехота');
 --INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (38489, N'Что в имени твоем: Путин');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (38363, N'Что в имени твоем: Челси');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (38363, N'Что в имени твоем: Челси');
 INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (37986, N'Переход Г - Ж');
 INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (37656, N'Прямой перевод: Grill - direct translation');
 INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (37588, N'Вымышленный "Братан" Алексея Николаевича Толстого');
