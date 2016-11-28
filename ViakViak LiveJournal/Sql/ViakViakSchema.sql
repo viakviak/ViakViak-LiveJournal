@@ -343,54 +343,54 @@ INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'музы
 --INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (37588, N'Вымышленный "Братан" Алексея Николаевича Толстого');
 --INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (37275, N'Переход Д - Ж');
 --INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (36922, N'Что в имени твоем: Дорога');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (36629, N'Переход Г - Р (грассирование)');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (36515, N'Прямой перевод: Water - direct translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (36138, N'Что в имени твоем: Суворов');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (35913, N'Что в имени твоем: Шалава');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (35667, N'Что в имени твоем: Шмокодявка');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (35512, N'Прямой перевод: Severe Weather - direct translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34907, N'Что в имени твоем: Бетон');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34907, N'Что в имени твоем: Пирог');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34642, N'Переход: С - Ш (шепелявость)');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34476, N'Переход: Т - Ф');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34092, N'Что в имени твоем: Раз, два, три, четыре, пять, шесть, семь, восемь, девять, десять');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (33794, N'Что в имени твоем: Буратино');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (33634, N'Переход "звонкий-глухой"');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (33360, N'Переход Г - Х');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (33253, N'Что в имени твоем: Курок');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (32945, N'Что в имени твоем: Колобок');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (32662, N'Что в имени твоем: Сковорода');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (32311, N'Что в имени твоем: Музыка');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (32225, N'What is in the name: Commerce - что в имени твоем');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (31981, N'What is in the name: Vagina - что в имени твоем');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (31712, N'Что в имени твоем: Свастика');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (31341, N'What is in the name: Evening - что в имени твоем');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (31060, N'What is in the name: Chocolate. Шоколад - что в имени твоем?');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (30779, N'Прямой перевод: ...bourg - Direct translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (30472, N'Прямой перевод: Teacher - Direct translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (30351, N'Прямой перевод: Domestic - Direct translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (30099, N'Что в имени твоем: Час');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (29842, N'Что в имени твоем: Рана');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (29617, N'Прямой перевод: Preach - Direct Translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (29208, N'Переход: Ч - К');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (29146, N'Прямой перевод: Path - Direct Translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (28792, N'Прямой перевод: Pain - Direct translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (28551, N'Прямой перeвод: Fellow - Direct translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (28236, N'Прямой перевод: Bagel - direct translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (28015, N'Прямой перевод: Given - Direct translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (27831, N'Прямой перевод: Hotel - direct translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (27526, N'Что в имени твоем: Времена года');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (27188, N'Что в имени твоем: Зима');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (26993, N'Что в имени твоем: Совет');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (26844, N'Прямой перевод: Tired - direct translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (26397, N'Что в имени твоем: София');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (26247, N'Что в имени твоем: Омар Хайам');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25986, N'Что в имени твоем: Бог');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25640, N'Что бы это значило: игра Футбол');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25435, N'Что в имени твоем: Пчела');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25093, N'Что в имени твоем: Червонный');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25067, N'Прямой перевод: Tennis - Direct translation');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24622, N'Прямой перевод: Volume - Direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (36629, N'Переход Г - Р (грассирование)');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (36515, N'Прямой перевод: Water - direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (36138, N'Что в имени твоем: Суворов');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (35913, N'Что в имени твоем: Шалава');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (35667, N'Что в имени твоем: Шмокодявка');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (35512, N'Прямой перевод: Severe Weather - direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34907, N'Что в имени твоем: Бетон');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34907, N'Что в имени твоем: Пирог');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34642, N'Переход: С - Ш (шепелявость)');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34476, N'Переход: Т - Ф');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34092, N'Что в имени твоем: Раз, два, три, четыре, пять, шесть, семь, восемь, девять, десять');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (33794, N'Что в имени твоем: Буратино');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (33634, N'Переход "звонкий-глухой"');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (33360, N'Переход Г - Х');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (33253, N'Что в имени твоем: Курок');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (32945, N'Что в имени твоем: Колобок');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (32662, N'Что в имени твоем: Сковорода');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (32311, N'Что в имени твоем: Музыка');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (32225, N'What is in the name: Commerce - что в имени твоем');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (31981, N'What is in the name: Vagina - что в имени твоем');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (31712, N'Что в имени твоем: Свастика');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (31341, N'What is in the name: Evening - что в имени твоем');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (31060, N'What is in the name: Chocolate. Шоколад - что в имени твоем?');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (30779, N'Прямой перевод: ...bourg - Direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (30472, N'Прямой перевод: Teacher - Direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (30351, N'Прямой перевод: Domestic - Direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (30099, N'Что в имени твоем: Час');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (29842, N'Что в имени твоем: Рана');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (29617, N'Прямой перевод: Preach - Direct Translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (29208, N'Переход: Ч - К');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (29146, N'Прямой перевод: Path - Direct Translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (28792, N'Прямой перевод: Pain - Direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (28551, N'Прямой перeвод: Fellow - Direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (28236, N'Прямой перевод: Bagel - direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (28015, N'Прямой перевод: Given - Direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (27831, N'Прямой перевод: Hotel - direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (27526, N'Что в имени твоем: Времена года');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (27188, N'Что в имени твоем: Зима');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (26993, N'Что в имени твоем: Совет');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (26844, N'Прямой перевод: Tired - direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (26397, N'Что в имени твоем: София');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (26247, N'Что в имени твоем: Омар Хайам');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25986, N'Что в имени твоем: Бог');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25640, N'Что бы это значило: игра Футбол');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25435, N'Что в имени твоем: Пчела');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25093, N'Что в имени твоем: Червонный');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25067, N'Прямой перевод: Tennis - Direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24622, N'Прямой перевод: Volume - Direct translation');
 INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24427, N'Brexit');
 INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24284, N'Что в имени твоем: Неделя');
 INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24060, N'Прямой перевод: Шабат (суббота)');
@@ -484,6 +484,8 @@ INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (369, N'Добро пожа
 GO
 
 /*
+<a href="http://viakviak.livejournal.com/.html" target="_blank"></a>
+
 exec spAddArticle , N'', N'', N'
 <span viak="word">
 </span>
@@ -491,6 +493,845 @@ exec spAddArticle , N'', N'', N'
 GO
 
 */
+
+exec spAddArticle 24622, N'Прямой перевод: Volume - Direct translation', N'вяк, перевод, слова', N'
+<span viak="translation">Volume
+</span><span viak="summary"
+Volume - вольем - количество влитого.
+
+По русски Объем, объемный очевидно происходит от "объять" - размер объятия, как широко надо обнять.
+</span>
+';
+GO
+
+exec spAddArticle 25067, N'Прямой перевод: Tennis - Direct translation', N'english, вяк, перевод, слова, спорт, шутка, эзотерика', N'
+<span viak="translation">Tennis(англ:Теннис)
+
+ТНС - Тунис Теннесси тонус
+СНТ - Saint(англ:святой) сонет
+зНТ - зенит
+СНд - Синод cinder(окалина)
+</span><p dir="ltr" viak="description">Tennis - Saint (<span style="line-height: 19.6px;">святой)</span></p><p dir="ltr">Теннис - это игра двух игроков с одним мячом на корте, перегороженном сеткой до 3х сетов, каждый из 6ти игр. Игрa идёт по правилам за которыми следит судья и публика. <i>Tennis is a game of two players with one ball on a court separated with a net up to 3 sets, 6 games each. Game has strict rules, presided by judge, and watched by public</i>.</p><p dir="ltr">Рассмотрим как это определение может быть интерпретированно. Let&#39;s see how the definition could be spinned.</p><p dir="ltr">Two + ball = duo-ball - devil
+Слово &quot;Game&quot; в Английском кроме значения &quot;игра&quot; имеет значение &quot;дичь&quot;. Таким образом, теннисный корт может быть осмыслен как площадка для охоты.
+<i>Court - track (reversed).</i> <i>Tracking</i>= следить
+Court - корт - черта, черт(<a href="http://viakviak.livejournal.com/29208.html" target="_blank">переход к-ч</a>) = дьявол - devil
+Черта, преступить черту, преступник.
+<i>Ball</i>- шар, голова (<i>head</i>), балу (главный).
+<i>Ball behind line</i>(мяч за линией - пределами/кромкой очерченной площадки)- преступник (<i>criminal</i>). Keep ball in the court.
+<i>Court is a place of law.</i>Корт - это зал суда, место совершения правосудия.
+<i>Zenit is a height above your head, could be interpreted as a moral height of a person.</i>Зенит - это высота над головой, что может быть понято как моральная высота человека.
+<i>Ten-nis - sin-net</i>- сеть греха. <i>Net for </i><i>catching</i> <i>sins</i>. Сеть для улавливания грехов.</p>
+<span viak="summary"><p dir="ltr">Попытаемся подытожить. Игра &quot;Святой&quot; - это судилище человеческой души и объявление приговора в момент 666. Душа наказывается за преступления или за совершение грехов. Душа становится &quot;святой&quot;, если человек совершает положительных поступков больше, чем отрицательных. Судья следит за соблюдением правил соревнующихся сторон, дает им право на атаку и защиту, ведет счет и выносит окончательный приговор.</p><p dir="ltr"><i>Let&#39;s try to summarize. Game &quot;Saint&quot; is a court for human soul until the moment 666. Soul is being punished for crimes and sins. Soul will be designated as &quot;saint&quot;, if more moral victories are found than failures. Judge watches for both sides to follow the rules during competition, gives them rights for attacking and defence, keeps score, and declares the final judgment based on score</i>.</p>
+</span>
+';
+GO
+
+exec spAddArticle 25093, N'Что в имени твоем: Червонный', N'вяк, слова, тело', N'
+<span viak="word">Черв(онный)
+
+ЧРВ - червь чрево черев(ички)
+ВРЧ - <b>врач</b> ворча(ть)
+кРВ - кровь кривая кров <b>корова</b> курва карава(н) крова(ть)
+ВРк - ворко(вать) Ворку(та)
+кРб - carbo(n) карб(ид) (с)карб коряба(ть) кораб(ль) короб краб акробат
+бРк - оборки оброк барак бирка барка(с) берк(ут) абрек буряк брак
+ЧлВ - <b>челове(к)</b>
+ВлЧ - <b>величие</b> волчий влачить волочить вылечить величи(на) влече(ние)
+Влк - <b>волк великий</b>
+клВ - клюв клёв calve(англ: телиться) calf(англ:<b>теленок</b>,ср:корова) claw(коготь)
+</span><span viak="description">
+Рассматривая следующую цепочку слов: кровь, червь, корова, кривая, караван, великий, человек, корябать, волочить, чрево, черевички, кровать, враки, корабль - создается впечатление, что общим является смысл "оставляющий за собой след, отпечаток, впечатление".
+
+Червонный - оставляющий кровавый след
+Червонец - Карбованец - Гривна
+
+Червонный- (<a href="http://viakviak.livejournal.com/29208.html" target="_blank">переход Ч-К</a>) "К"ервоный - Кровяный.
+</span><span viak="summary">Червонный - Кровяный, цвета крови.
+</span><span viak="description">
+Слово "Врач" напрямую ассоциируется со словом кровь.
+Мерилом Величи(ны) является Челов(ек) (читая наоборот).
+Влачить, волочить - буквально: оставлять кровавый след
+Влечение - буквально: запах крови (жертвы), след от притягивания
+Величие - статус по праву крови (по наследству), оставляющий незабываемый след
+Оброк - обязанность передающаяся по наследству (праву крови).
+Бирка - налог передающийся по наследству (праву крови).
+Волк, великий - кровавый
+Клюв, Claw - органы раздирания до крови, оставляющие кровавые раны.
+Клёв - кровавая охота (на рыбу).
+Человек - оставляющий след, впечатление.
+Чело - орган запоминания впечатлений, памяти.
+Лицо - оставляющее впечатление, запоминайющееся (в человеке)
+Шалом, Салом - (добрая) память (о человеке)
+</span>
+';
+GO
+
+exec spAddArticle 25435, N'Что в имени твоем: Пчела', N'вяк, слова', N'
+<span viak="word">Пчела
+
+ПЧ - пче(ла) печь <b>пучи(ть)</b> поч(ка) поча(ть) поч(та)  пече(нь)
+ЧП - чип (chip) чпо(к) чапа(н)
+бЧ - <a href="https://otvet.mail.ru/question/41660579" target="_blank">буче(ла)</a> быче(ла) бичь бече(вка) боч(ка)
+Чб - чуб чаба(н) чебо(тарь) chubby(пухленький) Чубайс
+Пк - пика poke pike пук(нуть)
+Пщ - пища пища(ть)
+щП - щуп щипа(ть) щепо(ть)
+бк - бок бак бык бука(шка) бока(л) bake(готовить) baco(n) беко(н)
+кб - куб кабе(ль) кобе(ль) Куба(нь) cab каби(на)
+</span><span viak="description">
+Выше были использованы переходы: href="http://viakviak.livejournal.com/33634.html" target="_blank">п-б</a>, href="http://viakviak.livejournal.com/29208.html" target="_blank">ч-к</a>, ч-щ.
+</span><span viak="summary">
+Создается впечатление, что слово Пчела имеет общий смысл "печь, пучить" очевидно, потому что укус пчелы вызывает жжение и опухоль.
+</span><span viak="description">
+Другие слова смыслового поля "печь, пучить":
+Печь - ожог вызывает опухоль, жжение в животе сопровождается раздутием, нагревание обычно сопровождается увеличением объема.  Возможно распространенная форма печей была раздутой.
+Пища - приготовленная в печи, разогретая, раздувающаяся от жара, взошедший на дрожжах хлеб.
+Бочка - раздутая.
+Чип, щуп, Пика, копье - колящие, вызывающие жжение и опухоль.
+Bake, Bacon, Печень - от слова "печь"
+Бык - с раздутым животом, предназначен для обжига во время приготовления, удар (укол) рогом вызывает жжение и опухоль.
+Кобель - раздувающий самку.
+Кабина - раздутой формы, вместительная
+Чеботарь - бочечник
+Куба - цвет спелых яблок, теплый, печеный.
+Куба, Кубань - жаркие скотоводческие (чабан) страны.
+</span>
+';
+GO
+
+exec spAddArticle 25640, N'Что бы это значило: игра Футбол', N'english, вяк, слова, спорт, шутка, эзотерика', N'
+<span viak="description">
+Попытаемся понять эзотерический смысл популярной игры Футбол, созданный в его современном виде&nbsp;в&nbsp;Англии середины 19 века. <i>Let&#39;s try to understand the esoteric meaning of a very popular game Football (Soccer).</i>
+
+<img alt="" src="http://ic.pics.livejournal.com/viakviak/75606786/4601/4601_900.gif" title="" />
+<a href="http://www.football-bible.com/soccer-info/field-dimensions-markings.html" target="_blank">Что мы знаем о футболе?</a> <i>What do we know about football (soccer)?</i>
+
+В футбол играют две команды противников по 11 человек в каждой - 10 полевых &nbsp;игроков и один вратарь. Игра ведется единственным мячом&nbsp;на прямоугольном поле разделенном пополам центральной линией в течении двух периодов времени (таймов) по 45 минут каждый с перерывом 15 минут между ними.&nbsp;По обе стороны поля каждой команде поставлены ворота для защиты в которых стоит вратарь команды. <i>There are two competing teams 11 players each - 10 field players and 1 goalie (goalkeeper). The game has one ball and it is played on a rectangular field divided by the Half Line during 2 periods of time 45 minutes each with 15 minutes break in between. On both sides of the field, each team has a gate to defend with a goalie in it.</i><div>
+Игра начинается по жребию&nbsp;одной из команд с центра поля. &nbsp;Задача игры: каждая команда должна провести (&quot;забить&quot;) мяч в ворота противника как можно чаще&nbsp;и защитить свои ворота. Полевые игроки не должны касаться мяча руками, это может делать только вратарь в пределах своей &quot;штрафной&quot; площадки. Мяч не должен выходить за линию поля. Если нарушение происходит в &quot;штрафной&quot; площадке, пенальти (наказание) удар будет назначен с точки пенальти находящейся в 11 метрах от ворот. <i>Game starts from the Center Spot. Goal of a game: each team should get a ball into the gate of competitor as frequently as possible, and should defend its own gate. Field players should not touch a ball with their hands; only a goalie can do that inside his penalty box. Ball should not get out of the field. If rules are broken inside a penalty box, a penalty kick will be ordered from a Penalty Spot, which is located just 11 meters from a gate.</i>
+
+Игра проходит под наблюдением судьи и его двух помощников.&nbsp;За игрой также следит публика. <i>Game is judged by a referree and his two assistants</i>.
+
+Английские футбольные&nbsp;термины (<i>English soccer terms)</i>:
+<i><span style="font-size:0.7em;"><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);">football, soccer (assocer short from &quot;football association&quot;).
+field, center circle, center spot, half line, penalty box, penalty spot, penalty arc, touch line, goal box, corner arc.</span>
+<span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);">two teams, one ball, 2 goals</span>
+<span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);">22 players, 10 field players, 1 goalkeeper (</span><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);">goalie)</span>
+<span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);">goal, offside</span>
+<span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);">referee has 2 assistants</span>
+<span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);">kicks: kick off, penalty, corner, free; throw-in</span>
+<span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);">foot, chest, head; no hands</span>
+<span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);">pass, save</span></span></i>
+
+Глядя на футбольное поле сверху, с высоты птичьего полета, футбольное поле слегка &nbsp;напоминает двух гигантских борцов &nbsp;в схватке, упертых друг в друга огромными головами (центральный круг), плечами (центральная линия),&nbsp;и&nbsp;упирающиеся ногами (штрафные площадки) в разные стороны. <i>Looking at the football (soccer) field from above, it looks </i><i>somewhat </i><i>like two giant wrestlers in a great grapple, pushing </i><i>against </i><i>one another with their heads (Center Cirle) and shoulders (Half Line), and abut with their feet into different directions.</i></div><div>
+Тогда 10 полевых игроков можно отождествить с пальцами обеих рук этих гигантов, которые пытаются загнать мяч в ворота соперника. С точки зрения муже-подобной анатомии футбольных гигантов, 11-ый игрок (вратарь) будет соответствовать 11-му пальцу (пенису), точка пенальти - пупку, а находящиеся сзади вратаря ворота (goal, цель, щель) - анусному отверстию.&nbsp;Так как цель игры - забить мяч в ворота,&nbsp;то продолжая &quot;аналогию&quot;, мы можем увидеть в мяче (шар, ball,&nbsp;голова, головка) -&nbsp;пенис (камешек, игрушка),&nbsp;что превращает наших&nbsp;футбольных гигантов в гомосексуальных борцов (греко-римской борьбы?). <i>Next, the 10 field players could be identified as the fingers of both hands of those giants, who try to get a ball into opponent&#39;s gate. From the man-like anatomy of football (soccer) giants, 11th player (goalie) is correlated to 11th finger (penis), Penalty Spot is correlated to belly button, and gate behind a goalie - anus hole. Since the goal of a game is to get a ball into a gate, we can continue an &quot;analogy&quot; and see in the football (ball, head) - an attacking penis (round stone or toy), which turns our </i><i>half-field </i><i>football giants into homosextual wrestlers (Ancient Greek wrestlers, maybe?).</i></div><div>
+Таким образом, эзотерический смысл популярной игры Футбол - гомосексуальная борьба. <i>Summary: the esoteric meaning of the popular game Football (Soccer) is a homosexual wrestling.</i>
+
+P.S.&nbsp;Мы знаем, что в классической (греко-римской) борьбе соперника пытаются положить на лопатки. И все?&nbsp;Может быть традиционная история скрывает дополнительную составляющую этой борьбы, из которой и родился современный футбол? <i>We know that in classic </i><i>(Ancient Greek)</i><i> wrestling the goal is to put an opponent on his shoulder blades. Is that all there is to it? It could be that traditional history hides an additional component to Greek wrestling, which could possibly give a birth to the modern Football (Soccer).</i></div><div>
+P.P.S.</div><ol>
+<li>Откуда берется название &quot;<b>асс</b>истент&quot; (<i>ass-sis-tent</i>) и какова их истинная роль?</li>
+<li>Анус (<i>Anus</i>)&nbsp;- сунь (читая наоборот).</li>
+<li><i>Belly button</i> (беллу, пупок) -&nbsp;(про)били?</li>
+<li><i>Penalty - P(anal)ty?</i></li>
+<li><i>Soccer is short from <a href="http://www.bbcamerica.com/anglophenia/2013/10/football-vs-soccer-how-terminology-differs-between-america-and-britain" target="_blank">assoccer</a> (<i>association </i>football). That is what we are told, but could it be&nbsp;a name for a game loser that should get a <i>similarly sounding </i>&quot;punishment&quot;?</i></li>
+<li><i>Goal - hole?</i></li>
+</ol><i>P.P.P.S. </i><ol>
+<li>Хоккей - то же самое, но одной гигантской&nbsp;рукой (5 полевых игроков)&nbsp;и на скользкой (напомаженной) &quot;коже&quot;. <i>Hockey is the same, but with one giant hand (5 field players) and on slippery (oily) &quot;skin&quot;.</i></li>
+<li>Basketball -&nbsp;то же самое, &nbsp;одной гигантской&nbsp;рукой (5 полевых игроков), но руками вместо ног&nbsp;и&nbsp;с высоко-поднятыми &quot;целями&quot;. <i>Basketball is the same </i><i>with one giant hand (5 field players), but with hands instead of legs and&nbsp;high-placed &quot;holes&quot;.</i></li>
+</ol>
+</span>
+';
+GO
+
+exec spAddArticle 25986, N'Что в имени твоем: Бог', N'бог, вяк, имя, слова', N'
+<span viak="word">Бог
+
+БГ - бог бег убог бугай баге(т) бога(тство) boogey(man) боге(ма)
+ГБ - губа гб(гос-безопасность) гоб(лин) гибе(ль)
+Бх - бох бах баху(с) Бах Bahai бух бух(ло) Bohemia
+хБ - хб(хлопчато-бумажный) хиба(ра) хобо(т)
+Бк - бык бок бук(ва) абак бак байка bake bike beacon буек
+кБ - куб Кааба кб(конструкторское бюро) каба(н) каба(ла)
+Бж - боже беже(вый) буже(нина) бижу(териа) беже(нец)
+жБ - жаба жбан
+вГ - выго(да) ваго(н) выго(н) ваги(на) Vogue vega(n)
+Гв - гав(лай) гав(но)
+Бр - бор бар beer  боро(да) бари(н) бура(н)
+рБ - рыба раб рябь raby раби(н) ряби(на) рабо(та) руби(ть)
+вж - вожжи вежа уваже(ние)
+жв - живой живо(т) жева(ть)
+кв - КВ(танк) кова(ть) киве(р) кува(лда) Кав(каз) cave кива(ть)
+вк - век веко
+вх - веха вах(возглас) вах(мистр)
+хв - Яхве хва(ла) хава(ть) Хива hove(r)
+</span><span viak="summary">
+Представляется, что слово <a href="http://viakviak.livejournal.com/38894.html" target="_blank">Бог может означать Движение</a>, как одно из основных качеств Материи (см. также: <a href="http://viakviak.livejournal.com/11024.html" target="_blank">Аллах, Элохим</a>, <a href="http://viakviak.livejournal.com/12976.html" target="_blank">Яхве, Иегова</a>, <a href="http://viakviak.livejournal.com/39064.html" target="_blank">Господь</a>).
+</span><span viak="description">
+Я бы особо выделил следующую цепочку слов: <b>Бог - <a href="http://viakviak.livejournal.com/12976.html" target="_blank">Яхве - Иегова(Jehovah)</a> - Vogue(популярный) - живой - куб(Кааба) - век - веха - рыба - раб - веко</b>
+
+Несмотря на то, что любое из близких по звучанию слов, может быть ассоциировано с словом Бог, мы можем видеть, что исторически, некоторые из их были использованы чаще, чем другие.
+
+Раб божий ~ Раб Бога - очевидный палиндром (при переходе г-р/грассирование). Это дает удвоение смысла (бог-бог).
+
+Человек - Чело+век - Лицо бога. Это может отнесено к фразе "...по образу и подобию своему...".
+</span>
+';
+GO
+
+exec spAddArticle 26247, N'Что в имени твоем: Омар Хайам', N'вяк, имя, слова', N'
+<span viak="name">Омар Хайам
+</span><span viak="description">
+Omar Khayyam
+Umar Khayyam
+</span><span viak="summary">
+Омар Хайам - Умер к #уям?
+</span>
+';
+GO
+
+exec spAddArticle 26397, N'Что в имени твоем: София', N'вяк, имя, слова', N'
+<span viak="name">София
+
+СФ - София софит сфера асфальт Софокл Исфирь
+ФС - фосфор
+Св - <a href="http://viakviak.livejournal.com/11024.html" target="_blank">свет</a> сова совет сват сев свой
+вС - вес весы авось 
+</span><span viak="summary">
+София - светлая, святая
+</span><span viak="reference">
+Из Wiki: <a href="https://ru.wikipedia.org/wiki/%D0%A4%D0%BE%D1%81%D1%84%D0%BE%D1%80" target="_blank">...Фо́сфор (от др.-греч. φῶς — свет и φέρω — несу; φωσφόρος — светоносный; лат. Phosphorus)...</a>
+</span>
+';
+GO
+
+exec spAddArticle 26844, N'Прямой перевод: Tired - direct translation', N'вяк, перевод, слова', N'
+<span viak="translation">Tired
+
+ТРД - труд тирада отрада
+ДРТ - дарт драть удирать дроти(к)
+фРД - Фарадей fraud afraid Fred Ford Афроди(та) Фердоу(си)
+ТРт - треть тереть трата троти(л) труте(нь)
+ТлД - Толедо отлади(ть)
+ДлТ - долото дельта
+</span><span viak="summary">
+<i>Tired</i> - утрудился от слова "труд" (work)
+</span><span viak="description">
+<i>Tired from work</i> (англ: устал от труда) - билингва и удвоение смысла
+</span>
+';
+GO
+
+exec spAddArticle 26993, N'Что в имени твоем: Совет', N'вяк, слова', N'
+<span viak="word">Совет
+
+СВТ - совет свет сват <a href="http://viakviak.livejournal.com/11024.html" target="_blank">святой</a> (пре)свите(р)
+ТВС - отвес
+СВд - свида(ние) свадь(ба) сведе(ния)
+дВц - девица
+СбТ - суб(б)ота съ?бать(ся)
+ТбС - тубус
+СфТ - <a href="http://viakviak.livejournal.com/26397.html" target="_blank">софит</a>
+
+</span><span viak="summary">
+<b>Совет - осветить</b> (вопрос), <b>пролить свет на</b>...
+</span><span viak="description">
+Отвес - вертикальный как падающий сверху свет
+Тубус - со светлой дыркой
+</span>
+';
+GO
+
+exec spAddArticle 27188, N'Что в имени твоем: Зима', N'вяк, деньги, слова', N'
+<span viak="word">Зима
+
+ЗМ - зима змей заем
+МЗ - мазь муза музы(ка) мз(да) моз(г)
+См - сам сум(к)а сумма съём(ка) семь (в)осемь семя
+мС - месса мессия миссия масса мусс мыс mess(англ:беспорядок)
+
+</span><span viak="summary">
+зима - скользкая
+</span><span viak="description">
+змея - скользящая
+мess - скользкий, нестабильный
+мессия - рожденный зимой
+музыка - ускользающая
+заем - ускользнувшие деньги
+мзда - склизкие (грязные) деньги.
+мозг - склизкий орган.
+</span>
+';
+GO
+
+exec spAddArticle 27526, N'Что в имени твоем: Времена года', N'', N'
+<span viak="summary">
+<a href="http://viakviak.livejournal.com/27188.html" target="_blank">зима</a> - скользкая (сезон скользкой погоды)
+весна - (в)Ясна (в ясную погоду)
+лето - отел (сезон отела скота)
+осень - осенило (сезон сбора сена)
+</span>
+';
+GO
+
+exec spAddArticle 27831, N'Прямой перевод: Hotel - direct translation', N'вяк, перевод, слова', N'
+<span viak="translation">Hotel
+
+</span><span viak="summary">
+Hotel - отел (место для отела, отдыха животных и их хозяев; <i>place to calve and rest for cattle and their owners</i>)
+</span>
+';
+GO
+
+exec spAddArticle 28015, N'Прямой перевод: Given - Direct translation', N'вяк, компания, перевод, слова', N'
+<span viak="translation">Given (англ: данный, выданный, выделенный)
+
+ГВН - гавно, гиена (в-е), гуано (в-а)
+НВГ - Новго(род)
+НВк - новик
+кВН - квн (ТВ передача)
+кбН - кабан кабина
+Нбк - набекрень
+
+</span><span viak="summary">
+Given - гавно
+</span><span viak="description">
+----- More:
+<a href="http://www.givenchy.com" target="_blank">Givenchy</a>
+ГВНЧ
+Гавнючий
+<i>Givenchy</i> - гавнючий(<i>rus:shitty</i>)
+</span>
+';
+GO
+
+exec spAddArticle 28236, N'Прямой перевод: Bagel - direct translation', N'english, вяк, перевод, слова', N'
+<span viak="translation"><a href="https://en.wikipedia.org/wiki/Bagel" target="_blank">Bagel</a> (англ:бублик)
+
+bagel
+БГЛ - беглый
+БкЛ - бакалея бокал бакла(н)
+ЛкБ - ликбез
+БхЛ - бухло бахилы
+вкЛ - вокал
+вхЛ - выхлоп
+
+</span><span viak="summary">
+Bagel - бакалея
+</span><span viak="description">
+Дополнительно: английское слово "bagel" очень близко к французкому "багет", и также может быть произведено от слова "бублик" перевертыванием второго русского "б" в английский "g": бубли(к) - bagel. Если помнить, что слово "bagel" было принесено польскими (российскими) евреями в Америку в начале 20 века, то перевод от кирилицы "б" в латиницу "g" не представляется невозможным.
+
+Additionally: English "bagel" is very close to French "baget" and could be derived from Russian "бублик" by simple flipping of second Russian letter "б" into English "g". Remembering that word "bagel" was introduced by Polish (then part of Russia) Jews at the beginning of 20th century in USA, then transition of Cyrillic "б" into Latin "g" could be plausible.
+</span>
+';
+GO
+
+exec spAddArticle 28551, N'Прямой перeвод: Fellow - Direct translation', N'', N'
+<span viak="word">Fellow
+
+ФЛ - фаллос фиалка fool(англ:глупец) fail(англ:терпеть неудачу)
+тЛ - отел тело тля Тула
+Лв - <a href="http://viakviak.livejournal.com/22974.html" target="_blank">love</a> лев улов ловля лава олива
+вЛ - вилы вал вол Ваал 
+
+</span><span viak="summary">
+Fellow - тело
+</span><span viak="description">
+Сравни/<i>Compare: body - friend</i>, друг.
+</span>
+';
+GO
+
+exec spAddArticle 28792, N'Прямой перевод: Pain - Direct translation', N'', N'
+<span viak="translation">Pain
+
+ПН - пинать пан piano(англ:пианино) пони пена pinot(англ:вино)
+</span><span viak="description">
+pinot - молодое виноградное вино, которое традиционно давится ногами.
+</span><span viak="summary">
+Pain - пинать
+</span>
+';
+GO
+
+exec spAddArticle 29146, N'Прямой перевод: Path - Direct Translation', N'вяк, перевод, слова', N'
+<span viak="translation">Path
+
+ПТ - путь pit пот опята паять пить петь пять петух пятка питон питание
+ТП - тип тапки top топчан topic тупой tapas топаз тяпка тепло топить
+бТ - батя бот ботинки ботаника bet батон бутон бетон баять боятся 
+Тб - тебя табак tube туба табор 
+Пф - puff пуфик 
+Пд - падение под
+дП - deep дупло 
+бф - buff буфет beef buffalo 
+фб - фобия
+</span><span viak="summary">
+Path - путь
+</span>
+';
+GO
+
+
+exec spAddArticle 29208, N'Переход: Ч - К', N'вяк, переход, слова', N'
+<span viak="transition">Устойчивый переход "Ч - К" и обратно.
+</span><span viak="description">
+Прозрачные примеры:
+алЧность - алКать, боК- боЧок, браК- браЧный, веК - веЧность, всякий - всячина, диЧь - диКий, драКа - драЧливый, дьяК(duke) - дуЧе(duche), клиЧ - оклиКнуть, коКон - коЧан, криК - криЧать, КуКла - ЧуЧело, леКарь - леЧение, лиК - лиЧико(лиЧина), липКий - липуЧий, луК - луЧник, моКнуть - моЧить, муКа - муЧить, мыЧание - мыКать, наука- науЧить, оКо - оЧи -оЧки, паКет - паЧка, пеЧь-пеКарь, ПиКа - ПиЧок(тюрк), поКои - опоЧивальня, попереК - попереЧный, пуКать -пуЧить, реЧь - реКёт(говорит), реКа - реЧной, руКа - руЧной, рыК - рыЧать, риК - криЧать, сеКтор - сеЧение, соК - соЧный, сраЧ- сраКа, теЧение - протеКать, толКать - толЧок, туроК-турЧанка, Часто - Куст(Густо), человеК - человеЧеский, Черствый - Короста - crust, Черта (Чертеж,CHarter) -Карта(Court), четыре - quattro, Чудо - Кудесник, ...
+
+Здесь даже не приводятся поимеры стандартного перехода для уменьшительно-ласкательных слов, таких как: мальчиК - мальЧонка, девКа - девоЧка, и т.д.
+
+Возможные переходы:
+Cargo-CHarge, поКемон-поЧемун, мяЧ - мяКоть, <a href="http://viakviak.livejournal.com/13513.html" target="_blank">king - Чинг(из-хан)</a>
+
+Здесь мы видим, что в английском буква Ч передается комбинацией CH, где первая английская часто озвучивается как "К".
+</span><span viak="summary">
+Таким образом мы можем попытаться рассматривать комбинации английских букв передающие простые русские звуки как своего рода подсказку или намек на возможный переход букв.
+</span><span viak="description">
+В статье "<a href="http://viakviak.livejournal.com/4423.html">Греческий язык - это Русский!</a>" автором дается другой подход к переходу Ч-К с точки зрения совпадения числового значения букв Ч и Q, соответственно, в русском и греческом алфавитах.
+</span>
+';
+GO
+
+exec spAddArticle 29617, N'Прямой перевод: Preach - Direct Translation', N'вяк, перевод, слова', N'
+<span viak="translation">Preach
+
+ПРЧ - причастие при(т)ча прочий пречистый перечить approach
+ЧРП - череп
+ПРк - парк порка прокат паркет
+кРП - крепить крапинка крапива окропить укроп карп crap creep
+бРк - брак барак оброк бурка бирка оборки баркас беркут абрек буряк
+кРб - короб краб акробат carbon карбид скарб корябать корабль
+клП - клепать клоп
+Плк - полк полка пеликан pluck(англ:срывать) Полкан
+
+</span><span viak="summary">
+Preach - Причастие, Притча
+</span>
+';
+GO
+
+exec spAddArticle 29842, N'Что в имени твоем: Рана', N'вяк, слова', N'
+<span viak="word">Рана
+РН рана рань руно урна renew(англ:возобновить) уран urine(англ:моча) Иран Рина Ирина Раневская Reno
+НР нарыв нарвал нарвать нора нары нырять наяривать
+лН лоно лен лень Алёна лиана Луна loan loin lean лунь Лена Лина Элина
+Нл ноль anal Нил
+</span><span viak="summary">
+Представляется, что слово Рана находится в смысловом поле "открыть, открытый".
+</span>
+';
+GO
+
+exec spAddArticle 30099, N'Что в имени твоем: Час', N'вяк, имя, слова', N'
+<span viak="word">Час
+
+ЧС - час часы часто чес часовня часовой часослов частокол
+СЧ - сечь сучить сочится Сочи счастье
+кС - каса(турк:хаза, сакля, дом) касса cash(англ:наличные) kiss(англ:поцелуй) укус уксус икс castle(англ:крепость) костел киса коса axe(англ:топор)
+Ск - sick(англ:больной) сука Осака sky ski сакля секунда
+кз - кази(судья) коза казак казан
+зк - закон зэк(заключенный)
+</span><span viak="description">
+Представляется важной следующая цепочка слов: каса, часовня, часовой, сакля, касса, костел, castle, кази(судья), коза, казак, казан.
+Эти слова так или иначе имеют отношение к понятиям "дом", "домашний", "одомашненный", "местный".
+
+Другое направление: часто, сучить, сочится, чес(ать) сечь, коса, axe. Эти слова описывают периодичность или непрерывность действия.
+
+А еще: сечь, коса, axe, kiss, укус, чес могут ассоциироваться со смыслом "ударить": часы бьют.
+
+Слово Секунда имеет прямую корневую связь со словом Час.
+</span><span viak="summary">
+Представляется, что слово Час является производным от слова Часовня, которая в свою очередь имеет смысл "дом, домашний".
+</span>
+';
+GO
+
+exec spAddArticle 30351, N'Прямой перевод: Domestic - Direct translation', N'', N'
+<span viak="word">Domestic(англ:домашний)
+</span><span viak="description">
+Domes(tic) = Domash = Домаш(ний) при переходе "С - Ш"
+(Do)mest(ic) = мест(ный)
+</span><span viak="summary">
+Domestic - домашний + местный
+</span>
+';
+GO
+
+exec spAddArticle 30472, N'Прямой перевод: Teacher - Direct translation', N'', N'
+<span viak="translation">Teacher
+
+ТЧ - teacher, teach
+ЧТ - читать читка чет(нечет) учет учитель
+
+</span><span viak="summary">TeaCHer - уЧиТель
+</span>
+';
+GO
+
+
+exec spAddArticle 30779, N'Прямой перевод: ...bourg - Direct translation', N'вяк, перевод, слова', N'
+<span viak="suffix">-bourg (-бург)
+БРГ - берег брага оберег бург(омистер) (Петер)бург (ки)борг Бургу(ндия)
+ГРБ - гроб грабить гриб греб(ля) герб горб Аграба
+БРк - барак баркас оброк бирка буряк брыкать бурка брак brick(англ:кирпич) бреак(англ:ломать)
+кРБ - короб корабль crib(англ:детская кроватка) краб акробат
+БРж - буржуа биржа баржа Боржоми Брежнев
+жРБ - жеребец жребий
+вРГ - враг овраг
+ГРв - гривна aggravation(англ:раздражение,гнев) grave(англ:могила) groove(англ:канавка,ручей,выбоина)
+БРх - брехня(укр:враки)
+хРБ - хребет храбрый
+кРв - корова кривая кров кровь кровать
+вРк - враки варка
+вРх - верх
+хРв - хоровод
+</span><span viak="description">
+-bourg (-бург) - берег, город на берегу, оберег
+
+<i>Peterbourg, Burgundy, ...</i>
+Петербург, Бургундия, ...
+
+барак - безопасное место для скота, зимние квартиры для армии.
+берег - безопасное место в отличие от моря.
+Бургундия - Бург+индия - безопасная Индия (далекая окраина)
+оберег - талисман для повышения безопасности
+овраг - безопасное место, откуда не скатишься
+...
+
+</span><span viak="summary">
+Думается, что окончание -бург состоит в смысловом поле "берег, оберег"
+</span>
+';
+GO
+
+exec spAddArticle 31060, N'What is in the name: Chocolate. Шоколад - что в имени твоем?', N'english, вяк, имя, слова', N'
+<span viak="word">Chocolate (англ:шоколад, звучит как "Чоколат")
+</span><span viak="description">
+<a href="http://viakviak.livejournal.com/29208.html" target="_blank">Переход Ч-К</a>
+
+</span><span viak="summary">Choco+late = Чоко+лат = Cacao-latte - какао с молоком
+</span><span viak="description">
+Примечание: эта простая версия по-видимому неизвестна. </span><span viak="reference">См Вики: "...слово «шоколад» происходит от ацтекского слова «xocolātl» («чоколатль»), что буквально означает «горькая вода» (науатль xocolli — «горечь», ātl — «вода»)[2]. Исходное слово xocolātl, однако, не встречается ни в одном из текстов колониального периода; его существование — гипотеза лингвистов..."
+
+</span><span viak="description"><i>This simple version is aparently not known. </span><span viak="reference"><a href="https://en.wikipedia.org/wiki/Chocolate" target="_blank">See Wiki</a>: "... comes from Nahuatl, the language of the Aztecs, from the word chocolātl, which many sources say derived from xocolātl Nahuatl pronunciation: [ʃokolaːtɬ], combining xococ, sour or bitter, and ātl, water or drink.[8] The word <b>chocolatl</b> does not occur in central Mexican colonial sources, making this an unlikely derivation..."
+</i></span>
+';
+GO
+
+exec spAddArticle 31341, N'What is in the name: Evening - что в имени твоем', N'english, вяк, имя, слова', N'
+<span viak="word">Evening
+</span><span viak="summary">
+Evening could be understood as a time of a day to get "even" - end of a day.
+</span>
+';
+GO
+
+exec spAddArticle 31712, N'Что в имени твоем: Свастика', N'вяк, имя, слова', N'
+<span viak="word">Свастика
+
+СВСТ - свастика
+зВзд - звезда
+
+</span><span viak="summary">Свастика = звезда
+
+</span><span viak="description">
+Похоже подтверждается, что свастика является звездным символом.
+Дополнительно (благодаря наблюдательности <i><a href="http://lengvizd.livejournal.com/">lengvizd</a></i>):
+
+СВСТК- свастика
+зВздК - звездка
+Обратим вниманиние на получившееся слово "звездка". Как-то не по-русски выглядит. Мне это напомнило прочитанную давно фразу на коверканном русском: "матка, курки, яйки" в книге про оккупацию в Великую Отечественную. Немецкий? Присмотримся еще раз, но уже с учетом перехода "Ч-К":  "матУШКа, куроЧКи, яИЧКи". Вот это-то уже нормальный русский. А теперь, внимание:
+звездКа - звездоЧКа
+
+</span><span viak="summary">Таким образом, слово Свастика - это просто калька с русского Звездочка!
+</span><span viak="description">
+(с)вастика - с востока
+
+восток - воздух
+</span>
+';
+GO
+
+exec spAddArticle 31981, N'What is in the name: Vagina - что в имени твоем', N'english, вяк, имя, слова', N'
+<span viak="word">Vagina
+
+ВГН - вгонять, вoгнать вогнутый вагон Афган(истан) Ваганское
+ВжН - <a href="http://viakviak.livejournal.com/40280.html" target="_blank">важно</a> (ск)важина (ск)возняк
+НжВ - нажива наживую
+бГН - бегун обгон
+бжН - бужени(на) боженька
+
+</span><span viak="description">Рассматривая цепочку: "скважина, сквозняк, вгонять, вoгнать, вагон, обгон" создается впечатление, что слово Вагина находится в смысловом поле "пропускное (отверстие)", "проходить через".
+</span><span viak="summary">
+It seems that word Vagina is in the context of "(go) through (<a href="http://viakviak.livejournal.com/40280.html" target="_blank">hole</a>)".
+</span>
+';
+GO
+
+exec spAddArticle 32225, N'What is in the name: Commerce - что в имени твоем', N'вяк, имя, слова, торговля', N'
+<span viak="translation">Commerce (торговля, коммерция)
+
+<i></span><span viak="description">Word Commerce is almost exactly the same as word with another meaning "comers". </span><span viak="summary">It seems that originally commerce was done with traders from abroad that came onshore (comers).</i>
+</span><span viak="description">
+Слово "Commerce" почти что тоже самое как и слово "comers", что означает "пришельцы", "пришлые", "посетители". <span viak="summary">Очень похоже, что вначале коммерция была с пришельцами из-за рубежа, с моря (comers).
+</span>
+';
+GO
+
+exec spAddArticle 32311, N'Что в имени твоем: Музыка', N'вяк, музыка, слова', N'
+<span viak="word">Музыка
+
+МЗК - музыка мазок
+<a href="http://viakviak.livejournal.com/8418.html" target="_blank">МсК</a> - маска Москва mosque(мечеть) mosquito(комар) мускат musket(мушкет)
+КсМ - космос космы
+<a href="http://viakviak.livejournal.com/29208.html" target="_blank">ЧсМ</a> - Чесме(нская бухта)
+
+Принимая в внимание статью "<a href="http://viakviak.livejournal.com/8418.html">Что в имени твоем: Масса</a>", где уже рассматривалась цепочка "маска, Москва, mosque(мечеть) mosquito(комар), космос" в контексте "множество, многолюдность", </span><span viak="summary">можно предположить, что слово Музыка вначале обозначало "мелодия для публики".
+</span>
+<lj-like buttons="repost,facebook,twitter,google,vkontakte,odnoklassniki,tumblr,livejournal" />
+';
+GO
+
+exec spAddArticle 32662, N'Что в имени твоем: Сковорода', N'вяк, еда, слова', N'
+<span viak="word">Сковорода
+</span><span viak="summary">
+Представляется, что слово Сковорода может происходить от понятия "сковырнуть", отражающее технику приготовления еды на сковороде.
+</span>
+';
+GO
+
+exec spAddArticle 32945, N'Что в имени твоем: Колобок', N'вяк, имя, сказка, слова', N'
+<span viak="word">Колобок
+
+Используем переходы: <a href="http://viakviak.livejournal.com/29208.html" target="_blank">К-Ч</a>, <a href="http://viakviak.livejournal.com/33634.html" target="_blank">Б-В</a>
+
+КлБк = ЧлВк
+Колобок = ЧелоВек
+
+</span><span viak="summary">
+Таким образом, известный сказочный персонаж Колобок - это просто калька со слова Человек.
+</span>
+';
+GO
+
+exec spAddArticle 33253, N'Что в имени твоем: Курок', N'Вашкевич, вяк, слова', N'
+<span viak="word">Курок
+</span><span viak="description">
+Курок - прикуриватель, (о)курок.
+
+Ассоциация с петухом или, соответственно, с жар-птицей происходит из-за не имеющего никакого тношения, но похожего слова "курица", которое может происходить от способа её приготовления - окуривания.
+
+Создается впечатление, что слово Курок стало использоваться до появления "ударных механизмов", во времена, когда это был только "курящийся" трут.
+</span>
+<lj-cut><span viak="reference">
+Этимологический словарь русского языка Макса Фасмера:
+
+WORD: куро́к
+GENERAL: род. п. -ка́. Как и польск. kurek (откуда русск. слово, возм., заимств.), калькирует нем. Наhn "петух"; "курок"; к кур. Аналогично англ. сосk, датск. hаnе, лит. gaidỹs, лтш. gailis, болг. петелка; см. Сандфельд, Festschrift V. Тhоmsеn 168; Преобр. I, 417; Желтов, ФЗ, 1875, вып. 3, стр. 7.
+PAGES: 2,427
+
+
+Из Н.Н.Вашкевича:
+
+КУРОК – "часть ударного механизма в ручном огнестрельном оружии". (БЭКМ).
+♦ Образование на рус. почве с помощью суффикса ок (как в сырок) от ар. ка-вар "подобное кресалу", являющегося сложением сравнительной частицы К (ك) и  واري ва:р(и) "кресало", "то, чем разводят огонь", производное от ورى вара: "загораться". (М., с. 898). Того же корня, что и Аврора (см.).
+
+КУРИЦА1 – "одомашненный вид птиц отряда куриных, с кожным выростом на голове (гребнем) и под клювом (серёжками)". (БЭКМ).
+♦ Того же происхождения, что и ар. قرقة курка "курица", которое идет отكروى  куравий "округлый, овальный. яйцевидный", производное от كورة  ку:ра "шар"; ср. ар. دجاجة дажа:жа (дайа:йа, дага:га), букв. "дающая яйца".
+КУРИЦА2, как курица лапой (писать) – "неразборчиво, так, что нельзя понять". (ФСРЯ).
+♦ За рус. курица скрывается ар. قرس куриса "замерзший", т.е. как замерзшей лапой. См. Карское море, карачун. Из-за своего звучания в рус. языке курица в мировом поле смыслов вызывает ассоциации мороза и наоборот. Так, куриный день на Руси приписан к 15 января, когда бывают лютые морозы, и по поведению курицы на шестке предсказывают степень морозности (см. РНК). Известному англ. философу Фрэнсису Бэкону ранней весной 1626 года пришла идея, что на морозе можно хранить мясо. Он тут же купил курицу и начинил её снегом, но простыл, заболел и через десять дней (9 апреля) умер (его хватил карачун). Но пока ученый умирал он, как курица лапой, описывал свой печальный эксперимент (см. Брокгауз). Корсиканцу по имени Наполеон, как и всем французам (галлам, т.е. петухам) за русскими морозами, по-арабски курис "обмороженный" почудились курицы, что заставило их ринуться на Русь на зиму глядя, где они устроили догонялки, брачные танцы куриных (от ар. دواجن дава:гин "домашняя птица", от рус. догонять). Русские не только вступили в игру, но и обеспечили место, где петухи согрелись. Ср. мысли петуха, догоняющего курицу: "не догоню, так хоть согреюсь". Ср. также догоны (см.), которых придумал французский африканист.
+КУРИЦА3, мокрая курица – "о жалком, беспомощном на вид человеке", "о безвольном, бесхарактерном человеке". (ФСРЯ).
+♦ За рус. курица ар. ك ريض ка ри:ца "как облитый водой", производное от ар روض раввад (ар. Д эмфатическое переходит в Ц). Рус. значение идиомы возникает от второго значения данного ар. глагола: "укрощать". Ср. разливание водой дерущихся собак
+</span></lj-cut>
+';
+GO
+
+exec spAddArticle 33360, N'Переход Г - Х', N'вяк, переход, слова', N'
+<span viak="transition">Устойчивый переход: Г - Х
+</span><span viak="description">
+Устойчивый переход Г-Х очевиден на примере Украинского языка, где все слова с буквой Г произносятся со с смягчением как Х.
+</span>
+';
+GO
+
+exec spAddArticle 33634, N'Переход "звонкий-глухой"', N'вяк, переход, слова', N'
+<span viak="transition">
+</span><span viak="description">
+Переход "звонкий-глухой" является классическим общеизвестным фактом. Примеры:
+Б-В barbarian-варвар, Barbara-Варвара
+<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Г-Х</a>
+Д-Т
+З-С-Ц
+Ж-Ш
+К-Х
+Щ-Ш</span>
+';
+GO
+
+exec spAddArticle 33794, N'Что в имени твоем: Буратино', N'вяк, имя, сказка, слова, шутка', N'
+<span viak="word">Буратино
+
+БРТ - брат борт аборт обрат
+ТРБ - труба trouble(англ:хлопоты) теребить тюрбан отребье
+дРв - дерево дурево
+вРд - вред вроде
+вРТ - ворота веретено варить врать
+ТРв - трава отрава
+
+</span><span viak="description">
+Попробуем описать Буратино из полученных из его имени слов: 
+</span><span viak="summary">
+Деревянный братан got in trouble (попал в переделку), заварил такую кашу - труба, с отребьем по дуреву, но вроде воротился обратно невредимым.
+</span>
+';
+GO
+
+exec spAddArticle 34092, N'Что в имени твоем: Раз, два, три, четыре, пять, шесть, семь, восемь, девять, десять', N'вяк, слова, число, шутка', N'
+<span viak="word">Раз
+</span><span viak="description">
+Сравнивая слова "раз" и "один" видно, что слово Один мотивировано позицией числа Один в общем числовом ряду. С другой стороны, слово Раз не мотивированно, что указывает на его первичность. Это сейчас мы отождествляем слово Раз с понятиями Один и Первый, а вообще то, Раз это не слово, а приставка "раз-" или "рас-". Эта приставка используется  для обозначения раскрытия, раздвигания, разрывания, расхождения, и т.д. и т.п.
+
+Почему приставка стала использоваться как самостоятельное слово?  И только в числовому ряду?
+
+Просматриваясь к словам числового ряда и пытаясь использовать слово Раз как обычную приставку, мы получаем слово Раздва, которое очень сильно напоминает современное русское слово Раздвинуть в повелительном наклонении, вроде современного Раздвинь. Рассмотрим числовой ряд  повнимательнее:
+
+<b>Раз, два, три, четыре, пять, шесть, семь, восемь, девять, десять</b>
+
+Если числовой ряд представляет собой сообщение или наказ по примеру <a href="http://royallib.com/read/kesler_yaroslav/azbuka_poslanie_k_slavyanam.html#0" target="_blank">Азбуки (по Ярославу Кеслеру)</a>, то мы можем проигнорировать современное разделение числового ряда на отдельные слова, и попытаться прочитать его полностью. При этом мы должны понимать, что это будет скорее перевод на современный русский язык, и переступить через ханжество и современное табу на "неприличные" слова в поисках истины.
+
+Попробуем так:
+<b>раздва, три, че тыре, епятьш, есть, семь, во семь девя тьде сять</b>
+<lj-cut>
+Здесь нам уже понадобятся знания о переходах звуков: <a href="http://viakviak.livejournal.com/29208.html" target="_blank">Ч-К</a>, <a href="http://viakviak.livejournal.com/33634.html" target="_blank">Т-Д, Б-П</a>, Ш-С:
+<b>раздва, три КеДыр, еБятьС, есть, семь, во семь девя тьде сять</b>
+
+Слегка изменим гласные, которые в старом письме были не принципиальны, чтобы смысл устаревшего письма был более понятен современникам:
+<b>раздви, тори к дыре, ебаться, есть семя в сём деве, тоды ссать</b>
+
+Как видим разницы между оригинальным и измененным текстами практически нет. А теперь дадим расширенный перевод на современный русский язык:
+
+</span><span viak="summary">
+<b>Раздви</b>(нь ей&nbsp;ноги), <b>тори </b>(приблизься) <b>к половому отверстию</b>, продолжай <b>половой акт</b> до тех пор когда уже <b>есть семя в этой деве,</b> <b>тогда </b>после этого надо <b>помочиться</b>.
+</span><span viak="description">
+Я не настаиваю именно на таком переводе, хотя он кажется вполне логичным в общем смысловом контексте "плодитесь и размножайтесь" с заботой о мужском здоровье в конце наказа.
+
+Представляется, что как и староруская "Аз-бука", Числовой ряд был сначала наставлением, наказом (наказ = закон). После долгового времени,  этот наказ стал общим местом, культурным фактом, и впоследствии был разделен на слова-числа достаточно произвольным образом.
+</lj-cut></span>
+';
+GO
+
+exec spAddArticle 34476, N'Переход: Т - Ф', N'вяк, переход, слова', N'
+<span viak="transition">Устойчивый переход: Т - Ф
+</span><span viak="description">
+Thomas (Томас, Том) = Фома
+Bartolomeo = Варфоломей
+Th = Ф
+</span>
+';
+GO
+
+exec spAddArticle 34642, N'Переход: С - Ш (шепелявость)', N'вяк, переход, слова', N'
+<span viak="transition">Переход: С - Ш (шепелявость)
+</span><span viak="description">
+SH = Ш
+
+Шимон = Семен
+Slam  = шлем
+heb: Shalom (евр:шалом) = араб: салом, салам
+
+Возможные переходы:
+ шишка = сиська - из-за сходства по форме?
+ каша = каса (тюрк,латин:дом,домашняя) - в смысле домашняя еда
+
+</span><span viak="summary">Переход С-Ш мог быть обусловлен шепелявостью.
+</span>
+';
+GO
+
+exec spAddArticle 34907, N'Что в имени твоем: Пирог', N'вяк, слова', N'
+<span viak="word">Пирог
+
+ПРГ - пирог пирога пурга
+ПРк - парок порок прок порка опорка
+кРП - крепить кирпич крепость куропатка окропить укроп крупный
+ПРх - порох порхать Прохор
+хРП - храп хрип
+бРГ - берег оберег berg(нем: гора, город)
+ГРб - горб герб
+бРк - барка(с) бурка оброк абрек буряк(укр:свекла)
+кРб - короб краб акробат curb(англ:бордюр) скарб карбид
+
+</span><span viak="description">
+Piro = fire(англ:огонь) - пиротехника
+А что, если приставка Пиро- происходит от слова Пар? Свойства пара: горячий, обжигающий, восходящий, поднимающийся вверх, уносящийся ввысь, парящий высоко, клубящийся, расширяющийся, сильно толкающий, способный взорваться или совершить полезную работу, вздымающий поверхность, шумный, громкий, грохочущий при взрыве, ... Тогда:
+
+пирог - горячий, взошедший
+пурга - клубящаяся
+порок - обжигающий
+прок - накопление
+куропатка -  взлетающая вверх
+крупный - расширенный
+порох - взрывающийся, обжигающий
+порхать - взлетать вверх
+храп - громкий
+Прохор - шумный?
+берег - приподнятый
+оберег - поднятие, унесение от беды
+горб -  вздымающийся
+оброк - уносящий
+барка - уносящаяся
+акробат - взлетающий
+скарб - носимый
+крепость - высокая
+крепкий - сильный, высокий
+</span><span viak="summary">
+Представляется, что слово Пирог, как и приставка Пиро- происходят от слова "пар".
+</span>
+';
+GO
+
+exec spAddArticle 35114, N'Что в имени твоем: Бетон', N'вяк, слова', N'
+<span viak="word">Бетон
+
+Сравни с похожим словом "сбитень". Из Вики: &quot;<a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D1%82%D0%BE%D0%BD#.D0.98.D0.B7.D0.B3.D0.BE.D1.82.D0.BE.D0.B2.D0.BB.D0.B5.D0.BD.D0.B8.D0.B5" target="_blank">...бетон производится смешиванием цемента, песка, щебня и воды...</a>&quot;. Вся эта смесь, включая <b>битый</b> камень, <b>сбивается</b> вместе.
+
+</span><span viak="summary">Таким образом, "Бетон" имеет смысл "битый".
+
+</span><span viak="description">
+У архитектора <a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D1%82%D0%B0%D0%BD%D0%BA%D1%83%D1%80,_%D0%90%D0%B2%D0%B3%D1%83%D1%81%D1%82%D0%B8%D0%BD_%D0%90%D0%B2%D0%B3%D1%83%D1%81%D1%82%D0%B8%D0%BD%D0%BE%D0%B2%D0%B8%D1%87" target="_blank">Бетанкур</a> <a href="http://vaduhan-08.livejournal.com/247282.html" target="_blank">строившего Нижний Новгород</a> была "говорящая" фамилия (Betancourt): Бетон+Корт = бетонная площадка
+</span>
+';
+GO
+
+exec spAddArticle 35512, N'Прямой перевод: Severe Weather - direct translation', N'перевод, слова', N'
+<span viak="word">Severe Weather (англ: суровая погода) = Северный Ветер
+
+<p viak="reference">Оригинал взят у <lj user="tar_s" type="personal" userhead_url="http://l-stat.livejournal.net/img/userinfo.gif?v=17080?v=142.3" /> в <a href="http://tar-s.livejournal.com/1055804.html">Лингвистическое</a><div class="repost">Weather - погода <br>Severe - суровая </p>
+<p dir="ltr"><b>Severe weather</b>[севере веатер] - <b>северный ветер</b>. Суровая погода, вестимо :)</div></p>
+</span>
+';
+GO
+
+exec spAddArticle 35667, N'Что в имени твоем: Шмокодявка', N'вяк, перевод, слова', N'
+<span viak="word">Шмокодявка
+
+</span><span viak="description">
+Шмак + давка
+
+Шмак - на языке Идиш означает "кусок сырого мяса", а в переносном смысле - ничтожный человек.
+
+</span><span viak="summary">Выглядет так, что слово Шмокодявка означает буквально "раздавленное сырое мясо".</span>
+';
+GO
+
+exec spAddArticle 35913, N'Что в имени твоем: Шалава', N'вяк, имя, слова', N'
+<span viak="word">Шалава
+</span><span viak="description">При переходе Ш-Ч получается Челове(к).
+</span><span viak="description"><a href="https://ru.wikipedia.org/wiki/%D0%95%D0%BB%D0%B5%D0%BD%D0%B0_%D0%A1%D1%82%D0%B5%D1%84%D0%B0%D0%BD%D0%BE%D0%B2%D0%BD%D0%B0" target="_blank">Елена Волошанка</a> - жена царя Ивана III.&nbsp;Здесь в слове &quot;Волошанка&quot; можно усмотреть злой умысел называвших, потому что &quot;Волош&quot; наоборот может быть прочитан как &quot;Шалава&quot;.</span>
+
+<span viak="summary">Таким образом: Шалава = Человек</span>
+';
+GO
+
 exec spAddArticle 36138, N'Что в имени твоем: Суворов', N'вяк, имя, слова', N'
 <span viak="word">Суворов
 
@@ -1193,26 +2034,34 @@ exec spAddArticle 43385, N'Что в имени твоем: Полотно', N'�
 ЛТН - (по)лотно латунь алтын
 Если последняя буква "Н" является суффиксом "-ан/ин/-он", то корень: ПЛТ
 </span><span viak="word">Полотно
-ПЛТ - полот(но) плеть полать палаты плата плут оплот эполет
+ПЛТ - полот(но) плеть полать палаты плата плут оплот эполет плотный плита палитра плоть
+ТЛП - тулуп отлуп толпа тюльпан
 ПЛд - плед плод
 бЛТ - болт блат бл?ть болтать билет балет булат bullet(англ:пуля)
+ТЛб - талиб (араб:ученик)
+бЛф - блеф
+фЛб - phlebotomy(англ:кровопускание)
 бЛд - балда блуд blood(англ:кровь)
-
+дЛб - джеляб(узб:бл@ть)
 </span><span viak="summary">
 Я склоняюсь к мысли, что Полотно происходит от слова "плетенный".
 </span><span viak="description">
 Тогда, другие однокоренные слова (ПЛТ): плеть, платок, плетень, полотенце, эполет, плут. В этом же смысловом поле "плетенный, связанный, повязанный" будут и другие слова:
-плед - связанное покрывало
-плод - зародыш, связанный с материнским организмом
-плотный - крепко сбитый, связанный
-плотина - связанная преграда
-platoon - крепкая, связанная группа солдат
-палаты - постройка из связанных материалов
+blood(англ:кровь) - кровавая связь
 блат - связь по знакомству
 блуд - греховная связь
 болт - связующий елемент
 болтанка - потеря связи
 болтать - разговаривать, поддерживать связь
+палаты - постройка из связанных материалов
+platoon - крепкая, связанная группа солдат
+плед - связанное покрывало
+плод - зародыш, связанный с материнским организмом
+плотный - крепко сбитый, связанный
+плотина - связанная преграда
+плоть - плотное тело
+толпа - плотная группа людей
+тулуп - плотная одежда
 </span>
 ';
 GO
