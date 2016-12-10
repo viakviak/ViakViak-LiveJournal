@@ -395,9 +395,9 @@ INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'экон
 --INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24622, N'Прямой перевод: Volume - Direct translation');
 --INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24427, N'Brexit');
 --INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24284, N'Что в имени твоем: Неделя');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24060, N'Прямой перевод: Шабат (суббота)');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (23609, N'Палиндром: Йохан...');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (23421, N'Прямой перевод: Cross - Direct translation');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24060, N'Прямой перевод: Шабат (суббота)');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (23609, N'Палиндром: Йохан...');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (23421, N'Прямой перевод: Cross - Direct translation');
 INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (23071, N'Прямой перевод Spark - Direct translation');
 INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (22974, N'Прямой перевод: Love - Direct Translation');
 INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (22632, N'Прямой перевод: Knowledge - Direct Translation');
@@ -495,6 +495,214 @@ exec spAddArticle , N'', N'', N'
 GO
 
 */
+
+exec spAddArticle 20627, N'Прямой перевод: Cost (затраты, расходы)', N'', N'
+<span viak="word">Cost
+
+КСТ - кость куст кисть киста оксти[сь] касатик касат[ка] касать кусать куста[рь] каста касте[т]
+ТСК - тиски тискать тоска тесак отсек таска[ть] туск[ло] Тоскана
+КшТ - кошт каштан кушать
+ТшК - тишко[м] Ташкент
+ТСч - тысяча
+чСТ - часть чистый честь часто[та] (от)чество чест(вовать) чу[в]ст[во] чесот[ка]
+гСТ - гость густо гаст[рит]
+дСК - доска desk disk
+</span><span viak="summary">
+Кошт - расходы на проживание, часть расходов
+</span><span viak="description">
+Представляется, что слово произошло от "Кошт", а также имеет смысл "часть" (финансовых расчетов или персональных расходов).
+
+гость - проживает как часть семьи.
+густой - плотная часть жидкости.
+доска - часть деревянной постройки.
+касатик - дорогой.
+каста - часть населения; "чистое" сословие.
+кость - часть скелета, тела.
+кусать - оттяпать зубами часть.
+кушать - потреблять, тратить.
+отсек - часть помещения; отрубил часть.
+(от)чество - от+чести - чествовать, часть имени
+тиски - зажать часть заготовки.
+тысяча - прочитанное наоборот слово "часть".
+честь - "чистая" репутация.
+</span>
+';
+GO
+
+exec spAddArticle 20807, N'What is in the name: Don''t tread on me!', N'english, usa, вяк, геральдика, символ, слова', N'
+<span viak="phrase">Don&#39;t tread on me!
+</span><span viak="description">
+<img alt="" src="http://ic.pics.livejournal.com/viakviak/75606786/2710/2710_900.png" title="" />
+<span style="line-height: 19.6px;">From Wiki: </span><a href="https://en.wikipedia.org/wiki/Gadsden_flag" style="line-height: 19.6px;" target="_blank">Gadsden flag</a>
+</span><span viak="summary">
+Writing:
+<b>Don&#39;t tread-on me</b>
+Meaning or sounding like:
+<b>Don&#39;t threaten me</b>
+</span><span viak="description">
+<a href="https://www.google.com/webhp?sourceid=chrome-instant&amp;ion=1&amp;espv=2&amp;ie=UTF-8#q=translate+snake+to+russian" target="_blank">Translate &quot;Snake&quot; to Russian</a>: Змея. In Russian &quot;Snake&quot; has another name:&nbsp;Гад (Gad). As we can see, &quot;Gad&quot; is a first part of name <b>Gad</b>sden (American general and statesman <a href="https://en.wikipedia.org/wiki/Christopher_Gadsden" target="_blank">Christopher Gadsden</a>).
+
+<b style="line-height: 19.6px;">Gad</b><span style="line-height: 19.6px;">sden = </span>Gad&#39;s-den - name also sounds as Russian &quot;Гад&#39;s день&quot; - &quot;Snake&#39;s day&quot;, which sounds as a proud statement. On the image, snake is ready to strike, in the first sign of danger. Message from <b style="line-height: 19.6px;">Gad</b><span style="line-height: 19.6px;">sden </span>&quot;don&#39;t threaten me&quot; is played into <span style="line-height: 19.6px;">message from </span><span style="line-height: 19.6px;">heraldic </span>snake &quot;don&#39;t tread on me&quot;.
+</span>
+';
+GO
+
+exec spAddArticle 21101, N'Чтобы это значило: Учеба', N'вяк, слова, шутка', N'
+<span viak="word">Учеба
+</span><span viak="description">
+УЧЕБА - UCHOBA => ОСНОВА
+</span><span viak="summary">
+Таким образом русское слово "Основа" прочитанная латиницей, звучит как русское слово "Учеба". Это может быть использовано в назидательных целях.
+</span>
+';
+GO
+
+exec spAddArticle 21395, N'Прямой перевод: Cattle', N'вяк, перевод, слова', N'
+<span viak="translation">Cattle(англ:крупный рогатый скот)
+
+КТЛ - котел катала Каталониа 
+ЛТК - лоток Латакиа 
+КдЛ - кидала кодло кудлатое 
+Лдк - лодка
+Лат - бить, выделывать
+</span><span viak="summary">
+Cattle - кодло
+</span><span viak="reference">Из Н.Н.Вашкевича:
+ЛАТЫ – "в старину: металлические доспехи, броня". (БЭКМ). 
+      ♦ От ар. لط  латта или лата''а "бить", "стучать" (М., с. 722). Родственно молот, Италия, латины, латать (см.).
+</span>
+';
+GO
+
+exec spAddArticle 21973, N'Испанский скульптор, который владеет искусством мять камни', N'технология', N'
+Оригинал взят у <lj user="vsegda_tvoj" /> в <a href="http://vsegda-tvoj.livejournal.com/18394779.html">Испанский скульптор, который владеет искусством мять камни</a><div class="repost">Посмотрите: они слушаются скульптора, будто пластилин! Испанец Хосе Мануэль Лопес Кастро представил серию своих работ, которые производят впечатление слепленных из мягкого и тягучего вещества&hellip; В его руках камни тянутся<a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon" target="_blank">,</a> сминаются и даже плачут!
+
+<a href="http://vs-t.ru/" target="_blank"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/1.jpg" /></a>
+
+<lj-cut><a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/2.jpg" /></a>
+
+Художник работает по большей части с гранитом и кварцем из своего региона и утверждает, что его взаимоотношения с местными камнями сродни магии: &laquo;Во время работы я чувствую себя не столько скульптором, сколько друидом. Мои отношения с камнем не физические, а волшебные. Я разговариваю <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon">с камнями</a>, и в процессе общения мы подчиняем другу друга&hellip; Мои камни не безжизненны&raquo;.
+
+<a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/3.jpg" /></a>
+
+<a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/4.jpg" /></a>
+
+Идея будущей скульптуры приходит к мастеру не сама по себе, а при взгляде на материал&hellip; Камень сам &laquo;подсказывает&raquo; ему, во что может превратиться.
+
+<a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/5.jpg" /></a>
+
+Уже непосредственно воплощение <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon">замысла</a> может занять как пару дней, так и несколько месяцев. Это тоже зависит от свойств камня.
+
+<a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/6.jpg" /></a>
+
+<a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/7.jpg" /></a>
+
+Как подчеркивает сам Хосе Мануэль <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon">Лопес Кастро</a>, местные камни пропитаны мифической атмосферой, потому при работе с ними технические навыки скульптора &mdash; далеко не главное. Нужно почувствовать их древнюю магию&hellip;
+
+<a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/8.jpg" /></a>
+
+<a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/9.jpg" /></a>
+
+<a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/10.jpg" /></a>
+
+<a href="http://fishki.net/1833307-ispanec-nauchilsja-mjat-kamni-dlja-sozdanija-skulptur.html" target="_blank">источник</a></lj-cut>
+
+
+Если вам понравился пост, пожалуйста, поделитесь ими со своими друзьями! :)
+
+
+<lj-like buttons="repost,facebook,twitter,google,vkontakte,surfingbird,odnoklassniki,tumblr,livejournal" />
+<lj-repost button="Репост">
+
+
+</lj-repost>
+</div>
+';
+GO
+
+exec spAddArticle 22501, N'О незаметной пропаганде бестианства. About quiet bestuality propaganda.', N'english, вяк, мнение', N'
+<span viak="opinion"><p dir="ltr">Re: Иркутская модель снялась обнаженной ради спасения животных
+http://dymontiger.livejournal.com/5790432.html via LiveJournal</p><p dir="ltr">Интересно, как незаметно проходит пропаганда бестианства - полного отождествления человека с животным. Так на последнем плакате, не только ведётся сравнение количества звериных и человеческих &quot;душ&quot;, которое идёт на изготовления одного изделия, в одном ряду, но и подспудно проталкивается идея нормальности использования человеческого &quot;материала&quot;. Да, это подано в гротескной, артистичной форме, и в результате принимается аудиторией положительно, и с пониманием.</p><p dir="ltr"><i>It is interesting how smoothly propaganda of bestuality (identification people as animals) is being shoved down our throats. Thus on last image there is not only one-to-one comparison of human and animal &quot;souls&quot; that are used for to produce fur coats, but they are also pushing the idea of indiscriminate use of human body &quot;material&quot;. Of course, all that served in the grotesque, artistic wrapping for positive and understanding consumption of unsuspecting audience.</i></p><p dir="ltr">В чем заключается опасность массовой пропаганды бестианства для обычных людей? Если просто, что называется, на пальцах, то мы должны понимать на чём держится мировой порядок, и почему массовое уничтожение людей не считается нормальным, хотя время от времени и происходит.</p><p dir="ltr"><i>What is a danger in bestuality propaganda for common people? In simple words, we should realize the underpinnings of modern world order, and why while mass murders are not considered normal, while that happens from time to time anyway.</i></p><p dir="ltr">Многие могут не отдавать себе, но главенствующая современная мораль основана на иудо-христианских ценностях, включающая в себя кроме всего прочего идею &quot;бессмертной человеческой души&quot;, которая была создана богом, и потому принадлежит исключительно ему.</p><p dir="ltr"><i>Many may not realize that the currently dominant moral code is founded on Jewish and Christian values that include besides others the idea of &quot;eternal soul&quot; in every person, which was created and thus belongs only to god.</i></p><p dir="ltr">Примеры массового истребления американских индейцев, африканских племен, работорговля, колонизация, мировые войны, холокост и современная деиндустриализация целых континентов вызывающая падение рождаемости и катастрофическое обрушение качества жизни целых народов - вот послужной список протестанского истеблишмента (ПИ).</p><p dir="ltr"><i>Examples of mass murders of american indians, African tribes, slave trade, colonization, world wars, holocaust, modern deindustrialization of continents, causing significant drop of birthrate and level of living - that is a short list of western protestant establishment.</i></p><p dir="ltr">Да, они не могут преступить закон божий и гореть в геене огненной до скончания веков за преднамеренное&nbsp; убийство хотя бы одного невиновного человека. С другой стороны, с точки зрения этих же законов (десять заповедей), убийство скота, варваров, убийство в качестве самообороны или в справедливой войне или революции не только допустимо, но и является благородным делом.</p><p dir="ltr"><i>Yes, they cannot cross lines of God law, under threat to be punished by ethernal suffering in hell even for killing of one innocent man. From another hand, from the point of view of the same laws (ten commandments) killing of cattle, barbarians, in self-defence or in the name of justice, such as in just war or revolution is not only allowed, but also considered to be nobel and celebrated deads of real men.</i></p><p dir="ltr">Поставьте на минуточку себя на место вершителей судеб миллиардов, представьте, что вы обладаете пониманием предназначением человечества, и вас есть неограниченные финансовые возможности. А теперь поставьте себе задачу очистки Земли от человеческого балласта &quot;законным&quot; способом. В этом свете - решение очевидно. Чем больше атеистов, безбожников, многобожников, новых варваров, идолополонников, врагов первыми напавших или неправильно использовавших вашу собственность (доллары, например) - тем меньше у вас связаны руки для благородного дела спасения.</p><p dir="ltr"><i>Try to put yourself in the shoes of supreme leader of billions, imaging that you poses the insight of the human purpose, and you have unlimited financial possibilities. Now, what would you do, if you have a task of unloading the ballast of billion of unnecessary for that purpose people on your hands? The final solution would seem obvious. The more atheists, barbarians, idol-warshipers, active enemies of your land or property violators (think of misuse of dollars, stolen or used for bribery, for example) the less your hand are bound for nobel task of saving humanity from excess of people.</i></p><p dir="ltr">Да, люди поставленные судьбой в неблагоприятные условия имеют тенденцию умирать раньше или не рождаться. Чья это будет вина? Очевидно же, что это вина их самих, или же отдельных &quot;козлов отпущения&quot;. Молитвы и наказания виновных должны принести прощение. Мысли (в том числе и человеко-ненавистнические) не наказуемы, потому что воздастся каждому только по делам его.</p><p dir="ltr"><i>Yes, people that are put into unfavorable conditions have a tendency to die earlier or not get born at all. Who&#39;s fault would it be? Apparently, it would be victims fault, or fault of some &quot;scape goats&quot; from their midst. More praying and punishments of the &quot;guilty&quot; ones should bring the forgiveness. Remember that thoughts (including the evil ones) are not punishable by law, only deads are.</i></p><p dir="ltr">Надо осознать, что существует исторически состоявшийся безжалостный источник невероятной силы действующий строго по древним законам, считающийся себя монополистом на правду, и умеющий манипулировать сознанием миллиардов.</p><p dir="ltr"><i>It is time to realize that there is historically established, knowing no-mercy source of unimaginable power, acting in boundaries of ancient laws, in full confidence of its own right, with a knowledge of manipulation of minds of billions.</i></p><p dir="ltr">Концентрационные лагеря для миллионов, газовые камеры, этнические чистки, ковровое бомбометание жилых городов, ... Как это было возможно раньше? Как видите - это вполне возможно и сейчас, и в будущем. Что или кто этому может воспрепятствовать? Все ведь делается законно...</p><p dir="ltr"><i>Death camps for millions, gas chambers, ethnic cleansing, carpet bombing of densely populated cities... How was that possible in past? As you can see, it is still quite possible now and&nbsp; in future. What or who could stop that? Everything is being done accordingly the law...</i></p>
+</span>
+';
+GO
+
+exec spAddArticle 22632, N'Прямой перевод: Knowledge - Direct Translation', N'вяк, перевод, слова', N'
+<span viak="translation">Know-ledge
+</span><span viak="description">
+Нов-лежать
+Залежи нового.
+Новое даёт дополнительное знание.
+</span><span viak="summary">
+Перевод: Knowledge - залежи новых знаний.
+</span>
+';
+GO
+
+exec spAddArticle 22974, N'Прямой перевод: Love - Direct Translation', N'вяк, перевод, слова', N'
+<span viak="translation">Love
+
+ЛВ - лево лев улов leave(англ:оставлять)
+ВЛ - evil(англ:зло) воля вол вилы вал валять влия(ние) влить Ваал вилок власть волок <a href="http://viakviak.livejournal.com/25093.html" target="_blank">великий</a> волк wool(англ:шерсть)
+Лб - люб(овь) любо лоб лобок Люба Любе улыб(ка)
+бЛ - боль быль бл@ть ебло ябло(ко) обло(страшно) било
+fL - feel, fool(англ:глупец), fault, file(англ:досье), fall(англ:падать), fellow(англ:парень), flu(англ:грипп), (in)flue(nce)
+
+</span><span viak="summary">
+Love - любовь, боль, зло, опасное
+</span><span viak="description">
+fellow(англ:парень) - любимый друг
+file(англ:досье) - file for divorce(англ:подать на развод), подборка проблем
+fall(англ:падать) - fall in love(англ:влюбиться), упасть болезненно
+flu(англ:грипп) - болезнь
+fool(англ:глупец) - больной на голову
+(in)flue(nce) - влияние
+leave(англ:оставлять) - уходить от бывшей любви
+било - аналог предмета любви
+Ваал - злое властное божество
+валять - заниматься любовью
+вол - злобный, тыкающий рогами
+волк - злое, опасное животное
+воля - свобода любить
+вилы - втыкающие
+влия(ние) - вливание, заканчивание акта любви; доминирующие отношения с партнером позволяющие "влить"
+лев - символ власти
+обло - страшно, опасно
+улов - результат поиска любви?
+улыб(ка) - проявление чувства любви
+ябло(ко) - символ запретной любви
+
+</span><span viak="reference">Из Н.Н.Вашкевича:
+ЛЕВ1 – "крупное хищное животное сем. кошачьих с короткой желтоватой шерстью и с длинной гривой у самцов". (БЭКМ). 
+      ♦ От обратного прочтения بعل баъал "голова", назван по крупной голове. По созвучию с ар. والي  ва:л(и) "властитель", считается царем зверей. С учетом фонетического явления ималя (произнесение долгого А со склонением к Е) произносится ве:л(и). Того же корня ар. لبوة либва "львица", Ливия (см.). Ар. أسد ''асад "лев" также от корня со значением власти: ساد са:да (наст. время: يسود йасу:д) "царить", того же корня, что и рус. сударь, государь (см.). Как элемент семейства кошачьих соответствует Ливии (Африке); ср. ар. عفروس ъафру:с "лев", букв. "гривастый". Когда лев сакрализуется, помимо символа власти, соответствует пятому номеру (в частности Африке, царству зверей). Соответствие других  названий кошачьих см. рысь, пантера, барс, кот, ягуар. Лев как название знака Зодика, как и Ливия, занимает пятую позицию перед Девой (см.), связанной с шестеркой. Ср. ар. ست ситт "шесть", "женщина". См. Введение. Образ льва вместе с тигром выражает число семь из-за совпадения их названия по-арабски с ар. же названием семерки. См. Междуречье, Италия. Лев как символ человеческой натуры проявляет себя во властности, требовании знаков внимания к царствующей особе (ср. Леонид Брежнев), в склонности к назидательности (Лев Толстой), к рассудочной деятельности. 
+ЛЕВ2, муравьиный лев, мураволев – "насекомое, личинка которого – жук –  питается муравьями, строя для них ловушки в виде воронки". В. Даль определяет название насекомого как дурной перевод с лат. myrmelion. 
+      ♦ На самом деле латинский термин есть калька с рус., во-первых, потому, что лат. название муравья formica (от обратного прочтения рус. корня МРВ), во-вторых, насекомое не лев, а ловец, -лов. Заморочка произошла на рус. почве и бездумно скопирована в латыни. Аналогично ср. лат. название химического элемента мышьяк: Арсений (см.), букв. "мужской".
+ЛОБ – "надглазная (надбровная) часть человеческого лица (или головы животного)". В других славянских языках в значении "лоб" употребляется чело, а лоб имеет значение "череп", "темя". Родственно древнерус. луб "лубяной короб". (Черных). 
+      ♦ Образовано с помощью огласовки О, имеющей значение инструмента, от глагола любить, поскольку лоб есть орган любви к истине, орган любознания, в противоположность любви к женщине, которой соответствует лобок. Оба вида любви упоминаются в Библии и зафиксированы в так называемой звезде Давида (звезде любви), состоящей из двух треугольников, один из которых указывает острием на лобок, другой – на лоб. Входит в параллельный и противопоставленный ряд терминов любви: голова-головка,  чело-член, сема-семя, ум-умм (ар. "мать"), образование-обрезание, культура-клитор, глупость-гульфа (крайняя плоть), искусство-секс и т.д.; см. также Кааба. Луб от другого корня (см.).
+ЯБЛОКО1 - "шаровидный плод фруктового дерева семейства розовых подсемейства яблоневых", (БЭКМ);  слово яблоко в славянских языках стародавнее, но восстановить  его форму нелегко. (Черных). 
+       ♦ Связано с библейским сюжетом, где Ева даёт Адаму яблоко. В рус. названии плода раскрывается смысл ситуации. Ср. змей-искуситель и ар. название змеи (корень حوي хуй) на рус. слух. Связано с раем, ср. ар. رياض рийа:з "сады", отсюда розы, название семейства. Ср. также с ар.  جبلة   жибилля (йибилла) "природа человека". Ар. корень جبل жбл означает "создавать" о Боге. Европейские названия яблока все от рус. языка. Рус. название плода может быть осмыслено как билингва: яб + ар. لقح  лаках  "половой акт", а корень йбл дает в ар. языке ещё и حبل хбл "беременеть". Начертание букв И и ар. Х (حـ) совпадает, отличает их только ракурс, см. статью И. 
+ЯБЛОКО2, яблоки Гесперид – "о запретном плоде, о труднодостижимом". По древней мифологии в саду Гесперид (дочерей Атласа и Гесперис) росли золотые яблоки – свадебный подарок от Геи (Земли) по случаю свадьбы Геры с Зевсом. Яблоки охранялись драконом Ладоном. 
+       ♦ Указанный миф являет собой греческий вариант библейской легенды о рае: Гера, хотя и со смещёнными функциями, соответствует Еве, Зевс – Адаму, Ладон – Змею. Гесперис от ар. عفروسة ъафру:са "львица, жрица любви". Змей искушал Еву попробовать яблоки, Ладон – охранял. Дело в том, что Змей относится к системе нижней любви, Ладон – верхней. Зов верхней любви останется не отвеченным, пока люди находятся в сомнамбулическом состоянии  (см. звезда Давида).
+ЯБЛОКО3, адамово яблоко – "кадык". Название идёт от библейской легенды о запретном плоде, который застрял у Адама в горле. 
+       ♦ На самом деле речь идёт о половом акте, что ясно видно из рус. названия плода. А произошло это потому, что Ева сказала Адаму قدك  каддак "хватит тебе". Отсюда рус. кадык. См. также Гордиев узел.
+ЯБЛОКО4, яблоку негде упасть – "очень людно, тесно, много народу". 
+       ♦ Яблоко с теснотой связано через половой акт, который символизируется яблоком через рус. созвучия (ср., в частности, яблоко Адама, яблоко раздора), и наступающую вслед беременность, с течением которой теснота в утробе усиливается, сравни تاسع та:сиъ "девятый (месяц)" и рус. тесно. В верхней любви (см. звезда Давида) девятому месяцу соответствует пора пробуждения, о которой косвенным образом свидетельствует так называемый демографический взрыв. В бытовом употреблении неосознаваемый этимологический подтекст: негде совершить половой акт.
+ЯБЛОКО5, яблоко раздора (Эриды) – "повод, причина ссоры, спора, серьезных разногласий". В древнегреческой мифологии богиня раздора Эрида покатила на свадебном пире золотое яблоко с надписью "Прекраснейшей". Среди гостей были Гера, Афина и Афродита, которые заспорили о том,  кому из них следует получить яблоко. Спор разрешил Парис, присудив яблоко Афродите, что послужило причиной ссоры между женщинами. В благодарность Афродита помогла Парису похитить Елену, дочь царя, из-за чего началась троянская война. 
+       ♦ Эрида – от ар. حرض харрада "подстрекать". Гера – от ар. غيرى ге:ра: "ревнивая" (без определения ревнивая её имя в греческих мифах практически не употребляется). Афина (по-арабски أثينا Аси:на) в обратном прочтении по-арабски: آنثة ''а:ниса "дева". Афродита – от сложения ар. عفر ъафр "грива, барашек, в том числе волны" + рус.  родить: "рожденная из пены".
+ЯБЛОКО6, попасть в самое яблочко – "точно, правильно угадать, сказать, попасть выстрелом в середину мишени".
+       ♦ Яблоко издревле символизировало дела сердечные, сравните амуров, стреляющих из лука в яблоко. Пронзённое стрелой яблоко ­– символ сексуальной победы. Если в нижней любви яблоко символизирует женщину, то в  верхней любви (см. звезда Давида) яблочко символизирует Истину. В других терминологических парах термины нижней любви имеют уменьшительную форму, сравните лоб – лобок, голова – головка.
+</span>
+';
+GO
+
+exec spAddArticle 23071, N'Прямой перевод Spark - Direct translation', N'вяк, перевод, слова', N'
+<span viak="translation">Spark(англ:искра)
+
+</span><span viak="summary">
+Spark(англ:искра) - спарка, спаровать
+</span>
+';
+GO
 
 exec spAddArticle 23421, N'Прямой перевод: Cross - Direct translation', N'вяк, перевод, слова', N'
 <span viak="word">Cross
