@@ -498,6 +498,25 @@ GO
 
 */
 
+exec spAddArticle 8020, N'Что в имени твоем: Барак Обама', N'', N'
+<span viak="word">Обама, Барак
+</span><span viak="description">
+о бамаба рак =》кара бамабо
+Obama, Barak =》kar abama bo, kara bamabo, бар а кобам а
+kara bomba
+car bomb = бомба в машине
+black bomb = черная бомба
+кара бомбой
+Bar caboom - взрыв бара, разрушение препятствия
+
+Наоборот:
+</span><span viak="summary">
+амабО караБ - м Бог раб = м(инструмент), раб Божий
+
+Слышимое: барак, короб, корабль, оба, амеба, рак, арак, арык, кара, mob, БАМ, арба, борьба
+</span>
+';
+GO
 
 exec spAddArticle 8418, N'Что в имени твоем: Масса', N'Вашкевич, вяк, слова', N'
 <span viak="word">Масса
