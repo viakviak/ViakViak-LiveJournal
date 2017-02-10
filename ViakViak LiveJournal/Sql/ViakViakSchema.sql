@@ -499,7 +499,7 @@ GO
 */
 
 exec spAddArticle 8020, N'Что в имени твоем: Барак Обама', N'', N'
-<span viak="word">Обама, Барак
+<span viak="name">Барак Обама
 </span><span viak="description">
 о бамаба рак =》кара бамабо
 Obama, Barak =》kar abama bo, kara bamabo, бар а кобам а
