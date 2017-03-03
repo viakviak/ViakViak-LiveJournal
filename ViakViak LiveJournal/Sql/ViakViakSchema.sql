@@ -445,18 +445,18 @@ INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'этно
 --INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (11024, N'Что в имени твоем: Аллах');
 --INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (10847, N'Что в имени твоем: Закон');
 --INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (10602, N'Что в имени твоем: Грифон');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (10325, N'Что в имени твоем: Ходжа Нассреддин');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (10052, N'Что в имени твоем: Царь');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (9953, N'Сарацины. Этимология');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (9497, N'Что в имени твоем: Государство');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (9423, N'Что в имени твоем: Зомби');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (9103, N'Что в имени твоем? Cotton (хлопок)');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (8744, N'Что в имени твоем: Золотой Телец.');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (8418, N'Что в имени твоем: Масса');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (8020, N'Что в имени твоем: Барак Обама');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (10325, N'Что в имени твоем: Ходжа Нассреддин');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (10052, N'Что в имени твоем: Царь');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (9953, N'Сарацины. Этимология');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (9497, N'Что в имени твоем: Государство');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (9423, N'Что в имени твоем: Зомби');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (9103, N'Что в имени твоем? Cotton (хлопок)');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (8744, N'Что в имени твоем: Золотой Телец.');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (8418, N'Что в имени твоем: Масса');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (8020, N'Что в имени твоем: Барак Обама');
 INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (7709, N'Проект Самуила Кругляка «Получение электроэнергии из атмосферы»');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (7468, N'Hardware. Что в имени?');
-INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (7192, N'Software. Что в имени?');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (7468, N'Hardware. Что в имени?');
+--INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (7192, N'Software. Что в имени?');
 INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (7077, N'Этому ученому удалось разгадать тайну, которую скрывают картины эпохи Возрождения');
 INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (6866, N'Слово: Этруски');
 INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (6579, N'Этруски — изгнанники');
@@ -4772,15 +4772,54 @@ exec spAddArticle 46952, N'Переход: С - Х', N'Вашкевич, вяк,
 </span>';
 GO
 
+exec spAddArticle 47297, N'Что в имени твоем: Моголы', N'имя, вяк, слова, история', N'
+<span viak="name">Моголы
+
+МГЛ - моголы мо-галлы могила мгла
+ЛГМ - <a href="https://ru.wikipedia.org/wiki/Лагман" target="_blank">лагман</a>
+МхЛ - махалля Михаил
+ЛхМ - лохматый лихоимец
+</span><span viak="summary">
+Название Моголы могло быть производным от тюркского слова Махалля - лагерь, община (ср. со словом Орда). Моголы находится в смысловом поле <a href="http://viakviak.livejournal.com/45948.html" target="_blank">Галлы</a>, <a href="http://viakviak.livejournal.com/11024.html" target="_blank">Аллах</a>.
+</span><span viak="description">
+</span><span viak="reference">
+Из Википедиа:
+<a href="https://ru.wikipedia.org/wiki/Махалля" target="_blank">Махалля́ или Махалла</a>, также Гузар (араб. محلة maHálla — «перевалочная станция», «привал»; «лагерь»; «городской квартал», от حل Hálla «развязывать», «распутывать»; азерб. məhəllə, тат. мәһәллә, тур. mahalle, тадж. махалла, гузар, узб. mahalla, уйг. مەھەللە, мәһәллә) — в исламском мире часть города размером с квартал, жители которого осуществляют местное самоуправление. Как правило, центром такого квартала — махалля — является мечеть, служащая своего рода культурным центром, в котором проходят пятничные собрания населения махалля и совершается торжественная пятничная молитва (намаз).
+Махалля как институт осуществляющий на мусульманском Востоке местное самоуправление имеет глубокие корни. Например, о существовании в XI веке махалля в Каире сообщает поэт, писатель Насир Хосров. В своём произведении «Сафар-наме» (Записки путешественника), которые были составлены в 1043-1052 годах во время путешествия по странам Ближнего Востока, он сообщает, что «город Каир состоит из 10 махалля».
+В современном понимании в мусульманских республиках Поволжья махалля — это локальная община, объединяющая вокруг мечети не всех жителей определенного района, а только религиозную её часть, которая посещает мечеть. В Средней Азии, в том числе в Узбекистане, а также в Восточном Туркестане у уйгур[2] под махалля, как правило, понимается традиционный социальный институт общинного типа или квартальная форма организации общественной жизни. То есть это квартал или микрорайон, жители которого осуществляют местное самоуправление путём выбора комитета махалля.[3] и его председателя, решающих вопросы организации быта и досуга жителей своего махалля, а также несущих ответственность перед вышестоящими органами городского управления за обеспечение правопорядка в своем махалля.
+</span>';
+GO
+
+exec spAddArticle 47551, N'Что в имени твоем: Сто', N'вяк, слова, число', N'
+<span viak="word">Сто
+
+СТ - сто (де)сять сито соты сеть есть уста устье усатый тесто (ча)сто (к)уст (г)усто
+ТС - тыся(ча) тёс утес отсев таскать task(англ:задача) тесто this(англ:это)
+Сд - седой суд седьмой сидеть сад сода
+зд - зад
+</span><span viak="summary">
+Слово Сто близко связано со словами Десять и Тысяча и является их составной частью. Близкое слово Тысяча прочитанное наоборот дает слова: часто, куст, густо со смыслом "часто", "густо", "много", "плотно". В этом же смысловом поле "плотно", "узко" для слова Сто находим другие слова: сито, соты, сеть, уста, устье, зад, сад.
+</span><span viak="description">
+(г)усто - плотно
+(де)сять - дес-сять, тес-сять, часть сотни, неогласованный палиндром с удвоенным смыслом "сто".
+есть - плотно поесть устами
+сеть - много дырок
+сито - много дырок
+соты - много тесных ячеек с медом
+(к)уст - много частых плотно расположенных веток
+тесто - тес-сто, неогласованный палиндром с удвоенным смыслом "сто"
+тёс - много плотно-пригнанного дерева
+тыся(ча) - (ча)сто, (к)уст,  (г)усто наоборот
+уста - узкие губы со многими частыми зубами
+(ча)сто - плотно
+</span>
+';
+GO
 /*
 <a href="http://viakviak.livejournal.com/.html" target="_blank"></a>
 <a href="" target="_blank"></a>
 
-exec spAddArticle , N'', N'', N'
-<span viak="word">
-</span>
-';
-GO
+
 
 */
 
