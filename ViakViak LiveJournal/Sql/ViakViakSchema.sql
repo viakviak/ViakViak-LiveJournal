@@ -303,6 +303,7 @@ INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'Изоб
 INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'история', 1, NULL);
 INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'книга', 1, NULL);
 INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'компания', 1, NULL);
+INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'компонента', 1, NULL);
 INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'материя', 1, NULL);
 INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'мера', 1, NULL);
 INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'мнение', 1, NULL);
@@ -4913,7 +4914,7 @@ exec spAddArticle 48383, N'Прямой перевод: Über(нем:над,бо
 ';
 GO
 
-exec spAddArticle 48568, N'Компонента: С (З)', N'бог, вяк, слова', N'
+exec spAddArticle 48568, N'Компонента: С (З)', N'бог, вяк, компонента, слова', N'
 <span viak="component">С (З)
 
 </span><span viak="summary">
@@ -5008,6 +5009,16 @@ exec spAddArticle 49362, N'Прямой перевод: Tree(англ:дерев
 </span><span viak="summary">
 Tree => дре[во]
 Английское слово Tree переходит в русское слово Древо в два приема: переход <a href="http://viakviak.livejournal.com/33634.html" target="_blank">Т - Д</a> и выпадение звука <a href="http://viakviak.livejournal.com/45219.html" target="_blank">"В"</a>.
+</span>
+';
+GO
+
+exec spAddArticle 49641, N'Компонента: ТР', N'вяк, компонента, слова', N'
+<span viak="component">ТР
+</span><span viak="summary">
+ТР - выражает цикличность, повторяемость, нахождение рядом, вокруг, круглое.
+</span><span viak="description">
+См. следующие примеры: <a href="http://viakviak.livejournal.com/44207.html" target="_blank">Двор</a>, <a href="http://viakviak.livejournal.com/43711.html" target="_blank">Рот</a>
 </span>
 ';
 GO
