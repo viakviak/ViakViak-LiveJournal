@@ -5,69 +5,55 @@
 IF OBJECTPROPERTY(OBJECT_ID('[FK_ArticleLabel_Label]'), 'IsConstraint') = 1
 	ALTER TABLE dbo.ArticleLabel DROP CONSTRAINT [FK_ArticleLabel_Label]
 GO
-
 IF OBJECTPROPERTY(OBJECT_ID('[FK_ArticleLabel_Article]'), 'IsConstraint') = 1
 	ALTER TABLE dbo.ArticleLabel DROP CONSTRAINT [FK_ArticleLabel_Article]
 GO
-
 IF OBJECTPROPERTY(OBJECT_ID('[FK_ArticleWord_Word]'), 'IsConstraint') = 1
 	ALTER TABLE [dbo].[ArticleWord] DROP CONSTRAINT [FK_ArticleWord_Word]
 GO
-
 IF OBJECTPROPERTY(OBJECT_ID('[FK_ArticleWord_Article]'), 'IsConstraint') = 1
 	ALTER TABLE [dbo].[ArticleWord] DROP CONSTRAINT [FK_ArticleWord_Article]
 GO
-
 IF OBJECTPROPERTY(OBJECT_ID('[FK_Root_Language]'), 'IsConstraint') = 1
 	ALTER TABLE dbo.[Root] DROP CONSTRAINT [FK_Root_Language]
 GO
-
 IF OBJECTPROPERTY(OBJECT_ID('[FK_Word_Root]'), 'IsConstraint') = 1
 	ALTER TABLE [dbo].[Word] DROP CONSTRAINT [FK_Word_Root]
 GO
-
 IF OBJECTPROPERTY(OBJECT_ID('[FK_Word_Language]'), 'IsConstraint') = 1
 	ALTER TABLE [dbo].[Word] DROP CONSTRAINT [FK_Word_Language]
 GO
+IF OBJECTPROPERTY(OBJECT_ID('[FK_Component_Language]'), 'IsConstraint') = 1
+	ALTER TABLE [dbo].Component DROP CONSTRAINT [FK_Component_Language]
+GO
 
 -- Drop tables..
-/****** Object:  Table dbo.Article    Script Date: 9/5/2016 6:20:20 PM ******/
 IF OBJECT_ID(N'dbo.Article', N'U') IS NOT NULL
 	DROP TABLE dbo.Article
 GO
-
-/****** Object:  Table dbo.ArticleLabel    Script Date: 9/5/2016 7:03:55 PM ******/
 IF OBJECT_ID(N'dbo.ArticleLabel', N'U') IS NOT NULL
 	DROP TABLE dbo.ArticleLabel
 GO
-
-/****** Object:  Table dbo.[Root]    Script Date: 9/5/2016 6:53:21 PM ******/
 IF OBJECT_ID(N'dbo.Article', N'U') IS NOT NULL
 	DROP TABLE dbo.[Root]
 GO
-
-/****** Object:  Table [dbo].[ArticleWord]    Script Date: 9/5/2016 7:09:18 PM ******/
 IF OBJECT_ID(N'dbo.ArticleWord', N'U') IS NOT NULL
 	DROP TABLE [dbo].[ArticleWord]
 GO
-
-/****** Object:  Table [dbo].[Label]    Script Date: 9/5/2016 7:12:58 PM ******/
 IF OBJECT_ID(N'dbo.Label', N'U') IS NOT NULL
 	DROP TABLE [dbo].[Label]
 GO
-
-/****** Object:  Table dbo.[Language]    Script Date: 9/5/2016 6:51:52 PM ******/
 IF OBJECT_ID(N'dbo.Language', N'U') IS NOT NULL
 	DROP TABLE dbo.[Language]
 GO
-
-/****** Object:  Table dbo.[Root]    Script Date: 9/5/2016 6:53:21 PM ******/
 IF OBJECT_ID(N'dbo.Root', N'U') IS NOT NULL
 	DROP TABLE [dbo].[Root]
 GO
-/****** Object:  Table [dbo].[Word]    Script Date: 9/5/2016 7:14:14 PM ******/
 IF OBJECT_ID(N'dbo.Word', N'U') IS NOT NULL
 	DROP TABLE [dbo].[Word]
+GO
+IF OBJECT_ID(N'dbo.Component', N'U') IS NOT NULL
+	DROP TABLE dbo.Component
 GO
 
 -- Drop stored procedures..
@@ -82,7 +68,7 @@ CREATE TABLE dbo.Article(
 	LiveJournalID [int] NULL,
 	Title [nvarchar](256) NULL,
 	Content [nvarchar](max) NULL,
-	[CreateDate] [datetime] NOT NULL DEFAULT getdate()
+	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
  CONSTRAINT [PK_Article] PRIMARY KEY CLUSTERED 
 (
 	[ArticleID] ASC
@@ -95,7 +81,7 @@ CREATE TABLE dbo.ArticleLabel(
 	[ArticleLabelID] [int] IDENTITY(1,1) NOT NULL,
 	[ArticleID] [int] NOT NULL,
 	[LabelID] [int] NOT NULL,
-	[CreateDate] [datetime] NOT NULL DEFAULT getdate()
+	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
  CONSTRAINT [PK_ArticleLabel] PRIMARY KEY CLUSTERED 
 (
 	[ArticleLabelID] ASC
@@ -108,7 +94,7 @@ CREATE TABLE [dbo].[ArticleWord](
 	[ArticleWordID] [int] IDENTITY(1,1) NOT NULL,
 	[ArticleID] [int] NOT NULL,
 	[WordID] [int] NOT NULL,
-	[CreateDate] [datetime] NOT NULL DEFAULT getdate()
+	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
  CONSTRAINT [PK_ArticleWord] PRIMARY KEY CLUSTERED 
 (
 	[ArticleWordID] ASC
@@ -122,7 +108,7 @@ CREATE TABLE [dbo].[Label](
 	LabelName [nvarchar](50) NOT NULL,
 	LanguageID [int] NULL DEFAULT 1,
 	[Description] [nvarchar](4000) NULL,
-	[CreateDate] [datetime] NOT NULL DEFAULT getdate()
+	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
  CONSTRAINT [PK_Label] PRIMARY KEY CLUSTERED 
 (
 	[LabelID] ASC
@@ -135,7 +121,7 @@ CREATE TABLE dbo.[Language](
 	LanguageID [int] IDENTITY(1,1) NOT NULL,
 	[LanguageName] [nvarchar](50) NOT NULL,
 	[Description] [nvarchar](4000) NULL,
-	[CreateDate] [datetime] NOT NULL DEFAULT getdate()
+	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
  CONSTRAINT [PK_Language] PRIMARY KEY CLUSTERED 
 (
 	LanguageID ASC
@@ -149,7 +135,7 @@ CREATE TABLE dbo.[Root](
 	[RootName] [nvarchar](12) NULL,
 	LanguageID [int] NULL DEFAULT 1,
 	[Description] [nvarchar](4000) NULL,
-	[CreateDate] [datetime] NOT NULL DEFAULT getdate()
+	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
  CONSTRAINT [PK_Root] PRIMARY KEY CLUSTERED 
 (
 	[RootID] ASC
@@ -164,13 +150,28 @@ CREATE TABLE [dbo].[Word](
 	LanguageID [int] NULL DEFAULT 1,
 	[RootID] [int] NULL,
 	[Description] [nvarchar](4000) NULL,
-	[CreateDate] [datetime] NOT NULL DEFAULT getdate()
+	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
  CONSTRAINT [PK_Word] PRIMARY KEY CLUSTERED 
 (
 	[WordID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+CREATE TABLE dbo.Component(
+	[ComponentID] [int] IDENTITY(1,1) NOT NULL,
+	[ComponentName] [nvarchar](128) NOT NULL,
+	LanguageID [int] NULL DEFAULT 1,
+	[Description] [nvarchar](4000) NULL,
+	IsPrefix bit  NOT NULL DEFAULT 0,
+	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
+ CONSTRAINT [PK_Component] PRIMARY KEY CLUSTERED 
+(
+	[ComponentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
 
 -- Create foreign keys..
 ALTER TABLE dbo.ArticleLabel  WITH CHECK ADD  CONSTRAINT [FK_ArticleLabel_Article] FOREIGN KEY([ArticleID])
@@ -221,6 +222,12 @@ ALTER TABLE [dbo].[Word]  WITH CHECK ADD  CONSTRAINT [FK_Word_Root] FOREIGN KEY(
 REFERENCES [dbo].[Root] ([RootID])
 GO
 ALTER TABLE [dbo].[Word] CHECK CONSTRAINT [FK_Word_Root]
+GO
+
+ALTER TABLE [dbo].[Component]  WITH CHECK ADD  CONSTRAINT [FK_Component_Language] FOREIGN KEY(LanguageID)
+REFERENCES [dbo].[Language] (LanguageID)
+GO
+ALTER TABLE [dbo].[Component] CHECK CONSTRAINT [FK_Component_Language]
 GO
 
 -- stored procedures
