@@ -2,29 +2,29 @@
 -- C:\Users\vroyt\Documents\SQL Server Management Studio\ViakViakSchema.sql
 
 -- Drop foreign keys..
-IF OBJECTPROPERTY(OBJECT_ID('[FK_ArticleLabel_Label]'), 'IsConstraint') = 1
-	ALTER TABLE dbo.ArticleLabel DROP CONSTRAINT [FK_ArticleLabel_Label]
+IF OBJECTPROPERTY(OBJECT_ID('FK_ArticleLabel_Label'), 'IsConstraint') = 1
+	ALTER TABLE dbo.ArticleLabel DROP CONSTRAINT FK_ArticleLabel_Label
 GO
-IF OBJECTPROPERTY(OBJECT_ID('[FK_ArticleLabel_Article]'), 'IsConstraint') = 1
-	ALTER TABLE dbo.ArticleLabel DROP CONSTRAINT [FK_ArticleLabel_Article]
+IF OBJECTPROPERTY(OBJECT_ID('FK_ArticleLabel_Article'), 'IsConstraint') = 1
+	ALTER TABLE dbo.ArticleLabel DROP CONSTRAINT FK_ArticleLabel_Article
 GO
-IF OBJECTPROPERTY(OBJECT_ID('[FK_ArticleWord_Word]'), 'IsConstraint') = 1
-	ALTER TABLE [dbo].[ArticleWord] DROP CONSTRAINT [FK_ArticleWord_Word]
+IF OBJECTPROPERTY(OBJECT_ID('FK_ArticleWord_Word'), 'IsConstraint') = 1
+	ALTER TABLE dbo.ArticleWord DROP CONSTRAINT FK_ArticleWord_Word
 GO
-IF OBJECTPROPERTY(OBJECT_ID('[FK_ArticleWord_Article]'), 'IsConstraint') = 1
-	ALTER TABLE [dbo].[ArticleWord] DROP CONSTRAINT [FK_ArticleWord_Article]
+IF OBJECTPROPERTY(OBJECT_ID('FK_ArticleWord_Article'), 'IsConstraint') = 1
+	ALTER TABLE dbo.ArticleWord DROP CONSTRAINT FK_ArticleWord_Article
 GO
-IF OBJECTPROPERTY(OBJECT_ID('[FK_Root_Language]'), 'IsConstraint') = 1
-	ALTER TABLE dbo.[Root] DROP CONSTRAINT [FK_Root_Language]
+IF OBJECTPROPERTY(OBJECT_ID('FK_Root_Language'), 'IsConstraint') = 1
+	ALTER TABLE dbo.Root DROP CONSTRAINT FK_Root_Language
 GO
-IF OBJECTPROPERTY(OBJECT_ID('[FK_Word_Root]'), 'IsConstraint') = 1
-	ALTER TABLE [dbo].[Word] DROP CONSTRAINT [FK_Word_Root]
+IF OBJECTPROPERTY(OBJECT_ID('FK_Word_Root'), 'IsConstraint') = 1
+	ALTER TABLE dbo.Word DROP CONSTRAINT FK_Word_Root
 GO
-IF OBJECTPROPERTY(OBJECT_ID('[FK_Word_Language]'), 'IsConstraint') = 1
-	ALTER TABLE [dbo].[Word] DROP CONSTRAINT [FK_Word_Language]
+IF OBJECTPROPERTY(OBJECT_ID('FK_Word_Language'), 'IsConstraint') = 1
+	ALTER TABLE dbo.Word DROP CONSTRAINT FK_Word_Language
 GO
-IF OBJECTPROPERTY(OBJECT_ID('[FK_Component_Language]'), 'IsConstraint') = 1
-	ALTER TABLE [dbo].Component DROP CONSTRAINT [FK_Component_Language]
+IF OBJECTPROPERTY(OBJECT_ID('FK_Component_Language'), 'IsConstraint') = 1
+	ALTER TABLE dbo.Component DROP CONSTRAINT FK_Component_Language
 GO
 
 -- Drop tables..
@@ -35,22 +35,22 @@ IF OBJECT_ID(N'dbo.ArticleLabel', N'U') IS NOT NULL
 	DROP TABLE dbo.ArticleLabel
 GO
 IF OBJECT_ID(N'dbo.Article', N'U') IS NOT NULL
-	DROP TABLE dbo.[Root]
+	DROP TABLE dbo.Root
 GO
 IF OBJECT_ID(N'dbo.ArticleWord', N'U') IS NOT NULL
-	DROP TABLE [dbo].[ArticleWord]
+	DROP TABLE dbo.ArticleWord
 GO
 IF OBJECT_ID(N'dbo.Label', N'U') IS NOT NULL
-	DROP TABLE [dbo].[Label]
+	DROP TABLE dbo.Label
 GO
 IF OBJECT_ID(N'dbo.Language', N'U') IS NOT NULL
-	DROP TABLE dbo.[Language]
+	DROP TABLE dbo.Language
 GO
 IF OBJECT_ID(N'dbo.Root', N'U') IS NOT NULL
-	DROP TABLE [dbo].[Root]
+	DROP TABLE dbo.Root
 GO
 IF OBJECT_ID(N'dbo.Word', N'U') IS NOT NULL
-	DROP TABLE [dbo].[Word]
+	DROP TABLE dbo.Word
 GO
 IF OBJECT_ID(N'dbo.Component', N'U') IS NOT NULL
 	DROP TABLE dbo.Component
@@ -58,176 +58,176 @@ GO
 
 -- Drop stored procedures..
 IF OBJECT_ID('spAddArticle', 'P') IS NOT NULL
-	DROP PROCEDURE [dbo].[spAddArticle]	
+	DROP PROCEDURE dbo.spAddArticle	
 GO
 
 -- Create tables..
 /****** Object:  Table dbo.Article    Script Date: 9/5/2016 6:20:20 PM ******/
 CREATE TABLE dbo.Article(
-	[ArticleID] [int] IDENTITY(1,1) NOT NULL,
-	LiveJournalID [int] NULL,
-	Title [nvarchar](256) NULL,
-	Content [nvarchar](max) NULL,
-	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
- CONSTRAINT [PK_Article] PRIMARY KEY CLUSTERED 
+	ArticleID int IDENTITY(1,1) NOT NULL,
+	LiveJournalID int NULL,
+	Title nvarchar(256) NULL,
+	Content nvarchar(max) NULL,
+	CreateOn datetime NOT NULL DEFAULT getdate()
+ CONSTRAINT PK_Article PRIMARY KEY CLUSTERED 
 (
-	[ArticleID] ASC
+	ArticleID ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 
 /****** Object:  Table dbo.ArticleLabel    Script Date: 9/5/2016 7:03:55 PM ******/
 CREATE TABLE dbo.ArticleLabel(
-	[ArticleLabelID] [int] IDENTITY(1,1) NOT NULL,
-	[ArticleID] [int] NOT NULL,
-	[LabelID] [int] NOT NULL,
-	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
- CONSTRAINT [PK_ArticleLabel] PRIMARY KEY CLUSTERED 
+	ArticleLabelID int IDENTITY(1,1) NOT NULL,
+	ArticleID int NOT NULL,
+	LabelID int NOT NULL,
+	CreateOn datetime NOT NULL DEFAULT getdate()
+ CONSTRAINT PK_ArticleLabel PRIMARY KEY CLUSTERED 
 (
-	[ArticleLabelID] ASC
+	ArticleLabelID ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[ArticleWord]    Script Date: 9/5/2016 7:09:18 PM ******/
-CREATE TABLE [dbo].[ArticleWord](
-	[ArticleWordID] [int] IDENTITY(1,1) NOT NULL,
-	[ArticleID] [int] NOT NULL,
-	[WordID] [int] NOT NULL,
-	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
- CONSTRAINT [PK_ArticleWord] PRIMARY KEY CLUSTERED 
+/****** Object:  Table dbo.ArticleWord    Script Date: 9/5/2016 7:09:18 PM ******/
+CREATE TABLE dbo.ArticleWord(
+	ArticleWordID int IDENTITY(1,1) NOT NULL,
+	ArticleID int NOT NULL,
+	WordID int NOT NULL,
+	CreateOn datetime NOT NULL DEFAULT getdate()
+ CONSTRAINT PK_ArticleWord PRIMARY KEY CLUSTERED 
 (
-	[ArticleWordID] ASC
+	ArticleWordID ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Label]    Script Date: 9/5/2016 7:12:58 PM ******/
-CREATE TABLE [dbo].[Label](
-	[LabelID] [int] IDENTITY(1,1) NOT NULL,
-	LabelName [nvarchar](50) NOT NULL,
-	LanguageID [int] NULL DEFAULT 1,
-	[Description] [nvarchar](4000) NULL,
-	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
- CONSTRAINT [PK_Label] PRIMARY KEY CLUSTERED 
+/****** Object:  Table dbo.Label    Script Date: 9/5/2016 7:12:58 PM ******/
+CREATE TABLE dbo.Label(
+	LabelID int IDENTITY(1,1) NOT NULL,
+	LabelName nvarchar(50) NOT NULL,
+	LanguageID int NULL DEFAULT 1,
+	Description nvarchar(4000) NULL,
+	CreateOn datetime NOT NULL DEFAULT getdate()
+ CONSTRAINT PK_Label PRIMARY KEY CLUSTERED 
 (
-	[LabelID] ASC
+	LabelID ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table dbo.[Language]    Script Date: 9/5/2016 6:51:52 PM ******/
-CREATE TABLE dbo.[Language](
-	LanguageID [int] IDENTITY(1,1) NOT NULL,
-	[LanguageName] [nvarchar](50) NOT NULL,
-	[Description] [nvarchar](4000) NULL,
-	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
- CONSTRAINT [PK_Language] PRIMARY KEY CLUSTERED 
+/****** Object:  Table dbo.Language    Script Date: 9/5/2016 6:51:52 PM ******/
+CREATE TABLE dbo.Language(
+	LanguageID int IDENTITY(1,1) NOT NULL,
+	LanguageName nvarchar(50) NOT NULL,
+	Description nvarchar(4000) NULL,
+	CreateOn datetime NOT NULL DEFAULT getdate()
+ CONSTRAINT PK_Language PRIMARY KEY CLUSTERED 
 (
 	LanguageID ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table dbo.[Root]    Script Date: 9/5/2016 6:53:21 PM ******/
-CREATE TABLE dbo.[Root](
-	[RootID] [int] IDENTITY(1,1) NOT NULL,
-	[RootName] [nvarchar](12) NULL,
-	LanguageID [int] NULL DEFAULT 1,
-	[Description] [nvarchar](4000) NULL,
-	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
- CONSTRAINT [PK_Root] PRIMARY KEY CLUSTERED 
+/****** Object:  Table dbo.Root    Script Date: 9/5/2016 6:53:21 PM ******/
+CREATE TABLE dbo.Root(
+	RootID int IDENTITY(1,1) NOT NULL,
+	RootName nvarchar(12) NULL,
+	LanguageID int NULL DEFAULT 1,
+	Description nvarchar(4000) NULL,
+	CreateOn datetime NOT NULL DEFAULT getdate()
+ CONSTRAINT PK_Root PRIMARY KEY CLUSTERED 
 (
-	[RootID] ASC
+	RootID ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Word]    Script Date: 9/5/2016 7:14:14 PM ******/
-CREATE TABLE [dbo].[Word](
-	[WordID] [int] IDENTITY(1,1) NOT NULL,
-	[WordName] [nvarchar](128) NOT NULL,
-	LanguageID [int] NULL DEFAULT 1,
-	[RootID] [int] NULL,
-	[Description] [nvarchar](4000) NULL,
-	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
- CONSTRAINT [PK_Word] PRIMARY KEY CLUSTERED 
+/****** Object:  Table dbo.Word    Script Date: 9/5/2016 7:14:14 PM ******/
+CREATE TABLE dbo.Word(
+	WordID int IDENTITY(1,1) NOT NULL,
+	WordName nvarchar(128) NOT NULL,
+	LanguageID int NULL DEFAULT 1,
+	RootID int NULL,
+	Description nvarchar(4000) NULL,
+	CreateOn datetime NOT NULL DEFAULT getdate()
+ CONSTRAINT PK_Word PRIMARY KEY CLUSTERED 
 (
-	[WordID] ASC
+	WordID ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
 CREATE TABLE dbo.Component(
-	[ComponentID] [int] IDENTITY(1,1) NOT NULL,
-	[ComponentName] [nvarchar](128) NOT NULL,
-	LanguageID [int] NULL DEFAULT 1,
-	[Description] [nvarchar](4000) NULL,
+	ComponentID int IDENTITY(1,1) NOT NULL,
+	ComponentName nvarchar(128) NOT NULL,
+	LanguageID int NULL DEFAULT 1,
+	Description nvarchar(4000) NULL,
 	IsPrefix bit  NOT NULL DEFAULT 0,
-	[CreateOn] [datetime] NOT NULL DEFAULT getdate()
- CONSTRAINT [PK_Component] PRIMARY KEY CLUSTERED 
+	CreateOn datetime NOT NULL DEFAULT getdate()
+ CONSTRAINT PK_Component PRIMARY KEY CLUSTERED 
 (
-	[ComponentID] ASC
+	ComponentID ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
 
 -- Create foreign keys..
-ALTER TABLE dbo.ArticleLabel  WITH CHECK ADD  CONSTRAINT [FK_ArticleLabel_Article] FOREIGN KEY([ArticleID])
-REFERENCES [dbo].[Article] ([ArticleID])
+ALTER TABLE dbo.ArticleLabel  WITH CHECK ADD  CONSTRAINT FK_ArticleLabel_Article FOREIGN KEY(ArticleID)
+REFERENCES dbo.Article (ArticleID)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 GO
-ALTER TABLE dbo.ArticleLabel CHECK CONSTRAINT [FK_ArticleLabel_Article]
+ALTER TABLE dbo.ArticleLabel CHECK CONSTRAINT FK_ArticleLabel_Article
 GO
 
-ALTER TABLE dbo.ArticleLabel  WITH CHECK ADD  CONSTRAINT [FK_ArticleLabel_Label] FOREIGN KEY([LabelID])
-REFERENCES [dbo].[Label] ([LabelID])
+ALTER TABLE dbo.ArticleLabel  WITH CHECK ADD  CONSTRAINT FK_ArticleLabel_Label FOREIGN KEY(LabelID)
+REFERENCES dbo.Label (LabelID)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 GO
-ALTER TABLE dbo.ArticleLabel CHECK CONSTRAINT [FK_ArticleLabel_Label]
+ALTER TABLE dbo.ArticleLabel CHECK CONSTRAINT FK_ArticleLabel_Label
 GO
 
-ALTER TABLE [dbo].[ArticleWord]  WITH CHECK ADD  CONSTRAINT [FK_ArticleWord_Article] FOREIGN KEY([ArticleID])
-REFERENCES [dbo].[Article] ([ArticleID])
+ALTER TABLE dbo.ArticleWord  WITH CHECK ADD  CONSTRAINT FK_ArticleWord_Article FOREIGN KEY(ArticleID)
+REFERENCES dbo.Article (ArticleID)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 GO
-ALTER TABLE [dbo].[ArticleWord] CHECK CONSTRAINT [FK_ArticleWord_Article]
+ALTER TABLE dbo.ArticleWord CHECK CONSTRAINT FK_ArticleWord_Article
 GO
 
-ALTER TABLE [dbo].[ArticleWord]  WITH CHECK ADD  CONSTRAINT [FK_ArticleWord_Word] FOREIGN KEY([WordID])
-REFERENCES [dbo].[Word] ([WordID])
+ALTER TABLE dbo.ArticleWord  WITH CHECK ADD  CONSTRAINT FK_ArticleWord_Word FOREIGN KEY(WordID)
+REFERENCES dbo.Word (WordID)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 GO
-ALTER TABLE [dbo].[ArticleWord] CHECK CONSTRAINT [FK_ArticleWord_Word]
+ALTER TABLE dbo.ArticleWord CHECK CONSTRAINT FK_ArticleWord_Word
 GO
 
-ALTER TABLE dbo.[Root]  WITH CHECK ADD  CONSTRAINT [FK_Root_Language] FOREIGN KEY(LanguageID)
-REFERENCES [dbo].[Language] (LanguageID)
+ALTER TABLE dbo.Root  WITH CHECK ADD  CONSTRAINT FK_Root_Language FOREIGN KEY(LanguageID)
+REFERENCES dbo.Language (LanguageID)
 GO
-ALTER TABLE dbo.[Root] CHECK CONSTRAINT [FK_Root_Language]
-GO
-
-ALTER TABLE [dbo].[Word]  WITH CHECK ADD  CONSTRAINT [FK_Word_Language] FOREIGN KEY(LanguageID)
-REFERENCES [dbo].[Language] (LanguageID)
-GO
-ALTER TABLE [dbo].[Word] CHECK CONSTRAINT [FK_Word_Language]
+ALTER TABLE dbo.Root CHECK CONSTRAINT FK_Root_Language
 GO
 
-ALTER TABLE [dbo].[Word]  WITH CHECK ADD  CONSTRAINT [FK_Word_Root] FOREIGN KEY([RootID])
-REFERENCES [dbo].[Root] ([RootID])
+ALTER TABLE dbo.Word  WITH CHECK ADD  CONSTRAINT FK_Word_Language FOREIGN KEY(LanguageID)
+REFERENCES dbo.Language (LanguageID)
 GO
-ALTER TABLE [dbo].[Word] CHECK CONSTRAINT [FK_Word_Root]
+ALTER TABLE dbo.Word CHECK CONSTRAINT FK_Word_Language
 GO
 
-ALTER TABLE [dbo].[Component]  WITH CHECK ADD  CONSTRAINT [FK_Component_Language] FOREIGN KEY(LanguageID)
-REFERENCES [dbo].[Language] (LanguageID)
+ALTER TABLE dbo.Word  WITH CHECK ADD  CONSTRAINT FK_Word_Root FOREIGN KEY(RootID)
+REFERENCES dbo.Root (RootID)
 GO
-ALTER TABLE [dbo].[Component] CHECK CONSTRAINT [FK_Component_Language]
+ALTER TABLE dbo.Word CHECK CONSTRAINT FK_Word_Root
+GO
+
+ALTER TABLE dbo.Component  WITH CHECK ADD  CONSTRAINT FK_Component_Language FOREIGN KEY(LanguageID)
+REFERENCES dbo.Language (LanguageID)
+GO
+ALTER TABLE dbo.Component CHECK CONSTRAINT FK_Component_Language
 GO
 
 -- stored procedures
@@ -286,214 +286,56 @@ end
 GO
 
 -- data..
-INSERT INTO dbo.[Language](LanguageName, [Description]) VALUES (N'Russian', NULL); -- 1
-INSERT INTO dbo.[Language](LanguageName, [Description]) VALUES (N'English', NULL); -- 2
+INSERT INTO dbo.Language(LanguageName, Description) VALUES (N'Russian', NULL); -- 1
+INSERT INTO dbo.Language(LanguageName, Description) VALUES (N'English', NULL); -- 2
 
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'english', 2, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'livejournal', 2, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'usa', 2, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'welcome', 2, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'Англия', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'бог', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'Вашкевич', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'Венеция', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'время', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'вяк', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'геральдика', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'государство', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'деньги', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'долг', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'дом', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'еда', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'закон', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'имя', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'Изобретение', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'история', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'книга', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'компания', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'компонента', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'материя', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'мера', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'мнение', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'музыка', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'общество', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'оружие', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'перевод', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'переход', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'программа', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'свобода', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'символ', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'слова', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'смерть', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'спорт', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'тело', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'технология', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'титул', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'торговля', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'шутка', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'эзотерика', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'экономика', 1, NULL);
-INSERT INTO dbo.[Label](LabelName, LanguageID, [Description]) VALUES (N'этнос', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'english', 2, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'livejournal', 2, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'usa', 2, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'welcome', 2, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'Англия', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'бог', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'Вашкевич', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'Венеция', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'время', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'вяк', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'геральдика', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'государство', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'деньги', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'долг', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'дом', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'еда', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'закон', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'имя', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'Изобретение', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'история', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'книга', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'компания', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'компонента', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'материя', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'мера', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'мнение', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'музыка', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'общество', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'оружие', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'перевод', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'переход', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'программа', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'свобода', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'символ', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'слова', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'смерть', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'спорт', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'тело', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'технология', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'титул', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'торговля', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'шутка', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'эзотерика', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'экономика', 1, NULL);
+INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'этнос', 1, NULL);
 
 -- <lj-cut>
--- INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (, N'');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (41271, N'Что в имени твоем: Трамп');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (40970, N'Что в имени твоем: Волга');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (40952, N'Self-Interest and Ignorance');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (40640, N'Что в имени твоем: Цуцик');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (40280, N'Что в имени твоем: Двигать');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (39939, N'Что в имени твоем: Плюс');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (39863, N'Прямой перевод: Advise - Direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (39647, N'Переход Р - Л');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (39200, N'Что в имени твоем: Свет');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (39064, N'Что в имени твоем: Пешка');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (38894, N'Что в имени твоем: Пехота');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (38489, N'Что в имени твоем: Путин');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (38363, N'Что в имени твоем: Челси');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (37986, N'Переход Г - Ж');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (37656, N'Прямой перевод: Grill - direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (37588, N'Вымышленный "Братан" Алексея Николаевича Толстого');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (37275, N'Переход Д - Ж');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (36922, N'Что в имени твоем: Дорога');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (36629, N'Переход Г - Р (грассирование)');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (36515, N'Прямой перевод: Water - direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (36138, N'Что в имени твоем: Суворов');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (35913, N'Что в имени твоем: Шалава');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (35667, N'Что в имени твоем: Шмокодявка');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (35512, N'Прямой перевод: Severe Weather - direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34907, N'Что в имени твоем: Бетон');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34907, N'Что в имени твоем: Пирог');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34642, N'Переход: С - Ш (шепелявость)');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34476, N'Переход: Т - Ф');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (34092, N'Что в имени твоем: Раз, два, три, четыре, пять, шесть, семь, восемь, девять, десять');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (33794, N'Что в имени твоем: Буратино');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (33634, N'Переход "звонкий-глухой"');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (33360, N'Переход Г - Х');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (33253, N'Что в имени твоем: Курок');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (32945, N'Что в имени твоем: Колобок');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (32662, N'Что в имени твоем: Сковорода');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (32311, N'Что в имени твоем: Музыка');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (32225, N'What is in the name: Commerce - что в имени твоем');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (31981, N'What is in the name: Vagina - что в имени твоем');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (31712, N'Что в имени твоем: Свастика');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (31341, N'What is in the name: Evening - что в имени твоем');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (31060, N'What is in the name: Chocolate. Шоколад - что в имени твоем?');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (30779, N'Прямой перевод: ...bourg - Direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (30472, N'Прямой перевод: Teacher - Direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (30351, N'Прямой перевод: Domestic - Direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (30099, N'Что в имени твоем: Час');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (29842, N'Что в имени твоем: Рана');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (29617, N'Прямой перевод: Preach - Direct Translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (29208, N'Переход: Ч - К');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (29146, N'Прямой перевод: Path - Direct Translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (28792, N'Прямой перевод: Pain - Direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (28551, N'Прямой перeвод: Fellow - Direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (28236, N'Прямой перевод: Bagel - direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (28015, N'Прямой перевод: Given - Direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (27831, N'Прямой перевод: Hotel - direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (27526, N'Что в имени твоем: Времена года');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (27188, N'Что в имени твоем: Зима');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (26993, N'Что в имени твоем: Совет');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (26844, N'Прямой перевод: Tired - direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (26397, N'Что в имени твоем: София');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (26247, N'Что в имени твоем: Омар Хайам');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25986, N'Что в имени твоем: Бог');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25640, N'Что бы это значило: игра Футбол');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25435, N'Что в имени твоем: Пчела');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25093, N'Что в имени твоем: Червонный');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (25067, N'Прямой перевод: Tennis - Direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24622, N'Прямой перевод: Volume - Direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24427, N'Brexit');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24284, N'Что в имени твоем: Неделя');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (24060, N'Прямой перевод: Шабат (суббота)');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (23609, N'Палиндром: Йохан...');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (23421, N'Прямой перевод: Cross - Direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (23071, N'Прямой перевод Spark - Direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (22974, N'Прямой перевод: Love - Direct Translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (22632, N'Прямой перевод: Knowledge - Direct Translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (22501, N'О незаметной пропаганде бестианства. About quiet bestuality propaganda.');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (21973, N'Испанский скульптор, который владеет искусством мять камни');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (21395, N'Прямой перевод: Cattle');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (21101, N'Чтобы это значило: Учеба');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (20807, N'What is in the name: Don''t tread on me!');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (20627, N'Прямой перевод: Cost (затраты, расходы)');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (20390, N'Прямой перевод: Smart (Умный)');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (19999, N'Прямой перевод: Patent (Патент)');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (19758, N'Что в имени твоем: цвета (colors)');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (19706, N'Прямой перевод: Profit (выгода)');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (19264, N'Прямой перевод: Revenue');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (18993, N'Что в имени твоем: Глаз');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (18821, N'Прямой перевод: Court	');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (18520, N'Прямой перевод: Quarters (Квартира)');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (18274, N'Что в имени твоем: Knight');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (17957, N'Что в имени твоем: Birth (рождение)');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (17884, N'Что в имени твоем: Рыцарь');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (17527, N'Прямой перевод: Sovereign');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (17282, N'Модель данных для chispa1707');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (17149, N'Модель данных для chispa1707');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (16646, N'Прямой перевод: Book');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (16618, N'Свобода человека. Источник и предназначение.');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (16161, N'Что в имени твоем: Персона');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (15943, N'Что в имени твоем: Иберия, Европа');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (15747, N'Мои словокопания: Цель, Метод и Ограничения.');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (15463, N'Прямой перевод: Alert');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (15207, N'Прямой перевод: Rent');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (14782, N'Что в имени твоем: Держава');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (14410, N'Прямой перевод: Exit');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (14254, N'Что в имени твоем: Столица');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (13982, N'Что в имени твоем: Карл Маркс, Фридрих Энгельс, Владимир Ленин');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (13811, N'Что в имени твоем: Бердыш');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (13513, N'Что в имени твоем: Книга');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (13147, N'Что в имени твоем: Князь');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (12976, N'Что в имени твоем: Яхве, Иегова');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (12662, N'Прямой перевод: Silver - Direct translation');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (12290, N'System Admin');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (11820, N'Что в имени твоем: Великий');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (11544, N'Что в имени твоем: Единорог');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (11518, N'Символ Единорога в истории');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (11024, N'Что в имени твоем: Аллах');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (10847, N'Что в имени твоем: Закон');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (10602, N'Что в имени твоем: Грифон');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (10325, N'Что в имени твоем: Ходжа Нассреддин');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (10052, N'Что в имени твоем: Царь');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (9953, N'Сарацины. Этимология');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (9497, N'Что в имени твоем: Государство');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (9423, N'Что в имени твоем: Зомби');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (9103, N'Что в имени твоем? Cotton (хлопок)');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (8744, N'Что в имени твоем: Золотой Телец.');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (8418, N'Что в имени твоем: Масса');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (8020, N'Что в имени твоем: Барак Обама');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (7709, N'Проект Самуила Кругляка «Получение электроэнергии из атмосферы»');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (7468, N'Hardware. Что в имени?');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (7192, N'Software. Что в имени?');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (7077, N'Этому ученому удалось разгадать тайну, которую скрывают картины эпохи Возрождения');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (6866, N'Слово: Этруски');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (6579, N'Этруски — изгнанники');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (6257, N'Переговоры о разделе б/Украины: накал противостояния');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (6059, N'Понтовое ружье (The punt gun)');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (5751, N'Об этимологии слова Болван');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (5574, N'Книга: Грэм Лоури. Как Венецианский вирус инфицировал и победил Англию');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (5147, N'Кому принадлежит земля в Англии?');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (4890, N'Книга: Дэвид Гребер. Долг: первые 5000 лет истории');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (4769, N'Немножко про ОЛЬДЕНБУРГОВ, для справки...');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (4423, N'Греческий язык - это Русский!');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (4131, N'Человеческий мир');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (4070, N'Книга: С. Г. КОРДОНСКИЙ. Сословная структура постсоветской России.');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (3799, N'Мир до волны. Ч. 1. Родные Пенаты.');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (3490, N'Биобетон');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (3208, N'Как погибла Тартария? Часть 1.');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (2940, N'Развалины античной Америки');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (2740, N'post');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (2508, N'Повинность');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (2143, N'Йер');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (2029, N'Люцифер. Что в имени?');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (1718, N'Программирование как контракт с дьяволом');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (1499, N'Звездный след катастрофы.');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (1249, N'Стамбик ПОДСЫПАЛИ. А что заставило его ПОДСЫПАТЬ ?');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (800, N'Николай Николаевич Вашкевич');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (765, N'Вяк, вяк');
---INSERT INTO dbo.Article(LiveJournalID, Title) VALUES (369, N'Добро пожаловать в LiveJournal');
---GO
 
 /*
 <a href="http://viakviak.livejournal.com/.html" target="_blank"></a>
