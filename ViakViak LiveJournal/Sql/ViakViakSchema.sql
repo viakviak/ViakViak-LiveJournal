@@ -14,8 +14,14 @@ GO
 IF OBJECTPROPERTY(OBJECT_ID('FK_ArticleWord_Article'), 'IsConstraint') = 1
 	ALTER TABLE dbo.ArticleWord DROP CONSTRAINT FK_ArticleWord_Article
 GO
+IF OBJECTPROPERTY(OBJECT_ID('FK_ComponentWord_Component'), 'IsConstraint') = 1
+	ALTER TABLE dbo.ComponentWord DROP CONSTRAINT FK_ComponentWord_Component
+GO
+IF OBJECTPROPERTY(OBJECT_ID('FK_ComponentWord_Word'), 'IsConstraint') = 1
+	ALTER TABLE dbo.ComponentWord DROP CONSTRAINT FK_ComponentWord_Word
+GO
 IF OBJECTPROPERTY(OBJECT_ID('FK_Root_Language'), 'IsConstraint') = 1
-	ALTER TABLE dbo.Root DROP CONSTRAINT FK_Root_Language
+	ALTER TABLE dbo.[Root] DROP CONSTRAINT FK_Root_Language
 GO
 IF OBJECTPROPERTY(OBJECT_ID('FK_Word_Root'), 'IsConstraint') = 1
 	ALTER TABLE dbo.Word DROP CONSTRAINT FK_Word_Root
@@ -35,7 +41,7 @@ IF OBJECT_ID(N'dbo.ArticleLabel', N'U') IS NOT NULL
 	DROP TABLE dbo.ArticleLabel
 GO
 IF OBJECT_ID(N'dbo.Article', N'U') IS NOT NULL
-	DROP TABLE dbo.Root
+	DROP TABLE dbo.[Root]
 GO
 IF OBJECT_ID(N'dbo.ArticleWord', N'U') IS NOT NULL
 	DROP TABLE dbo.ArticleWord
@@ -43,17 +49,20 @@ GO
 IF OBJECT_ID(N'dbo.Label', N'U') IS NOT NULL
 	DROP TABLE dbo.Label
 GO
-IF OBJECT_ID(N'dbo.Language', N'U') IS NOT NULL
-	DROP TABLE dbo.Language
+IF OBJECT_ID(N'dbo.[Language]', N'U') IS NOT NULL
+	DROP TABLE dbo.[Language]
 GO
-IF OBJECT_ID(N'dbo.Root', N'U') IS NOT NULL
-	DROP TABLE dbo.Root
+IF OBJECT_ID(N'dbo.[Root]', N'U') IS NOT NULL
+	DROP TABLE dbo.[Root]
 GO
 IF OBJECT_ID(N'dbo.Word', N'U') IS NOT NULL
 	DROP TABLE dbo.Word
 GO
 IF OBJECT_ID(N'dbo.Component', N'U') IS NOT NULL
 	DROP TABLE dbo.Component
+GO
+IF OBJECT_ID(N'dbo.ComponentWord', N'U') IS NOT NULL
+	DROP TABLE dbo.ComponentWord
 GO
 
 -- Drop stored procedures..
@@ -62,7 +71,6 @@ IF OBJECT_ID('spAddArticle', 'P') IS NOT NULL
 GO
 
 -- Create tables..
-/****** Object:  Table dbo.Article    Script Date: 9/5/2016 6:20:20 PM ******/
 CREATE TABLE dbo.Article(
 	ArticleID int IDENTITY(1,1) NOT NULL,
 	LiveJournalID int NULL,
@@ -76,7 +84,6 @@ CREATE TABLE dbo.Article(
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 
-/****** Object:  Table dbo.ArticleLabel    Script Date: 9/5/2016 7:03:55 PM ******/
 CREATE TABLE dbo.ArticleLabel(
 	ArticleLabelID int IDENTITY(1,1) NOT NULL,
 	ArticleID int NOT NULL,
@@ -89,7 +96,6 @@ CREATE TABLE dbo.ArticleLabel(
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table dbo.ArticleWord    Script Date: 9/5/2016 7:09:18 PM ******/
 CREATE TABLE dbo.ArticleWord(
 	ArticleWordID int IDENTITY(1,1) NOT NULL,
 	ArticleID int NOT NULL,
@@ -102,12 +108,11 @@ CREATE TABLE dbo.ArticleWord(
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table dbo.Label    Script Date: 9/5/2016 7:12:58 PM ******/
 CREATE TABLE dbo.Label(
 	LabelID int IDENTITY(1,1) NOT NULL,
 	LabelName nvarchar(50) NOT NULL,
 	LanguageID int NULL DEFAULT 1,
-	Description nvarchar(4000) NULL,
+	[Description] nvarchar(4000) NULL,
 	CreateOn datetime NOT NULL DEFAULT getdate()
  CONSTRAINT PK_Label PRIMARY KEY CLUSTERED 
 (
@@ -116,11 +121,10 @@ CREATE TABLE dbo.Label(
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table dbo.Language    Script Date: 9/5/2016 6:51:52 PM ******/
-CREATE TABLE dbo.Language(
+CREATE TABLE dbo.[Language](
 	LanguageID int IDENTITY(1,1) NOT NULL,
 	LanguageName nvarchar(50) NOT NULL,
-	Description nvarchar(4000) NULL,
+	[Description] nvarchar(4000) NULL,
 	CreateOn datetime NOT NULL DEFAULT getdate()
  CONSTRAINT PK_Language PRIMARY KEY CLUSTERED 
 (
@@ -129,12 +133,11 @@ CREATE TABLE dbo.Language(
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table dbo.Root    Script Date: 9/5/2016 6:53:21 PM ******/
-CREATE TABLE dbo.Root(
+CREATE TABLE dbo.[Root](
 	RootID int IDENTITY(1,1) NOT NULL,
 	RootName nvarchar(12) NULL,
 	LanguageID int NULL DEFAULT 1,
-	Description nvarchar(4000) NULL,
+	[Description] nvarchar(4000) NULL,
 	CreateOn datetime NOT NULL DEFAULT getdate()
  CONSTRAINT PK_Root PRIMARY KEY CLUSTERED 
 (
@@ -143,13 +146,13 @@ CREATE TABLE dbo.Root(
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table dbo.Word    Script Date: 9/5/2016 7:14:14 PM ******/
 CREATE TABLE dbo.Word(
 	WordID int IDENTITY(1,1) NOT NULL,
 	WordName nvarchar(128) NOT NULL,
 	LanguageID int NULL DEFAULT 1,
 	RootID int NULL,
-	Description nvarchar(4000) NULL,
+	IsName bit NOT NULL DEFAULT 0,
+	[Description] nvarchar(4000) NULL,
 	CreateOn datetime NOT NULL DEFAULT getdate()
  CONSTRAINT PK_Word PRIMARY KEY CLUSTERED 
 (
@@ -162,7 +165,7 @@ CREATE TABLE dbo.Component(
 	ComponentID int IDENTITY(1,1) NOT NULL,
 	ComponentName nvarchar(128) NOT NULL,
 	LanguageID int NULL DEFAULT 1,
-	Description nvarchar(4000) NULL,
+	[Description] nvarchar(4000) NULL,
 	IsPrefix bit  NOT NULL DEFAULT 0,
 	CreateOn datetime NOT NULL DEFAULT getdate()
  CONSTRAINT PK_Component PRIMARY KEY CLUSTERED 
@@ -172,6 +175,17 @@ CREATE TABLE dbo.Component(
 ) ON [PRIMARY]
 GO
 
+CREATE TABLE dbo.ComponentWord(
+	ComponentWordID int IDENTITY(1,1) NOT NULL,
+	ComponentID int NOT NULL,
+	WordID int NOT NULL,
+	CreateOn datetime NOT NULL DEFAULT getdate()
+ CONSTRAINT PK_ComponentWord PRIMARY KEY CLUSTERED 
+(
+	ComponentWordID ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
 
 -- Create foreign keys..
 ALTER TABLE dbo.ArticleLabel  WITH CHECK ADD  CONSTRAINT FK_ArticleLabel_Article FOREIGN KEY(ArticleID)
@@ -206,26 +220,42 @@ GO
 ALTER TABLE dbo.ArticleWord CHECK CONSTRAINT FK_ArticleWord_Word
 GO
 
-ALTER TABLE dbo.Root  WITH CHECK ADD  CONSTRAINT FK_Root_Language FOREIGN KEY(LanguageID)
-REFERENCES dbo.Language (LanguageID)
+ALTER TABLE dbo.ComponentWord  WITH CHECK ADD  CONSTRAINT FK_ComponentWord_Component FOREIGN KEY(ComponentID)
+REFERENCES dbo.Component (ComponentID)
+ON UPDATE CASCADE
+ON DELETE CASCADE
 GO
-ALTER TABLE dbo.Root CHECK CONSTRAINT FK_Root_Language
+ALTER TABLE dbo.ComponentWord CHECK CONSTRAINT FK_ComponentWord_Component
+GO
+
+ALTER TABLE dbo.ComponentWord  WITH CHECK ADD  CONSTRAINT FK_ComponentWord_Word FOREIGN KEY(WordID)
+REFERENCES dbo.Word (WordID)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE dbo.ComponentWord CHECK CONSTRAINT FK_ComponentWord_Word
+GO
+
+ALTER TABLE dbo.[Root]  WITH CHECK ADD  CONSTRAINT FK_Root_Language FOREIGN KEY(LanguageID)
+REFERENCES dbo.[Language] (LanguageID)
+GO
+ALTER TABLE dbo.[Root] CHECK CONSTRAINT FK_Root_Language
 GO
 
 ALTER TABLE dbo.Word  WITH CHECK ADD  CONSTRAINT FK_Word_Language FOREIGN KEY(LanguageID)
-REFERENCES dbo.Language (LanguageID)
+REFERENCES dbo.[Language] (LanguageID)
 GO
 ALTER TABLE dbo.Word CHECK CONSTRAINT FK_Word_Language
 GO
 
 ALTER TABLE dbo.Word  WITH CHECK ADD  CONSTRAINT FK_Word_Root FOREIGN KEY(RootID)
-REFERENCES dbo.Root (RootID)
+REFERENCES dbo.[Root] (RootID)
 GO
 ALTER TABLE dbo.Word CHECK CONSTRAINT FK_Word_Root
 GO
 
 ALTER TABLE dbo.Component  WITH CHECK ADD  CONSTRAINT FK_Component_Language FOREIGN KEY(LanguageID)
-REFERENCES dbo.Language (LanguageID)
+REFERENCES dbo.[Language] (LanguageID)
 GO
 ALTER TABLE dbo.Component CHECK CONSTRAINT FK_Component_Language
 GO
@@ -286,8 +316,8 @@ end
 GO
 
 -- data..
-INSERT INTO dbo.Language(LanguageName, Description) VALUES (N'Russian', NULL); -- 1
-INSERT INTO dbo.Language(LanguageName, Description) VALUES (N'English', NULL); -- 2
+INSERT INTO dbo.[Language](LanguageName, Description) VALUES (N'Russian', NULL); -- 1
+INSERT INTO dbo.[Language](LanguageName, Description) VALUES (N'English', NULL); -- 2
 
 INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'english', 2, NULL);
 INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'livejournal', 2, NULL);
