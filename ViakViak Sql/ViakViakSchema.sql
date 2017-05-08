@@ -1,6 +1,4 @@
-﻿-- Important: this file is deprecated. It is migrated to /ViakViak Sql/ViakViakSchema.sql
-
--- ViakViak Schema
+﻿-- ViakViak Schema
 -- C:\Users\vroyt\Documents\SQL Server Management Studio\ViakViakSchema.sql
 
 -- Drop foreign keys..

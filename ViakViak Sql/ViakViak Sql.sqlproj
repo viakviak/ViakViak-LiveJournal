@@ -111,6 +111,7 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\Clr" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Article.sql">
@@ -153,5 +154,14 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="ViakViakSchema.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dbo\Clr\ParseContent.cs" />
   </ItemGroup>
 </Project>
