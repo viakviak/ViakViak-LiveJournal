@@ -1,7 +1,5 @@
-﻿-- Important: this file is deprecated. It is migrated to /ViakViak Sql/ViakViakSchema.sql
-
--- ViakViak Schema
--- C:\Users\vroyt\Documents\SQL Server Management Studio\ViakViakSchema.sql
+﻿-- ViakViak Schema
+-- C:\Users\vroyt\Source\Repos\ViakViak-LiveJournal\ViakViak LiveJournal\Sql\ViakViakSchema.sql
 
 -- Drop foreign keys..
 IF OBJECTPROPERTY(OBJECT_ID('FK_ArticleLabel_Label'), 'IsConstraint') = 1
