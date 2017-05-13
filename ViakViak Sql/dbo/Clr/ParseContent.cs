@@ -20,7 +20,6 @@ public partial class StoredProcedures
         if (String.IsNullOrEmpty(contentText)) return;
 
         contentText = "<content>" + contentText + "</content>";
-        Debug.WriteLine(contentText);
 
         XmlDocument xmlDoc = new XmlDocument();
         try
@@ -39,6 +38,4 @@ public partial class StoredProcedures
             Debug.Write("Error: " + ex.Message + "\n" + ex.StackTrace);
         }
     }
-
-    
 }

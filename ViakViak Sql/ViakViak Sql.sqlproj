@@ -115,6 +115,7 @@
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="dbo\Clr" />
     <Folder Include="dbo\Sql" />
+    <Folder Include="dbo\Utils" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Article.sql">
@@ -165,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dbo\Clr\ParseContent.cs" />
+    <Compile Include="dbo\Utils\ArticleContent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ViakViak Sql.publish.xml" />
