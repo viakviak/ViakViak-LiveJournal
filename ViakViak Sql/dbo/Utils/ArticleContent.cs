@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlTypes;
 using System.Xml;
+using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace ViakViak_Sql
 {
@@ -43,6 +45,24 @@ namespace ViakViak_Sql
         /// <returns></returns>
         public bool Parse()
         {
+            if (_articleID <= 0 || _xmlDoc == null) return false;
+
+            try
+            {
+                using (var conn = new SqlConnection("context connection=true"))
+                {
+                    conn.Open();
+
+                    ProcessWord(conn);
+                    ProcessTranslation(conn);
+                    ProcessSummary(conn);
+                    ProcessRoots(conn);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.Write("Error: " + ex.Message + "\n" + ex.StackTrace);
+            }
             return true;
         }
         #endregion
@@ -64,22 +84,22 @@ namespace ViakViak_Sql
             }
         }
 
-        private bool ProcessWord()
+        private bool ProcessWord(SqlConnection conn)
         {
             return false;
         }
 
-        private bool ProcessTranslation()
+        private bool ProcessTranslation(SqlConnection conn)
         {
             return false;
         }
 
-        private bool ProcessSummary()
+        private bool ProcessSummary(SqlConnection conn)
         {
             return false;
         }
 
-        private bool ProcessRoots()
+        private bool ProcessRoots(SqlConnection conn)
         {
             return false;
         }

@@ -1,10 +1,6 @@
-using System;
-using System.Data;
-using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using Microsoft.SqlServer.Server;
-using System.Diagnostics;
-using System.Xml;
+using System.Data.SqlTypes;
+using ViakViak_Sql;
 
 public partial class StoredProcedures
 {
@@ -16,26 +12,7 @@ public partial class StoredProcedures
     [SqlProcedure]
     public static void ParseContent(int articleID, SqlString content)
     {
-        string contentText = content.Value;
-        if (String.IsNullOrEmpty(contentText)) return;
-
-        contentText = "<content>" + contentText + "</content>";
-
-        XmlDocument xmlDoc = new XmlDocument();
-        try
-        {
-            xmlDoc.LoadXml(contentText);
-
-            using (var conn = new SqlConnection("context connection=true"))
-            {
-                conn.Open();
-                
-                  
-            }
-        }
-        catch(Exception ex)
-        {
-            Debug.Write("Error: " + ex.Message + "\n" + ex.StackTrace);
-        }
+        var ac = new ArticleContent(articleID, content);
+        ac.Parse();
     }
 }
