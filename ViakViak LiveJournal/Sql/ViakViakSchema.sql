@@ -70,6 +70,10 @@ IF OBJECT_ID('spAddArticle', 'P') IS NOT NULL
 	DROP PROCEDURE dbo.spAddArticle	
 GO
 
+IF OBJECT_ID('ParseContent') IS NOT NULL
+	DROP PROCEDURE dbo.ParseContent	
+GO
+
 -- Create tables..
 CREATE TABLE dbo.Article(
 	ArticleID int IDENTITY(1,1) NOT NULL,
@@ -261,6 +265,15 @@ ALTER TABLE dbo.Component CHECK CONSTRAINT FK_Component_Language
 GO
 
 -- stored procedures
+
+CREATE PROCEDURE dbo.ParseContent
+	@articleID [int],
+	@content [nvarchar](max)
+WITH EXECUTE AS CALLER
+AS
+EXTERNAL NAME [ViakViak_Sql].[StoredProcedures].[ParseContent]
+GO
+
 -- =============================================
 -- Author:		ViakViak
 -- Create date: 11/12/2016

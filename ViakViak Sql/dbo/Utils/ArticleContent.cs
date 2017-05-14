@@ -15,6 +15,7 @@ namespace ViakViak_Sql
     {
         #region declarations
         const char LINE_DLM = '\n';
+        const char WORD_DLM = ' ';
         static readonly string[] ROOT_DLM = { " - " };
 
         #endregion
@@ -150,11 +151,41 @@ namespace ViakViak_Sql
 
             foreach(var line in rootContent.Split(LINE_DLM))
             {
-                var rootTokens = line.Split(ROOT_DLM, 2, StringSplitOptions.RemoveEmptyEntries);
-                string rootName = rootTokens[0].Trim();
-                string wordsContent = rootTokens[1].Trim();
+                var rootTokens = line.Split(ROOT_DLM, StringSplitOptions.RemoveEmptyEntries);
+                if (rootTokens.Length < 2) continue;
+
+                int rootLevel = rootTokens.Length - 2;
+                string rootName = rootTokens[rootLevel].Trim();
+                int rootID = SaveRoot(rootName);
+                if (rootID <= 0) continue;
+
+                string wordsContent = rootTokens[rootTokens.Length - 1].Trim();
+                var words = wordsContent.Split(WORD_DLM);
+                SaveRootWord()
             }
             return false;
+        }
+
+        /// <summary>
+        /// Get root id or inserts a new one
+        /// </summary>
+        /// <param name="rootName"></param>
+        /// <returns>int value of Root ID</returns>
+        private int SaveRoot(string rootName)
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// Checks for Root-Word association. If it doesn't exits, inserts a new one
+        /// </summary>
+        /// <param name="rootID">Root ID value</param>
+        /// <param name="wordName">Word</param>
+        /// <param name="languageID">Optional Langiuage ID. If not specified or invalid, then it will be calculated.</param>
+        /// <returns>int value of RootWordID</returns>
+        private int SaveRootName(int rootID, string wordName, int languageID = 0)
+        {
+            return 0;
         }
         #endregion
     }
