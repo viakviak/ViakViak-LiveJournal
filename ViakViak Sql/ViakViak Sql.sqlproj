@@ -158,6 +158,7 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="RootWord.sql" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -173,5 +174,8 @@
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="dbo\Sql\Script.PreDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="ViakViak Sql.refactorlog" />
   </ItemGroup>
 </Project>
