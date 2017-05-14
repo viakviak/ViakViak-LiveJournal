@@ -161,7 +161,7 @@ namespace ViakViak_Sql
 
                 string wordsContent = rootTokens[rootTokens.Length - 1].Trim();
                 var words = wordsContent.Split(WORD_DLM);
-                SaveRootWord()
+                //SaveRootWord()
             }
             return false;
         }
