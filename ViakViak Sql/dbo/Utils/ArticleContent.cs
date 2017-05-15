@@ -159,8 +159,12 @@ namespace ViakViak_Sql
                 if (rootID <= 0) continue;
 
                 string wordsContent = rootTokens[rootTokens.Length - 1].Trim();
-                var words = wordsContent.Split(WORD_DLM);
-                //SaveRootWord()
+                var rootWords = wordsContent.Split(WORD_DLM);
+
+                foreach(string word in rootWords)
+                {
+                    SaveRootWord(rootID, word);
+                }
             }
             return false;
         }
@@ -176,13 +180,14 @@ namespace ViakViak_Sql
         }
 
         /// <summary>
-        /// Checks for Root-Word association. If it doesn't exits, inserts a new one
+        /// Checks for Root-Word association. If word doesn't exits, inserts a new one.
+        /// If word existed, but doesn't have a root reference, it will be updated.
+        /// If different root is already referenced, comment will be updated.
         /// </summary>
         /// <param name="rootID">Root ID value</param>
         /// <param name="wordName">Word</param>
-        /// <param name="languageID">Optional Langiuage ID. If not specified or invalid, then it will be calculated.</param>
         /// <returns>int value of RootWordID</returns>
-        private int SaveRootName(int rootID, string wordName, int languageID = 0)
+        private int SaveRootWord(int rootID, string wordName)
         {
             return 0;
         }
