@@ -156,7 +156,7 @@ namespace ViakViak_Sql
 
                 int rootLevel = rootTokens.Length - 2;
                 string rootName = rootTokens[rootLevel].Trim();
-                int rootID = SaveRoot(rootName);
+                int rootID = SaveComponent(rootName, true);
                 if (rootID <= 0) continue;
 
                 string wordsContent = rootTokens[rootTokens.Length - 1].Trim();
@@ -164,7 +164,7 @@ namespace ViakViak_Sql
 
                 foreach(string word in rootWords)
                 {
-                    SaveRootWord(rootID, word);
+                    SaveComponentWord(rootID, word);
                 }
             }
             return false;
