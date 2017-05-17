@@ -19,6 +19,7 @@ namespace ViakViak_Sql
         static readonly string[] ROOT_DLM = { " - " };
 
         #endregion
+
         #region private variables
         private int _articleID = 0;
         private XmlDocument _xmlDoc = new XmlDocument();
@@ -172,24 +173,60 @@ namespace ViakViak_Sql
         /// <summary>
         /// Get root id or inserts a new one
         /// </summary>
-        /// <param name="rootName"></param>
+        /// <param name="componentName">one or several "/"-delimited component names</param>
+        /// <param name="isRoot">optional flag "is root"</param>
+        /// <param name="isPrefix">optional flag "is prefix"</param>
         /// <returns>int value of Root ID</returns>
-        private int SaveRoot(string rootName)
+        /// <remarks>Component could be a also a root or prefix</remarks>
+        private int SaveComponent(string componentName, bool isRoot = false, bool isPrefix = false)
         {
             return 0;
         }
 
         /// <summary>
-        /// Checks for Root-Word association. If word doesn't exits, inserts a new one.
+        /// Checks for Component-Word association. If word doesn't exits, inserts a new one.
         /// If word existed, but doesn't have a root reference, it will be updated.
         /// If different root is already referenced, comment will be updated.
         /// </summary>
-        /// <param name="rootID">Root ID value</param>
-        /// <param name="wordName">Word</param>
-        /// <returns>int value of RootWordID</returns>
-        private int SaveRootWord(int rootID, string wordName)
+        /// <param name="componentID">Root ID value</param>
+        /// <param name="wordName">Word, which could include following it translation(s) to other languages in parenthesis</param>
+        /// <returns>int value of ComponentWordID</returns>
+        private int SaveComponentWord(int componentID, string wordName)
         {
             return 0;
+        }
+
+        /// <summary>
+        /// Saves language 
+        /// </summary>
+        /// <param name="languageName"></param>
+        /// <returns></returns>
+        private int SaveLanguage(string languageName)
+        {
+            return 0;
+        }
+        #endregion
+
+        #region static public methods
+        /// <summary>
+        /// Check whether the specified text is mostly cyrillic
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static bool IsCyrillic(string text)
+        {
+            int cyrillicCount = 0;
+            int latinCount = 0;
+            foreach(char ch in text)
+            {
+                if (ch <= '9') continue;
+
+                if (ch <= 255)
+                    latinCount++;
+                else
+                    cyrillicCount++;
+            }
+            return cyrillicCount > latinCount;
         }
         #endregion
     }

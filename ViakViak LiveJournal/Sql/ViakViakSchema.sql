@@ -20,12 +20,6 @@ GO
 IF OBJECTPROPERTY(OBJECT_ID('FK_ComponentWord_Word'), 'IsConstraint') = 1
 	ALTER TABLE dbo.ComponentWord DROP CONSTRAINT FK_ComponentWord_Word
 GO
-IF OBJECTPROPERTY(OBJECT_ID('FK_Root_Language'), 'IsConstraint') = 1
-	ALTER TABLE dbo.[Root] DROP CONSTRAINT FK_Root_Language
-GO
-IF OBJECTPROPERTY(OBJECT_ID('FK_Word_Root'), 'IsConstraint') = 1
-	ALTER TABLE dbo.Word DROP CONSTRAINT FK_Word_Root
-GO
 IF OBJECTPROPERTY(OBJECT_ID('FK_Word_Language'), 'IsConstraint') = 1
 	ALTER TABLE dbo.Word DROP CONSTRAINT FK_Word_Language
 GO
@@ -40,9 +34,6 @@ GO
 IF OBJECT_ID(N'dbo.ArticleLabel', N'U') IS NOT NULL
 	DROP TABLE dbo.ArticleLabel
 GO
-IF OBJECT_ID(N'dbo.Article', N'U') IS NOT NULL
-	DROP TABLE dbo.[Root]
-GO
 IF OBJECT_ID(N'dbo.ArticleWord', N'U') IS NOT NULL
 	DROP TABLE dbo.ArticleWord
 GO
@@ -51,9 +42,6 @@ IF OBJECT_ID(N'dbo.Label', N'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'dbo.[Language]', N'U') IS NOT NULL
 	DROP TABLE dbo.[Language]
-GO
-IF OBJECT_ID(N'dbo.[Root]', N'U') IS NOT NULL
-	DROP TABLE dbo.[Root]
 GO
 IF OBJECT_ID(N'dbo.Word', N'U') IS NOT NULL
 	DROP TABLE dbo.Word
@@ -137,24 +125,10 @@ CREATE TABLE dbo.[Language](
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE dbo.[Root](
-	RootID int IDENTITY(1,1) NOT NULL,
-	RootName nvarchar(12) NULL,
-	LanguageID int NULL DEFAULT 1,
-	[Description] nvarchar(4000) NULL,
-	CreateOn datetime NOT NULL DEFAULT getdate()
- CONSTRAINT PK_Root PRIMARY KEY CLUSTERED 
-(
-	RootID ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
 CREATE TABLE dbo.Word(
 	WordID int IDENTITY(1,1) NOT NULL,
 	WordName nvarchar(128) NOT NULL,
 	LanguageID int NULL DEFAULT 1,
-	RootID int NULL,
 	IsName bit NOT NULL DEFAULT 0,
 	[Description] nvarchar(4000) NULL,
 	CreateOn datetime NOT NULL DEFAULT getdate()
@@ -170,6 +144,7 @@ CREATE TABLE dbo.Component(
 	ComponentName nvarchar(128) NOT NULL,
 	LanguageID int NULL DEFAULT 1,
 	[Description] nvarchar(4000) NULL,
+	IsRoot bit  NOT NULL DEFAULT 0,
 	IsPrefix bit  NOT NULL DEFAULT 0,
 	CreateOn datetime NOT NULL DEFAULT getdate()
  CONSTRAINT PK_Component PRIMARY KEY CLUSTERED 
@@ -240,22 +215,10 @@ GO
 ALTER TABLE dbo.ComponentWord CHECK CONSTRAINT FK_ComponentWord_Word
 GO
 
-ALTER TABLE dbo.[Root]  WITH CHECK ADD  CONSTRAINT FK_Root_Language FOREIGN KEY(LanguageID)
-REFERENCES dbo.[Language] (LanguageID)
-GO
-ALTER TABLE dbo.[Root] CHECK CONSTRAINT FK_Root_Language
-GO
-
 ALTER TABLE dbo.Word  WITH CHECK ADD  CONSTRAINT FK_Word_Language FOREIGN KEY(LanguageID)
 REFERENCES dbo.[Language] (LanguageID)
 GO
 ALTER TABLE dbo.Word CHECK CONSTRAINT FK_Word_Language
-GO
-
-ALTER TABLE dbo.Word  WITH CHECK ADD  CONSTRAINT FK_Word_Root FOREIGN KEY(RootID)
-REFERENCES dbo.[Root] (RootID)
-GO
-ALTER TABLE dbo.Word CHECK CONSTRAINT FK_Word_Root
 GO
 
 ALTER TABLE dbo.Component  WITH CHECK ADD  CONSTRAINT FK_Component_Language FOREIGN KEY(LanguageID)
