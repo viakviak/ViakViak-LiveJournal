@@ -1,4 +1,4 @@
-﻿-- ViakViak Schema
+﻿-- Via+kViak Schema
 -- C:\Users\vroyt\Source\Repos\ViakViak-LiveJournal\ViakViak LiveJournal\Sql\ViakViakSchema.sql
 
 -- Drop foreign keys..
