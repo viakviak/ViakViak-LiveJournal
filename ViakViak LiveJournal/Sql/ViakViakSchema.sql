@@ -6417,6 +6417,16 @@ Break(англ:ломать,разрыв) = перерыв
 ';
 GO
 
+exec spAddArticle 63175, N'Прямой перевод: Continue(англ:продолжать,тянуться)',  N'#слоВяк, вяк, перевод, слова', N'
+<span viak="translation">Continue(англ:продолжать,тянуться)
+</span><span viak="summary">
+Continue(англ:продолжать,тянуться) = тяну
+</span><span viak="description">
+Аглийское слово Continue(англ:продолжать,тянуться) можно расложить на две составляющие: Con+Tinue. Первая составляющая "Con" уже рассматривалась <a href="http://viakviak.livejournal.com/54989.html" target="_blank">здесь</a>, а вторая составляющая "Tinue" является калькой Русского слова "тяну", что и является формальным переводом английского слова Continue.
+</span>
+';
+GO
+
 /*
 
 exec spAddArticle , N'',  N'', N'
