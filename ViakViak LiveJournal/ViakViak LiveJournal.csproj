@@ -40,6 +40,7 @@
     <Compile Include="Main.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Sql\Test.sql" />
     <Content Include="Sql\ViakViakSchema.sql" />
   </ItemGroup>
   <ItemGroup>
