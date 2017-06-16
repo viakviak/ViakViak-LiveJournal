@@ -21,12 +21,23 @@ GO
 CREATE TABLE dbo.Entity (
 	EntityID int IDENTITY(1,1) NOT NULL,
 	TypeID int NOT NULL, -- EntityID of type
-	LanguageID int NULL, -- EntityID of language
-	Translation nvarchar(max) NULL,
 	CreatedOn datetime2(7) default(getdate()),
 	CreatedByID int NULL,
 	ModifiedOn datetime2(7) NULL,
 	ModifiedByID int NULL,
+	LanguageID int NULL, -- EntityID of language
+	Translation nvarchar(max) NULL,
+	Translation2 nvarchar(max) NULL,
+	Translation3 nvarchar(max) NULL,
+	Translation4 nvarchar(max) NULL,
+	Int1 integer NULL,
+	Int2 integer NULL,
+	Int3 integer NULL,
+	Int4 integer NULL,
+	dt1 datetime2(7) NULL,
+	dt2 datetime2(7) NULL,
+	money1 money NULL,
+	money2 money NULL
 
 	CONSTRAINT PK_Entity PRIMARY KEY CLUSTERED (
 		EntityID ASC,
@@ -139,13 +150,15 @@ INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (2, 1, N'Language'
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (3, 1, N'Collection'); -- collection of items
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (4, 3, N'Translation');-- collection of translations
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (5, 3, N'List');-- ordered collection
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (6, 5, N'Inheritance');-- list of inherited types, excluding generic "Type" with ID=1
 
---INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (101, 1, N'Article');
---INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (102, 1, N'Label');
---INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (103, 1, N'Word');
---INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (104, 1, N'Component');
---INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (105, 104, N'Root');
---INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (106, 104, N'Prefix');
+
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (101, 1, N'Article');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (102, 1, N'Label');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (103, 1, N'Word');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (104, 1, N'Component');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (105, 104, N'Root');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (106, 104, N'Prefix');
 ---- Languages
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1001, 2, N'English');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1002, 2, N'Russian');
