@@ -1,25 +1,30 @@
 -- Test
 
 IF Object_ID(N'dbo.Entity') IS NOT NULL
-	DROP TABLE dbo.Entity
+	DROP TABLE dbo.Entity;
 GO
 IF Object_ID(N'dbo.CollectionItem') IS NOT NULL
-	DROP TABLE dbo.CollectionItem
+	DROP TABLE dbo.CollectionItem;
 GO
 -- Drop indexes
 IF OBJECT_ID('IX_CollectionItem') IS NOT NULL
-	DROP PROCEDURE dbo.IX_CollectionItem
+	DROP PROCEDURE dbo.IX_CollectionItem;
 GO
--- Drop stored procedures..
+-- Drop programmability
+IF OBJECT_ID('IsTypeOf') IS NOT NULL
+	DROP FUNCTION dbo.IsTypeOf;
+GO
 IF OBJECT_ID('spAddItem') IS NOT NULL
-	DROP PROCEDURE dbo.spAddItem
+	DROP PROCEDURE dbo.spAddItem;
 GO
 IF OBJECT_ID('spAddTranslation') IS NOT NULL
-	DROP PROCEDURE dbo.spAddTranslation
+	DROP PROCEDURE dbo.spAddTranslation;
 GO
-IF OBJECT_ID('IsTypeOf') IS NOT NULL
-	DROP FUNCTION dbo.IsTypeOf
+IF OBJECT_ID('Article') IS NOT NULL
+	DROP VIEW dbo.Article;
 GO
+
+-- Tables
 CREATE TABLE dbo.Entity (
 	EntityID int IDENTITY(1,1) NOT NULL,
 	TypeID int NOT NULL, -- EntityID of type
@@ -67,7 +72,39 @@ GO
 CREATE UNIQUE NONCLUSTERED INDEX IX_CollectionItem ON dbo.CollectionItem(CollectionID, ItemID) INCLUDE(CollectionTypeID, ItemTypeID);
 GO
 
--- Stored Procedures
+-- Stored Procedures and Functions
+/*	-- Tests:
+	SELECT 5, 3, dbo.IsTypeOf(5, 3);
+	SELECT 5, 1, dbo.IsTypeOf(5, 1);
+	SELECT NULL, 1, dbo.IsTypeOf(NULL, 1);
+	SELECT 1001, 2, dbo.IsTypeOf(1001, 2);
+*/
+CREATE FUNCTION IsTypeOf(
+	@entityID as int,
+	@typeID as int
+) returns bit as
+	begin
+	if @entityID IS NULL OR @typeID IS NULL
+		return 0;
+	if @typeID = 1
+		return 1;
+
+	DECLARE @entityTypeID as int = NULL;
+
+	while 1=1
+		begin
+		SELECT @entityTypeID = TypeID FROM dbo.Entity WHERE EntityID = @entityID;
+		if @entityTypeID IS NULL OR @entityTypeID < @typeID
+			return 0;
+
+		if @entityTypeID = @typeID
+			return 1;
+		SET @entityID = @entityTypeID;
+		end
+	
+	return 0;
+	end
+GO
 
 CREATE PROCEDURE spAddItem
 	@collectionID int, -- entity id of collection
@@ -80,12 +117,13 @@ AS
 	SET NOCOUNT ON;
 
 	DECLARE @orderIndexMax int = 0;
+	DECLARE @listTypeID as int = 5;
 
 	if @collectionTypeID IS NULL
 		SELECT @collectionTypeID = TypeID FROM dbo.Entity WHERE EntityID = @collectionID;
 	if @itemTypeID IS NULL
 		SELECT @itemTypeID = TypeID FROM dbo.Entity WHERE EntityID = @itemID;
-	if @collectionTypeID = 5 -- List
+	if 1 = dbo.IsTypeOf(@collectionTypeID, @listTypeID)
 		begin
 		SELECT @orderIndexMax = MAX(OrderIndex) FROM dbo.CollectionItem WHERE CollectionID = @collectionID;
 		if @orderIndex IS NULL OR @orderIndex < 0 OR @orderIndex > @orderIndexMax -- add..
@@ -147,37 +185,13 @@ AS
 	end
 GO
 
-/*	-- Tests:
-	SELECT 5, 3, dbo.IsTypeOf(5, 3);
-	SELECT 5, 1, dbo.IsTypeOf(5, 1);
-	SELECT NULL, 1, dbo.IsTypeOf(NULL, 1);
-	SELECT 1001, 2, dbo.IsTypeOf(1001, 2);
-*/
-CREATE FUNCTION IsTypeOf(
-	@entityID as int,
-	@typeID as int
-) returns bit as
-	begin
-	if @entityID IS NULL OR @typeID IS NULL
-		return 0;
-	if @typeID = 1
-		return 1;
-
-	DECLARE @entityTypeID as int = NULL;
-
-	while 1=1
-		begin
-		SELECT @entityTypeID = TypeID FROM dbo.Entity WHERE EntityID = @entityID;
-		if @entityTypeID IS NULL OR @entityTypeID < @typeID
-			return 0;
-
-		if @entityTypeID = @typeID
-			return 1;
-		SET @entityID = @entityTypeID;
-		end
-	
-	return 0;
-	end
+CREATE VIEW dbo.Article as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as Title,
+      Translation2 as Content,
+      Int1 as LiveJournalID
+	FROM	dbo.Entity
+	WHERE	TypeID = 101;
 GO
 
 SET IDENTITY_INSERT dbo.Entity ON
