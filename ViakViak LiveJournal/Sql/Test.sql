@@ -23,6 +23,24 @@ GO
 IF OBJECT_ID('Article') IS NOT NULL
 	DROP VIEW dbo.Article;
 GO
+IF OBJECT_ID('Label') IS NOT NULL
+	DROP VIEW dbo.Label;
+GO
+IF OBJECT_ID('Word') IS NOT NULL
+	DROP VIEW dbo.Word;
+GO
+IF OBJECT_ID('Name') IS NOT NULL
+	DROP VIEW dbo.[Name];
+GO
+IF OBJECT_ID('Component') IS NOT NULL
+	DROP VIEW dbo.Component;
+GO
+IF OBJECT_ID('[Root]') IS NOT NULL
+	DROP VIEW dbo.[Root];
+GO
+IF OBJECT_ID('Prefix') IS NOT NULL
+	DROP VIEW dbo.Prefix;
+GO
 
 -- Tables
 CREATE TABLE dbo.Entity (
@@ -194,6 +212,54 @@ CREATE VIEW dbo.Article as
 	WHERE	TypeID = 101;
 GO
 
+CREATE VIEW dbo.Label as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as LabelName,
+      Translation2 as [Description]
+	FROM	dbo.Entity
+	WHERE	TypeID = 102;
+GO
+
+CREATE VIEW dbo.Word as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as WordName,
+      Translation2 as [Description]
+	FROM	dbo.Entity
+	WHERE	TypeID = 103;
+GO
+
+CREATE VIEW dbo.[Name] as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as WordName,
+      Translation2 as [Description]
+	FROM	dbo.Entity
+	WHERE	TypeID = 104;
+GO
+
+CREATE VIEW dbo.Component as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as ComponentName,
+      Translation2 as [Description]
+	FROM	dbo.Entity
+	WHERE	TypeID = 105;
+GO
+
+CREATE VIEW dbo.[Root] as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as ComponentName,
+      Translation2 as [Description]
+	FROM	dbo.Entity
+	WHERE	TypeID = 106;
+GO
+
+CREATE VIEW dbo.Prefix as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as ComponentName,
+      Translation2 as [Description]
+	FROM	dbo.Entity
+	WHERE	TypeID = 107;
+GO
+
 SET IDENTITY_INSERT dbo.Entity ON
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1, 1, N'Type');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (2, 1, N'Language');
@@ -204,9 +270,10 @@ INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (5, 3, N'List');--
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (101, 1, N'Article');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (102, 1, N'Label');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (103, 1, N'Word');
-INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (104, 1, N'Component');
-INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (105, 104, N'Root');
-INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (106, 104, N'Prefix');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (104, 103, N'Name');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (105, 1, N'Component');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (106, 105, N'Root');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (107, 105, N'Prefix');
 ---- Languages
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1001, 2, N'English');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1002, 2, N'Russian');
