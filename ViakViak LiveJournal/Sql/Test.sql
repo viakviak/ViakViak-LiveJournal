@@ -1,4 +1,4 @@
--- Test
+﻿-- Test
 
 IF Object_ID(N'dbo.Entity') IS NOT NULL
 	DROP TABLE dbo.Entity;
@@ -77,9 +77,11 @@ CREATE TABLE dbo.CollectionItem (
 	CollectionTypeID int NOT NULL, -- collection type EntityID
 	ItemID int NULL, -- item EntityID
 	ItemTypeID int NULL, -- item type EntityID
-	OrderIndex int default(0),
 	CreatedOn datetime2(7) default(getdate()),
-	CreatedByID int NULL
+	CreatedByID int NULL, -- ^ Collection
+	OrderIndex int default(0), -- ^ List
+	Item2ID int NULL, -- item join to EntityID -- ^ Join
+	Item2TypeID int NULL, -- item join to type EntityID
 
 	CONSTRAINT PK_CollectionItem PRIMARY KEY CLUSTERED (
 		CollectionItemID ASC
@@ -261,12 +263,14 @@ CREATE VIEW dbo.Prefix as
 GO
 
 SET IDENTITY_INSERT dbo.Entity ON
+-- System Entity Types
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1, 1, N'Type');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (2, 1, N'Language');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (3, 1, N'Collection'); -- collection of items
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (4, 3, N'Translation');-- collection of translations
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (5, 3, N'List');-- ordered collection
-
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (6, 3, N'Join');-- join between two entity types distincted by collection option
+-- Entity Types
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (101, 1, N'Article');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (102, 1, N'Label');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (103, 1, N'Word');
@@ -277,7 +281,7 @@ INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (107, 105, N'Prefi
 ---- Languages
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1001, 2, N'English');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1002, 2, N'Russian');
----- Bundle types
+---- Join types
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10001, 3, N'ArticleLabel');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10002, 3, N'ArticleWord');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10003, 3, N'ComponentWord');
