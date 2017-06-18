@@ -7,9 +7,9 @@ IF Object_ID(N'dbo.CollectionItem') IS NOT NULL
 	DROP TABLE dbo.CollectionItem;
 GO
 -- Drop indexes
-IF OBJECT_ID('IX_CollectionItem') IS NOT NULL
-	DROP PROCEDURE dbo.IX_CollectionItem;
-GO
+--IF OBJECT_ID('IX_CollectionItem') IS NOT NULL
+--	DROP PROCEDURE dbo.IX_CollectionItem;
+--GO
 -- Drop programmability
 IF OBJECT_ID('IsTypeOf') IS NOT NULL
 	DROP FUNCTION dbo.IsTypeOf;
@@ -40,6 +40,15 @@ IF OBJECT_ID('[Root]') IS NOT NULL
 GO
 IF OBJECT_ID('Prefix') IS NOT NULL
 	DROP VIEW dbo.Prefix;
+GO
+IF OBJECT_ID('ArticleLabel') IS NOT NULL
+	DROP VIEW dbo.ArticleLabel;
+GO
+IF OBJECT_ID('ArticleWord') IS NOT NULL
+	DROP VIEW dbo.ArticleWord;
+GO
+IF OBJECT_ID('ComponentWord') IS NOT NULL
+	DROP VIEW dbo.ComponentWord;
 GO
 
 -- Tables
@@ -89,8 +98,8 @@ CREATE TABLE dbo.CollectionItem (
 ) ON [PRIMARY]
 GO
 
-CREATE UNIQUE NONCLUSTERED INDEX IX_CollectionItem ON dbo.CollectionItem(CollectionID, ItemID) INCLUDE(CollectionTypeID, ItemTypeID);
-GO
+--CREATE UNIQUE NONCLUSTERED INDEX IX_CollectionItem ON dbo.CollectionItem(CollectionID, ItemID) INCLUDE(CollectionTypeID, ItemTypeID);
+--GO
 
 -- Stored Procedures and Functions
 /*	-- Tests:
@@ -262,6 +271,30 @@ CREATE VIEW dbo.Prefix as
 	WHERE	TypeID = 107;
 GO
 
+CREATE VIEW dbo.ArticleLabel as
+	SELECT	CollectionItemID, ItemID as ArticleID, Item2ID as LabelID, CreatedOn, CreatedByID
+	FROM	dbo.CollectionItem
+	WHERE	CollectionTypeID = 10001 AND -- ArticleLabel
+			ItemTypeID = 101 AND -- Article
+			Item2TypeID = 102 -- Label
+GO
+
+CREATE VIEW dbo.ArticleWord as
+	SELECT	CollectionItemID, ItemID as ArticleID, Item2ID as WordID, CreatedOn, CreatedByID
+	FROM	dbo.CollectionItem
+	WHERE	CollectionTypeID = 10002 AND -- ArticleWord
+			ItemTypeID = 101 AND -- Article
+			Item2TypeID = 103 -- Word
+GO
+
+CREATE VIEW dbo.ComponentWord as
+	SELECT	CollectionItemID, ItemID as ComponentID, Item2ID as WordID, CreatedOn, CreatedByID
+	FROM	dbo.CollectionItem
+	WHERE	CollectionTypeID = 10003 AND -- ComponentWord
+			ItemTypeID = 105 AND -- Component
+			Item2TypeID = 103 -- Word
+GO
+
 SET IDENTITY_INSERT dbo.Entity ON
 -- System Entity Types
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1, 1, N'Type');
@@ -270,6 +303,7 @@ INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (3, 1, N'Collectio
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (4, 3, N'Translation');-- collection of translations
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (5, 3, N'List');-- ordered collection
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (6, 3, N'Join');-- join between two entity types distincted by collection option
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (7, 1, N'User');
 -- Entity Types
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (101, 1, N'Article');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (102, 1, N'Label');
@@ -278,17 +312,17 @@ INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (104, 103, N'Name'
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (105, 1, N'Component');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (106, 105, N'Root');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (107, 105, N'Prefix');
----- Languages
+-- Languages
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1001, 2, N'English');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1002, 2, N'Russian');
----- Join types
+-- Join types
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10001, 3, N'ArticleLabel');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10002, 3, N'ArticleWord');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10003, 3, N'ComponentWord');
-INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10004, 3, N'RootWord');
-INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10005, 3, N'PrefixWord');
+--INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10004, 3, N'RootWord');
+--INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10005, 3, N'PrefixWord');
 
-INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10000, 2, N'System');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (100000, 2, N'System');
 
 SET IDENTITY_INSERT dbo.Entity OFF
 GO
