@@ -1,230 +1,57 @@
-﻿-- Via+kViak Schema
--- C:\Users\vroyt\Source\Repos\ViakViak-LiveJournal\ViakViak LiveJournal\Sql\ViakViakSchema.sql
-
--- Drop foreign keys..
-IF OBJECTPROPERTY(OBJECT_ID('FK_ArticleLabel_Label'), 'IsConstraint') = 1
-	ALTER TABLE dbo.ArticleLabel DROP CONSTRAINT FK_ArticleLabel_Label
+﻿-- ViakViak Schema
+IF OBJECT_ID(N'dbo.Entity') IS NOT NULL
+	DROP TABLE dbo.Entity;
 GO
-IF OBJECTPROPERTY(OBJECT_ID('FK_ArticleLabel_Article'), 'IsConstraint') = 1
-	ALTER TABLE dbo.ArticleLabel DROP CONSTRAINT FK_ArticleLabel_Article
+IF OBJECT_ID(N'dbo.CollectionItem') IS NOT NULL
+	DROP TABLE dbo.CollectionItem;
 GO
-IF OBJECTPROPERTY(OBJECT_ID('FK_ArticleWord_Word'), 'IsConstraint') = 1
-	ALTER TABLE dbo.ArticleWord DROP CONSTRAINT FK_ArticleWord_Word
+-- Drop Views
+IF OBJECT_ID('Article') IS NOT NULL
+	DROP VIEW dbo.Article;
 GO
-IF OBJECTPROPERTY(OBJECT_ID('FK_ArticleWord_Article'), 'IsConstraint') = 1
-	ALTER TABLE dbo.ArticleWord DROP CONSTRAINT FK_ArticleWord_Article
+IF OBJECT_ID('Label') IS NOT NULL
+	DROP VIEW dbo.Label;
 GO
-IF OBJECTPROPERTY(OBJECT_ID('FK_ComponentWord_Component'), 'IsConstraint') = 1
-	ALTER TABLE dbo.ComponentWord DROP CONSTRAINT FK_ComponentWord_Component
+IF OBJECT_ID('Word') IS NOT NULL
+	DROP VIEW dbo.Word;
 GO
-IF OBJECTPROPERTY(OBJECT_ID('FK_ComponentWord_Word'), 'IsConstraint') = 1
-	ALTER TABLE dbo.ComponentWord DROP CONSTRAINT FK_ComponentWord_Word
+IF OBJECT_ID('Name') IS NOT NULL
+	DROP VIEW dbo.[Name];
 GO
-IF OBJECTPROPERTY(OBJECT_ID('FK_Word_Language'), 'IsConstraint') = 1
-	ALTER TABLE dbo.Word DROP CONSTRAINT FK_Word_Language
+IF OBJECT_ID('Component') IS NOT NULL
+	DROP VIEW dbo.Component;
 GO
-IF OBJECTPROPERTY(OBJECT_ID('FK_Component_Language'), 'IsConstraint') = 1
-	ALTER TABLE dbo.Component DROP CONSTRAINT FK_Component_Language
+IF OBJECT_ID('[Root]') IS NOT NULL
+	DROP VIEW dbo.[Root];
 GO
-
--- Drop tables..
-IF OBJECT_ID(N'dbo.Article', N'U') IS NOT NULL
-	DROP TABLE dbo.Article
+IF OBJECT_ID('Prefix') IS NOT NULL
+	DROP VIEW dbo.Prefix;
 GO
-IF OBJECT_ID(N'dbo.ArticleLabel', N'U') IS NOT NULL
-	DROP TABLE dbo.ArticleLabel
+IF OBJECT_ID('ArticleLabel') IS NOT NULL
+	DROP VIEW dbo.ArticleLabel;
 GO
-IF OBJECT_ID(N'dbo.ArticleWord', N'U') IS NOT NULL
-	DROP TABLE dbo.ArticleWord
+IF OBJECT_ID('ArticleWord') IS NOT NULL
+	DROP VIEW dbo.ArticleWord;
 GO
-IF OBJECT_ID(N'dbo.Label', N'U') IS NOT NULL
-	DROP TABLE dbo.Label
+IF OBJECT_ID('ComponentWord') IS NOT NULL
+	DROP VIEW dbo.ComponentWord;
 GO
-IF OBJECT_ID(N'dbo.[Language]', N'U') IS NOT NULL
-	DROP TABLE dbo.[Language]
+-- Drop functions
+IF OBJECT_ID('IsTypeOf') IS NOT NULL
+	DROP FUNCTION dbo.IsTypeOf;
 GO
-IF OBJECT_ID(N'dbo.Word', N'U') IS NOT NULL
-	DROP TABLE dbo.Word
+-- Drop stored procedures
+IF OBJECT_ID('spAddItem') IS NOT NULL
+	DROP PROCEDURE dbo.spAddItem;
 GO
-IF OBJECT_ID(N'dbo.Component', N'U') IS NOT NULL
-	DROP TABLE dbo.Component
+IF OBJECT_ID('spAddTranslation') IS NOT NULL
+	DROP PROCEDURE dbo.spAddTranslation;
 GO
-IF OBJECT_ID(N'dbo.ComponentWord', N'U') IS NOT NULL
-	DROP TABLE dbo.ComponentWord
-GO
-
--- Drop stored procedures..
-IF OBJECT_ID('spAddArticle', 'P') IS NOT NULL
+IF OBJECT_ID('spAddArticle') IS NOT NULL
 	DROP PROCEDURE dbo.spAddArticle	
 GO
-
 IF OBJECT_ID('ParseContent') IS NOT NULL
 	DROP PROCEDURE dbo.ParseContent	
-GO
-
--- Create tables..
-CREATE TABLE dbo.Article(
-	ArticleID int IDENTITY(1,1) NOT NULL,
-	LiveJournalID int NULL,
-	Title nvarchar(256) NULL,
-	Content nvarchar(max) NULL,
-	CreateOn datetime NOT NULL DEFAULT getdate()
- CONSTRAINT PK_Article PRIMARY KEY CLUSTERED 
-(
-	ArticleID ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-
-CREATE TABLE dbo.ArticleLabel(
-	ArticleLabelID int IDENTITY(1,1) NOT NULL,
-	ArticleID int NOT NULL,
-	LabelID int NOT NULL,
-	CreateOn datetime NOT NULL DEFAULT getdate()
- CONSTRAINT PK_ArticleLabel PRIMARY KEY CLUSTERED 
-(
-	ArticleLabelID ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-CREATE TABLE dbo.ArticleWord(
-	ArticleWordID int IDENTITY(1,1) NOT NULL,
-	ArticleID int NOT NULL,
-	WordID int NOT NULL,
-	CreateOn datetime NOT NULL DEFAULT getdate()
- CONSTRAINT PK_ArticleWord PRIMARY KEY CLUSTERED 
-(
-	ArticleWordID ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-CREATE TABLE dbo.Label(
-	LabelID int IDENTITY(1,1) NOT NULL,
-	LabelName nvarchar(50) NOT NULL,
-	LanguageID int NULL DEFAULT 1,
-	[Description] nvarchar(4000) NULL,
-	CreateOn datetime NOT NULL DEFAULT getdate()
- CONSTRAINT PK_Label PRIMARY KEY CLUSTERED 
-(
-	LabelID ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-CREATE TABLE dbo.[Language](
-	LanguageID int IDENTITY(1,1) NOT NULL,
-	LanguageName nvarchar(50) NOT NULL,
-	[Description] nvarchar(4000) NULL,
-	CreateOn datetime NOT NULL DEFAULT getdate()
- CONSTRAINT PK_Language PRIMARY KEY CLUSTERED 
-(
-	LanguageID ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-CREATE TABLE dbo.Word(
-	WordID int IDENTITY(1,1) NOT NULL,
-	WordName nvarchar(128) NOT NULL,
-	LanguageID int NULL DEFAULT 1,
-	IsName bit NOT NULL DEFAULT 0,
-	[Description] nvarchar(4000) NULL,
-	CreateOn datetime NOT NULL DEFAULT getdate()
- CONSTRAINT PK_Word PRIMARY KEY CLUSTERED 
-(
-	WordID ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-CREATE TABLE dbo.Component(
-	ComponentID int IDENTITY(1,1) NOT NULL,
-	ComponentName nvarchar(128) NOT NULL,
-	LanguageID int NULL DEFAULT 1,
-	[Description] nvarchar(4000) NULL,
-	IsRoot bit  NOT NULL DEFAULT 0,
-	IsPrefix bit  NOT NULL DEFAULT 0,
-	CreateOn datetime NOT NULL DEFAULT getdate()
- CONSTRAINT PK_Component PRIMARY KEY CLUSTERED 
-(
-	ComponentID ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-CREATE TABLE dbo.ComponentWord(
-	ComponentWordID int IDENTITY(1,1) NOT NULL,
-	ComponentID int NOT NULL,
-	WordID int NOT NULL,
-	CreateOn datetime NOT NULL DEFAULT getdate()
- CONSTRAINT PK_ComponentWord PRIMARY KEY CLUSTERED 
-(
-	ComponentWordID ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
--- Create foreign keys..
-ALTER TABLE dbo.ArticleLabel  WITH CHECK ADD  CONSTRAINT FK_ArticleLabel_Article FOREIGN KEY(ArticleID)
-REFERENCES dbo.Article (ArticleID)
-ON UPDATE CASCADE
-ON DELETE CASCADE
-GO
-ALTER TABLE dbo.ArticleLabel CHECK CONSTRAINT FK_ArticleLabel_Article
-GO
-
-ALTER TABLE dbo.ArticleLabel  WITH CHECK ADD  CONSTRAINT FK_ArticleLabel_Label FOREIGN KEY(LabelID)
-REFERENCES dbo.Label (LabelID)
-ON UPDATE CASCADE
-ON DELETE CASCADE
-GO
-ALTER TABLE dbo.ArticleLabel CHECK CONSTRAINT FK_ArticleLabel_Label
-GO
-
-ALTER TABLE dbo.ArticleWord  WITH CHECK ADD  CONSTRAINT FK_ArticleWord_Article FOREIGN KEY(ArticleID)
-REFERENCES dbo.Article (ArticleID)
-ON UPDATE CASCADE
-ON DELETE CASCADE
-GO
-ALTER TABLE dbo.ArticleWord CHECK CONSTRAINT FK_ArticleWord_Article
-GO
-
-ALTER TABLE dbo.ArticleWord  WITH CHECK ADD  CONSTRAINT FK_ArticleWord_Word FOREIGN KEY(WordID)
-REFERENCES dbo.Word (WordID)
-ON UPDATE CASCADE
-ON DELETE CASCADE
-GO
-ALTER TABLE dbo.ArticleWord CHECK CONSTRAINT FK_ArticleWord_Word
-GO
-
-ALTER TABLE dbo.ComponentWord  WITH CHECK ADD  CONSTRAINT FK_ComponentWord_Component FOREIGN KEY(ComponentID)
-REFERENCES dbo.Component (ComponentID)
-ON UPDATE CASCADE
-ON DELETE CASCADE
-GO
-ALTER TABLE dbo.ComponentWord CHECK CONSTRAINT FK_ComponentWord_Component
-GO
-
-ALTER TABLE dbo.ComponentWord  WITH CHECK ADD  CONSTRAINT FK_ComponentWord_Word FOREIGN KEY(WordID)
-REFERENCES dbo.Word (WordID)
-ON UPDATE CASCADE
-ON DELETE CASCADE
-GO
-ALTER TABLE dbo.ComponentWord CHECK CONSTRAINT FK_ComponentWord_Word
-GO
-
-ALTER TABLE dbo.Word  WITH CHECK ADD  CONSTRAINT FK_Word_Language FOREIGN KEY(LanguageID)
-REFERENCES dbo.[Language] (LanguageID)
-GO
-ALTER TABLE dbo.Word CHECK CONSTRAINT FK_Word_Language
-GO
-
-ALTER TABLE dbo.Component  WITH CHECK ADD  CONSTRAINT FK_Component_Language FOREIGN KEY(LanguageID)
-REFERENCES dbo.[Language] (LanguageID)
-GO
-ALTER TABLE dbo.Component CHECK CONSTRAINT FK_Component_Language
 GO
 
 -- stored procedures
@@ -237,11 +64,248 @@ AS
 EXTERNAL NAME [ViakViak_Sql].[StoredProcedures].[ParseContent]
 GO
 
--- =============================================
--- Author:		ViakViak
--- Create date: 11/12/2016
--- Description:	Adds Article data
--- =============================================
+-- Tables
+CREATE TABLE dbo.Entity (
+	EntityID int identity(1,1) NOT NULL,
+	TypeID int NOT NULL, -- EntityID of type
+	CreatedOn datetime2(7) default(getdate()),
+	CreatedByID int NULL,
+	ModifiedOn datetime2(7) NULL,
+	ModifiedByID int NULL,
+	LanguageID int NULL, -- EntityID of language
+	Translation nvarchar(max) NULL,
+	Translation2 nvarchar(max) NULL,
+	Translation3 nvarchar(max) NULL,
+	Translation4 nvarchar(max) NULL,
+	Int1 integer NULL,
+	Int2 integer NULL,
+	Int3 integer NULL,
+	Int4 integer NULL,
+	dt1 datetime2(7) NULL,
+	dt2 datetime2(7) NULL,
+	money1 money NULL,
+	money2 money NULL
+
+	CONSTRAINT PK_Entity PRIMARY KEY CLUSTERED (
+		EntityID ASC,
+		TypeID ASC
+	) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE dbo.CollectionItem (
+	CollectionItemID int identity(1,1) NOT NULL, -- collection item primary key
+	CollectionID int NOT NULL, -- collection EntityID
+	CollectionTypeID int NOT NULL, -- collection type EntityID
+	ItemID int NULL, -- item EntityID
+	ItemTypeID int NULL, -- item type EntityID
+	CreatedOn datetime2(7) default(getdate()),
+	CreatedByID int NULL, -- ^ Collection
+	OrderIndex int default(0), -- ^ List
+	Item2ID int NULL, -- item join to EntityID -- ^ Join
+	Item2TypeID int NULL, -- item join to type EntityID
+
+	CONSTRAINT PK_CollectionItem PRIMARY KEY CLUSTERED (
+		CollectionItemID ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE VIEW dbo.Article as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as Title,
+      Translation2 as Content,
+      Int1 as LiveJournalID
+	FROM	dbo.Entity
+	WHERE	TypeID = 101;
+GO
+
+CREATE VIEW dbo.Label as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as LabelName,
+      Translation2 as [Description]
+	FROM	dbo.Entity
+	WHERE	TypeID = 102;
+GO
+
+CREATE VIEW dbo.Word as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as WordName,
+      Translation2 as [Description]
+	FROM	dbo.Entity
+	WHERE	TypeID = 103;
+GO
+
+CREATE VIEW dbo.[Name] as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as WordName,
+      Translation2 as [Description]
+	FROM	dbo.Entity
+	WHERE	TypeID = 104;
+GO
+
+CREATE VIEW dbo.Component as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as ComponentName,
+      Translation2 as [Description]
+	FROM	dbo.Entity
+	WHERE	TypeID = 105;
+GO
+
+CREATE VIEW dbo.[Root] as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as ComponentName,
+      Translation2 as [Description]
+	FROM	dbo.Entity
+	WHERE	TypeID = 106;
+GO
+
+CREATE VIEW dbo.Prefix as
+	SELECT	EntityID, TypeID, CreatedOn, CreatedByID, ModifiedOn, ModifiedByID, LanguageID,
+      Translation as ComponentName,
+      Translation2 as [Description]
+	FROM	dbo.Entity
+	WHERE	TypeID = 107;
+GO
+
+CREATE VIEW dbo.ArticleLabel as
+	SELECT	CollectionItemID, CollectionID as ArticleLabelID, CollectionTypeID, ItemID as ArticleID, ItemTypeID as ArticleTypeID,
+			Item2ID as LabelID, Item2TypeID as LabelTypeID, CreatedOn, CreatedByID
+	FROM	dbo.CollectionItem
+	WHERE	CollectionTypeID = 10001 AND -- ArticleLabel
+			ItemTypeID = 101 AND -- Article
+			Item2TypeID = 102 -- Label
+GO
+
+CREATE VIEW dbo.ArticleWord as
+	SELECT	CollectionItemID, ItemID as ArticleID, Item2ID as WordID, CreatedOn, CreatedByID
+	FROM	dbo.CollectionItem
+	WHERE	CollectionTypeID = 10002 AND -- ArticleWord
+			ItemTypeID = 101 AND -- Article
+			Item2TypeID = 103 -- Word
+GO
+
+CREATE VIEW dbo.ComponentWord as
+	SELECT	CollectionItemID, ItemID as ComponentID, Item2ID as WordID, CreatedOn, CreatedByID
+	FROM	dbo.CollectionItem
+	WHERE	CollectionTypeID = 10003 AND -- ComponentWord
+			ItemTypeID = 105 AND -- Component
+			Item2TypeID = 103 -- Word
+GO
+
+-- Stored Procedures and Functions
+/*	-- Tests:
+	SELECT 5, 3, dbo.IsTypeOf(5, 3);
+	SELECT 5, 1, dbo.IsTypeOf(5, 1);
+	SELECT NULL, 1, dbo.IsTypeOf(NULL, 1);
+	SELECT 1001, 2, dbo.IsTypeOf(1001, 2);
+*/
+CREATE FUNCTION IsTypeOf(
+	@entityID as int,
+	@typeID as int
+) returns bit as
+	begin
+	if @entityID IS NULL OR @typeID IS NULL
+		return 0;
+	if @typeID = 1
+		return 1;
+
+	DECLARE @entityTypeID as int = NULL;
+
+	while 1=1
+		begin
+		SELECT @entityTypeID = TypeID FROM dbo.Entity WHERE EntityID = @entityID;
+		if @entityTypeID IS NULL OR @entityTypeID < @typeID
+			return 0;
+
+		if @entityTypeID = @typeID
+			return 1;
+		SET @entityID = @entityTypeID;
+		end
+	
+	return 0;
+	end
+GO
+
+CREATE PROCEDURE spAddItem
+	@collectionID int, -- entity id of collection
+	@itemID int, -- entity id of item
+	@collectionTypeID int = NULL, -- optional entity id of the collection type
+	@itemTypeID int = NULL, -- optional entity id of item type
+	@orderIndex int = NULL -- optional order index of new item
+AS
+	begin
+	SET NOCOUNT ON;
+
+	DECLARE @orderIndexMax int = 0;
+	DECLARE @listTypeID as int = 5;
+
+	if @collectionTypeID IS NULL
+		SELECT @collectionTypeID = TypeID FROM dbo.Entity WHERE EntityID = @collectionID;
+	if @itemTypeID IS NULL
+		SELECT @itemTypeID = TypeID FROM dbo.Entity WHERE EntityID = @itemID;
+	if 1 = dbo.IsTypeOf(@collectionTypeID, @listTypeID)
+		begin
+		SELECT @orderIndexMax = MAX(OrderIndex) FROM dbo.CollectionItem WHERE CollectionID = @collectionID;
+		if @orderIndex IS NULL OR @orderIndex < 0 OR @orderIndex > @orderIndexMax -- add..
+			SET @orderIndex = @orderIndexMax;
+		else -- reorder the end of the list..
+			UPDATE dbo.CollectionItem SET OrderIndex = OrderIndex + 1 WHERE CollectionID = @collectionID AND OrderIndex > @orderIndex;
+		end
+	INSERT INTO dbo.CollectionItem(CollectionID, CollectionTypeID, ItemID, ItemTypeID, OrderIndex)
+		VALUES(@collectionID, @collectionTypeID, @itemID, @itemTypeID, @orderIndex);
+	return 0;
+	end
+GO
+
+/*
+	Adds translation of the same type as the specified existing item
+	Returns Collection ID or negative incorrect argument number
+*/
+CREATE PROCEDURE spAddTranslation
+	@translationOfID int,
+	@translationLanguageID int,
+	@translation nvarchar(max)
+AS
+	begin
+	DECLARE @translationTypeID int = 4;
+	DECLARE @itemTypeID int;
+	DECLARE @collectionID int;
+	DECLARE @newItemID int;
+
+	SET NOCOUNT ON;
+
+	if @translationOfID IS NULL OR @translationOfID <= 0
+		return -1;
+	if @translationLanguageID IS NULL OR @translationLanguageID <= 0
+		return -2;
+	if @translation IS NULL OR LEN(@translation) <= 0
+		return -3;
+
+	SELECT	@collectionID = CollectionID, @itemTypeID = ItemTypeID
+	FROM	dbo.CollectionItem
+	WHERE	ItemID = @translationOfID AND
+			CollectionTypeID = @translationTypeID;
+
+	if @itemTypeID IS NULL
+		SELECT @itemTypeID = TypeID FROM dbo.Entity WHERE EntityID = @translationOfID;
+
+	if @collectionID IS NULL
+		begin
+		INSERT INTO dbo.Entity(TypeID) VALUES(@translationTypeID);
+		SET @collectionID = @@IDENTITY;
+
+		exec spAddItem @collectionID, @translationOfID, @translationTypeID, @itemTypeID;
+		end
+
+	INSERT INTO dbo.Entity(TypeID, LanguageID, Translation) VALUES (@itemTypeID, @translationLanguageID, @translation);
+	SET @newItemID = @@IDENTITY;
+
+	exec spAddItem @collectionID, @newItemID, @translationTypeID, @itemTypeID;
+	return @collectionID;
+	end
+GO
+
 CREATE PROCEDURE spAddArticle 
 	@liveJournalID int, 
 	@title nvarchar(1024) = NULL,
@@ -258,14 +322,14 @@ DECLARE @labelID int;
 
 SET NOCOUNT ON;
 
-SELECT @articleID = ArticleID FROM dbo.Article WHERE LiveJournalID = @liveJournalID;
+SELECT @articleID = EntityID FROM dbo.Article WHERE LiveJournalID = @liveJournalID;
 if @articleID IS NULL
 	begin
-	INSERT INTO dbo.Article(LiveJournalID, Title, Content) VALUES (@liveJournalID, @title, @content);
+	INSERT INTO dbo.Article(TypeID, LiveJournalID, Title, Content) VALUES (101, @liveJournalID, @title, @content);
 	SET @articleID = @@IDENTITY;
 	end
 else if @content IS NOT NULL
-	UPDATE dbo.Article SET Content = @content WHERE ArticleID = @articleID;
+	UPDATE dbo.Article SET Content = @content WHERE EntityID = @articleID;
 
 if @labels IS NOT NULL
 	begin -- labels..
@@ -281,9 +345,12 @@ if @labels IS NOT NULL
 		SET @lbl = LTRIM(RTRIM(SUBSTRING(@labels, @posStart, @posStop - @posStart)));
 		if LEN(@lbl) > 0
 			begin
-			SELECT @labelID = LabelID FROM dbo.Label WHERE LabelName = @lbl;
+			SELECT @labelID = EntityID FROM dbo.Label WHERE LabelName = @lbl;
 			if @labelID IS NOT NULL
-				INSERT INTO dbo.ArticleLabel(ArticleID, LabelID) VALUES (@articleID, @labelID);
+				begin
+				INSERT INTO dbo.ArticleLabel(ArticleLabelID, CollectionTypeID, ArticleTypeID, LabelTypeID, ArticleID, LabelID)
+					VALUES (10001, 3, 101, 102, @articleID, @labelID);
+				end
 			end
 		SET @posStart = @posStop + 1;
 		end
@@ -291,69 +358,114 @@ if @labels IS NOT NULL
 end
 GO
 
--- data..
-INSERT INTO dbo.[Language](LanguageName, Description) VALUES (N'Russian', NULL); -- 1
-INSERT INTO dbo.[Language](LanguageName, Description) VALUES (N'English', NULL); -- 2
+SET IDENTITY_INSERT dbo.Entity ON
+-- System Entity Types
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1, 1, N'Type');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (2, 1, N'Language');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (3, 1, N'Collection'); -- collection of items
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (4, 3, N'Translation');-- collection of translations
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (5, 3, N'List');-- ordered collection
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (6, 3, N'Join');-- join between two entity types distincted by collection option
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (7, 1, N'User');
+-- Entity Types
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (101, 1, N'Article');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (102, 1, N'Label');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (103, 1, N'Word');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (104, 103, N'Name');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (105, 1, N'Component');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (106, 105, N'Root');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (107, 105, N'Prefix');
+-- Languages
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1001, 2, N'English');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1002, 2, N'Русский'); -- Russian
+-- Join types
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10001, 3, N'ArticleLabel');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10002, 3, N'ArticleWord');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10003, 3, N'ComponentWord');
+--INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10004, 3, N'RootWord');
+--INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10005, 3, N'PrefixWord');
 
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'#слоВяк', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'english', 2, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'livejournal', 2, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'usa', 2, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'welcome', 2, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'Англия', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'бог', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'Вашкевич', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'Венеция', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'время', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'вяк', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'геральдика', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'государство', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'деньги', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'долг', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'дом', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'еда', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'закон', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'имя', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'Изобретение', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'история', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'книга', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'компания', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'компонента', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'материя', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'мера', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'мнение', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'музыка', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'общество', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'оружие', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'перевод', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'переход', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'программа', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'свобода', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'символ', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'слова', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'смерть', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'спорт', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'тело', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'технология', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'титул', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'торговля', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'шутка', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'эзотерика', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'экономика', 1, NULL);
-INSERT INTO dbo.Label(LabelName, LanguageID, Description) VALUES (N'этнос', 1, NULL);
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (100000, 2, N'System');
+
+SET IDENTITY_INSERT dbo.Entity OFF
+GO
+
+-- Translations
+exec dbo.spAddTranslation 1, 1002, N'Тип'; -- Type in Russian
+exec dbo.spAddTranslation 2, 1002, N'Язык'; -- Language in Russian
+exec dbo.spAddTranslation 3, 1002, N'Коллекция'; -- Collection in Russian
+exec dbo.spAddTranslation 4, 1002, N'Перевод'; -- Translation in Russian
+exec dbo.spAddTranslation 101, 1002, N'Статья'; -- Article in Russian
+exec dbo.spAddTranslation 102, 1002, N'Метка'; -- Label in Russian
+exec dbo.spAddTranslation 102, 1002, N'Ярлык'; -- Label in Russian
+exec dbo.spAddTranslation 103, 1002, N'Слово'; -- Word in Russian
+exec dbo.spAddTranslation 104, 1002, N'Компонента'; -- Component in Russian
+exec dbo.spAddTranslation 105, 1002, N'Корень'; -- Root in Russian
+exec dbo.spAddTranslation 106, 1002, N'Приставка'; -- Prefix in Russian
+exec dbo.spAddTranslation 106, 1002, N'Префих'; -- Prefix in Russian
+exec dbo.spAddTranslation 1001, 1002, N'Английский'; -- English in Russian
+exec dbo.spAddTranslation 1002, 1002, N'Russian'; -- Russian in English
+
+-- Labels..
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'Prefix', 1002);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'#слоВяк', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'english', 1002);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'livejournal', 1002);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'usa', 1002);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'welcome', 1002);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'Англия', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'бог', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'Вашкевич', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'Венеция', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'время', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'вяк', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'геральдика', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'государство', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'деньги', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'долг', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'дом', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'еда', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'закон', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'имя', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'Изобретение', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'история', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'книга', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'компания', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'компонента', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'материя', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'мера', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'мнение', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'музыка', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'общество', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'оружие', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'перевод', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'переход', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'программа', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'свобода', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'символ', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'слова', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'смерть', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'спорт', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'тело', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'технология', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'титул', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'торговля', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'шутка', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'эзотерика', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'экономика', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'этнос', 1001);
+GO
 
 -- <lj-cut>
 
 /*
 <a href="http://viakviak.livejournal.com/.html" target="_blank"></a>
 <a href="https://" target="_blank"></a>
-
 exec spAddArticle , N'', N'', N'
 <span viak="word">
 </span>
 ';
 GO
-
 */
 exec spAddArticle 800, N'Николай Николаевич Вашкевич', N'Вашкевич, вяк, слова', N'
 <span viak="name">Николай Николаевич Вашкевич
@@ -364,7 +476,6 @@ GO
 
 exec spAddArticle 2029, N'Люцифер. Что в имени?', N'бог, вяк, слова', N'
 <span viak="word">Люцифер
-
 </span><span viak="description">
 Одно из имен дьявола Люцифер часто переводится как "Свет несущий". Но можно увидеть в имени Лю-цифер слово "цифра". Перевод всей информации в цифровой вид как одна из форм служение "цифре".
 Несущий от слова "фер" или по-русски "пер" (переть). С другой стороны, "фер" может быть прочитано как "fire" (огонь), что соответсвует известному избражению места обитания дьявола как "гиены огненной". Кстати "гиена" (гавно) очевидно относится к описанию запаха.
@@ -391,7 +502,6 @@ GO
 
 exec spAddArticle 2143, N'Йер', N' Вашкевич, вяк, слова', N'
 <span viak="word">Йер
-
 ВР - вера вар вор авары Уваров веер еврей
 РВ - ров рёв river(англ:река) row(англ:ряд) (ко)рявый
 </span><span viak="descrition">
@@ -409,8 +519,6 @@ York(Йер-ак) - стоит на реке Ure (Юркая), меняющая 
 Ривьера (River Jera) - плодородная река
 Карьер - углубление в земле(черная). От ар. قرارة кара:ра "низкое место на земле", "округлая яма, где собирается дождевая вода".  От ар. كرا кара: "быстро бежать о животном". От ар. قعر каъара "выдалбливать". От ар. قار ка:р,  га:р "смола", от рус. гарь.
 Эрозия - (Йер-азиа) углубление в основе. От ар. قرض  караз (карад, ''араз, гараз) "разъедать, грызть". от آس ''а:с "основа", "фундамент", "центр", того же корня, что рус. ось
-
-
 Много рек имеют в своем названии "Дон". Кажется, что различали глубокие реки или озера ("Йер") и неглубокие ("Дон"), в которых было видно дно.
 </span>
 ';
@@ -418,18 +526,15 @@ GO
 
 exec spAddArticle 2508, N'Повинность', N'', N'
 <span viak="word">повинность
-
 ВН - повинность вина вена звено вьюн винт вино вонь венец Иван ион Ян Ина one(англ:один) Веня йена
 НВ - Нева новый Навь навей(мертвец) нива
 бН - баян баня бин(сын)
 Нб - небо Анубис нёбо
-
 </span><span viak="description">
 повинность - воинская, ямская
 </span><span viak="reference">из Вашкевича:
 ВЕНОК –  "сплетённые в кольцо листья, цветы". (Ожегов).
 Связано с веник,  венец, производных от индоевропейского корня *uei[1] "связывать". (Черных).
-
 Похоже, что ключевой смысл здесь: "связь". Думается, что слово "повинность" означало не "пРовинность", а "обязанность", что опять выводит нас на смысловое поле "связь". С другой стороны, обязанности часто воспринимаются как наказание, что и приводит "повинность" к пониманию как "пРовинность".
 </span>
 ';
@@ -437,9 +542,7 @@ GO
 
 exec spAddArticle 4070, N'Книга: С. Г. КОРДОНСКИЙ. Сословная структура постсоветской России.', N'государство, деньги, книга, общество', N'
 <span viak="book>С. Г. КОРДОНСКИЙ. Сословная структура постсоветской России. Москва. Институт Фонда «Общественное мнение» 2008
-
 Написанная ясным простым языком, даже с некоторым юмором, с многими примерам из истории России. Буквально на пальцах разъясняется разница между классами и сословиями современного общества, даются содержательные исторические ссылки. Показывается искуственность марксистского и советского определения классов. Как государство создает и уничтожает сословия. Распределительная экономика современной и исторической России как продукт Российской сословной структуры. Не коррупция, а сословная дань.
-
 ... поднимаются проблемы, связанные с социальной структурой современной России, которая рассматривается как двухкомпонентная: сословная и клас- совая. Сделана попытка представить социальную историю России как циклическое доминирование или сословной, или классовой структуры. Описаны принципы сос- ловного устройства СССР и современные российские сословия. Выделены титульные (существующие по закону) и нетитульные (обслуживающие) сословия и показаны их отношения с классовой структурой. Автором описаны межсословные отношения, связанные с распределением ресурсов...
 Из предисловия:
 "... совсем не банален описанный Кордонским механизм межсо- словного распределения государственного бюджета, увязывающий функции государства и, соответственно, статьи бюджета с выделением ресурсов сословиям, которым положено эти функции выполнять. А каждое сословие претендует на многие функции и соответственно «тянет» на себя ресурсы из многих статей бюджета. Полученный в результате «борьбы за существование» суммарный бюджетный ресурс определяет место в сословной иерархии. Своего рода рейтинг. Предисловие ресурсного успеха и, как следствие, властных возможностей. По- следние предопределяют допустимые амбиции в сборе сословной ренты с нижестоящих и обязанности по сдаче сословного налога вы- шестоящим сословиям. Так формируется социальная структура, где каждый получает «по чину» за выполнение того, что положено, то есть за служение. Вот такой общественный договор! Деньги здесь исполняют роль распре- деляемого ресурса вместо натуральных ресурсов в социалистическом мире..."
@@ -478,12 +581,9 @@ GO
 
 exec spAddArticle 4890, N'Книга: Дэвид Гребер. Долг: первые 5000 лет истории', N'', N'
 <span viak="book">Дэвид Гребер. Долг: первые 5000 лет истории
-
 </span><span viak="description">
 После чтения великолепной книги "Debt: The First 5,000 Years" by David Graeber (<a href="http://flibusta.net/b/399277" target="_blank">Долг: первые 5000 лет, автор: Стивен Грабер</a>) пришло понимание, что деньги - это просто долг. И не важно как этот долг записан - на бумаге, золотом, серебром или деревяшками. Долг - это священное понятие на котором стоит любое человеческое общество, начиная с семьи. В этой книге делается различие между двумя видами денег: собственно деньги (money) и валюта (currency).
-
 Если принять рассуждения автора, то становится легче ориентироваться в потоках рассуждений о ненужности денег. Вопрос должен стоять шире: как будете отдавать долги? Деньги позволяют рассчитаться с долгами. Вы же не хотите быть должны должны сотням незнакомцев, как вы сейчас должны матери, отцу, Pодине(, партии, Иисусу, и т.д. добавить по вкусу). Только отдав долг, можно порвать долговые расписки, расстаться, разойтись в разные стороны, и простить.
-
 Становится очевидно, что идеи о запрете или отмене денег не просто несерьезны. Даже намек на такое выплеснет цунами "непрощения", злобы, ожесточения, войны всех против всех. Поэтому кажется, что упрощенное толкование коммунизма, как царства безденежья, это одна из ловушек в которую легко многие попадаются.
 </span>
 ';
@@ -491,79 +591,46 @@ GO
 
 exec spAddArticle 5574, N'Книга: Грэм Лоури. Как Венецианский вирус инфицировал и победил Англию', N'Англия, Венеция, вяк, государство, история, книга, общество', N'
 <span viak="book">Грэм Лоури. Как Венецианский вирус инфицировал и победил Англию
-
 </span><span viak="reference">
 <a href="http://www.masterjules.net/venetians.htm" target="_blank">Отформатированный мною машинный перевод</a>
-
 Как Венецианский Вирус инфицировал и победил Англию
 Х. Грэм Лоури
 Напечатано в Executive Intelligence Review, 15 апреля,
 </span><span viak="description">
 Консолидация венецианской партии в Англии и Великобритании был вопрос культуры. Франческо Зорзи из Венеции, близкий друг и родственник Гаспаро Контарини, который был направлен Венецианской олигархией в Англию в качестве секс-советника Генриха VIII, был кабалист и розенкрейцер. В 1529 году Зорзи приехал в Лондон, чтобы доставить свое мнение, и он остался при дворе для остальной части его жизни, создание важную партию последователей - ядро ​​современной венецианской партии в Англии. В 1525 году, Зорзи опубликовал трактат De Harmonia Mundi, который использует каббалистической Сефирот, чтобы объяснить мистические, иррационалистические взгляды и, чтобы подорвать влияние Николая Кузанского.
-
 В 1536 году, когда он был при английском дворе, Зорзи написал свою вторую основную работу, в Scripturam Sacram Проблемата. Это руководство по магии, Зорзи уверяет читателя - начинающего мага, что христианские ангелы охраняют его, чтобы убедиться, что он не попадет в руки демонов.
-
 Зорзи оказал большое влияние на некоторых поэтов Елизаветинской эпохи. Сэр Филип Сидни был последователем Зорзи, также как и очень популярным Эдмунд Спенсер, автор длинной повествовательной поэмы "Королева фей". Спенсер был ключевым источником идеи английской имперской назначения как богоизбранного народа, с с широким спектром намеков на британский Израиль. Кристофер Марло и Шекспир и нападали на влияние Зорзи в таких пьесах, как "доктор Фауст" и "Отелло", но венецианская школы была продолжена розенкрейцером Робертом Фладдом, и, конечно же, Фрэнсисом Бэконом и Томасом Гоббсом.
-
 Джон Мильтон, поклонник Паоло Сарпи и апологет ростовщичества, является примером про-венецианской пуританина периода Кромвельского Содружества. Милтон учил, что то что Сын Божий ниже Бога-Отца, своего рода запоздалая мысль, и в любом случае не нужная. Милтон был современником Sabbatai Цви, лжемессии из Смирны, Турция, чей отец был агентом английских пуританских торговцев. Разве Мильтоновский "Рай обретенный", изданный в 1671 году отражает знание стремительной карьеры Саббатея Цви, который ворвался в мир в 1665 году?
-
 <b>Британская Ост-Индская компания была основана в 1600 году. К 1672, авантюристы, такие, как "Алмаз" Питт, занимался морским грабежом вокруг Индии.</b>
-
 В декабре 1688 войска голландского принца Вильгельма Оранского (Dutch Prince William of Orange) вторгся в Англию, прерывая войну всех против всех, которую страна пережила при царствовании невменяемого короля Карла II и его брата Джеймса II. Хуже кошмар последовал, когда Вильгельм захватил трон Джеймса II, потому что он воплотил более высоко дистиллированной форму яда, который усовершенствовал Венеция во время его господства над останками Голландской республики. Это прямая узурпация беспечно называется в англо-венецианского языке как "Славная революция" - который должен дать вам некоторое представление о том, как мало внимания к истине существует в этих кругах.
-
 Понятие "английских прав и свобод" быстро превращается из фантастики в мошенничество при диктаторском режиме Вильгельма. Когда король Джеймс II бежал во Францию, законным преемником на английский престол была его старшая дочь Мария, которая вышла замуж за Вильгельма Оранского неохотно (он был завзятым гомосексуалистом). Требование Вильгельма стать королем никогда не был представлено на рассмотрение парламента для "конституционного" одобрения. Вместо этого, он созвал специальную "конвенцию", предоставившию ему полную власть, а не просто звание короля-консорта.
-
 Венецианский багаж короля Уильяма включал злодейского Джона Локка, который стал главным пропагандистом навязывания Банка Англии этой несчастной стране в 1694 году. Это был не тот тип банка, к которому вы бы обратились за финансовой помощью. Это был гигантское Венецианское мошенничество, которые быстро создалo первый национальный долг Англии для финансирования текущей войны на истощение в Европе, ввелo кредитный кризис, сокращая количество циркулирующих английскиx монет почти наполовину, и нагрузило новыми налогами уже разрушающуюся экономику. Главный архитектор банка был лидером партии Венецианский Чарльз Монтегю, новый канцлер казначейства Вильгельма, который позже достиг более высокую позицию британского посла в Венеции. Монтегю назначил жалкого Сэрa Исаакa Ньютонa, чтобы наблюдать за мошенничествоm "перечеканки", и Ньютон погашал этот долг проституцией своей племянницы в качестве приживалки Монтегю.
-
 Нанятый протеже банка Джон Локк более известен как активный пропагандист человеко-ненавистнической теории, что человеческий разум не что иное, чем чистый лист - пассивный регистратор животных ощущений. Он явно отдавал предпочтение кассовому аппарату, и открыто защищал ростовщичество как необходимый сервис для тех, чьe богатство было в деньгах. Теории Локка o правительствe примерно напоминают того оператора казино, который устанавливает правила заведомо в пользу своей конторы, по которым вызверившиеся игроки бьются за деньги, которые затем определяют их ценность как личности. Это "свобода" Локкa, чтобы стремится к обладанию собственностью. Его понятие "общественного договора", которое гарантирует членам клуба игроков право на вход в казино, на самом деле, выдвинуто для того, чтобы оправдать узурпацию Вильгельмом Оранским британского престола. Джеймс II, в сущности, был обвинен в отнятии этиx прав у его более спекулятивных субъектов, тем самым нарушая договор. Локк утверждал, что Венецианцы поэтому имели право перейти к другому договору.
-
 К 1697 году переворот венецианского партии внутри Англии было почти полным, и его члены заполнили "корабль государства" Вильгельма от носа до кормы. Они они надеялись преодолеть наболевший вопрос в английских колониях в Америке: импульс к построению независимого государства, которая бесила венецианцев с 1630-х годов основания колонии в Массачусетском заливe. В 1701 году, Джон Локк, как член Совета Англии по торговлe, выступает за отмену независимости американских колоний, и подпадание их экономической деятельности под королевскую диктатуру, и о запрете изготовление в них любых готовых товаров.
-
 <b>Анти-Венецианскоe движение Лейбница</b>
 Тем не менее, даже когда венецианцы чванились их кажущимся торжеством, мощная республиканская оппозиция выстроилась вокруг наивысшего создания природы и предназначения человека, которые оба вдохновили и и открыли путь для последующего создания Соединенных Штатов. Ее лидером был великий немецкий ученый и государственный деятель Готфрид Вильгельм Лейбниц, который вывел то, что вполне может быть названо движением за стремление к счастью - конечной цели свободы, которые Америка приняла в своей Декларации Независимости.
-
 Перед лицом нового венецианского натиска в Англии, Лейбниц изложил свое мнение о человеческом счастье, с точки зрения человеческого создания человека в лице Dei. В своем труде "О понятии права и справедливости" в 1693 году Лейбниц определяет благотворительность, как "универсальную добродетель", которую он навает привычкой любить, т.е., "ценить чужое счастье как свое собственное". Та радость - это первое впечатление, говорил он, в созерцании прекрасной картины Рафаэля, например, "тот, кто понимает это, даже если это не приносит богатства, таким образом, что держа ее у него перед глазами, и оце нивает ее с восторгом, как символ любви."
-
 Когда объект восхищения "в свою очередь также способен испытывать счастье, его привязанность переходит в истинную любовь, говорит Лейбниц. "Но божественная любовь превосходит другие виды любви, потому что Бог может быть любимым с наибольшей силой, так как нет ничего счастливее, чем Бог, и неизвестно ничего более прекрасного и более достойного счастья, чем Он. ''И, поскольку Бог обладает высшей мудростью, Лейбниц говорит, "понятия людей будут лучше поняты, если мы скажем, что мудрость есть не что иное, как сама наука счастья."
-
 В качестве ведущего ученого и философа своих дней, Лейбниц был широко известен по всей Европе, и среди таких республиканских лидеров Новой Англии, как и Winthrops и Mathers, позже включая, самое главное, Бенджамина Франклина. С 1690 ведущий союзник Лейбница в Англии, Шотландии и Ирландии, был блестящий анти-венецианский полемист Джонатан Свифт, который направил культурную борьбу против бестуальных (уподобление человека животному) понятий Бэкона, Гоббса, Рене Декарта, Ньютона, и Локка, в течении более чем 40 лет.
-
 С точки зрения разума, эмпиризм Аристотеля подобно Декарту и Локку низводит понятие человека до уровня просто зверя, что, конечно, является предпосылкой для создания такой империи, как  ее видели венецианцы стремились, тогда и сейчас. Когда Джонатан Свифт поднял свой голос в поддержку опровержения эмпиризма Лейбницем, он высмеял идеи своих противников за то чем они и были: сумасшедшием. Как "отступление от безумия"  Свифт в его работе в 1696 "Сказка о бочке" рассматривает "великих создателей новых схем в философии", как древних, так и современных. Они, как правило, не узнаваемы никем кроме их собственных последователей. Свифт говорит, "были те люди сумасшедшие..." во многом согласные в нескольких теориях с их нынешними преемниками в академии современного Бедлама."
-
 <b>Олигархические семьи переезжают</b>
 К 1701 году лунатики последней инкарнации венецианской партии были, как правило, выходцами из немногих олигархических семей, путем смешивания Spencers и Godolphins и Черчиллей - последнюю возглавлял Джон Черчилль, который вскоре стал герцогом Мальборо.
-
 Черчилль начал как паж-мальчик для Карла II в 1665 году, за юбками его сестры Арабеллы, любовницы брата короля Джеймса. Тогда за оказанные услуги, Черчилль получил £10,000 от любимой хозяйки Карла II.
-
 Дела по-видимому двигались так гладко, что венецианцы взяли курс на выполнение своей следующей главной цели: уничтожение Франции, наиболее продуктивной экономической власти в Европе. В министерстве Жана Батиста Кольбера-покровителя, научной академии в Париже, где сам Лейбниц занимался в начале 1670-х гг, Франция лидирует в развитии инфраструктуры и промышленности. Таким образом, в 1701 году Англия начала войну против Франции. Последовало более десяти лет кровопролития и разрушения для населения обеих стран и их европейских союзников. Это была еще одна сфальсифицированая игра, в которой Венеция должна была быть единственным победителем.
-
 Но неизбежны проблемы  в любой злокозненной схеме. Королева Мария умерла в 1694 году, оставив Уильяма без прямого наследника. Ее сестра Энн был следующим в очереди на престол, но смерть единственной сохранившейся ребенка Анны в 1700 году стал новым кризисом преемственности. Закон оседлости был введен в 1701 году. 71-летняя внучка Джеймса I, Софи - глава немецкого Дома Ганновер, был назначена в качестве преемника Энн. Король Вильгельм умер в 1702 году, и Анна стала королевой Англии.
-
 Как и ожидалось Венецианский партией, она быстро даровала первенство при дворе герцогу и герцогине Мальборо, которые плели сети свого влияния над ней в течение многих лет. Проблема для венецианцев, было то, что главный советник Софи и тайный советник, был Готфрид Вильгельм Лейбниц.
-
 <b>- Битва за Британию -</b>
-
 С Лейбницем практически в одном шаге от определения политики в Лондоне, последняя битва против венецианской партийной диктатуры в Англии вспыхнула всерьез. Это был конфликт между стремлением к счастью и жаждой империи. Семейство Мальборо прибегает к обману, террору и предательству, чтобы прервать политические отношения - или даже обычные любезности - между королевой Анной и Софи из Ганновера. Свифт поддерживал ожесточенный шквал публично и в частном порядке против венецианской банды Мальборо, что привело к тому, что он нарушил их господство в кабинете королевы Анны. Он расширил свое влияние на ее внутреннее окружение, а, в течении 1710-1711 гг. он выдворил семейство Мальборо и всех их приспешников из офиса.
-
 Лондон отчаянно бросил Исаак Ньютон в драку против Лейбница, раздувая старую  ложь, что дифференциальное исчисление его изобретение, а не Лейбница. Лейбниц и Свифт сговорились привезти великого композитора Георга Фридриха Генделя из Ганновера в Лондон в 1710 году, стремясь возвысить английскую музыкальную культуру от декадентского рева и откровенного храпа.
-
 <b>Американская Сторона</b>
 И в разгар всего этого, Свифту удалось добиться назначения двух своих союзников королевских губернаторами в американских колониях. Роберт Хантер в Нью-Йорке, и Александр Спотсвуд в Вирджинии, начал в 1710 году движение , которое открыло дверь нашей будущей континентальной республике.
-
 В том же году, в штате Массачусетс, Коттон Mather опубликовал свою республиканское руководство к действию, Эссе о пользе, которое распространяло представление Лейбница о науке счастья по всей Америке в течение столетия. Бенджамин Франклин воздал должное книге Мазера как оказавшее наиболее важное влияние на его жизнь.
-
 Джонатан Свифт сказал об этом периоде, что он сомневался, был еще один в истории "более полное высказываний которые кто нибудь заитересованные из другого века было бы приятно узнать, тайные пружины. '' Венецианцы не хотел, чтобы вы знали, что Лейбниц и Свифт построили некоторые из тайных ходов, которые привели к созданию американской республики. Но в Британии (как это стало известно после союза 1707 года, по которому Англия была навязана Шотландии), борьба с венецианской партией вскоре была  потеряна.
-
 Покровительница Лейбница, Софи Ганновер, назначенная преемницей королевы Анны, умерла в мае 1714 года в возрасте 84. Ее сын Георгий был теперь наследник британского престола. Вильгельм Оранский был кумиром Георгия, и Мальборо и венецианская партия купила его много раз. Не прошло и двух месяцев после смерти Софи, жизнь королевы Анны закончилась, вероятно, от яда, в возрасте 49 лет. Герцог Мальборо, который в изгнании в течение многих лет готовил свержение Анны, высадился в Англии в тот же день; и Джордж Ганновер был провозглашен королем Великобритании Георгом I. Джонатан Свифт был вынужден бежать в Ирландию, и Джордж скоро отстрвнил Лейбница от двора Ганноверов.
-
 Как серьезный была угроза Лейбниц и Свифт, заданные заговорщиков венецианского партии? Просто примите во внимание сатанинскую ярость заговорщиков против мертвой королевы Анны, который для всех ее недостатков научилась искать что-то лучше в жизни, чем они могли бы когда-либо знать. Там не было никакого общественного траура, ни королевских похорон; ее труп оставался гнить в течение более чем трех недель. Тогда несколько избранных, служащих Джорджу I, похоронили ее тайно ночью, в Вестминстерском аббатстве - под могилой ее пра-пра-бабушки, Марии, королевы Шотландии. По сей день, ни один камень или планшет не отмечает ее могилу.
-
 Лейбниц сам умер в 1716 году. Джонатан Свифт продолжал сражатся из Ирландии, с позиции королевы Анны дала ему в качестве декана собора Святого Патрика в Дублине.
-
 Он стал признанным политическим лидером всей Ирландии в течение 1720-х годов, строя массовое движение на принципах человека Богом-данное право на свободу и право на национальный суверенитет, основанное на естественном праве. Свифт, таким образом, расширил движение Лейбница для достижения счастья, и неизмеримо влиял на рост республиканизма в Америке восемнадцатого века.
-
 Великобритания, однако, начал быстрый спуск в ад, в соответствии с новым режимом Георга I. Ранее секретные общества сатанистов, таких как Клуб Адского Огня в то время всплыли, отмечены публикацией Бернарда Мандевиля в 1714 году в "Басне о пчелах, или Частные пороки, Общественная польза. Очень просто, Мандевиль утверждал, что интересы государства не было ничего больше, чем максимальное удовлетворен чувственных удовольствий своих физических лиц: чем больше частных пороков, тем больше общественная польза. Таким образом, государство процветает в наибольшей степени на совращении его подданых. Неизбежно, Великобритания вскоре стала скована в венецианской оргии разврата и новых высот финансовых спекуляций, что приводит к огромному взрыву Пузыря Южного Моря в 1720. Соответственно, правительство, которое вышло в 1721 году от этой разрушительного коллапса (http: //en.wikipedia .org / вики / South_Sea_Bubblе), возглавил премьер-министр Роберт Уолпол, который занимал эту должность на службе зла в течение следующих 20 лет. Клубы Адского Огня не только распространялись; они стали святая святых вырождающейся элиты Великобритании. Наиболее крупный из них, основанный в 1720 году лордом Wharton, включал в его меню "Панч Адского Огня", "Пирог Святого Духа, "Пax дьявола" и "Груди Венеры" (украшенный вишенками для сосков). К 1760, когда американские колонии начали открыто порывать с Англией, большинство из кабинета короля были членами Клуба Адского Огня. Когда Бенджамин Франклин служил нашим главой колониальной почты, например, его официальный начальник, сэр Фрэнсис Дэшвуд, был главой Клуба Адского Огня!
-
 Убийственной платой за такой режим на британское население выражается следующей статистикой: с 1738 по 1758 г. было всего 297 тыс. рождений против 486 тыс. смертей. Типизации бестианства нарождающейся Британской империи, была фраза самодовольно высказанная Робертом Уолполом: Каждый человек имеет свою цену".
 Мы не должны платить ее.
 </span>
@@ -572,7 +639,6 @@ GO
 
 exec spAddArticle 6866, N'Что в имени твоем: Этруски', N'', N'
 <span viak="word">Этруски
-
 ТРС - этруски треск треска торс трусы трусить терраса торосы Тарас Тирас(поль) Терск
 СРТ - сорт сирота Саратов Сретенка срать
 СРд - среда середина сердце сардины Сардиния
@@ -586,13 +652,9 @@ exec spAddArticle 6866, N'Что в имени твоем: Этруски', N'',
 <a href="http://viakviak.livejournal.com/36922.html" target="_blank">кРД</a> - кордон краденное курд кредо курдюк кирдык(тюрк:конец,гибель) card(англ:карточка) Кордова кредо cord(англ:шнур) украдено
 </span><span viak="description">
 Осмотрим слово "Этруски" используя словарь Н.Н. Вашкевича и его правила только одного перехода корневых согласных, чтобы не сойти с ума, как он предупреждает.
-
 Сначала выделим корень: ТРС - три согласные. Будем читать в обе стороны понимая, что гласные не имеют большого значения. Возможны добавки суффиксов и префиксов. Будем осмотрительны к случайностям, не будем торопится с выводами. Главная задача найти "близко-корренные" слова с подходящим смыслом. По ходу будем пытаться найти как русские, так и арабские слова в словаре Н.Н. Вашкевича - никакой отсебятины. Поиск арабских слов производится по их русскому звучанию, образованному прибавлением гласной "а" после каждого согласного, например корень ТРк дает "ТаРака". Поиск этого слова на сайте Н.Н.Вашкевича в Google: site:nnvashkevich.narod.ru ТаРака
-
 Выявленные ниже слова попробуем осмыслить, понимая, что они не обязательно должны выходить одно из другого. Попробуем услышать обьединяющие их идеи, отбрасывая явно посторонние. По Вашкевичу: все, что "слышится" - все может пригодится или быть к месту.
-
 Ключевые слова из тех, что приведены ниже: середина, сардины, Сардиния
-
 Ни в коем случае, не окончательно, но мне кажется, что мне слышатся следующии идеи:
 </span><span viak="summary">
 Этруски - из Сардинии (середины Италии, средиземноморья)
@@ -600,17 +662,12 @@ exec spAddArticle 6866, N'Что в имени твоем: Этруски', N'',
 Из Н.Н.Вашкевича:
 ЭТРУСКИ – "этнос предшествовавший латинянам до образования государства Древнего Рима".
 ♦ От ар. التروس эт-турус "латы, щиты", что есть перевод этнонима латиняне, они же (в обратном прочтении) италики, которое от рус. латы. См. также пеласги.
-
 СИРОТА1 – "ребёнок или несовершеннолетний, у которого умер один или оба родителя". (БЭКМ).
 ♦ От ар. أسير ''аси:р "пленный". В ар. сознании сирота (يتيم йати:м "сирота") и пленный относились к одной категории, что подтверждается кораническим текстом, предписывающим хорошее отношение к этой категории обездоленных людей.
-
 Арабское ГУЛУБ "сердца" происходит от русского голова, а русское сердце происходит от обратного прочтения арабского ЦД РС, отражение головы", чем оно и является по медицинскому факту. 
-
 СЕРДЦЕ1 – "центральный орган кровеносной системы в виде мышечного мешка". (БЭКМ).
 ♦ От обратного прочтения ар. صد رأس садд ра''с "отражение головы". В том смысле, что происходящее в голове (обработка разного рода информации), отражается на сердце. Ср. ар. قلوب кулу:б, гулу:б "сердца" и рус. головы. В других европейских языках (в греч., латыни) рус. слово дало кардио… См. также сердитый1. Сердечно-сосудистая система через цвет крови нумеруется как система номер один в организме.
-
 Название сардины происходит от арабского سراطين сара:ти:н "раки". Как знак Зодиака Раки (по-арабски سرطان сарата:н) этимологически восходят к значению четыре. Четверка, в свою очередь, делит семерку пополам, следовательно, в конечном итоге, восходит к русскому середина, того же корня, что и среда, четвертый день недели в восточном исчислении. Сравните название четвертой буквы Далет, которая делит семерку пополам и является ее серединой.
-
 Главным городом Этрурии был Тарквиний. Никто не понимает этого названия. А тут и понимать нечего, в переводе с арабского – Кузнецк, от арабского тарака (طرق "бить стучать, ковать"), مطروقات матру:ка:т "кованные изделия".
 </span>
 ';
@@ -621,14 +678,12 @@ exec spAddArticle 7192, N'Что в имени твоем: Software(англ:п�
 </span><span viak="description">
 Software = soft + ware
 <span viak="word">Soft(англ:мягкий)
-
 СФТ - софит soft(англ:мягкий)
 ТФС - typhus(англ:сыпной тиф)
 СвТ - <a href="http://viakviak.livejournal.com/11024.html" target="_blank">свет</a> совет сват
 цвТ - <a href="http://viakviak.livejournal.com/19758.html" target="_blank">цвет</a> цветок
 </span><span viak="summary">
 Software(англ:программа) - легкая, быстрая, цветастая, советующая, и заразная, применима в военных целях.
-
 <span viak="word"><a href="http://viakviak.livejournal.com/7468.html" target="_blank">Ware(англ:изделие)</a>
 ВР - вар (на)вар вера веер Уваров врать war(англ:война)
 РВ - ров рёв ровно рвать row(англ:ряд) раввин raw(англ:сырой) river(англ:река)
@@ -639,11 +694,9 @@ Software(англ:программа) - .
 </span><span viak="reference">
 Из Н.Н.Вашкевича:
 ДИАЛОГИ с "НЕИЗВЕСТНОЙ ПЛАНЕТОЙ"
-
 МАРТЫНОВ
 Николай Николаевич, в свете Вашей концепции как бы вы трактовали фразу :
 «В начале было слово» ?
-
 ВАШКЕВИЧ
 Обычно её понимают исторически. И тогда правомерным становится возражение со стороны наших современников. Ведь вначале должен быть кто-то, кто его (слово) произнесёт. Мне неоднократно приходилось слышать реплики примерно такого содержания. Понимать эту фразу исторически – неправильно.
 Чтобы было понятней, о чём идет речь, приведу фразу из Корана "И был Аллах велик". Обе фразы объединяет наличие глагола в прошедшем времени. Тафсир (Толкование) разъясняет кораническое высказывание следующим образом : Аллах был велик, есть велик и будет всегда велик. Дело в том, что глагольная форма прошедшего времени не всегда обозначает именно прошедшее время, сравните: я пошел бы (когда? вчера, сегодня? завтра?). Как в Коране, так и в библейской фразе речь не идёт о прошедшем времени. В Библии речь идёт не о временных отношениях, а о логических. Всё в конечном итоге сводится к слову.
@@ -658,7 +711,6 @@ exec spAddArticle 7468, N'Что в имени твоем: Hardware(англ:а�
 </span><span viak="description">
 Hardware = hard + ware
 <span viak="word">Hard(англ:твердый)
-
 ХРД - hard(англ:твердый) хорда
 ДРХ - дрыхнуть дряхлый дирхем
 ХРт - heart(англ:сердце,араб:тарака - стучащее)
@@ -667,7 +719,6 @@ Hardware = hard + ware
 <a href="http://viakviak.livejournal.com/36922.html" target="_blank">кРД</a> - кордон краденное курд кредо курдюк кирдык(тюрк:конец,гибель) card(англ:карточка) Кордова кредо cord(англ:шнур) украдено
 <a href="http://viakviak.livejournal.com/18520.html" target="_blank">кРТ</a> - court(англ:суд,двор,площадка,королевский двор,ухаживание) карате крот куратор карета аккуратный каратель картель картон карто(фель) курить куртка курорт crate(англ:упаковочный ящик) carot(англ:морковь) кретин
 ТРк - таракан тарака(араб:стучать) терка турок тюрк торкнуть отрок трюк attraction(англ:привлекательность) track(след,путь,следить) Аттатюрк truck(англ:грузовик)
-
 <span viak="word"><a href="http://viakviak.livejournal.com/7192.html" target="_blank">Ware(англ:изделие)</a>
 ВР - вар (на)вар вера веер Уваров врать
 РВ - ров рёв ровно рвать row(англ:ряд) раввин raw(англ:сырой) river(англ:река)
@@ -679,16 +730,12 @@ Hardware(англ:аппаратура) - Равномерно-тарахтящ�
 Из Н.Н.Вашкевича:
 ДРАХМА – "денежная единица Греции, равная сто лептам", от греч. drachme. (СИС).
 ♦ Из греч. же ар. دراهم дара:хим "деньги". В греч. языке от ар. طرق тарака (дарага) "стучать", "чеканить". Ср. ар. سكة сиккат "монета", "чеканка".
-
 ПРОДУКТ1 – "предмет, вещество, получившееся в результате человеческого труда", "следствие, результат известных усилий". От лат. productus "произведенный". (СИС).
 ♦ В словаре Дворецкого не отмечено. Лат. слово означает "удлиненный", "протяжный, долгий", семантическая связь через produx "отпрыск", "отводок". (Дворецкий, с. 816). Вероятно, лат. produx "отводок" от обратного прочтения ар. خضرة худрах "зелень". Продукт от обратного прочтения ар. حضرة хадрах "наличие", откуда حضر хаддара "приготавливать, производить, изготовлять", букв. "делать наличным, имеющимся", откуда تحضير тахди:р "приготовление". Переход Х в П см. статью П.
-
 ХОРДА - геом. "отрезок прямой линии, соединяющий две точки какой-н. кривой, напр. окружности"; из греч. xordh "кишка", "струна", "колбаса". (БЭКМ).
 ♦ Греч. слово от ар. خردة хурда "всякая мелочёвка", родственно дрек "то, что идет на выброс" (в обратном прочтении).
-
 ДЕТАЛЬ – "часть механизма, машины, прибора, а также вообще какого-нибудь изделия", "мелкая подробность, частность". (Ожегов).
 ♦ От обратного прочтения ар. العتاد аль-ъата:д "приспособление".
-
 СЕРДЦЕ1 – "центральный орган кровеносной системы в виде мышечного мешка". (БЭКМ).
 ♦ От обратного прочтения ар. صد رأس садд ра''с "отражение головы". В том смысле, что происходящее в голове (обработка разного рода информации), отражается на сердце. Ср. ар. قلوب кулу:б, гулу:б "сердца" и рус. головы. В других европейских языках (в греч., латыни) рус. слово дало кардио… См. также сердитый1. Сердечно-сосудистая система через цвет крови нумеруется как система номер один в организме.
 </span>
@@ -705,11 +752,9 @@ car bomb = бомба в машине
 black bomb = черная бомба
 кара бомбой
 Bar caboom - взрыв бара, разрушение препятствия
-
 Наоборот:
 </span><span viak="summary">
 амабО караБ - м Бог раб = м(инструмент), раб Божий
-
 Слышимое: барак, короб, корабль, оба, амеба, рак, арак, арык, кара, mob, БАМ, арба, борьба
 </span>
 ';
@@ -720,7 +765,6 @@ exec spAddArticle 8418, N'Что в имени твоем: Масса', N'Ваш
 </span><span viak="reference">
 Лат. mаssa "ком, груда". (БЭКМ)
 </span><span viak="description">
-
 Mask, маска - одевается на многолюдные собрания.
 Mass, масса - перекликается с Many, Multitude, Myriad, Множество, Мирриад (миллиард), Мир. Читая наоборот получаем противоположное значение: some(англ:несколько), сам, сама (один, в смысле немного).
 Mass, месса - многолюдное собрание.
@@ -755,7 +799,6 @@ GO
 
 exec spAddArticle 8744, N'Что в имени твоем: Золотой Телец', N'Вашкевич, вяк, история, слова', N'
 <span viak="word">Золото
-
 ЗЛТ - консонантное (без гласных) значение корня слова
 ТЛЗ - обратное значение корня
 ТЛц - Телец
@@ -763,9 +806,7 @@ exec spAddArticle 8744, N'Что в имени твоем: Золотой Тел
 Как неоднократно отмечал Н.Н. Вашкевич в своих работах, сказки создаются вокруг смыслов, их сюжет разворачивается как раскрытие смыслов ключевых слов.
 Всем известное словосочетание Золотой Телец. Почему именно Золотой Телец, а не Золотой Бык или Корова, например?
 А ведь Золотой Телец - это же палиндром. Не простой, конечно. Концептуальный, яркий образ, смысло-образующий, расчитанный на удвоение смысловой нагрузки. Рассмотрим подробнее:
-
 Как видим, слово Телец - это обратное прочтение слова Золото.
-
 Вот так, за образом Золотого Тельца стоит "Золотое золото" или попросу "много золота".
 </span>
 ';
@@ -773,31 +814,24 @@ GO
 
 exec spAddArticle 9103, N'Что в имени твоем: Cotton(англ:хлопок)', N'Вашкевич, вяк, слова', N'
 <span viak="word">Cotton(англ:хлопок)
-
 KTN - cotton(англ:хлопок) kitten(англ:котенок) катана
 НТК - нитка натка(ть) натыка(ть) нотка анютка неток
 сТН - сатин сатана стон станина Астана установка сотня сутана
 </span><span viak="description">
 Представляются близко связанными следующии слова:
 cotton, сатин, нитки, моток, котомка с общим базовым смыслом "нить", "связанный".
-
 Другие слова могут буть осмыслены как относящиеся к понятию "связанный":
 катана - металл с рисунком в виде вязи
 катамаран - две связанные лодки
 станина - основание связывающая детали вместе
-
 </span><span viak="reference">
 Из Н.Н.Вашкевича:
-
 НИТЬ1 - "то же, что нитка". (БЭКМ).
 	♦ От ар. ناط на:та "подвешивать", "подвязывать" (М., стр. 847). Огласовка И передает орудийность, т.е. "чем подвешивают, подвязывают".
-
 САТИН – "плотная хлопчатобумажная или шёлковая ткань с глянцевитой лицевой поверхностью"; фр. satin атлас < араб. zaitūnî букв. из Цзяодуна — назв. кит. города, где начали вырабатывать эту ткань. (БЭКМ); "гладкое переплетение нитей ткани, характеризующееся преобладанием на лице ткани нитей одного и того же направления, что придает ей особый лоск. Применяется при ткачестве из всевозможных материалов, главным же образом, шёлковых (seta лат. - шёлк, отсюда С.). (Брокгауз).
 	♦ От ар. ساطع са:тиъ(ун) "блестящий".
-
 МОТАТЬ1 – "навивать, накручивать что-л. длинное на какой-л. стержень или свивать в клубок", "двигать чем-л. из стороны в сторону", "покачивать". Корень, по-видимому, тот же, что и в мера. (Черных).
 	♦ От ар. корня مت мтт "разматывать", "растягивать" или متي мтй "растягивать" (М., с. 745). В значении "покачивать" – от корня موجМВГ (МВЙ) – "волноваться о море",  موجة    маугат (мавйат) "волна". (М., с. 779). 
-
 КАТАНА – "самурайский меч"; япон.
 	♦ От ар. قطع катаъ "резать, рубить, сечь",  قاطع ка:тиъун "резец".
 </span>
@@ -806,7 +840,6 @@ GO
 
 exec spAddArticle 9497, N'Что в имени твоем: Государство', N'', N'
 <span viak="word">Государство
-
 Госу-дарство
 ГС - Гусь
 Гз - Гизы, Газ
@@ -814,24 +847,16 @@ exec spAddArticle 9497, N'Что в имени твоем: Государств�
 кС - коса, киса, кайса(к)
 кз - кази, каз(на), каз(ан), каз(нь), Каз(ань), каз(ак), коз(ел)
 зк - зэк, зак(он)
-
 </span><span viak="description">
 Слово "Государство" является сложно-составным из двух частей: Госу и Дарство.
-
 Второя часть "Дарство" прозрачна - она происходит от слова Дарить, Дарственная, что соответсвует историческим свидетельствам о существовании "ярлыков" на княжение - дарственных.
-
 Первая же часть "Госу" очевидно происходит от известного слова тюркского/арабского "кази" - судья. От него же происходят многие другие слова связанные с государственностью и ее атрибутами, такими как казна, казнь, казаки, закон и др. Возможно слова "козел" и "гусь" несут смысл "облагаемые государственной пошлиной".
-
 Также (см. ниже) слово "ГоСУДарство" содержит "суд", но уже по-русски. Учитывая это, мы видим, что конструкция "ГОСУД" представляет собой удвоенное зеркальное значение смысла "суд": гос+суд. Этот прием служит для усиления (удвоения) смыслового значения.
-
 Найденная "удвоенная зеркальность" не отрицает, а дополняет предыдущие рассуждения о "дарстве". Это все добавляет к силе слова, к величине его смыслового значения.
-
 Дополнительно мы можем видеть слова "Рада", как часть "Государства", чем правительство "Рада" и является.
-
 Лев (аСУД - араб.) является символом законности, судейской составляющей государства.
 </span><span viak="reference">
 Из Н.Н. Вашкевича:
-
 ГОСУДАРСТВО – "основная политическая организация общества, осуществляющая его управление, охрану его экономической и социальной структуры"; "страна, находящаяся под управлением политической организации, осуществляющей охрану её экономической и социальной структуры". (Ожегов).
   ♦ От сударь, и государь, которое от ар. корня سود СУД, от которого سيادة сийа:да "суверенитет", букв. "господин-ство", которое от ар. أسود ''усу:д "львы". Первая часть го- от ар. ه гу – личное местоим. третьего лица в значении "его (величество)". См. великий. Поскольку понятие суд включено уже в словогосударство, традиционно суд рассматривается в России как инструмент государства, а вне государства суд превращается в пародию. Ср. значения ар. корня حكم (хакама): "держать", "править, управлять", "властвовать", "судить", "быть мудрым", "иметь суждение", откуда حكومة хуку:ма"правительство", слово которое используется иногда для перевода понятия государства. Разделение властей, придуманное англичанами, на самом деле есть маска на экспорт. В ар. названии государства давла (دولة) зашита функция перераспределения, см. довольствие. См. также князь, самодержавие.
 </span>
@@ -840,7 +865,6 @@ GO
 
 exec spAddArticle 10052, N'Что в имени твоем: Царь', N'Вашкевич, вяк, слова, титул', N'
 <span viak="word">Царь
-
 ЦР - цер(ковь) цер(емония) цир(куль) цер(бер)
 зР - заря, зорька зернь зерно зарок зирвак(узб:жаренное мясо для плова) (ха)зары (кай)зер (ce)zar
 Раз - раз разор резня рез(вый)
@@ -855,7 +879,6 @@ exec spAddArticle 10052, N'Что в имени твоем: Царь', N'Ваш�
 чР - чартер чертить
 гР - гора гиря горе огарок игра герой агра(рий) грань гарь Гера гурия <a href="http://viakviak.livejournal.com/45219.html" target="_blank">В</a>иагра
 Рг - рог Рига ругань Рейган
-
 </span><span viak="description">
 REX - императорский
 -ар - суффикс
@@ -868,39 +891,31 @@ REX - императорский
 Царь - правитель при помощи серебра
 </span><span viak="reference">
 Из Н.Н. Вашкевича:
-
 ЦАРЬ1 – "единовластный государь, монарх". (БЭКМ).
 	♦ От обратного прочтения ар. راض  ра:д (в других семитских языках – рац)  "объезжать лошадь",  ср. кучер и кайзер (см.). Другая версия – от аккадс. шару "царь", которое от шар, в смысле "голова".
 КАЙЗЕР – "название императора Германской империи"; нем. kaiser < лат. caesar "цезарь". (БЭКМ).
 	♦ От ар. قيصر  кайсар "царь". Родственно цезарь, кесарь, кучер (см. кесарь).
 КУЧЕР – "слуга, работник, который правит лошадьми в экипаже". (БЭКМ).
 	♦ От ар. قصر кассар "укорачивать (повод)", поскольку кучер правит лошадью, держа её на коротком поводке. Родственно ар. قيصر кайсар "царь", лат. цезарь, нем. кайзер. Ср. ар. سائس са:''ис "конюх", "политик", того же корня, что ар. سوس су:с "кобыла". Ср. также сидеть (на облучке) и сидеть (на троне), откуда ар. ساد  са:да (корень  سود  свд) "царить".  См. на эту тему также партия.
-
 ЦЕРКОВЬ – "особой архитектуры здания, где совершаются богослужения по христианскому православному обряду", "организация духовенства и верующих людей какой-либо из христианских религий или отдельных религиозных течений". В этимологическом отношении очень неясное слово. Одна версия предполагает заимствование из немец. kirche "церковь", другая – из греч. kirianoV "господний". (Черных).
        ♦ От ар. حركة харака "движение", "идейное течение".
-
 س раййис, раис "начальник, глава". 
 раййис (ريس). Это обращение к разным мастеровым людям, знающим свое дело, мастер. И сейчас можно так обратиться, например, к водителю такси.
 Сир и сэр от обратного прочтения рис "начальник" (см. "Энциклопедия пиратов")...  А рис - сокращение от ар. раййис "начальник" (диалект).
 ЯРА - "весна" (русск-цслав.), отсюда яровой хлеб, яровые пчелы (первый рой), родственно греч. wra "время года, пора". (Фасмер).
        ♦ От рус. жар (см.).
-
 РИС – "злак с белыми продолговатыми зёрнами, идущими в пищу, а также его зёрна", (БЭКМ); из романских языков. (Фасмер).
        ♦ От ар. أرز арз или арузз. По созвучию с ар. عريس ъари:с "жених": используется в обрядах бракосочетания (посыпание риса на головы молодоженов) из-за созвучия его с ар. словами رأسра''с "голова", عرس ъарс – "свадьба", عروسة ъру:са "невеста", عريس ъри:с "жених", رسى раса: "стать на якорь". По этой же причине является преимущественной культурой в Китае, шестом культурном регионе. Важно, что среди злаковых только рис и бамбук (см.) имеют шесть тычинок. Свадебные путешествия обусловлены ар. глаголом عرسъаррас "совершать путешествие". По этой же причине на похоронах едят рисовую кутью (см. кутья). О параллелизме рождения и смерти ср. ар. родственные корни  ولد валада "родить" и لحد лахада "хоронить". Привязка других зерновых к регионам см. гречиха, рожь, просо, сезам, хинта. Рис употребляют в пищу и как закрепляющее средство, работающее по созвучию с ар. رص расс "быть плотным, твёрдым". Аналогично крутое яйцо.
-
 РИСТАЛИЩЕ – "площадь для гимнастических, конных и других состязаний, а также само такое состязание". (БЭКМ).
        ♦ От ар. رياضة рийа:за "конная выездка, спорт", производно от راض ра:за, рада "садиться на коня",روض равваз "объезжать коня". Родственно рыцарь, рейд, рейтузы.
-
 СРАТЬ – "испражняться". Праслав. *sъrati связано с чередованием с сор. (Фасмер).
        ♦ Этимология неизвестна. От ар. خرا хара: с тем же значением. Переход С/Х обычен для многих языков. Ар. слово от أخر ''ахара "оставлять сзади", آخر ''а:хар "крайний". Родственно край, икра (см.) в обоих значениях.
-
 СЫР1 – "пищевой продукт, получаемый свертыванием молока и дальнейшей обработкой полученного сгустка". (БЭКМ).
        ♦ От ар. يصير йсы:р "становиться" "превращаться", "оборачиваться", т.е. сворачиваться. Родственно сыворотка, серозный, ар. عصير ъаси:р "сок", производное от عصرъасар "отжимать" (при производстве сыра и творога отжимается сыворотка). Сыр как конечный продукт переработки молока (см.) включён в семантические параллельные ряды кормления (младенца) и духовного кормления, начинающиеся с молока, которое соответствует речи (по-арабскиكلام кала:м), и заканчивается либо маслом (см.), соответствующем мысли, либо сыром, что значит итог. Сыр по-арабски جبن жубн (ЖБН "сыр", "бояться") в рус. прочтении НБЖ, набожностью, (боязнью Бога). Рус. название сыра восходит к ар. глаголу из группы глаголов бытия и становления, от которой происходит слово Истина, т.е. Бог. См. также сливки, сметана, масло.
 СМЕТАНА – "молочный продукт из кислых сливок. Щи со сметаной". (Ожегов).
      ♦ От арабского مط маттун отглагольное имя от مط матт "тянуть", تمطط таматтат "тянуться, становиться густым и вязким", буквально "сгустившиеся (сливки)". Сметана входит в ряд молочных продуктов молоко – сливки – сметана – масло – сыр, который соответствует по созвучию названиям этапов социализации личности, сметана соответствует формированию сметки, сообразительности. См. молоко, сливки, масло, сыр.
 КОРМЛЕНИЕ – "способ содержания должностных лиц за счёт местного населения на Руси до середины 16 в. Князь посылал в города и волости наместников и др. служилых людей. Население было обязано содержать их («кормить») в течение всего периода службы. Наибольшего развития система К. достигает в 14—15 вв. По земской реформе 1555—56 К. было ликвидировано, а сборы на содержание кормленщиков правительство превратило в особый налог в пользу казны". (БСЭ).
 	♦ Слово имеет еще и другое значение – "воспитание", иначе "духовное кормление"; от кормить (см.), перенос значения основан на однорядости женской поэтапной функции: "понести – носить – родить – вскормить – воспитать", этапы которой в русском и арабском языках названы со сдвигами в последовательности.  Так, по-арабски кормление грудью называется  رضاعة рида:ъа, от корня رضع радаъа "кормить грудью", сравните в греческой мифологии кормилица Дионисия – Рода), от этого корня в русском – родить. Русское "положение" ("быть в положении", т.е. вынашивать) соответствует по звучанию и буквальному смыслу слова арабскому وضع вадаъ "родить", буквально "положить". Русское снести ("родить") дает в арабском ناس на:с "люди", а русское люди от арабского валад "родить", сравните арабское مولودين маулю:дин "рожденные". С другой стороны, кормление, как один из этапов женской функции, внутри себя распадается на части в соответствии с наименованиями молочных продуктов: молоко – сливки – сметана – масло – творог – сыр, которые оборачиваются в "духовном кормлении" этапами становления интеллекта личности. См. эти продукты.
-
 РУКА1 – "одна из двух верхних конечностей человека от плеча до кончиков пальцев, а также от запястья до кончиков пальцев". (БЭКМ).
      ♦ От ар. ركاء рука:'' "опора", откуда ارتكى ''иртака: "опираться". К семантическому развитию ср.: ар. يد йад "рука" и  ар. أيد ''аййад "поддерживать", англ. hand "рука" и ар.سند санад"опора". Строение руки таково, что она представляет собой некую матрицу универсального счета. Количество фаланг пальцев совпадает с числом дней акушерского месяца – 28 (или дней беременности – 280) и числом букв ар. алфавита. Количество фаланг четырёх пальцев, без большого, который по-арабски называется إبهام ибха:м (родственно наобум) "неясный", т.е. "безымянный", равно количеству месяцев в году. Если из счета исключить и "русский" безымянный, то получится девять – количество месяцев беременности по солнечному календарю". Количество месяцев беременности по лунному календарю дает количество всех пальцев на обеих руках. Отсюда рус. кулак совпадает по согласному костяку с основой слова калькуляция. При этом впадины и костяшки кулаков точно передают порядок чередования полных месяцев (31 день) и неполных (30 дней). Рус. рукадало в японском рейки (см.), искусство целительства с помощью рук.
 РУКА2, рука набита, набита – "о хорошем навыке". (ФСРЯ).
@@ -936,11 +951,8 @@ REX - императорский
        ♦ Сложения ар. رعى раъа:  "пасти" и قود квд "руководить", "возглавлять", "вести", откуда قائد ка:''ид "вождь", "командир", "руководитель". Родственно кадет (см.).
 Протослог -*sar- в топонимах мира и этимология слов с его присутствием в разных языковых семьях
 http://www.organizmica.org/archive/907/psar.shtml
-
 Древние предки покланялись богам Ра, Диву, Трибогу (Дажьбогу), Сварогу, Бору (Пану), Сесту (Сэту), Семешу, Весте и Дэву. Но обращение «Всевышний» касалось только Сара. Сар – не просто бог, это ещё и природное явление, ежесуточно наблюдаемое нами на небе – заря, зорька. В русских заговорах слово «заря» означало ещё звезду. Имя Заря осталось не только у русских. Например, у англичан сохранилось слово zero (ноль), которое звучит схоже с именем Заря = Сара, что указывает на повсеместное распространение бога Сара по всему Евроазиатскому континенту...
-
 Названия верхней одежды у многих народов также имеют в своём составе слог -*sar-: сарафан – русская женская верхняя одежда, сари – индийская женская верхняя одежда, саронг – индонезийская национальная одежда...
-
 Название древнего хазарского города Саркел также имеет в своём составе слог -*sar-. Этимология данного названия до сих пор неясна (высказывается предположение о том, что название переводится c хазарского как «белый город» [8]). Но среди сохранившихся слов вымершего хазарского языка есть не только обозначение белого цвета: sār – «белый», но и прилагательное sārïg – «жёлтый», то есть данное прилагательное также имеет слог -*sar- в своём составе.
 </span>
 ';
@@ -948,14 +960,10 @@ GO
 
 exec spAddArticle 10325, N'Что в имени твоем: Ходжа Нассреддин', N'', N'
 <span viak="word">Ходжа Нассреддин
-
 </span><span viak="description">
 Ходжа́ Насредди́н — фольклорный персонаж мусульманского Востока и некоторых народов Средиземноморья и Балкан, герой коротких юмористических и сатирических миниатюр и анекдотов, а иногда и бытовых сказок... Арабское мусульманское личное имя Насреддин (араб. نصرالدين, Naṣr ad-Dīn) переводится как «Победа Веры».
-
 Это имя должно рассматриватся в мусульманско-арабском контексте.
-
 Ходжа - мусульманин осуществивший "хадж" - хождение в Мекку.
-
 Нассреддин - Насср-еддин - Суд Орла, Судейский Орел, Орлиный судья
 </span><span viak="summary">
 Ходжа Нассреддин - Орлиный судья ходивший в Мекку
@@ -965,7 +973,6 @@ exec spAddArticle 10325, N'Что в имени твоем: Ходжа Насс�
 от ар. ан-наср альтаир "летящий орел".
 насер - орел
 Viki: From the Arabic اَلنَّسْر اَلطَّائِر ‎(an-nasr aṭ-ṭāʾir, “the flying eagle”), from نَسْر ‎(nasr, “eagle”) + طَائِر ‎(ṭāʾir, “flying”).  https://en.wiktionary.org/wiki/Altair
-
 دين ди:н "суд"
 ...фразы  из Корана: الدين يوم ملك малик йаум ад-дин (из первой суры), буквально: "властитель дня суда"
 </span>
@@ -974,7 +981,6 @@ GO
 
 exec spAddArticle 10602, N'Что в имени твоем: Грифон', N'Вашкевич, геральдика, имя, история, символ, слова', N'
 <span viak="word">Грифон
-
 ГРФ - грифон грейфер граф grief(англ:горе) Греф
 ФРГ - фрегат ФРГ
 ФРк - фракция freak(англ:урод) фрукт фрикция Африка фрак
@@ -1108,19 +1114,15 @@ exec spAddArticle 10847, N'Что в имени твоем: Закон', N'Ва�
 Кази - судья, законник
 Хаза, Каса, Сакля - дом, жилье; "Турецкий язык: hisar – крепость, замок" (from chispa)
 Заказ - законный 2 раза - русско-арабская билингва
-
 ЗАкон
 накАЗ
 Аз - первая буква русского алфавита
 Ас (Туз араб.) первая карта в колоде (бьет короля)
-
 ЗАкон
 накАЗ
 рАЗ
 ЦаРь
-
 Вывод: Складывается впечатление, что слово АС представляет собой понятие первый, "перво-основа", "наиглавнейший", высочайший
-
 Отсюда:
 османы (АС-маны) - наипервейшие люди, главный народ - наипервейшие люди, главный народ
 Осетин - АС-АТ-АН - человек (ИН) главного (АС) защитника (АТ)
@@ -1149,28 +1151,18 @@ exec spAddArticle 11024, N'Что в имени твоем: Аллах', N'Ва�
 <span viak="word">Аллах
 </span><span viak="description">
 Слова приветствия на разных языках мира: Olá (португ:привет), Hello (англ:привет), Hola (исп:привет), Aloha(hawaiian:привет), Алле, сАЛАм (узб:привет), шАЛАм(ивр:привет), sALve (латин:привет)
-
 Присутствие звукосочетания АЛА в словах-приветствиях, которые очень устойчивы показывает упоминание Аллаха во многих Западно-Европейских языках.
-
 А что же слово Аллах конкретно означает? Понятно, что это одно из имен бога, очень употребительное. Каждое имя бога называет лишь одно из его качеств. Какое же божественное качество стоит за словом Аллах?
-
 В Английском языке есть слова hOLy - святой, hALO - ореОЛ, нимб, сияние. Мне эти слова кажутся очень показательны, потому что словa hOLIness, "сияние", "светЛОсть", "сиятЕЛьство" употреблялись к важнейшим особам. Вспомним hOLy virgin (Пресвятая богородица), hOLy trinity (Святая троица), "Его Преосвященство", ...
-
 Таким образом представляется, что слово "Аллах" может быть переведeн, в следующих значениях: свет, сияние, свечение, освещение.
-
 Проверочные слова: ИЛЛЮминация, ЛАмпа, кАЛЕние, ЛУч. Ну и приветственные слова на разных языках желают света тем или иным образом.
-
 ОЛИмп - место богов - святилище
-
 ЭЛохим, ЭЛион, ЭЛ - другие имена бога.
-
 бЕЛый - <a href="http://viakviak.livejournal.com/11820.html" target="_blank">БАЛый (главный)</a>, бАЛАй - можно понимать как светлейший <a href="http://viakviak.livejournal.com/19758.html" target="_blank">цвет</a>
 АЛый - светло-красный
-
 Исходя из сказанного английское слово "hOLe" может быть осмыслено как "дыра пропускающая свет".
 </span><span viak="reference">
 Из Н.Н.Вашкевича:
-
 АЛЛАХ–"Бог у магометан". От ар. allah. (Ушаков).
 	♦ И в арабских источниках, и в мировой арабистике, и в исламоведении бытует ложная этимология этого слова, основанная на его ошибочном грамматическом членении, при котором оно понимается как сложение артикля ал и слова ''илах"бог". При этом не делается даже попыток объяснить мистическое исчезновения первой корневой, которое противоречит арабской грамматике. На самом деле это форма усиленного причастия (имя деятеля) от корня '' л х, (откудаإله''илах "бог", "предмет поклонения"), который этимологически восходит к корню'' вл أول, откуда глаголأل"возвращаться", "объяснятся", "причинно восходить к чему-либо",каузатив которого дает другое значение: "указывать на причину", "объяснять", в форме причастия: "то, что все объясняет", т.е. то, что в европейской культуре принято называть Абсолютом, ср. производное от данного ар. корня:أول '' аввал"начало".  Таким образом, Аллах можно перевести как "первопричина", "то, к чему все восходит", "то, через что все объясняется". Ср. мусульманскую заклинательную формулу по сути об этом:راجعون اليه وإنا لله إنا   ''Инна ли-ллах ва-''инна ''илейхи ра:гиъу:н"по истине, мы от него (Аллаха) и к нему мы возвращаемся". Иначе говоря, Аллах в представлении самих мусульман, это то, к чему они возвращаются.
 А1– первая буква рус. алфавита. Числовое значение – 1. Название – Аз (см.).
@@ -1192,25 +1184,18 @@ exec spAddArticle 11544, N'Что в имени твоем: Единорог', N
 <span viak="word">Единорог
 </span><span viak="description">
 В свое время на меня произвело неизгладимое впечатление подход Н.Н. Вашкевича к греко-римской мифологии. Он очень наглядно показал, что эти мифы в своей основе - <a href="http://nnvashkevich.narod.ru/kng/SYSJAZ2007/appli4.htm" target="_blank">просто красочные описания имен их героев</a>.
-
 Я пробую применять этот подход к любой мифологии или символам. Чем больше раз данный символ или слово добавит смыслового значения, произнесет ключевое слово, тем символ "богаче" и "лучше".
-
 Символ "Единорог" широко использовался в <a href="http://viakviak.livejournal.com/11518.html" target="_blank">геральдике</a> и в астрологии (как козерог). Попытаемся проанализировать слово Единорог, "прокрутив" его напрямую и обратно, пробуя близкие согласные, и игнорируя гласные. При этом, мы также рассмотрим смысловое поле - другие слова, с которыми Единорог употребляется. Это позволит избежать ошибок и проверить себя.
-
 Единорог
 Один рог
 ГоРоНиде -> коРоНада -> коРоНа, коРаН, НаРок, каРиНа (супруга), кРоНа (дерева), кРаН, коРеНь, ГоРН, ГоРНило, ГРаНь, кРоНос (бог времени, он же сатуРН)
-
 Горн означает Рог ( От ар. قرن карн (гарн) "рог".), т.е. мы прошли полный круг, доказав правомерность выбранного направления.
-
 Таким образом в обратном русском прочтении Единорога можно увидеть Корону, которая означает "связь", "объединение", "воссоединение". Иван Грозный мог использовать символ Единорога как символ права на объединение, воссоединение земель, права свою царскую корону и может быть права на польскую/литовскую корону.
 Крученый рог у Единорога добавляет смысловое значение "туго скрученный/завязанный". Первая часть слова Едино-рог, в свою очередь еще раз добавляет смысл "один, единый, объединенный".
-
 </span><span viak="summary">
 Единорог (как и корона, коран) несет в себе смысл объединения, мирного союза, плавильного котла народов.
 </span><span viak="description">
 Единорог обычно изображается белым. a href="http://viakviak.livejournal.com/19758.html" target="_blank">Белый</a>, <a href="http://viakviak.livejournal.com/11820.html" target="_blank">балу</a>, бала, Валуа, великий = голова, основной, главный, большой. Белый царь - большой, Балтика - главное море, баллиста - большое орудие (главного калибра), балда - голова ...
-
 Белый единорог - великий союз народов.
 </span><span viak="summary">
 Английское слово Unicorn (One-horn) тоже говорящее: Uni + corn = Uni(ted) cor(o)n(a). Очевидно, что в одном слове дважды повтореннно смысловое "объединение".
@@ -1254,7 +1239,6 @@ exec spAddArticle 11820, N'Что в имени твоем: Великий', N''
 гЛ - гол гель голь голый ugly(англ:неприятный) галлы гулять
 Лх - лихо лох ляхи лохань
 хЛ - хала хули 
-
 Helvetica - заглавный шрифт
 балка - главная опора
 Балканы - великие горы
@@ -1328,7 +1312,6 @@ GO
 
 exec spAddArticle 12662, N'Прямой перевод: Silver(англ:серебро) - Direct translation', N'вяк, деньги, перевод, слова, титул', N'
 <span viak="translation">Silver(англ:серебро)
-
 СЛВ - silver(англ:серебро) solvent(англ:растворитель) salvo(англ:залп) слава слив слива соловей сельва
 ВЛС - волос власть Велес
 <a href="http://viakviak.livejournal.com/39647.html">Срб</a> - серебро сруб серб
@@ -1338,12 +1321,10 @@ exec spAddArticle 12662, N'Прямой перевод: Silver(англ:сере
 црВ - царевич
 <a href="http://viakviak.livejournal.com/.html" target="_blank">цр</a> - царь
 црб - цербер
-
 </span><span viak="translation">Argentum(лат:серебро)
 РГН - Аргентина Арагон регион
 НГР - награда Нигерия Ниагара негр нагар
 <a href="http://viakviak.livejournal.com/37986.html">РжН</a> - рожон рыжина
-
 бразды - бразды правления, управление при помощи серебра
 брызги - серебристые капли воды
 власть - правление при посредстве серебра
@@ -1356,11 +1337,9 @@ exec spAddArticle 12662, N'Прямой перевод: Silver(англ:сере
 сруб - срубить серебрянный рубль
 царь - правитель при помощи серебра
 цербер - хранитель серебра
-
 </span><span viak="summary">
 Представляется, что слово Серебро могло возникнуть в контексте слов Слив и Брусок в смысле "слиток", а уже затем стать основой для понятий могущества (власть), известности (слава) и управления (бразды, царь, цербер, регион).
 Денежная единица Рубль может ассоциироваться со словами "срубить серебро" дающими удвоение смысла "серебро".
-
 Слово Silver видится как калька слова Серебро при переходах <a href="http://viakviak.livejournal.com/39647.html">Р - Л</a> и <a href="http://viakviak.livejournal.com/45394.html">Б - В</a>.
 </span><span viak="summary">
 Слово Argentumи и страна Аргентина возможно были адаптированы от слова Награда в смысле "награда серебром".
@@ -1379,7 +1358,6 @@ exec spAddArticle 12976, N'Что в имени твоем: Яхве, Иегов
 Получается, что Яхве и Иегова - это просто иное произношение русского слова Бог.
 </span><span viak="reference">
 Из Н.Н.Вашкевича:
-
 ЯХВЕ - "в иудаизме – непроизносимое имя бога. Согласно ветхозаветному преданию было открыто Моисею в богоявлении при горе Хорш". (МС).
        ♦ Известно под названием тетраграмматон (יחוח). Яхве – один из двух вариантов его чтения. Другой: см. Иегова.
 ИЕГОВА, Яхве –  тетраграмматон, заместитель имени еврейского бога, произносить которое запрещается; пишется (справа налево) в четыре буквы Йод, Хе, Вав, Хе: יחוח
@@ -1402,7 +1380,6 @@ exec spAddArticle 13147, N'Что в имени твоем: Князь', N'Ва�
 </span><span viak="description">
 КНяЗь - (читая наоборот) ЗНаК от слова Знать (в обоих смыслах: знание и элита).
 Знак (ярлык) на княжение.
-
 От слова ярлык:
 Ярл(князь в Швеции),
 Royal (королевский);
@@ -1419,7 +1396,6 @@ GO
 
 exec spAddArticle 13513, N'Что в имени твоем: Книга', N'', N'
 <span viak="word">Книга
-
 КНГ - книга коняга king(англ:король) княгиня
 ГНК - гонка гинеколог gunk(англ:дрянь) огонек
 чНГ - <a href="http://viakviak.livejournal.com/18274.html" target="_blank">Чинг(из)</a>
@@ -1442,11 +1418,8 @@ king(англ:король) - Чинг(изид), из рода Чингиз-х�
 </span><span viak="reference">
 Из <a href="http://trueview.livejournal.com/157427.html" target="_blank">TrueView</a>: 
 Сыромятная кожа (сыромять) — кожевенный материал древнейшего способа выделки. Производится путём разрыхления структуры кожи с фиксацией этого состояния жирующими веществами. Была повсеместно распространёна, но в настоящее время практически вытеснена дублёными кожами. На Руси название «сыромятная кожа» известно по письменным источникам с XVI в. Кожевники, специализировавшиеся на выделке сыромяти, назывались «кожемяки» (это также вообще кожевники) и «сыромятники». Одновременно существовало другое распространённое название — «мячина» (от слова мять). Кожевники соответственно назывались «мешинники».
-
 Важным этапом является разминание (мятьё) (для тонких кож — потягивание), вручную или методом топтания. При этом часто используются простейшие приспособления (протаскивание через верёвку, через кол с острым ребром, использование мялки «беляк», протаскивание ремней через лещади или донскую мялку). Применяются и простые механические приспособления (например, использование приспособления наподобие пасти животного, выкручивание на специальном станке с использованием силы инерции или использование донской мялки на конной тяге). Есть и такой старый метод как жевание зубами (народы Севера), при котором к тому же участвуют ферменты слюны. В России ремни из сыромяти проходили процесс «посадки», путём протаскивания их через палочки с прямоугольными вырезами. За счёт чего они калибровались и приобретали нужный профиль.
-
 При выделке кожу мяли (гнули)...
-
 </span><span viak="reference">Из Н.Н. Вашкевича:
 КНИГА1 – "произведение печати (в старину также рукописное) в виде переплетённых листов с каким–н. текстом". (БЭКМ).
 ♦ От ар. كنه кунх "сокрытый смысл", "суть", "глубина", откуда إكتنه ''иктанаха (восьмая порода) "исследовать", "постигать глубину".
@@ -1456,7 +1429,6 @@ GO
 
 exec spAddArticle 13811, N'Что в имени твоем: Бердыш', N'', N'
 <span viak="word">Бердыш
-
 БРД - борода beard(англ:борода) бред брод обряд bread(англ:хлеб) бард бардак бордель бурда берданка бредень 
 ДРБ - дробь дробовик дербанить
 пРД - парад перед продукт пердеть pardon(англ:прощение)
@@ -1489,7 +1461,6 @@ GO
 
 exec spAddArticle 14254, N'Что в имени твоем: Столица', N'', N'
 <span viak="word">Столица
-
 СТЛ - столица стол стул стойло сталь стул стелить стиль сутулый остолоп усталость settle(англ:обосновываться,селиться) Сиэтл steal(англ:украсть) steel(англ:сталь)
 СдЛ - седло сделал 
 здЛ - (Су)здаль, 
@@ -1497,10 +1468,8 @@ exec spAddArticle 14254, N'Что в имени твоем: Столица', N''
 </span><span viak="summary">
 Создается впечатление, что слово Столица находится в смысловом поле "поддержка, место отдыха". См. также слово <a href="http://viakviak.livejournal.com/14782.html" target="_blank">Держава</a>
 </span><span viak="reference">Из Н.Н. Вашкевича:
-
 СТОЛИЦА – "главный город государства, как правило, место пребывания правительства и правительственных учреждений". (БЭКМ).
        ♦ От ар. استولى ''иставла: "захватывать (власть), держать", ср. ар. عصم ъасам "держать" и ъа:сима "столица".
-
 СТОЛ – "предмет мебели в виде широкой горизонтальной пластины на опорах, ножках". (БЭКМ).
        ♦ От ар. سطل сатал "пьянить", "лить", откуда سطل сатл
   "ведро", мн. число: سطول суту:л, مسطول масту:л "пьяный". Из этого видно, что первоначально и до сих пор стол – это место возлияний. Ср. название столицы Грузии Тбилиси (от ар. طاولة та:виля "стол") и застольные песни грузин.
@@ -1526,14 +1495,12 @@ exec spAddArticle 14782, N'Что в имени твоем: Держава', N'�
 гРД - город град огород ограда гордость гарда гряда guard(англ:сторож)
 тРЖ - торжище труженик (ка)торжник сторож тираж treasure(англ:сокровище)
 ЖРт - жрать
-
 Слово Столица происходит от арабского "держать", т.е. столица (стол, лоток) и держава (торжище, торг) имеют общий смысловой контекст относящийся к торговле.
 город - это обратное прочтение слова "торг". Рынок, торговые ряды всегда были градо-образующим объектом. Существует предположение, что амфитеатры, включая Римский Колизей - это просто огражденный рынок.
 </span><span viak="summary">
 Таким образом, в слове Держава виден смысл "охрана торговли" и находится в одном смысловом ряду со словами Столица, Город, Торг, Дорога, Ограда, Сторож, Дорогой.
 </span><span viak="reference">
 Из Н.Н. Вашкевича:
-
 СТОЛИЦА – "главный город государства, как правило, место пребывания правительства и правительственных учреждений". (БЭКМ).
     ♦ От ар. استولى ''иставла: "захватывать (власть), держать", ср. ар. عصم ъасам "держать" и ъа:сима "столица".
 </span>
@@ -1578,17 +1545,11 @@ GO
 
 exec spAddArticle 15747, N'Мои словокопания: Цель, Метод и Ограничения.', N'', N'
 <span viak="opinion">Я считаю понятия "слово"и "образ" взаимозаменяемыми. Слово записывется буквами, каждая из которых имеет свой образ, или может быть представлено картинкой или иероглифом. С другой стороны, образ описывается словами.
-
 Главное назначение слова - описание смысла понятия. Количество "смыслов" слова ничем не ограничено. Одно и то же слово может нести разные "смыслы" разным людям.  Чем больше"смыслов" в одном слове, тем оно богаче и шире распространно. Все "смыслы" слова равноправны.
-
 В своих языковых "исследованиях" я испытываю идеи Н.Н.Вашкевича о том, что слова - это не просто "бирки" (labels). Каждое слово и по звучанию, и по написанию несет в себе смыслы, описывающие понятия к которым они приложены. Любые слова, особенно имена. Имена простые и составные, включающие фамилии, клички, псевдонимы, города и улицы на которых человек жил, названия областей и стран, профессия, привычки, и т.д.
-
 Главное правило - в слове должен быть смысл, оно должно быть понятно сразу и без натяжек.
-
 Основной метод заключается в отбрасывании гласных и выделении корня в "консонантной" форме (только согласные). По Вашкевичу, все арабские корни имеют только три согласные. Корень может читаться слева направо и справа налево. Допускаются дозволенные "переходы" букв корня. Рассматриваются все возможные словообразования из корня на любых языках мира. Выделяются слова одного "смыслового" поля. Затем производится анализ выделенных слов, чтобы определить способ их образования слова из смысла. Я использую словарь РА и работы профессора Н.Н.Вашкевича для расширения базы поиска и примеров преобразований слов.
-
 Основное ограничение - недисциплинированные преобразования слов, многочисленные переходы, бессмысленность не допустимы, и даже могут привести к серьезным психическим нарушениям у неискушенного исследователя.
-
 Основная цель - получить понимание процесса словообразования, видить смысл слов и значения имен и образов.
 </span>
 ';
@@ -1609,7 +1570,6 @@ exec spAddArticle 15943, N'Что в имени твоем: Иберия, Евр
 <a href="http://viakviak.livejournal.com/33634.html" target="_blank">пР</a> - <a href="http://viakviak.livejournal.com/34907.html" target="_blank">пиро(г)</a> пар поры пир poor(англ:плохой) упырь
 Рп - репа арап rip(англ:разрыв) rope(англ:веревка) rape(англ:изнасилование)
 Р - арий ура иерей Юрий jury(англ:жюри) яр jar(англ:банка) <a href="http://viakviak.livejournal.com/2143.html" target="_blank">йер</a>
-
 Слово Европа может рассматриватся как название "еврейского" континента, а Иберия - место первоначального его заселения евреями.
 </span>
 ';
@@ -1625,7 +1585,6 @@ exec spAddArticle 16161, N'Что в имени твоем: Персона', N'�
 ПРц - процесс
 бРз - борзая бриз обрезание образ борозда брызги
 зРб - зробить(укр:сделать) заработок Зураб
-
 присный - истинный, приспешник, близкий человек, единомышленник
 приспешник - помощник, прислужник, служитель, пособник, соучастник
 </span><span viak="summary">
@@ -1641,13 +1600,9 @@ GO
 exec spAddArticle 16618, N'Свобода человека. Источник и предназначение.', N'вяк, государство, закон, история, общество, свобода', N'
 <span viak="opinion">
 В Английском языке слово "свобода" может пониматся как одно из следующих:
-
 Freedom - собственно "свобода", безо всяких разрешений и ограничений.
-
 Liberty - вольность, т.е. разрешенная "свобода".
-
 Right - право на свободу, не нуждающееся в особых разрешениях.
-
 Если представить себе совершенно свободного человека, то моделью его свободы был бы бесконечный пузырь (bubble) вокруг него. Человек мог бы делать все, что угодно, быть абсолютно независимым (independent). Приходит на ум идея Рая и бестелесных душ его населяющих. Считается, что человек имеет бессмертную душу (soul) и бренное тело (body). Душа принадлежит богу (god), и никто под страхом божественного суда не может погубить ее. Тело человека может быть использовано как угодно его законным владельцем для его блага.
 Понятно, что реальный человек в реальном мире, должен выживать с одной стороны, и он будет стремится к комфорту, с другой. Человек работает, общается, пытаясь улучшить свое состояние. В этом процессе у него появляются желания, которые он стремится удовлетворить наиболее известным ему экономным способом.
 Счастье (Happiness) - это чувство достижения желаний (desires).
@@ -1670,7 +1625,6 @@ Right - право на свободу, не нуждающееся в особ�
 Олигарх (Oligarh) - это субъект управления государством, суверенное сословие.
 Класс (Class) - часть общества, имеющая общие коренные экономические интересы.
 Сословие (Caste) - это часть общества (каста) имеющая определенные законом вольности и обязанности.
-
 Таким образом представляется, что свобода человека - это своего рода потенциальная энергия человеческого тела. Человек может обменять часть своей свободы для получения собственной выгоды. С другой стороны, управление массами людей происходит за счет контролирования их индивидуальных свобод.
 Представляется, что революционные изменения общества начинаются с освобождения людей от старых долгов и отношений, а затем происходит постепенное их закабаление на новом уровне. Каждая общественная формация дает новые возможности человечеству, и соответственно вырабатывает новые способы эксплуатации человеческой свободы.
 </span>
@@ -1700,14 +1654,12 @@ exec spAddArticle 16646, N'Прямой перевод: Book(англ:книга
 вч - вече -вич
 </span><span viak="description">
 <a href="http://viakviak.livejournal.com/25986.html" target="_blank">Буква "В" может выпадать</a> или переходить в гласные Е и У, включая "Й" (Ю):
-
 K - око -ака(тюрк:старший) йок(тюрк:нет) ку-ку key (англ:ключ) як
 X - ухо эхо  х*й ха-ха ух эх ах ох hi(англ:привет) hey(англ:привет) hay(англ:сено) yahoo(англ:гадина)
 Г - юг иго яга йога guy(англ:парень) гей Гоя ага угу эге ого-го гой га-га Яго agua(исп:вода)
 Ч - чё чай itch(англ:зуд) чей чаять очи
 </span><span viak="summary">
 Book(англ:книга) = Бук(ва) Бук(и)
-
 </span><span viak="reference">Из Н.Н.Вашкевича:
 БУКВА – "письменное изображение звука речи, элемент азбуки". Из старославянского языка, где оно было заимствовано из готского boka "буква". В языках германской группы слово связано с названием дерева бук. (Черных).
     ♦ Как и многие названия знаков, а также насекомых, слово связано с идеей пятна. Происходит от ар. بقعة   букъа "пятно" и родственно рус. букашка (см.). Готское слово из рус.
@@ -1733,10 +1685,8 @@ exec spAddArticle 17884, N'Что в имени твоем: Рыцарь', N'В�
 Рыцарь: Рысь-ар - всадник едущий на рысаке.
 </span><span viak="description">
 Родственно то Рейтар, Рейдер.
-
 Слово Рысак прочитанное наоборот дает "касыр", что близко по значению другим словам того же ряда: Кайсар, кайзер, кесарь, хазары, козырь(rus:<a href="http://viakviak.livejournal.com/41271.html" target="_blank">trump</a> card), гусар, газырь.
 В словах Гусар и хазар окончание -ар может быть осмыслено как суффих. Его изменение на другой общеупотребительный суффих -ак даст ряд других близких по значению слов: казак, казах.
-
 Обратим также внимание на возможность следующего разложения слова Рыцарь: Рыц+царь - удвоение смысла "царь". Слово Царь родственно имени Цезарь, Кайзер или в близневосточом варианте <a href="https://ru.wikipedia.org/wiki/Кайсар" target="_blank">Кайсар</a>.
 </span><span viak="description">
 газырь - часть национальной одежды кавказских народов, заимствованы казачьими частями русской армии.
@@ -1757,10 +1707,8 @@ exec spAddArticle 17884, N'Что в имени твоем: Рыцарь', N'В�
  1. Наездник - ударение на смысле "верхом",
  2. Ездок - просто указывается на факт езды,
  3. Всадник - "в сидении", указывается факт наличия седла, которого вообще-то могло и не быть в предыдущих случаях.
-
 </span><span viak="reference">Wiki:
 Ры́царь (посредством польск. rусеrz, от, нем. Ritter, первоначально — «всадник»; лат. miles, caballarius, фр. chevalier, англ. knight, итал. cavaliere[1]) — средневековый дворянский почётный титул в Европе...
-
 Ре́йтары (нем. Reiter — «всадник», сокращение от нем. Schwarze Reiter — «чёрные всадники») — наёмные конные полки в Европе и России XVI—XVII веков. Название «чёрные всадники» изначально использовалось по отношению к конным наёмникам из Южной Германии, появившимся в годы Шмалькальденской войны между германскими католиками и протестантами.
 </span><span viak="reference">Из Н.Н.Вашкевича:
 ГОРОД, град – "крупный населённый пункт, административный, торговый, промышленный и культурный центр"; "в старину на Руси: ограждённое стеной, валом поселение". (Ожегов).
@@ -1893,7 +1841,6 @@ GO
 
 exec spAddArticle 18274, N'Что в имени твоем: Knight(англ:рыцарь,кнехт)', N'вяк, история, слова, титул', N'
 <span viak="word">Knight(англ:рыцарь,кнехт)
-
 КНГ - книга king(англ:король) Конго
 ГНК - гинеколог гонка gunk(англ:дрянь)
 КНк - conquest конк(уренция)
@@ -1923,14 +1870,10 @@ king(англ:король) - Чингизид, потомок Чингиз-ха
 Определения Кнехт из Вики: батрак, безземельный крестьянин, наемный пехотинец незнатного происхождения, крепостной, тумба.
 </span><span viak="description">
 Таким образом в одном ряду с King (Чинг) и "Queen" (Чин - без "г" на конце) становится другой Чинг самомого низшего "чина", "из грязи" - Knight.
-
 В Русской истории кроме одного очень известного Чинга (Чингиз-хана) скрывается также и другой Чинг - [Пе]ченеги. Где же обитал этот народ? Если принять во внимание, что рядом с Россией, была также и П-руссия, то похоже, что народ Пе-ченеги приходил на "Русь" из П-руссии. Сравни также со словами Поморье (рядом с морем), Прибалтика (рядом с Балтикой).
-
 Корень КНГ-ГНК имеет смысловое значение "грязь", "ничто".
 Чин - ничё, ничьё. Возможо "чин" - это ранжирование народа (в отличии от нобелей).
-
 </span><span viak="reference">Из Вики:
-
 Кнехт (морской термин) (чаще мн. Кнехты, устар. кнек; от нидерл. knecht) — парная тумба с общим основанием на палубе судна или на причале для крепления тросов.
 Кнехт (крепостной) (от нем. Knecht) — крепостной в средневековой Германии.
 Кнехт (от нем. Knecht) — наемный пехотинец незнатного происхождения в ряде стран средневековой Европы.
@@ -1952,10 +1895,8 @@ Quarters - Чертоги
 Таким образом "чертоги" - это просто разделенные комнаты, квартиры.
 </span><span viak="reference">
 Из Н.Н. Вашкевича:
-
 КВАРТИРА – "жилое помещение в доме, имеющее отдельный вход, обычно с кухней, передней"; нем. quartier < нидерл. kwartier < ст.-фр. quartier < лат. quartārius < quārtus "четвертый"; возможно, название связано с первоначальной формой оплаты нанимаемого помещения: платили за три месяца, т.е. за четверть года. (БЭКМ).
 ♦ В ар. языке буква вав, будучи на втором месте в слове, может быть показателем мн. числа имени, как в звери (см.), по его вычету получается ар. глаголقر к*арра"обосноваться постоянно", ср. имя места: مقر макарр "резиденция", قارة к*а:ррат "континент".
-
 ЧЕРТОГ - "пышное, великолепное помещение или здание, дворец". (БЭКМ).
        ♦ От ар. صرادقcура:дек "шатёр над жилищем", "палата", "палатка". В ар. языке считается заимствованием из персидского. Родственно чердак (см.).
 </span>
@@ -1964,7 +1905,6 @@ GO
 
 exec spAddArticle 18821, N'Прямой перевод: Court(англ:суд,двор,площадка,королевский двор,ухаживание)', N'вяк, имя, общество, перевод, слова, тело', N'
 <span viak="word">Court(англ:суд,двор,площадка,королевский двор,ухаживание)
-
 КРТ - court(англ:суд,двор,площадка,королевский двор,ухаживание) карате крот куратор карета аккуратный каратель картель картон карто(фель) курить куртка курорт crate(англ:упаковочный ящик) carot(англ:морковь)
 ТРК - таракан тарака(араб:стучать) терка турок тюрк торкнуть отрок трюк attraction(англ:привлекательность) track(след,путь,следить) Аттатюрк
 чРТ - черта черт чертоги
@@ -2047,26 +1987,18 @@ silk(англ:шёлк) - шёлк, длинный, из-далека
 шляхта - служивые, а не разбойники с большой дороги
 </span><span viak="description">
 Знаковые слова: глаз голос слух слог колесо колос железо шелк залог сложный класс залежи слежение служба глашатай
-
 Слово "глаз" может быть прочитано наоборот, как "залог".
-
 Фраза "глаз за глаз" тогда может быть истолковано как "залог за долг", т.е. обеспечение долга имуществом или ценностями.
-
 Здесь мы также видим, что значение "масонского" глаза на оборотной стороне доллара может состоять не только во всевидении, но и выражать фундаментальные понятия финансового дела: долг и залог.
-
 Глаз - голос. Практически одно и тоже по звучанию слово "голос" и "глаз". Т.к. считается, что слово "глаз" было заимствовано на западе во времена Петра (см. ниже), то возможно, что русское  слово "голос" перешло в западное слово "глаз" (glass). Функция Голоса - "достать" человека на расстоянии, функция Глаза (особенно в очках или с подзорной трубой) - увидеть издалека.
-
 Салага, Слуга, Шлюха - послушные.
-
 Мода на прикрытие одного глаза некоторыми представителями шоу-бизнеса, интерпретируемая некоторыми конспирологами как массонский символ, может обозначать "шлюха привлекающая внимание", т.е. быть символом послушания в сексуальном подтексте.
 </span>
 <span viak="reference">Из Н.Н.Вашкевича:
-
 ГЛАЗ1 – "орган зрения, а также само зрение". (Ожегов). До ПетраI в обиходе было слово "око". Но при Петре  в России стали появляться привозимые из Европы стеклянные  протезы для очей, они назывались "glass"  –  стекла. И постепенно "глаз" вытеснило из обращения слово "око". (ЭНЗ, стр. 178).
      ♦От глядеть (см.).
 ГЛАЗ2,кто старое помянет,тому глаз вон (пословица) – "не стоит вспоминать старое".
     ♦ Рус. глаз является переводом ар.عين ъайн"глаз", которое означает также "то же самое" (сравните не в бровь, а в глаз), т.е. старое. Имеется в виду:кто старое помянет, тому старое следует забыть.
-
 ГОЛОС– "совокупность звуков, возникающих в результате колебания голосовых связок"; "мнение, высказывание". (Ожегов).
      ♦ От ар.قول гол(каул) "высказывание", "показание (напр. свидетеля)".
 ЖЕЛЕЗО – "химический элемент, серебристо-белый металл, главная составная часть чугуна и стали". (Ожегов). 
@@ -2096,7 +2028,6 @@ GO
 
 exec spAddArticle 19264, N'Прямой перевод: Revenue', N'вяк, деньги, слова, экономика', N'
 <span viak="word">Revenue
-
 РВН - (г)ривеный ровный равнина ревень раввин
 НВР - навар нувориш невроз Анвар
 РбН - рябина ребенок рабин рубанок (ка)рабин (Ск)рябин Арбенин
@@ -2119,7 +2050,6 @@ GO
 
 exec spAddArticle 19758, N'Что в имени твоем: Цвет', N'Вашкевич, вяк, символ, слова', N'
 <span viak="word">Цвет
-
 Цвет - <a href="http://viakviak.livejournal.com/11024.html" target="_blank">Свет</a>
 </span><span viak="description">
 Белый - (Б[ал]ый) - главный цвет от баъал(араб:голова) и светлый от <a href="http://viakviak.livejournal.com/11024.html" target="_blank">алый</a>. Основной цвет - сумма всех цветов радуги - собственно <a href="http://viakviak.livejournal.com/11024.html" target="_blank"><b>свет</b></a>.
@@ -2145,7 +2075,6 @@ exec spAddArticle 19758, N'Что в имени твоем: Цвет', N'Ваш�
 Фиолетовый- "В-летовый". Лето, лета - показатель зрелости, даже старости. Очевидно, что указатель на то, что это последний цвет радуги. Сравни также с англ. словом "Summer". Summer - С-умер. Другое слово в этом же ряду: Сумерки - С-умер-ки.
 <span viak="reference">
 Из Н.Н. Вашкевича:
-
 БЕЛЫЙ1– "имеющий цвет мела при естественном дневном освещении", "имеющий цвет, противоположный черному", "светлый, бледный". Общеславянское слово с индоевропейской базой *bhel, *bhol "блестеть", "блестящий", "светлый", "белый".(Черных).
 	♦ Вероятно, от обратного прочтения ар.حليب хали:б"молоко", при обычном чтении ар. Х восьмеричного И(Й) восьмеричной. Корень:حلب хлб"доить". Лат. albus  "белый" – прочтение того же слова, но в другом порядке с превращением придыхания(Х восьмеричного) в А, поскольку оно обозначается в семитских языках при посредстве Алифа, ср. древнеарамейский алеф:א. В рус. Выражениях белый грибили белая горячкаречь тоже не о белизне, а о голове.(см.).
 БЕЛЫЙ2, белый свет– "земля со всем существующим на ней, мир, вселенная".
@@ -2182,16 +2111,13 @@ GO
 
 exec spAddArticle 19999, N'Прямой перевод: Patent (англ:Патент)', N'', N'
 <span viak="word">Patent
-
 ПТН - пятно питание пятница потный (вы)пытанный
 НТП - нетопырь натоптыш
 бТН - ботаника ботинок бетон бутон сбитень батон
 ПдН - поддон подонок
-
 </span><span viak="summary">
 Представляется, что слово Патент происходит от Питание. Это очень точно передает смысл: монополия как источник дохода. Кроме того, исторически патенты давались, для обеспечения легальных прав на монополию, как земли отдавались за службу «на питание».
 </span><span viak="reference">
-
 Из Н.Н.Вашкевича:
 ПАТЕНТ – "документ, удостоверяющий право изобретателя на его изобретение"; нем. рatent < лат. patеns (patentis) открытый, явный. (Крысин).
        ♦ От ар. فطن фатана "сообразить", "догадаться", т.е. изобрести.
@@ -2201,22 +2127,18 @@ GO
 
 exec spAddArticle 20390, N'Прямой перевод: Smart(англ:Умный)', N'2x, Вашкевич, вяк, материя, мера, перевод, слова, смерть, тело', N'
 <span viak="word">Smart
-
 Смерть - тормоз смерить Тирамису самаритянин smart(англ:умный)
-
 СМР смер(ть) смерчь самурай семеро сумерки смирение смрад Самара Сумаро(ков) сморить Сума(рта) Самари(тяне) сморкать сморчок Семирамида 
 РМС - рамсы Арамис Рамсес
 шМР - Шумеры шмара
 РМш - ромашка
 зМР - замарать замирить заморыш замер
 РМз - Рамаза(н) Рамза(н)
-
 Мертвый
 МРТ - мертвый martyr(англ:мученик) mortal(англ:смертный) мортира умертвить mortician(англ:гробовщик) mortadella(сорт колбасы) mart(англ:рынок) Март Мирт Марат Morti Марта
 ТРМ - tremor(англ:трепет) трюмо тюрьма трамвай терем тромб трамвай Тирамису тормо(з) тормашки тормо(шить) term terminal(англ:конечный) терминал термит torment(англ:мучение) (s)torm(англ:буря,шторм) трам(плин) Турман Trump
 МРд - murder(англ:убийство) морда Мурад Murdok Meredith
 дРМ - derma(англ:кожа) драма дурман дрема дерьмо Дуремар dorm(itory)(англ:студенческое общежитие)
-
 Морок
 МРК - марка маркиз (oб)морок мерка морко(вь) mercury(англ:ртуть) Меркурий Мураками Марк Merkel Merkava
 КРМ - crime(англ:преступление) кромка крем карма кремль керамика корм карман карамель карамболь Crimea Крым Каримов "курам( насмех)" Кромвель
@@ -2226,11 +2148,9 @@ exec spAddArticle 20390, N'Прямой перевод: Smart(англ:Умны�
 гРМ - грамм грамота грамота гром греметь громада grim(англ:мрачный)
 хРМ - храм хром хоромы хромать хрумкать
 МРх - марихуана
-
 Мор
 МР - мор море мера моряк мир мрамор омары мореный мурена (гла)мур Amarias Мара МУР
 РМ - рама arm(англ:рука) армия ром Romeo Рим Irma Urma Арамеи Армения
-
 </span><span viak="description">
 arm(англ:рука) - рука способная умертвить, находится на "границе" тела
 crime(англ:преступление) - умертвление, убийство
@@ -2359,7 +2279,6 @@ GO
 
 exec spAddArticle 20627, N'Прямой перевод: Cost (затраты, расходы)', N'', N'
 <span viak="word">Cost
-
 КСТ - кость куст кисть киста оксти(сь) касатик касат(ка) касать кусать куста(рь) каста касте(т)
 ТСК - тиски тискать тоска тесак отсек таска(ть) туск(ло) Тоскана
 КшТ - кошт каштан кушать
@@ -2372,7 +2291,6 @@ exec spAddArticle 20627, N'Прямой перевод: Cost (затраты, р
 Кошт - расходы на проживание, часть расходов
 </span><span viak="description">
 Представляется, что слово произошло от "Кошт", а также имеет смысл "часть" (финансовых расчетов или персональных расходов).
-
 гость - проживает как часть семьи.
 густой - плотная часть жидкости.
 доска - часть деревянной постройки.
@@ -2402,7 +2320,6 @@ Meaning or sounding like:
 <b>Don&#39;t threaten me</b>
 </span><span viak="description">
 <a href="https://www.google.com/webhp?sourceid=chrome-instant&amp;ion=1&amp;espv=2&amp;ie=UTF-8#q=translate+snake+to+russian" target="_blank">Translate &quot;Snake&quot; to Russian</a>: Змея. In Russian &quot;Snake&quot; has another name:&nbsp;Гад (Gad). As we can see, &quot;Gad&quot; is a first part of name <b>Gad</b>sden (American general and statesman <a href="https://en.wikipedia.org/wiki/Christopher_Gadsden" target="_blank">Christopher Gadsden</a>).
-
 <b style="line-height: 19.6px;">Gad</b><span style="line-height: 19.6px;">sden = </span>Gad&#39;s-den - name also sounds as Russian &quot;Гад&#39;s день&quot; - &quot;Snake&#39;s day&quot;, which sounds as a proud statement. On the image, snake is ready to strike, in the first sign of danger. Message from <b style="line-height: 19.6px;">Gad</b><span style="line-height: 19.6px;">sden </span>&quot;don&#39;t threaten me&quot; is played into <span style="line-height: 19.6px;">message from </span><span style="line-height: 19.6px;">heraldic </span>snake &quot;don&#39;t tread on me&quot;.
 </span>
 ';
@@ -2420,7 +2337,6 @@ GO
 
 exec spAddArticle 21395, N'Прямой перевод: Cattle', N'вяк, перевод, слова', N'
 <span viak="translation">Cattle(англ:крупный рогатый скот)
-
 КТЛ - котел катала Каталониа 
 ЛТК - лоток Латакиа 
 КдЛ - кидала кодло кудлатое 
@@ -2437,45 +2353,24 @@ GO
 
 exec spAddArticle 21973, N'Испанский скульптор, который владеет искусством мять камни', N'технология', N'
 Оригинал взят у <lj user="vsegda_tvoj" /> в <a href="http://vsegda-tvoj.livejournal.com/18394779.html">Испанский скульптор, который владеет искусством мять камни</a><div class="repost">Посмотрите: они слушаются скульптора, будто пластилин! Испанец Хосе Мануэль Лопес Кастро представил серию своих работ, которые производят впечатление слепленных из мягкого и тягучего вещества&hellip; В его руках камни тянутся<a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon" target="_blank">,</a> сминаются и даже плачут!
-
 <a href="http://vs-t.ru/" target="_blank"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/1.jpg" /></a>
-
 <lj-cut><a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/2.jpg" /></a>
-
 Художник работает по большей части с гранитом и кварцем из своего региона и утверждает, что его взаимоотношения с местными камнями сродни магии: &laquo;Во время работы я чувствую себя не столько скульптором, сколько друидом. Мои отношения с камнем не физические, а волшебные. Я разговариваю <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon">с камнями</a>, и в процессе общения мы подчиняем другу друга&hellip; Мои камни не безжизненны&raquo;.
-
 <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/3.jpg" /></a>
-
 <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/4.jpg" /></a>
-
 Идея будущей скульптуры приходит к мастеру не сама по себе, а при взгляде на материал&hellip; Камень сам &laquo;подсказывает&raquo; ему, во что может превратиться.
-
 <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/5.jpg" /></a>
-
 Уже непосредственно воплощение <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon">замысла</a> может занять как пару дней, так и несколько месяцев. Это тоже зависит от свойств камня.
-
 <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/6.jpg" /></a>
-
 <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/7.jpg" /></a>
-
 Как подчеркивает сам Хосе Мануэль <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon">Лопес Кастро</a>, местные камни пропитаны мифической атмосферой, потому при работе с ними технические навыки скульптора &mdash; далеко не главное. Нужно почувствовать их древнюю магию&hellip;
-
 <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/8.jpg" /></a>
-
 <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/9.jpg" /></a>
-
 <a href="http://vs-t.ru/kak-vyglyadit-veneciya-ne-v-turisticheskij-sezon"><img alt="Испанский скульптор, который владеет искусством мять камни" src="http://www.fresher.ru/mary/2-2016/ispanskij-skulptor-kotoryj-vladeet-iskusstvom-myat-kamni/10.jpg" /></a>
-
 <a href="http://fishki.net/1833307-ispanec-nauchilsja-mjat-kamni-dlja-sozdanija-skulptur.html" target="_blank">источник</a></lj-cut>
-
-
 Если вам понравился пост, пожалуйста, поделитесь ими со своими друзьями! :)
-
-
 <lj-like buttons="repost,facebook,twitter,google,vkontakte,surfingbird,odnoklassniki,tumblr,livejournal" />
 <lj-repost button="Репост">
-
-
 </lj-repost>
 </div>
 ';
@@ -2502,13 +2397,11 @@ GO
 
 exec spAddArticle 22974, N'Прямой перевод: Love - Direct Translation', N'вяк, перевод, слова', N'
 <span viak="translation">Love
-
 ЛВ - лево лев улов leave(англ:оставлять)
 ВЛ - evil(англ:зло) воля вол вилы вал валять влия(ние) влить Ваал вилок власть волок <a href="http://viakviak.livejournal.com/25093.html" target="_blank">великий</a> волк wool(англ:шерсть)
 Лб - люб(овь) любо лоб лобок Люба Любе улыб(ка)
 бЛ - боль быль бл@ть ебло ябло(ко) обло(страшно) било
 fL - feel, fool(англ:глупец), fault, file(англ:досье), fall(англ:падать), fellow(англ:парень), flu(англ:грипп), (in)flue(nce)
-
 </span><span viak="summary">
 Love - любовь, боль, зло, опасное
 </span><span viak="description">
@@ -2532,7 +2425,6 @@ leave(англ:оставлять) - уходить от бывшей любви
 улов - результат поиска любви?
 улыб(ка) - проявление чувства любви
 ябло(ко) - символ запретной любви
-
 </span><span viak="reference">Из Н.Н.Вашкевича:
 ЛЕВ1 – "крупное хищное животное сем. кошачьих с короткой желтоватой шерстью и с длинной гривой у самцов". (БЭКМ). 
       ♦ От обратного прочтения بعل баъал "голова", назван по крупной голове. По созвучию с ар. والي  ва:л(и) "властитель", считается царем зверей. С учетом фонетического явления ималя (произнесение долгого А со склонением к Е) произносится ве:л(и). Того же корня ар. لبوة либва "львица", Ливия (см.). Ар. أسد ''асад "лев" также от корня со значением власти: ساد са:да (наст. время: يسود йасу:д) "царить", того же корня, что и рус. сударь, государь (см.). Как элемент семейства кошачьих соответствует Ливии (Африке); ср. ар. عفروس ъафру:с "лев", букв. "гривастый". Когда лев сакрализуется, помимо символа власти, соответствует пятому номеру (в частности Африке, царству зверей). Соответствие других  названий кошачьих см. рысь, пантера, барс, кот, ягуар. Лев как название знака Зодика, как и Ливия, занимает пятую позицию перед Девой (см.), связанной с шестеркой. Ср. ар. ست ситт "шесть", "женщина". См. Введение. Образ льва вместе с тигром выражает число семь из-за совпадения их названия по-арабски с ар. же названием семерки. См. Междуречье, Италия. Лев как символ человеческой натуры проявляет себя во властности, требовании знаков внимания к царствующей особе (ср. Леонид Брежнев), в склонности к назидательности (Лев Толстой), к рассудочной деятельности. 
@@ -2558,7 +2450,6 @@ GO
 
 exec spAddArticle 23071, N'Прямой перевод Spark - Direct translation', N'вяк, перевод, слова', N'
 <span viak="translation">Spark(англ:искра)
-
 </span><span viak="summary">
 Spark(англ:искра) - спарка, спаровать
 </span>
@@ -2567,7 +2458,6 @@ GO
 
 exec spAddArticle 23421, N'Прямой перевод: Cross - Direct translation', N'вяк, перевод, слова', N'
 <span viak="word">Cross
-
 КРС - краса(оберег) краси(вый)(береженный) окрас крас(ка) кираса крыса cross крейсер корсар
 СРК - сорок срок сорока срака сурок Саркел
 КРш - крыша (оберегает дом сверху)
@@ -2576,20 +2466,13 @@ exec spAddArticle 23421, N'Прямой перевод: Cross - Direct translati
 </span><span viak="description">
 <a href="http://viakviak.livejournal.com/19758.html">Красный</a>  - От ар.حرس хараса"охранять"(Вашкевич)
 harass(ment)
-
 КРС  удвоение смысла: Кир-царь:
-
 К(и)Р: кор(оль), Рик, Рейх
-
 С(а)Р: Сэр, Царь
-
 Cross = оберег
 Красота - обережение, сбережение, важное?
-
 Царь, Король - имеют также смысл "защитник".
-
 Красная площадь - Оборонительная, предохранительная, защитная плоская, ровная - место свободное от постоянных строений для предохранения крепости.
-
 Car (повозка) - закрытая, "защищенная" (от погоды)
 Рак - защищенный
 </span>
@@ -2606,19 +2489,14 @@ GO
 exec spAddArticle 24060, N'Прямой перевод: Шабат (суббота)', N'бог, вяк, перевод, слова', N'
 <span viak="word">
 Шабат = Суббота
-
 Суббота
 СББТ
 СвБд свобода
-
 Саваоф
 СВФ ~ шбт
 Яхве-Саваоф (<a href="https://www.opusangelorum.org/priest_association/documents2/2003_05_god_of_hosts_with_us.html" target="_blank">Yahweh Sabaoth</a>h) - <a href="http://viakviak.livejournal.com/25986.html" target="_blank">Бог</a>-Освободитель
-
 Еврейское "ох, вэй!" означает "Яхве" (Бог).
-
 <a href="http://www.gotquestions.org/names-of-God.html" target="_blank">What are the different names of God and what do they mean?</a>
-
 <a href="http://www.gotquestions.org/names-of-God.html" target="_blank">YAHWEH-SABAOTH</a>: "The Lord of Hosts" (Isaiah 1:24; Psalm 46:7) – Hosts means “hordes,” both of angels and of men. He is Lord of the host of heaven and of the inhabitants of the earth, of Jews and Gentiles, of rich and poor, master and slave. The name is expressive of the majesty, power, and authority of God and shows that He is able to accomplish what He determines to do.
 </span>
 ';
@@ -2627,9 +2505,7 @@ GO
 exec spAddArticle 24284, N'Что в имени твоем: Неделя', N'время, вяк, слова', N'
 <span viak="word">Неделя
 НДЛ надел (часть)
-
 Нед(еля) наоборот - день
-
 </span><span viak="description">
 Суббота - Свобода
 Воскресенье - день воскресения (Христа)
@@ -2648,7 +2524,6 @@ GO
 
 exec spAddArticle 24427, N'Brexit', N'вяк, слова, шутка', N'
 From Matt Decuir‎''s facebook post: https://www.facebook.com/photo.php?fbid=10104638295765140&set=gm.1206719006005539&type=3&theater
-
 Brexit could be followed by Grexit, Departugal, Italeave, Czechout, Oustria, Finish, Slovakout, Latervia, Byegium. Only Remania will stay.
 ';
 GO
@@ -2657,7 +2532,6 @@ exec spAddArticle 24622, N'Прямой перевод: Volume - Direct translat
 <span viak="translation">Volume
 </span><span viak="summary"
 Volume - вольем - количество влитого.
-
 По русски Объем, объемный очевидно происходит от "объять" - размер объятия, как широко надо обнять.
 </span>
 ';
@@ -2665,7 +2539,6 @@ GO
 
 exec spAddArticle 25067, N'Прямой перевод: Tennis - Direct translation', N'english, вяк, перевод, слова, спорт, шутка, эзотерика', N'
 <span viak="translation">Tennis(англ:Теннис)
-
 ТНС - Тунис Теннесси тонус
 СНТ - Saint(англ:святой) сонет
 зНТ - зенит
@@ -2687,7 +2560,6 @@ GO
 
 exec spAddArticle 25093, N'Что в имени твоем: Червонный', N'вяк, слова, тело', N'
 <span viak="word">Черв(онный)
-
 ЧРВ - червь чрево черев(ички)
 ВРЧ - <b>врач</b> ворча(ть)
 кРВ - кровь кривая кров <b>корова</b> курва карава(н) крова(ть)
@@ -2700,10 +2572,8 @@ exec spAddArticle 25093, N'Что в имени твоем: Червонный',
 клВ - клевер коловорот Калевала аки-лев клюв клёв calve(англ:телиться) calf(англ:<b>теленок</b>,ср:корова) claw(англ:коготь)
 </span><span viak="description">
 Рассматривая следующую цепочку слов: кровь, червь, корова, кривая, караван, великий, человек, корябать, волочить, чрево, черевички, кровать, враки, корабль - создается впечатление, что общим является смысл "оставляющий за собой след, отпечаток, впечатление".
-
 Червонный - оставляющий кровавый след
 Червонец - Карбованец - Гривна
-
 Червонный- (<a href="http://viakviak.livejournal.com/29208.html" target="_blank">переход Ч - К</a>) "К"ервоный - Кровяный.
 </span><span viak="summary">Червонный - Кровяный, цвета крови.
 </span><span viak="description">
@@ -2727,7 +2597,6 @@ GO
 
 exec spAddArticle 25435, N'Что в имени твоем: Пчела', N'вяк, слова', N'
 <span viak="word">Пчела
-
 ПЧ - пче(ла) печь <b>пучи(ть)</b> поч(ка) поча(ть) поч(та)  пече(нь)
 ЧП - чип (chip) чпо(к) чапа(н)
 бЧ - <a href="https://otvet.mail.ru/question/41660579" target="_blank">буче(ла)</a> быче(ла) бичь бече(вка) боч(ка)
@@ -2761,15 +2630,11 @@ GO
 exec spAddArticle 25640, N'Что бы это значило: игра Футбол', N'english, вяк, слова, спорт, шутка, эзотерика', N'
 <span viak="description">
 Попытаемся понять эзотерический смысл популярной игры Футбол, созданный в его современном виде&nbsp;в&nbsp;Англии середины 19 века. <i>Let&#39;s try to understand the esoteric meaning of a very popular game Football (Soccer).</i>
-
 <img alt="" src="http://ic.pics.livejournal.com/viakviak/75606786/4601/4601_900.gif" title="" />
 <a href="http://www.football-bible.com/soccer-info/field-dimensions-markings.html" target="_blank">Что мы знаем о футболе?</a> <i>What do we know about football (soccer)?</i>
-
 В футбол играют две команды противников по 11 человек в каждой - 10 полевых &nbsp;игроков и один вратарь. Игра ведется единственным мячом&nbsp;на прямоугольном поле разделенном пополам центральной линией в течении двух периодов времени (таймов) по 45 минут каждый с перерывом 15 минут между ними.&nbsp;По обе стороны поля каждой команде поставлены ворота для защиты в которых стоит вратарь команды. <i>There are two competing teams 11 players each - 10 field players and 1 goalie (goalkeeper). The game has one ball and it is played on a rectangular field divided by the Half Line during 2 periods of time 45 minutes each with 15 minutes break in between. On both sides of the field, each team has a gate to defend with a goalie in it.</i><div>
 Игра начинается по жребию&nbsp;одной из команд с центра поля. &nbsp;Задача игры: каждая команда должна провести (&quot;забить&quot;) мяч в ворота противника как можно чаще&nbsp;и защитить свои ворота. Полевые игроки не должны касаться мяча руками, это может делать только вратарь в пределах своей &quot;штрафной&quot; площадки. Мяч не должен выходить за линию поля. Если нарушение происходит в &quot;штрафной&quot; площадке, пенальти (наказание) удар будет назначен с точки пенальти находящейся в 11 метрах от ворот. <i>Game starts from the Center Spot. Goal of a game: each team should get a ball into the gate of competitor as frequently as possible, and should defend its own gate. Field players should not touch a ball with their hands; only a goalie can do that inside his penalty box. Ball should not get out of the field. If rules are broken inside a penalty box, a penalty kick will be ordered from a Penalty Spot, which is located just 11 meters from a gate.</i>
-
 Игра проходит под наблюдением судьи и его двух помощников.&nbsp;За игрой также следит публика. <i>Game is judged by a referree and his two assistants</i>.
-
 Английские футбольные&nbsp;термины (<i>English soccer terms)</i>:
 <i><span style="font-size:0.7em;"><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);">football, soccer (assocer short from &quot;football association&quot;).
 field, center circle, center spot, half line, penalty box, penalty spot, penalty arc, touch line, goal box, corner arc.</span>
@@ -2780,11 +2645,9 @@ field, center circle, center spot, half line, penalty box, penalty spot, penalty
 <span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);">kicks: kick off, penalty, corner, free; throw-in</span>
 <span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);">foot, chest, head; no hands</span>
 <span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);">pass, save</span></span></i>
-
 Глядя на футбольное поле сверху, с высоты птичьего полета, футбольное поле слегка &nbsp;напоминает двух гигантских борцов &nbsp;в схватке, упертых друг в друга огромными головами (центральный круг), плечами (центральная линия),&nbsp;и&nbsp;упирающиеся ногами (штрафные площадки) в разные стороны. <i>Looking at the football (soccer) field from above, it looks </i><i>somewhat </i><i>like two giant wrestlers in a great grapple, pushing </i><i>against </i><i>one another with their heads (Center Cirle) and shoulders (Half Line), and abut with their feet into different directions.</i></div><div>
 Тогда 10 полевых игроков можно отождествить с пальцами обеих рук этих гигантов, которые пытаются загнать мяч в ворота соперника. С точки зрения муже-подобной анатомии футбольных гигантов, 11-ый игрок (вратарь) будет соответствовать 11-му пальцу (пенису), точка пенальти - пупку, а находящиеся сзади вратаря ворота (goal, цель, щель) - анусному отверстию.&nbsp;Так как цель игры - забить мяч в ворота,&nbsp;то продолжая &quot;аналогию&quot;, мы можем увидеть в мяче (шар, ball,&nbsp;голова, головка) -&nbsp;пенис (камешек, игрушка),&nbsp;что превращает наших&nbsp;футбольных гигантов в гомосексуальных борцов (греко-римской борьбы?). <i>Next, the 10 field players could be identified as the fingers of both hands of those giants, who try to get a ball into opponent&#39;s gate. From the man-like anatomy of football (soccer) giants, 11th player (goalie) is correlated to 11th finger (penis), Penalty Spot is correlated to belly button, and gate behind a goalie - anus hole. Since the goal of a game is to get a ball into a gate, we can continue an &quot;analogy&quot; and see in the football (ball, head) - an attacking penis (round stone or toy), which turns our </i><i>half-field </i><i>football giants into homosextual wrestlers (Ancient Greek wrestlers, maybe?).</i></div><div>
 Таким образом, эзотерический смысл популярной игры Футбол - гомосексуальная борьба. <i>Summary: the esoteric meaning of the popular game Football (Soccer) is a homosexual wrestling.</i>
-
 P.S.&nbsp;Мы знаем, что в классической (греко-римской) борьбе соперника пытаются положить на лопатки. И все?&nbsp;Может быть традиционная история скрывает дополнительную составляющую этой борьбы, из которой и родился современный футбол? <i>We know that in classic </i><i>(Ancient Greek)</i><i> wrestling the goal is to put an opponent on his shoulder blades. Is that all there is to it? It could be that traditional history hides an additional component to Greek wrestling, which could possibly give a birth to the modern Football (Soccer).</i></div><div>
 P.P.S.</div><ol>
 <li>Откуда берется название &quot;<b>асс</b>истент&quot; (<i>ass-sis-tent</i>) и какова их истинная роль?</li>
@@ -2803,7 +2666,6 @@ GO
 
 exec spAddArticle 25986, N'Что в имени твоем: Бог', N'бог, вяк, имя, слова', N'
 <span viak="word">Бог
-
 БГ - бог бег убог бугай баге(т) бога(тство) boogey(man) боге(ма)
 ГБ - губа гб(гос-безопасность) гоб(лин) гибе(ль)
 Бх - бох бах баху(с) Бах Bahai бух бух(ло) Bohemia(англ:Богемиа)
@@ -2826,11 +2688,8 @@ exec spAddArticle 25986, N'Что в имени твоем: Бог', N'бог, �
 Представляется, что слово <a href="http://viakviak.livejournal.com/38894.html" target="_blank">Бог может означать Движение</a>, как одно из основных качеств Материи (см. также: <a href="http://viakviak.livejournal.com/11024.html" target="_blank">Аллах, Элохим</a>, <a href="http://viakviak.livejournal.com/12976.html" target="_blank">Яхве, Иегова</a>, <a href="http://viakviak.livejournal.com/39064.html" target="_blank">Господь</a>).
 </span><span viak="description">
 Я бы особо выделил следующую цепочку слов: <b>Бог - <a href="http://viakviak.livejournal.com/12976.html" target="_blank">Яхве - Иегова(Jehovah)</a> - Vogue(популярный) - живой - куб(Кааба) - век - веха - рыба - раб - веко</b>
-
 Несмотря на то, что любое из близких по звучанию слов, может быть ассоциировано с словом Бог, мы можем видеть, что исторически, некоторые из их были использованы чаще, чем другие.
-
 Раб божий ~ Раб Бога - очевидный палиндром (при переходе г-р/грассирование). Это дает удвоение смысла (бог-бог).
-
 Человек - Чело+век - Лицо бога. Это может отнесено к фразе "...по образу и подобию своему...".
 </span>
 ';
@@ -2849,7 +2708,6 @@ GO
 
 exec spAddArticle 26397, N'Что в имени твоем: София', N'вяк, имя, слова', N'
 <span viak="name">София
-
 СФ - София софит сфера асфальт <a href="http://viakviak.livejournal.com/7192.html" target="_blank">soft(англ:мягкий)</a> Софокл Исфирь
 ФС - фосфор
 Св - <a href="http://viakviak.livejournal.com/11024.html" target="_blank">свет</a> сова совет сват сев свой
@@ -2864,7 +2722,6 @@ GO
 
 exec spAddArticle 26844, N'Прямой перевод: Tired - direct translation', N'вяк, перевод, слова', N'
 <span viak="translation">Tired
-
 ТРД - труд тирада отрада
 ДРТ - дарт драть удирать дроти(к)
 фРД - Фарадей fraud afraid Fred Ford Афроди(та) Фердоу(си)
@@ -2881,7 +2738,6 @@ GO
 
 exec spAddArticle 26993, N'Что в имени твоем: Совет', N'вяк, слова', N'
 <span viak="word">Совет
-
 СВТ - совет свет сват <a href="http://viakviak.livejournal.com/11024.html" target="_blank">святой</a> (пре)свите(р)
 ТВС - отвес
 СВд - свида(ние) свадь(ба) сведе(ния)
@@ -2889,7 +2745,6 @@ exec spAddArticle 26993, N'Что в имени твоем: Совет', N'вя�
 СбТ - суб(б)ота съ?бать(ся)
 ТбС - тубус
 СфТ - <a href="http://viakviak.livejournal.com/26397.html" target="_blank">софит</a>
-
 </span><span viak="summary">
 <b>Совет - осветить</b> (вопрос), <b>пролить свет на</b>...
 </span><span viak="description">
@@ -2901,12 +2756,10 @@ GO
 
 exec spAddArticle 27188, N'Что в имени твоем: Зима', N'вяк, деньги, слова', N'
 <span viak="word">Зима
-
 ЗМ - зима змей заем
 МЗ - мазь муза музы(ка) мз(да) моз(г)
 См - сам сум(к)а сумма съём(ка) семь (в)осемь семя
 мС - месса мессия миссия масса мусс мыс mess(англ:беспорядок)
-
 </span><span viak="summary">
 зима - скользкая
 </span><span viak="description">
@@ -2933,7 +2786,6 @@ GO
 
 exec spAddArticle 27831, N'Прямой перевод: Hotel - direct translation', N'вяк, перевод, слова', N'
 <span viak="translation">Hotel
-
 </span><span viak="summary">
 Hotel - отел (место для отела, отдыха животных и их хозяев; <i>place to calve and rest for cattle and their owners</i>)
 </span>
@@ -2942,14 +2794,12 @@ GO
 
 exec spAddArticle 28015, N'Прямой перевод: Given - Direct translation', N'вяк, компания, перевод, слова', N'
 <span viak="translation">Given (англ: данный, выданный, выделенный)
-
 ГВН - гавно, гиена (в-е), гуано (в-а)
 НВГ - Новго(род)
 НВк - новик
 кВН - квн (ТВ передача)
 кбН - кабан кабина
 Нбк - набекрень
-
 </span><span viak="summary">
 Given - гавно
 </span><span viak="description">
@@ -2964,7 +2814,6 @@ GO
 
 exec spAddArticle 28236, N'Прямой перевод: Bagel - direct translation', N'english, вяк, перевод, слова', N'
 <span viak="translation"><a href="https://en.wikipedia.org/wiki/Bagel" target="_blank">Bagel</a> (англ:бублик)
-
 bagel
 БГЛ - беглый
 БкЛ - бакалея бокал бакла(н)
@@ -2972,12 +2821,10 @@ bagel
 БхЛ - бухло бахилы
 вкЛ - вокал
 вхЛ - выхлоп
-
 </span><span viak="summary">
 Bagel - бакалея
 </span><span viak="description">
 Дополнительно: английское слово "bagel" очень близко к французкому "багет", и также может быть произведено от слова "бублик" перевертыванием второго русского "б" в английский "g": бубли(к) - bagel. Если помнить, что слово "bagel" было принесено польскими (российскими) евреями в Америку в начале 20 века, то перевод от кирилицы "б" в латиницу "g" не представляется невозможным.
-
 Additionally: English "bagel" is very close to French "baget" and could be derived from Russian "бублик" by simple flipping of second Russian letter "б" into English "g". Remembering that word "bagel" was introduced by Polish (then part of Russia) Jews at the beginning of 20th century in USA, then transition of Cyrillic "б" into Latin "g" could be plausible.
 </span>
 ';
@@ -2985,12 +2832,10 @@ GO
 
 exec spAddArticle 28551, N'Прямой перeвод: Fellow - Direct translation', N'', N'
 <span viak="word">Fellow
-
 ФЛ - фаллос фиалка fool(англ:глупец) fail(англ:терпеть неудачу)
 тЛ - отел тело тля Тула
 Лв - <a href="http://viakviak.livejournal.com/22974.html" target="_blank">love</a> лев улов ловля лава олива
 вЛ - вилы вал вол Ваал 
-
 </span><span viak="summary">
 Fellow - тело
 </span><span viak="description">
@@ -3001,7 +2846,6 @@ GO
 
 exec spAddArticle 28792, N'Прямой перевод: Pain - Direct translation', N'', N'
 <span viak="translation">Pain
-
 ПН - пинать пан piano(англ:пианино) пони пена pinot(англ:вино)
 </span><span viak="description">
 pinot - молодое виноградное вино, которое традиционно давится ногами.
@@ -3013,7 +2857,6 @@ GO
 
 exec spAddArticle 29146, N'Прямой перевод: Path - Direct Translation', N'вяк, перевод, слова', N'
 <span viak="translation">Path
-
 ПТ - путь pit пот опята паять пить петь пять петух пятка питон питание
 ТП - тип тапки top топчан topic тупой tapas топаз тяпка тепло топить
 бТ - батя бот ботинки ботаника bet батон бутон бетон баять боятся 
@@ -3035,12 +2878,9 @@ exec spAddArticle 29208, N'Переход: Ч - К', N'вяк, переход, �
 </span><span viak="description">
 Прозрачные примеры:
 алЧность - алКать, боК- боЧок, браК- браЧный, веК - веЧность, всякий - всячина, диЧь - диКий, драКа - драЧливый, дьяК(duke) - дуЧе(duche), клиЧ - оклиКнуть, коКон - коЧан, криК - криЧать, КуКла - ЧуЧело, леКарь - леЧение, лиК - лиЧико(лиЧина), липКий - липуЧий, луК - луЧник, моКнуть - моЧить, муКа - муЧить, мыЧание - мыКать, наука- науЧить, оКо - оЧи -оЧки, паКет - паЧка, пеЧь-пеКарь, ПиКа - ПиЧок(тюрк), поКои - опоЧивальня, попереК - попереЧный, пуКать -пуЧить, реЧь - реКёт(говорит), реКа - реЧной, руКа - руЧной, рыК - рыЧать, риК - криЧать, сеКтор - сеЧение, соК - соЧный, сраЧ- сраКа, теЧение - протеКать, толКать - толЧок, туроК-турЧанка, Часто - Куст(Густо), человеК - человеЧеский, Черствый - Короста - crust, Черта (Чертеж,CHarter) -Карта(Court), четыре - quattro, Чудо - Кудесник, ...
-
 Здесь даже не приводятся поимеры стандартного перехода для уменьшительно-ласкательных слов, таких как: мальчиК - мальЧонка, девКа - девоЧка, и т.д.
-
 Возможные переходы:
 Cargo-CHarge, поКемон-поЧемун, мяЧ - мяКоть, <a href="http://viakviak.livejournal.com/13513.html" target="_blank">king - Чинг(из-хан)</a>
-
 Здесь мы видим, что в английском буква Ч передается комбинацией CH, где первая английская часто озвучивается как "К".
 </span><span viak="summary">
 Таким образом мы можем попытаться рассматривать комбинации английских букв передающие простые русские звуки как своего рода подсказку или намек на возможный переход букв.
@@ -3052,7 +2892,6 @@ GO
 
 exec spAddArticle 29617, N'Прямой перевод: Preach - Direct Translation', N'вяк, перевод, слова', N'
 <span viak="translation">Preach
-
 ПРЧ - причастие при(т)ча прочий пречистый перечить approach
 ЧРП - череп
 ПРк - парк порка прокат паркет
@@ -3061,7 +2900,6 @@ exec spAddArticle 29617, N'Прямой перевод: Preach - Direct Translat
 кРб - короб краб акробат carbon карбид скарб корябать корабль
 клП - клепать клоп
 Плк - полк полка пеликан pluck(англ:срывать) Полкан
-
 </span><span viak="summary">
 Preach - Причастие, Притча
 </span>
@@ -3082,7 +2920,6 @@ GO
 
 exec spAddArticle 30099, N'Что в имени твоем: Час', N'вяк, имя, слова', N'
 <span viak="word">Час
-
 ЧС - час часы часто чес часовня часовой часослов частокол
 СЧ - сечь сучить сочится Сочи счастье
 кС - каса(турк:хаза, сакля, дом) касса cash(англ:наличные) kiss(англ:поцелуй) укус уксус икс castle(англ:крепость) костел киса коса axe(англ:топор)
@@ -3092,11 +2929,8 @@ exec spAddArticle 30099, N'Что в имени твоем: Час', N'вяк, �
 </span><span viak="description">
 Представляется важной следующая цепочка слов: каса, часовня, часовой, сакля, касса, костел, castle, кази(судья), коза, казак, казан.
 Эти слова так или иначе имеют отношение к понятиям "дом", "домашний", "одомашненный", "местный".
-
 Другое направление: часто, сучить, сочится, чес(ать) сечь, коса, axe. Эти слова описывают периодичность или непрерывность действия.
-
 А еще: сечь, коса, axe, kiss, укус, чес могут ассоциироваться со смыслом "ударить": часы бьют.
-
 Слово Секунда имеет прямую корневую связь со словом Час.
 </span><span viak="summary">
 Представляется, что слово Час является производным от слова Часовня, которая в свою очередь имеет смысл "дом, домашний".
@@ -3117,10 +2951,8 @@ GO
 
 exec spAddArticle 30472, N'Прямой перевод: Teacher - Direct translation', N'', N'
 <span viak="translation">Teacher
-
 ТЧ - teacher, teach
 ЧТ - читать читка чет(нечет) учет учитель
-
 </span><span viak="summary">TeaCHer - уЧиТель
 </span>
 ';
@@ -3145,17 +2977,14 @@ exec spAddArticle 30779, N'Прямой перевод: ...bourg - Direct transl
 хРв - хоровод
 </span><span viak="description">
 -bourg (-бург) - берег, город на берегу, оберег
-
 <i>Peterbourg, Burgundy, ...</i>
 Петербург, Бургундия, ...
-
 барак - безопасное место для скота, зимние квартиры для армии.
 берег - безопасное место в отличие от моря.
 Бургундия - Бург+индия - безопасная Индия (далекая окраина)
 оберег - талисман для повышения безопасности
 овраг - безопасное место, откуда не скатишься
 ...
-
 </span><span viak="summary">
 Думается, что окончание -бург состоит в смысловом поле "берег, оберег"
 </span>
@@ -3166,11 +2995,9 @@ exec spAddArticle 31060, N'What is in the name: Chocolate. Шоколад - чт
 <span viak="word">Chocolate (англ:шоколад, звучит как "Чоколат")
 </span><span viak="description">
 <a href="http://viakviak.livejournal.com/29208.html" target="_blank">Переход Ч - К</a>
-
 </span><span viak="summary">Choco+late = Чоко+лат = Cacao-latte - какао с молоком
 </span><span viak="description">
 Примечание: эта простая версия по-видимому неизвестна. </span><span viak="reference">См Вики: "...слово «шоколад» происходит от ацтекского слова «xocolātl» («чоколатль»), что буквально означает «горькая вода» (науатль xocolli — «горечь», ātl — «вода»)(2). Исходное слово xocolātl, однако, не встречается ни в одном из текстов колониального периода; его существование — гипотеза лингвистов..."
-
 </span><span viak="description"><i>This simple version is aparently not known. </span><span viak="reference"><a href="https://en.wikipedia.org/wiki/Chocolate" target="_blank">See Wiki</a>: "... comes from Nahuatl, the language of the Aztecs, from the word chocolātl, which many sources say derived from xocolātl Nahuatl pronunciation: (ʃokolaːtɬ), combining xococ, sour or bitter, and ātl, water or drink.(8) The word <b>chocolatl</b> does not occur in central Mexican colonial sources, making this an unlikely derivation..."
 </i></span>
 ';
@@ -3186,25 +3013,19 @@ GO
 
 exec spAddArticle 31712, N'Что в имени твоем: Свастика', N'вяк, имя, слова', N'
 <span viak="word">Свастика
-
 СВСТ - свастика
 зВзд - звезда
-
 </span><span viak="summary">Свастика = звезда
-
 </span><span viak="description">
 Похоже подтверждается, что свастика является звездным символом.
 Дополнительно (благодаря наблюдательности <i><a href="http://lengvizd.livejournal.com/">lengvizd</a></i>):
-
 СВСТК- свастика
 зВздК - звездка
 Обратим вниманиние на получившееся слово "звездка". Как-то не по-русски выглядит. Мне это напомнило прочитанную давно фразу на коверканном русском: "матка, курки, яйки" в книге про оккупацию в Великую Отечественную. Немецкий? Присмотримся еще раз, но уже с учетом перехода "Ч-К":  "матУШКа, куроЧКи, яИЧКи". Вот это-то уже нормальный русский. А теперь, внимание:
 звездКа - звездоЧКа
-
 </span><span viak="summary">Таким образом, слово Свастика - это просто калька с русского Звездочка!
 </span><span viak="description">
 (с)вастика - с востока
-
 восток - воздух
 </span>
 ';
@@ -3212,13 +3033,11 @@ GO
 
 exec spAddArticle 31981, N'What is in the name: Vagina - что в имени твоем', N'english, вяк, имя, слова', N'
 <span viak="word">Vagina
-
 ВГН - вгонять, вoгнать вогнутый вагон Афган(истан) Ваганское выгон
 ВжН - <a href="http://viakviak.livejournal.com/40280.html" target="_blank">важно</a> (ск)важина (ск)возняк
 НжВ - нажива наживую
 бГН - бегун обгон
 бжН - бужени(на) боженька
-
 </span><span viak="description">Рассматривая цепочку: "скважина, сквозняк, вгонять, вoгнать, вагон, обгон" создается впечатление, что слово Вагина находится в смысловом поле "пропускное (отверстие)", "проходить через".
 </span><span viak="summary">
 It seems that word Vagina is in the context of "(go) through (<a href="http://viakviak.livejournal.com/40280.html" target="_blank">hole</a>)".
@@ -3228,7 +3047,6 @@ GO
 
 exec spAddArticle 32225, N'What is in the name: Commerce - что в имени твоем', N'вяк, имя, слова, торговля', N'
 <span viak="translation">Commerce (торговля, коммерция)
-
 <i></span><span viak="description">Word Commerce is almost exactly the same as word with another meaning "comers". </span><span viak="summary">It seems that originally commerce was done with traders from abroad that came onshore (comers).</i>
 </span><span viak="description">
 Слово "Commerce" почти что тоже самое как и слово "comers", что означает "пришельцы", "пришлые", "посетители". <span viak="summary">Очень похоже, что вначале коммерция была с пришельцами из-за рубежа, с моря (comers).
@@ -3238,12 +3056,10 @@ GO
 
 exec spAddArticle 32311, N'Что в имени твоем: Музыка', N'вяк, музыка, слова', N'
 <span viak="word">Музыка
-
 МЗК - музыка мазок
 <a href="http://viakviak.livejournal.com/8418.html" target="_blank">МсК</a> - маска Москва mosque(мечеть) mosquito(комар) мускат musket(мушкет)
 КсМ - космос космы
 <a href="http://viakviak.livejournal.com/29208.html" target="_blank">ЧсМ</a> - Чесме(нская бухта)
-
 Принимая в внимание статью "<a href="http://viakviak.livejournal.com/8418.html">Что в имени твоем: Масса</a>", где уже рассматривалась цепочка "маска, Москва, mosque(мечеть) mosquito(комар), космос" в контексте "множество, многолюдность", </span><span viak="summary">можно предположить, что слово Музыка вначале обозначало "мелодия для публики".
 </span>
 <lj-like buttons="repost,facebook,twitter,google,vkontakte,odnoklassniki,tumblr,livejournal" />
@@ -3260,12 +3076,9 @@ GO
 
 exec spAddArticle 32945, N'Что в имени твоем: Колобок', N'вяк, имя, сказка, слова', N'
 <span viak="word">Колобок
-
 Используем переходы: <a href="http://viakviak.livejournal.com/29208.html" target="_blank">Ч - К</a>, <a href="http://viakviak.livejournal.com/45394.html" target="_blank">Б - В</a>
-
 КлБк = ЧлВк
 Колобок = ЧелоВек
-
 </span><span viak="summary">
 Таким образом, известный сказочный персонаж Колобок - это просто калька со слова Человек.
 </span>
@@ -3276,24 +3089,17 @@ exec spAddArticle 33253, N'Что в имени твоем: Курок', N'Ва�
 <span viak="word">Курок
 </span><span viak="description">
 Курок - прикуриватель, (о)курок.
-
 Ассоциация с петухом или, соответственно, с жар-птицей происходит из-за не имеющего никакого тношения, но похожего слова "курица", которое может происходить от способа её приготовления - окуривания.
-
 Создается впечатление, что слово Курок стало использоваться до появления "ударных механизмов", во времена, когда это был только "курящийся" трут.
 </span>
 <lj-cut><span viak="reference">
 Этимологический словарь русского языка Макса Фасмера:
-
 WORD: куро́к
 GENERAL: род. п. -ка́. Как и польск. kurek (откуда русск. слово, возм., заимств.), калькирует нем. Наhn "петух"; "курок"; к кур. Аналогично англ. сосk, датск. hаnе, лит. gaidỹs, лтш. gailis, болг. петелка; см. Сандфельд, Festschrift V. Тhоmsеn 168; Преобр. I, 417; Желтов, ФЗ, 1875, вып. 3, стр. 7.
 PAGES: 2,427
-
-
 Из Н.Н.Вашкевича:
-
 КУРОК – "часть ударного механизма в ручном огнестрельном оружии". (БЭКМ).
 ♦ Образование на рус. почве с помощью суффикса ок (как в сырок) от ар. ка-вар "подобное кресалу", являющегося сложением сравнительной частицы К (ك) и  واري ва:р(и) "кресало", "то, чем разводят огонь", производное от ورى вара: "загораться". (М., с. 898). Того же корня, что и Аврора (см.).
-
 КУРИЦА1 – "одомашненный вид птиц отряда куриных, с кожным выростом на голове (гребнем) и под клювом (серёжками)". (БЭКМ).
 ♦ Того же происхождения, что и ар. قرقة курка "курица", которое идет отكروى  куравий "округлый, овальный. яйцевидный", производное от كورة  ку:ра "шар"; ср. ар. دجاجة дажа:жа (дайа:йа, дага:га), букв. "дающая яйца".
 КУРИЦА2, как курица лапой (писать) – "неразборчиво, так, что нельзя понять". (ФСРЯ).
@@ -3328,14 +3134,12 @@ GO
 
 exec spAddArticle 33794, N'Что в имени твоем: Буратино', N'вяк, имя, сказка, слова, шутка', N'
 <span viak="word">Буратино
-
 БРТ - брат борт аборт обрат
 ТРБ - труба trouble(англ:хлопоты) теребить тюрбан отребье
 дРв - дерево дурево
 вРд - вред вроде
 вРТ - ворота веретено варить врать
 ТРв - трава отрава
-
 </span><span viak="description">
 Попробуем описать Буратино из полученных из его имени слов: 
 </span><span viak="summary">
@@ -3348,31 +3152,22 @@ exec spAddArticle 34092, N'Что в имени твоем: Раз, два, тр
 <span viak="word">Раз
 </span><span viak="description">
 Сравнивая слова "раз" и "один" видно, что слово Один мотивировано позицией числа Один в общем числовом ряду. С другой стороны, слово Раз не мотивированно, что указывает на его первичность. Это сейчас мы отождествляем слово Раз с понятиями Один и Первый, а вообще то, Раз это не слово, а приставка "раз-" или "рас-". Эта приставка используется  для обозначения раскрытия, раздвигания, разрывания, расхождения, и т.д. и т.п.
-
 Почему приставка стала использоваться как самостоятельное слово?  И только в числовому ряду?
-
 Просматриваясь к словам числового ряда и пытаясь использовать слово Раз как обычную приставку, мы получаем слово Раздва, которое очень сильно напоминает современное русское слово Раздвинуть в повелительном наклонении, вроде современного Раздвинь. Рассмотрим числовой ряд  повнимательнее:
-
 <b>Раз, два, три, четыре, пять, шесть, семь, восемь, девять, десять</b>
-
 Если числовой ряд представляет собой сообщение или наказ по примеру <a href="http://royallib.com/read/kesler_yaroslav/azbuka_poslanie_k_slavyanam.html#0" target="_blank">Азбуки (по Ярославу Кеслеру)</a>, то мы можем проигнорировать современное разделение числового ряда на отдельные слова, и попытаться прочитать его полностью. При этом мы должны понимать, что это будет скорее перевод на современный русский язык, и переступить через ханжество и современное табу на "неприличные" слова в поисках истины.
-
 Попробуем так:
 <b>раздва, три, че тыре, епятьш, есть, семь, во семь девя тьде сять</b>
 <lj-cut>
 Здесь нам уже понадобятся знания о переходах звуков: <a href="http://viakviak.livejournal.com/29208.html" target="_blank">Ч - К</a>, <a href="http://viakviak.livejournal.com/33634.html" target="_blank">Т-Д, Б-П</a>, Ш-С:
 <b>раздва, три КеДыр, еБятьС, есть, семь, во семь девя тьде сять</b>
-
 Слегка изменим гласные, которые в старом письме были не принципиальны, чтобы смысл устаревшего письма был более понятен современникам:
 <b>раздви, тори к дыре, ебаться, есть семя в сём деве, тоды ссать</b>
-
 Как видим разницы между оригинальным и измененным текстами практически нет. А теперь дадим расширенный перевод на современный русский язык:
-
 </span><span viak="summary">
 <b>Раздви</b>(нь ей&nbsp;ноги), <b>тори </b>(приблизься) <b>к половому отверстию</b>, продолжай <b>половой акт</b> до тех пор когда уже <b>есть семя в этой деве,</b> <b>тогда </b>после этого надо <b>помочиться</b>.
 </span><span viak="description">
 Я не настаиваю именно на таком переводе, хотя он кажется вполне логичным в общем смысловом контексте "плодитесь и размножайтесь" с заботой о мужском здоровье в конце наказа.
-
 Представляется, что как и староруская "Аз-бука", Числовой ряд был сначала наставлением, наказом (наказ = закон). После долгового времени,  этот наказ стал общим местом, культурным фактом, и впоследствии был разделен на слова-числа достаточно произвольным образом.
 </lj-cut></span>
 ';
@@ -3392,15 +3187,12 @@ exec spAddArticle 34642, N'Переход: С - Ш (шепелявость)', N'
 <span viak="transition">Переход: С - Ш (шепелявость)
 </span><span viak="description">
 SH = Ш
-
 Шимон = Семен
 Slam  = шлем
 heb: Shalom (евр:шалом) = араб: салом, салам
-
 Возможные переходы:
  шишка = сиська - из-за сходства по форме?
  каша = каса (тюрк,латин:дом,домашняя) - в смысле домашняя еда
-
 </span><span viak="summary">Переход С-Ш мог быть обусловлен шепелявостью.
 </span>
 ';
@@ -3408,7 +3200,6 @@ GO
 
 exec spAddArticle 34907, N'Что в имени твоем: Пирог', N'вяк, слова', N'
 <span viak="word">Пирог
-
 ПРГ - пирог пирога пурга
 ПРк - парок порок прок порка опорка
 кРП - крепить кирпич крепость куропатка окропить укроп крупный
@@ -3418,11 +3209,9 @@ exec spAddArticle 34907, N'Что в имени твоем: Пирог', N'вя�
 ГРб - горб герб
 бРк - барка(с) бурка оброк абрек буряк(укр:свекла)
 кРб - короб краб акробат curb(англ:бордюр) скарб карбид
-
 </span><span viak="description">
 Piro = fire(англ:огонь) - пиротехника
 А что, если приставка Пиро- происходит от слова Пар? Свойства пара: горячий, обжигающий, восходящий, поднимающийся вверх, уносящийся ввысь, парящий высоко, клубящийся, расширяющийся, сильно толкающий, способный взорваться или совершить полезную работу, вздымающий поверхность, шумный, громкий, грохочущий при взрыве, ... Тогда:
-
 пирог - горячий, взошедший
 пурга - клубящаяся
 порок - обжигающий
@@ -3450,11 +3239,8 @@ GO
 
 exec spAddArticle 35114, N'Что в имени твоем: Бетон', N'вяк, слова', N'
 <span viak="word">Бетон
-
 Сравни с похожим словом "сбитень". Из Вики: &quot;<a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D1%82%D0%BE%D0%BD#.D0.98.D0.B7.D0.B3.D0.BE.D1.82.D0.BE.D0.B2.D0.BB.D0.B5.D0.BD.D0.B8.D0.B5" target="_blank">...бетон производится смешиванием цемента, песка, щебня и воды...</a>&quot;. Вся эта смесь, включая <b>битый</b> камень, <b>сбивается</b> вместе.
-
 </span><span viak="summary">Таким образом, "Бетон" имеет смысл "битый".
-
 </span><span viak="description">
 У архитектора <a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D1%82%D0%B0%D0%BD%D0%BA%D1%83%D1%80,_%D0%90%D0%B2%D0%B3%D1%83%D1%81%D1%82%D0%B8%D0%BD_%D0%90%D0%B2%D0%B3%D1%83%D1%81%D1%82%D0%B8%D0%BD%D0%BE%D0%B2%D0%B8%D1%87" target="_blank">Бетанкур</a> <a href="http://vaduhan-08.livejournal.com/247282.html" target="_blank">строившего Нижний Новгород</a> была "говорящая" фамилия (Betancourt): Бетон+Корт = бетонная площадка
 </span>
@@ -3462,8 +3248,7 @@ exec spAddArticle 35114, N'Что в имени твоем: Бетон', N'вя�
 GO
 
 exec spAddArticle 35512, N'Прямой перевод: Severe Weather - direct translation', N'перевод, слова', N'
-<span viak="word">Severe Weather (англ: суровая погода) = Северный Ветер
-
+<span viak="word">Severe Weather (англ: суровая погода) = Северный Ветер
 <p viak="reference">Оригинал взят у <lj user="tar_s" type="personal" userhead_url="http://l-stat.livejournal.net/img/userinfo.gif?v=17080?v=142.3" /> в <a href="http://tar-s.livejournal.com/1055804.html">Лингвистическое</a><div class="repost">Weather - погода <br>Severe - суровая </p>
 <p dir="ltr"><b>Severe weather</b>(севере веатер) - <b>северный ветер</b>. Суровая погода, вестимо :)</div></p>
 </span>
@@ -3472,12 +3257,9 @@ GO
 
 exec spAddArticle 35667, N'Что в имени твоем: Шмокодявка', N'вяк, перевод, слова', N'
 <span viak="word">Шмокодявка
-
 </span><span viak="description">
 Шмак + давка
-
 Шмак - на языке Идиш означает "кусок сырого мяса", а в переносном смысле - ничтожный человек.
-
 </span><span viak="summary">Выглядет так, что слово Шмокодявка означает буквально "раздавленное сырое мясо".</span>
 ';
 GO
@@ -3486,14 +3268,12 @@ exec spAddArticle 35913, N'Что в имени твоем: Шалава', N'в�
 <span viak="word">Шалава
 </span><span viak="description">При переходе Ш-Ч получается Челове(к).
 </span><span viak="description"><a href="https://ru.wikipedia.org/wiki/%D0%95%D0%BB%D0%B5%D0%BD%D0%B0_%D0%A1%D1%82%D0%B5%D1%84%D0%B0%D0%BD%D0%BE%D0%B2%D0%BD%D0%B0" target="_blank">Елена Волошанка</a> - жена царя Ивана III.&nbsp;Здесь в слове &quot;Волошанка&quot; можно усмотреть злой умысел называвших, потому что &quot;Волош&quot; наоборот может быть прочитан как &quot;Шалава&quot;.</span>
-
 <span viak="summary">Таким образом: Шалава = Человек</span>
 ';
 GO
 
 exec spAddArticle 36138, N'Что в имени твоем: Суворов', N'вяк, имя, слова', N'
 <span viak="word">Суворов
-
 СВР - Суворов север свара свора
 СбР - сбор собор Сибирь сбруя сбро(с)
 РбС - арабес(к)
@@ -3502,7 +3282,6 @@ exec spAddArticle 36138, N'Что в имени твоем: Суворов', N'�
 Рбц - рубец
 </span><span viak="description">
 Так имя Суворова может быть ассоциированно с негативным вымышленным образом Северного Зверского Изувера Собравшего Извергов из Сибири.
-
 </span><span viak="summary">
 Суворов = Северный
 </span><span viak="description">
@@ -3513,15 +3292,11 @@ GO
 
 exec spAddArticle 36515, N'Прямой перевод: Water - direct translation', N'english, вяк, перевод, слова', N'
 <span viak="word">Water (англ:вода)
-
 W=В
 <a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход Т-Д (глухой-звонкий)</a>
-
 Water = Водяра/Вёдро = Вода
-
 </span><span viak="summary">
 Английское слово Water при переходе <a href="http://viakviak.livejournal.com/33634.html" target="_blank">Т - Д</a> дает слово "Водяра" или "Вёдро", т.е. Вода.
-
 English word Water using transition <a href="http://viakviak.livejournal.com/33634.html" target="_blank">T - D</a> gives Russian word "Вода".
 </span>
 ';
@@ -3539,7 +3314,6 @@ GO
 
 exec spAddArticle 36922, N'Что в имени твоем: Дорога', N'Вашкевич, вяк, имя, слова, тело, экономика', N'
 <span viak="word">Дорога
-
 ДРГ - дорога драги драгун дорогой
 ГРД - город огород ограда гарда guard гордый greed(англ:жадность) градирня grader(англ:сортировальная или дорожно-строительная машина) grade(англ: оценка) graduate(англ:выпускник)
 тРГ - торг(овля) отторгнуть
@@ -3561,7 +3335,6 @@ exec spAddArticle 36922, N'Что в имени твоем: Дорога', N'В�
 Мы можем сказать, что Дорога находится в смысловом  поле: Огороженная Защищенная Кружащая Стучащая(шумная) Черта на Карте между Городами для Торга.
 </span><span viak="reference">
 Из Н.Н.Вашкевича:
-
 СЕРДЦЕ1 – "центральный орган кровеносной системы в виде мышечного мешка". (БЭКМ).
        ♦ От обратного прочтения ар. صد رأس садд ра''с "отражение головы". В том смысле, что происходящее в голове (обработка разного рода информации), отражается на сердце. Ср. ар. قلوب кулу:б, гулу:б "сердца" и рус. головы. В других европейских языках (в греч., латыни) рус. слово дало кардио… См. также сердитый1.Сердечно-сосудистая система через цвет крови нумеруется как система номер один в организме.
 СТУЧАТЬ – жарг. "доносить" (Квеселевич).
@@ -3589,22 +3362,18 @@ exec spAddArticle 37588, N'Вымышленный "Братан" Алексея 
 <span>Вымышленный "Братан" Алексея  Николаевича Толстого.
 Вот это полное название сценария:
 ПриКЛЮЧения Буратино Алексея  Николаевича Толстого.
-
 Посмотрим как название "Братан Алексея  Николаевича Толстого" может раскрыться:
 </span><span viak=word">Алексей: Алиса, лиса, лес, склеить
-
 </span><span viak=word">(Ни)Колаич:
 КЛЧ  - ключ калач кляча
 ЧЛК - челка калечить
 КЛк - кулак колкий клика кулик калека
-
 </span><span viak=word">Толстой:
 ТЛС - толстый атлас
 СЛТ - slot (англ:щель) слиток
 зЛТ - золотой sold(англ:продал) злато(власка) озолотиться
 СЛд - сольдо slide (англ:скатиться) слюда оселедец
 зЛд - злодей за-людей
-
 </span><span viak=word">Братан:
 Буратино
 БРТ - брат братан обретение британский брать бороть берет братия борт обратился брута(льный) бритва обирать
@@ -3626,9 +3395,7 @@ exec spAddArticle 37588, N'Вымышленный "Братан" Алексея 
 ТлБ - талиб(араб:ученик)
 БлД - блуд обладать bleed (англ:кровить) балда bold (англ:лысый,опытный)
 фРд - Афродита фьорд
-
 БР - бор beer (англ:пиво) robe (пижама) rob (англ:грабить)
-
 Буратино - бурая-тина
 <span><span viak="summary">
 Похоже, что тех слов, что мы набрали, при достачной фантазии должно было хватить на увлекательный приключенческий рассказ.
@@ -3639,12 +3406,10 @@ GO
 
 exec spAddArticle 37656, N'Прямой перевод: Grill - direct translation', N'english, вяк, перевод, слова', N'
 <span viak="translation">Grill
-
 ГРЛ - горел грелка горло
 <a href="http://viakviak.livejournal.com/37986.html">жРЛ</a> - жарил жерло
 </span><span viak="summary">
 Английское слово Grill при переходе  <a href="http://viakviak.livejournal.com/37986.html" target="_blank">Г - Ж</a> дает свой перевод Жарил.
-
 <i>English word Grill with transition <a href="http://viakviak.livejournal.com/37986.html" target="_blank">G - J</a> makes its own Russian translation &quot;Жарил&quot;.</i></p>
 </span>
 ';
@@ -3689,7 +3454,6 @@ GO
 
 exec spAddArticle 38489, N'Что в имени твоем: Путин', N'вяк, имя, слова', N'
 <p viak="name" dir="ltr">Путин
-
 ПТН - путаный путина путана пытание питание потайной потный потоне(т) пятно пятни(ца) питон патен(т) птенец ПоТан(ку) потенциал
 НТП - Нетопы(рь) OnTop Антипо(д) НеТипи(чный)
 Ндб - НаДыбе надобно неудобно<br>бдН - бидон бодняк бедняк будни
@@ -3706,7 +3470,6 @@ GO
 
 exec spAddArticle 38894, N'Что в имени твоем: Пехота', N'бог, вяк, имя, слова', N'
 <p viak="word" dir="ltr">Пехота
-
 ПХТ - пехота пахота пахта (узб:хлопок) пихта пихать пахтать(рус:сбивать масло)
 ПкТ - пукать пикет (пика) пакет покатый  picture (англ:картина)
 ТкП - откуп (атака ткнуть)
@@ -3733,7 +3496,6 @@ exec spAddArticle 39064, N'Что в имени твоем: Пешка', N'бо�
 Псх - пасха посох по-суху псих писюха
 хсП - hospice(англ:госпиталь для умирающих)
 гсП - госпиталь господин Господь Гопитальеры(религиозный орден)</p>
-
 <span viak="description">
 Пешка - пешеход, босяк.
 Каспаров - выдающийся шахматист
@@ -3781,14 +3543,12 @@ GO
 
 exec spAddArticle 39647, N'Переход Р - Л', N'вяк, переход', N'
 <div viak="transition">Устойчивый переход Р - Л (Л-рассирование)</div>
-
 <p viak="summary">Использование Л вместо Р особенно распространено у детей, которые не выговаривают &quot;Р&quot;.</p>
 ';
 GO
 
 exec spAddArticle 39863, N'Прямой перевод: Advise - Direct translation', N'english, вяк, перевод, слова', N'
 <div viak="translation">Advise = Совет
-
 ДВС - advise
 СВт - совет <a href="http://viakviak.livejournal.com/39200.html">свет</a></div>
 ';
@@ -3796,7 +3556,6 @@ GO
 
 exec spAddArticle 39939, N'Что в имени твоем: Плюс', N'вяк, слова', N'
 <div viak="word">Плюс
-
 ПЛС - плюс полюс полоса палас palas(англ:дворец) пульс police
 СЛП - слепой sleep(англ:сон)
 ПЛц - пыльца палец плац полиция Пельцер
@@ -3810,7 +3569,6 @@ exec spAddArticle 40280, N'Что в имени твоем: Двигать', N'�
 <div viak="word">Двигать
 ДВГ - двигать двигатель
 ДВж - движение</div>
-
 Корень слова <span viak="word">Движение: ВЖ
 ВЖ - движение вождение вождь важно
 Вг - вагон вогнать вагина выгнуть
@@ -3824,14 +3582,12 @@ exec spAddArticle 40640, N'Что в имени твоем: Цуцик', N'вя�
 <div viak="word">Цуцик
 ЦЦК - цуцик цицка цацка
 ССК - сиська соска сосок соскок</div>
-
 <span viak="summary">Очевидно, что слово Цуцик представляет собой мужскую форму слова Цицка (Сиська).</span>
 ';
 GO
 
 exec spAddArticle 40952, N'Self-Interest and Ignorance', N'english, вяк, закон, мнение', N'
 <p dir="ltr">Self-Interest and Ignorance.</p><p dir="ltr">Ultimately, you have to pay or answer for everything you get or do (one way or another, more or less, now or later). Be aware of that and get ready for it.</p><p dir="ltr">What do people perceive as Good? Good is what people feel good about, what they know or think is good for them. People can learn or be told that.</p><p dir="ltr">It seems that all sins take root in Ignorance: ignorance to other people&rsquo;s interests, time, property, money, lives, &hellip;</p><p dir="ltr">People will always have self-interest. You should be well aware of the Ignorance, which comes with it.</p><p dir="ltr">Ignorance is an important Self-Interest preserving mechanism. It is also very important to be conscious about the Ignorance, and to not allow the Ignorance to become dominant, which will hurt the Self-Interest in the modern life settings.</p><p dir="ltr">Ignorance should serve Self-Interest, but it can easily harm Self-Interest, if not managed properly. The rules below are not constraining as laws are, but instead are an attempt to provide guidance for the taming of Ignorance in order to maximize Self-Interest.</p><p dir="ltr">Principal Rules of Self-Interest:
-
 1. All people are &quot;pigs&quot;. Don&#39;t be one, try to be different. It&#39;s ok to be one, if necessary. Don&#39;t be with one. Don&#39;t expect much and appreciate the little things that you can glean from them.</p><p dir="ltr">2. You control the world around you, or the world controls you. Always have your best interest in mind. Remember why you are out there, observe the surroundings, and learn along the way. Obtain leverage and don&#39;t give your leverage away. Negotiate first to gain an advantage. There would be not enough &ldquo;ammo&rdquo; to make your way by force through everyone every time. Respect, learn and use the laws, customs, people&#39;s needs and beliefs. Find and use &quot;carrots&quot; and &quot;sticks&quot; as needed. Try to understand people, but realize that you will never know all the circumstances, so don&rsquo;t jump to conclusions. Face problems with everything you&#39;ve got to avoid prolonged confrontations. Make allies and pick your battles.</p><p dir="ltr">3. Everything is good in moderation, evil is in the extremes. Try to balance your life and find your own comfort zones. Avoid any kind of waste in your life, optimize, simplify, clean up, learn about yourself along the way and make your own routines to minimize the stress. Normal desires are the product of moderation. Extremes deform desires: depravities exaggerate and pervert them, excesses destroy them.</p><p dir="ltr">4. Everything will be fine. When you were born, your eternal soul received the vessel of your body in order to navigate this world. Take good care of it - you will be hold responsible. Stay positive and focused, don&rsquo;t lose hope, try to find peace, and adjust as needed.</p>
 ';
 GO
@@ -3849,16 +3605,14 @@ GO
 
 exec spAddArticle 41271, N'Что в имени твоем: Трамп(рус:Trump)', N'english, вяк, имя, слова', N'
 </span><span viak="name">Трамп(рус:Trump)
-
-ТРМП - Trump(Трамп) Triump(h)(англ:триумф) трамп(лин) tramp(англ:бродяга, тащиться с трудом, утомительное путешествие)
+ТРМП - Trump(Трамп) Triump(h)(англ:триумф) трамп(лин) tramp(англ:бродяга, тащиться с трудом, утомительное путешествие)
 ПМРТ - Помереть помирить помарать
 </span><span viak="description">
 В карточной терминологии английское слово "trump" означает "козырь". Главная карта Джокер(рус:Joker) соответствует главной карте Таро "шут"(рус:fool).
 </span><span viak="summary" >
-Рассморение полного корня фамилии 45-то президента США показывает: утомительный путь на трамплин к триумфу - помирить или помарать или помереть.
+Рассморение полного корня фамилии 45-то президента США показывает: утомительный путь на трамплин к триумфу - помирить или помарать или помереть.
 Вызывающее подчас поведение Трампа в предвыборной компании и его невероятная победа полностью соответствуют его "карточной" роли:
 <a href="http://arhangel.ru/temple.php?room=8&door=4" target="_blank">Прекраснодушный беспечный шут (бьющий всех козырь) опьяненный сиянием своей победы на краю пропасти окруженный грозными снежными вершинами с белым псом рядом</a>. 
-
 <i>Looking at the last name of 45th president of USA using Russian consonant notation: tramping to the trampoline of triumph to make a peace or mess or die.
 Defiant behavior of Trump in the election campaign and his incredible victory completely justifies his card role:
 <a href="https://www.biddytarot.com/tarot-card-meanings/major-arcana/fool/" target="_blank">Starry-eyed careless fool (beating all trump) intoxicated with the radiance of his victory and surrounded by formidable snowy peaks is on the edge of the abyss with the white dog beside</a>.</i>
@@ -3868,7 +3622,6 @@ GO
 
 exec spAddArticle 41552, N'Что в имени твоем: Шток', N'слова', N'
 <span viak="word">Шток
-
 ШТК - шток штык штакетник штука шутка
 КТШ - Катюша катыш
 сТК - стояк стойка стук сток стакан stick(англ: палка) истукан сутки
@@ -3882,7 +3635,6 @@ GO
 
 exec spAddArticle 41969, N'Что в имени твоем: Пистолет', N'Вашкевич, вяк, оружие, слова', N'
 <span viak="word">Пистолет
-
 ПСТ - писто(лет,ль,ля) Пестель постель паста pasta(англ:макароны) пусто писать пастораль пасти пастух пустошь (от)пусти пастор пестик пастель(ные цвета) <i>post(англ:почта)</i>
 бСТ - быстро баста (за)бастовка бестия <i>бастион Бастилия Бостон</i> бюст абстинент bust(англ:аррест) boost(англ:усиление)
 Пзд - пи#да поздно опоздать
@@ -3910,7 +3662,6 @@ pasta - лапша с дыркой (макароны)
 поздно - вне отведенного времени, в &quot;пустом&quot; времени
 </span>
 <span viak="reference">Из Н.Н.Вашкевича:
-
 ПАСТА - "тестообразная масса", первоисточник греч. pasth "мучная подлива". (Черных). 
        ♦ От ар. بسط бассата "раскатывать тесто", сравните ар. معجون маъгу:н  "паста", от  عجنъагана "месить".
 ПАСТИ – "следить за пасущимся скотом, домашним животным". (БЭКМ). 
@@ -3975,7 +3726,6 @@ GO
 exec spAddArticle 42057, N'Что в имени твоем: Навь', N'вяк, материя, слова, смерть', N'
 <span viak="word">
 Навь
-
 НВ - навь новь новый невод нива наив(ность) navy(англ:<span style="background-color: rgb(255, 255, 255); font-family: arial, sans-serif-light, sans-serif; font-size: small;">военно-морские силы)</span> навигатор
 ВН - война воин вонь вынь <a href="https://ru.wikipedia.org/wiki/%D0%92%D0%B5%D0%BD%D0%BE%D0%BA" target="_blank">венок</a> веник ванна вино wind(англ:ветер) винт веяние ваяние Иван avon(кельт:река) <a href="https://ru.wikipedia.org/wiki/%D0%9E%D0%B2%D0%B5%D0%BD_(%D0%B7%D0%BD%D0%B0%D0%BA_%D0%B7%D0%BE%D0%B4%D0%B8%D0%B0%D0%BA%D0%B0)" target="_blank">овен</a> oven(англ:печь,духовка)
 Нб - небо нёбо
@@ -4013,7 +3763,6 @@ State = статья
 </span><span viak="summary">
 Представляется, что английское слово State имеет полный русский аналог Статья в смысле статья закона, уложение.
 Пример: Соединенные Штаты Америки - United States of America
-
 <i viak="english">It seems that English word State has full Russian analog Статья (Statia) in a sense of article of the law.
 Example: United States of America</i>
 </span>
@@ -4022,7 +3771,6 @@ GO
 
 exec spAddArticle 42563, N'Что в имени твоем: Март', N'смерть, число, вяк, слова', N'
 <span viak="word">Март
-
 МРТ - Март мертвый mortuary(англ:морг) Марат Марта мартышка maritime(англ:морской) postmortem(англ:посмертный) морить
 ТРМ - терем тюрьма тарарам(рус:бесчинство) трюм трам(плин) <a href="http://viakviak.livejournal.com/41271.html" target="_blank">Трам(п)</a> тормоз trauma(англ:травма) тромб trumpet(англ:труба,трампет) tramp(англ:бродяга)
 МРд - murder(англ:убийство) морда меридиан мародер (с)мерд (с)мердеть мириад(рус:10000) мордва Мурад Мюрад (Ель-)Мюрид
@@ -4048,7 +3796,6 @@ GO
 
 exec spAddArticle 42783, N'Что в имени твоем: Сатана', N'Вашкевич, бог, вяк, имя, слова', N'
 <span viak="word">Сатана
-
 СТН - Сатана стан стоянка остановка стынуть сутана истина стена стон стенать сутенер установка установление Истанбул Астана Седан Стенька ситный стан(дарт)
 СдН - сиденье судно ссадина седина Судан
 СфН - сафьян сфинктер Safeen
@@ -4071,10 +3818,8 @@ exec spAddArticle 42783, N'Что в имени твоем: Сатана', N'В�
 Представляется, что слово Сатана изначально описывало понятие противодействия <a href="http://viakviak.livejournal.com/38894.html" target="_blank">движению</a>, которое олицетворяет слово <a href="http://viakviak.livejournal.com/25986.html" target="_blank">Бог</a>, а уже позже получило резко-негативный символический смысл, давая начало ряду слов, тоже имеющих отрицательный смысл.
 </span><span viak="reference">
 Из Н.Н.Вашкевича:
-
 <b><span style="font-size:12pt;">САТАНА</span></b><span style="font-size:12pt;"> &ndash; &quot;дьявол, олицетворенное злое начало в различных мистических вероучениях&quot;; греч. satan, satanas &lt; др.-евр. sаtаn. (БЭКМ). </span>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size:12pt;">&diams; От ар. </span><span dir="RTL">شيطان</span> <i><span style="font-size:12pt;">шайта:н</span></i><span style="font-size:12pt;"> &quot;черт, сатана, дьявол&quot;. Или от ар. </span><span dir="RTL">ساطن</span> <i><span style="font-size:12pt;">са:тин</span></i><span style="font-size:12pt;"> &quot;зловредный&quot; (М., стр. 333). По облику схож с обезьяной, ср. </span><span dir="RTL">قرد</span> <i><span style="font-size:12pt;">кирд</span></i><span style="font-size:12pt;"> &quot;обезьяна, шайтан&quot; (от рус. <b>дурак</b>), или </span><span dir="RTL">نسناس</span> <i><span style="font-size:12pt;">насна:с</span></i><span style="font-size:12pt;"> (пейоративный повтор от <i>на:с</i> &quot;люди&quot;) </span><span style="font-size:12pt;">&quot;обезьяна&quot;,</span> <span dir="RTL">خناس</span> <i><u><span style="font-size:12pt;">х</span></u></i><i><span style="font-size:12pt;">анна:с</span></i><span style="font-size:12pt;"> &quot;дьявол, совратитель&quot;, где <i><u>х</u></i> &ndash; пейоративный аффикс (&quot;плохой из людей&quot;). Сатанинская функция &ndash; отвлечение от Истины, что осуществляется одинаковым с Истиной написанием в консонантной манере на рус. языке, ср. СТН = СТН, из-за чего <b>сатана</b> и <b>истина</b> становятся трудно различимыми. Например, <b>истина в вине </b>(или сатана?). Приписывается функция существа, призванного жарить людей в пекле, в аду. Это по созвучию с ар. </span><span dir="RTL">شيط</span> <i><span style="font-size:12pt;">шаййат</span></i><span style="font-size:12pt;"> &quot;обжигать, опалять&quot;. У Сатаны много имён, среди них наиболее существенно <b>Иблис</b>, которое в обратном прочтении по-арабски даёт </span><span dir="RTL">سلبي</span> <i><span style="font-size:12pt;">силби</span></i><span style="font-size:12pt;"> &quot;негатив&quot;, &quot;отрицание&quot;,</span><span style="font-size:12pt;"> &quot;минус&quot;, что прямо противопоставлено рус. БОЖЕ, которое в обратном прочтении по-арабски даёт значение &quot;позитив&quot;, &quot;плюс&quot;.</span><span style="font-size:12pt;"> Другое его имя: </span><span dir="RTL">رجيم</span> <i><span style="font-size:12pt;">раги:м</span></i><span style="font-size:12pt;"> &quot;побитый камнями&quot;, от <b>ругма</b> &quot;камень&quot;, &quot;надгробный камень&quot;, откуда </span><span dir="RTL">أرجم</span><span style="font-size:12pt;">&#39;<i>аргуму</i> &quot;кидаю камень в виновного&quot; (ср. <b><a href="http://nnvashkevich.narod.ru/SLV/slvPA/A.htm#АРГУМЕНТ1" style="color:purple;">аргумент</a></b>). В некоторых языках название камня созвучно с <i>сатана</i> (шайтан), повторяя эту ар. связь, ср.: англ. <b>стоун</b>, немецк. <b>штейн</b>. Родственно <b><a href="http://nnvashkevich.narod.ru/SLV/slvPA/vF.htm#ФАНТАЗИЯ" style="color:purple;">фантазия</a></b>, <b><a href="http://nnvashkevich.narod.ru/SLV/slvPA/S.htm#СТАНСЫ" style="color:purple;">стансы</a></b> (см.). В христианском богословии сатана ассоциируется&nbsp;&nbsp;с&nbsp;&nbsp;числом шесть по&nbsp;&nbsp;причине того, что полное произношение по-арабски числа шесть: <i>ситтун</i> (СТН) совпадает с записью СТН. По этой причине число 666 считается сатанинским вопреки текс</span><span style="font-size:12pt;">т</span><span style="font-size:12pt;">у, в котором оно обозначено как &quot;число человеческое&quot;. Для христианских монахов сатана ассоциируется также с женщиной по той же причине: ар. </span><span dir="RTL">ست</span> <i><span style="font-size:12pt;">ситтун</span></i><span style="font-size:12pt;"> &quot;женщина&quot; имеет тот же согласный костяк, что и <b>сатана</b> (СТН). Ср. созвучие в англ.:&nbsp;&nbsp;six и sex. Люди</span><span style="font-size:12pt;">,</span><span style="font-size:12pt;"> имеющие в имени буквы СТН, пытясь найти истину, иногда скатываются в фантазирование, ср. Константин Станиславский (СТН+СТН), театральная концепция которого сводилась к поиску приемов подачи фантазии как истины, откуда его сакраментальное &quot;Не верю!&quot;. Или всемирно известный фантаст Станислав Лем, букв. &quot;придумыватель миров (СТН + </span><span dir="RTL">العـوالم</span> <i><span style="font-size:12pt;">л</span></i><span style="font-size:12pt;">-<i>ъава:лем</i>)&quot; который ищет оправдание своей деятельности</span> <span style="font-size:12pt;">в необходимости гротеска, который </span><span style="font-size:12pt;"> недоступен ни для науки ни для философии: не существует &quot;ни гротескной физики, ни гротескной философии, если же какая-нибудь из них возникла бы, то это влечет автоматически отмену литературы&quot; (&quot;Концепция иллюзорной природы мира&quot; в Энц. словаре &quot;Человек&quot;). На самом деле в 20 веке таковые уже возникли благодаря Эйнштейну (Эйн-ШТН), который считал, что &quot;воображение важнее знаний&quot; (КЕЭ). По этому вопросу см. <b><a href="http://nnvashkevich.narod.ru/SLV/slvPA/B.htm#БОЛЬШОЙ6взрыв" style="color:purple;">Большой взрыв</a></b>.</span>
-
 <b><span style="font-size:12pt;">СТЕНАТЬ </span></b><span style="font-size:12pt;">&ndash; &quot;стонать, кричать со стоном&quot;. (БЭКМ). </span>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size:12pt;">&diams; От ар.</span><span dir="RTL"> استأن</span> <i><span style="font-size:12pt;">иста&#39;нна</span></i><span style="font-size:12pt;"> &quot;стонать&quot;, </span><span dir="RTL">أنين</span> <i><span style="font-size:12pt;">&#39;ани:н</span></i><span style="font-size:12pt;"> &quot;стон&quot;. По созвучию с рус. <b>стена</b> у евреев стена плача.</span></span>
 <div>
@@ -4089,14 +3834,11 @@ GO
 exec spAddArticle 43148, N'Что в имени твоем: Холст', N'вяк, слова', N'
 <span viak="word">Холст
 ХЛСТ - холст нахлест хлестать хлыст хлястик холостой
-
 </span><span viak="description">
 Если предположить, что первая буква &quot;Х&quot; - это след от приставки &quot;К-&quot;, то корень приходит к нормализованной форме ЛСТ:
 ЛСТ - лист (п)ласт лиственница lust(англ:похоть)
-
 Если же, последнюю &quot;т&quot; принять за суффих &quot;-т&quot; или &quot;-ат&quot;, то тогда корень ХЛС или если наоборот: СЛХ
 <a href="http://viakviak.livejournal.com/18993.html" target="_blank">СЛХ</a> - слух ослух
-
 </span><span viak="summary">
 Представляется, что слово Холст может лежать в смысловом поле &quot;листовой&quot;, &quot;длинный&quot;.
 </span>
@@ -4148,7 +3890,6 @@ exec spAddArticle 43711, N'Что в имени твоем: Рот', N'Вашк�
 РТ - рот рота артель (во)рота ритуал рутина (г)урт юрта creator(англ:создатель) (к)арта art порт портянка порты retina(англ:сетчатка) urethra(англ:мочеиспускательный тракт)
 РД - ряд рядом род орда ордер рядить (про)редить редут ярд (по)рядок рад(ость) урод (к)ряду обряд наряд редька руда (п)рядь орден ординарец ординатура Рада радение Родина рыдать
 Рж - роженица рож(д)ение рожь урожай роженница рожа оружие (сна)ружи раж ружье рыжий ряженый кряж
-
 ТР - тор Тора (с)трана торить торг отара тиара тур тура тара (с)трои(ть) три тра(кт) тарака(араб:стучать) тиран торба театр (амфи)театр <a href="https://en.wikipedia.org/wiki/Tarot" target="_blank">Tarot</a>(англ:Таро)
 дР - дыра дар дорога дура(к) дурь одр удар драка door(англ:дверь)
 жР - жир жар
@@ -4238,7 +3979,6 @@ GO
 
 exec spAddArticle 44207, N'Что в имени твоем: Двор', N'Вашкевич, бог, вяк, закон, имя, мера, оружие, слова, тело', N'
 <span viak="word">Двор
-
 ДВР - двор дверь доверие
 ДбР - добро дебри
 тВР - товар тварь отворить творить товарищ Тверь утварь отвар творог
@@ -4401,7 +4141,6 @@ GO
 
 exec spAddArticle 44378, N'Что в имени твоем: Time(англ:время) - what is in the name', N'время, вяк, слова, смерть', N'
 <span viak="word">Time(англ:время)
-
 ТМ - time тема том томат тьма отъем тотем туман (р)итм отметка team Thomas
 МТ - мат мата(араб:смерть) мать материя мот мотать метка маятник маета муть метать мотор (с)меять(ся) math(англ:математика) meat(англ:мясо)
 дМ - дом dome(англ:купол) демон дума Дима Адам
@@ -4457,7 +4196,6 @@ GO
 
 exec spAddArticle 44584, N'Что в имени твоем: Время', N'время, вяк, слова, смерть', N'
 <span viak="word">Время
-
 МРВ - мурава муравей 
 бРМ - бремя бром broom(англ:метла)
 МРб - marble(англ:мрамор)
@@ -4478,7 +4216,6 @@ GO
 
 exec spAddArticle 44885, N'Что в имени твоем: Хронос', N'время, вяк, имя, слова, смерть', N'
 <span viak="word">Хронос
-
 ХРН - Хронос хоронить хранить схрон охрана хрен херния
 кРН - Кронос корона кран курень куранты корень крайний окраина крынка керн крен corn(англ:кукуруза) unicorn(англ:единорог) Коран Керенский Украина
 НРк - норка нарок наркоман анорексия
@@ -4500,7 +4237,6 @@ exec spAddArticle 45219, N'Падение звука: В', N'Вашкевич, �
 звук - зыкнуть
 <a href="http://viakviak.livejournal.com/18520.html" target="_blank">квартиры - quarters(англ:квартиры)</a>
 Латинские буквы V и U очень похожи и часто путались. Сравни , например, их производную: "W". В английском "W" озвучивается как "дабл-Ю"(англ:двойное "U"), а в немецком как "дубль-Вэ"(нем:двойное "В"). Переход же из согласной в гласную выглядит как выпадение "В" из неогласованного корня.
-
 </span><span viak="reference">Из Н.Н.Вашкевича:
 <a href="http://nnvashkevich.narod.ru/SLV/slvPA/T.htm#ТОГОижди" target="_blank">ТОГО</a>, того и жди – "вот-вот (может случиться, произойти что-либо, обычно неприятное, нежелательное)". (ФСРЯ). 
 	♦ того от ар. توقع таваккаъ (таваггаъ) "ожидать, ожидать неприятностей", пишется ТВГЪ при том, что <b>Вав (و) читается как О (У)</b>, а Ъайн в Финикии писался как О и стоял в алфавите на месте греч. и рус. О. Букв. "жди неприятного, жди".
@@ -4510,7 +4246,6 @@ GO
 
 exec spAddArticle 45394, N'Переход Б - В', N'вяк, переход, слова', N'
 <span viak="transition">Переход Б - В
-
 </span><span viak="description">Переход Б - В является классическим общеизвестным фактом. Примеры:
 barbarian-варвар
 Barbara-Варвара
@@ -4519,7 +4254,6 @@ GO
 
 exec spAddArticle 45948, N'Что в имени твоем: Галлия', N'вяк, государство, имя, слова, тело', N'
 <span viak="word">Галлия
-
 ГЛ - Галлия Галиция (Порту)галлия (Ан)глия Голла(ндия) Гель(веция) Гали(поли) Algeria(англ:Алжир) (Мон)голия галка <a href="http://viakviak.livejournal.com/18993.html" target="_blank">гла(з)</a> голо(с) глу(шь) голый гулять голень гул гла(гол) гло(тка) гла(нды) голо(ва) <a href="http://viakviak.livejournal.com/45219.html" target="_blank">глубина</a> глу(хой) гли(на) гильо(тина) gallows(англ:виселица) ugly(англ:безобразный) Аглая гале(ра) галео(н) ГУЛАГ гля(нец) гальюн гольф Галлей Галлилей Голгофа
 ЛГ - легкий луг лига Ольга Олег Улуг(бек) leg(англ:нога) log(англ:колода)
 кЛ - кол киль кал коло(ния) colon(англ:кишка) кулебяка клуб кель(ты) коле(но) клан клён каленый клин кулак кляп клоп клоун
@@ -4566,20 +4300,15 @@ leg(англ:нога) - нога, голень ходить далеко, ЛЕ�
 </span><span viak="description">
 Слово Галлия может произносится как Халлия. Звук "Х" может выпадать как в известных примерах:
 Ольга=Хельга, Отель=Hotel. Если в слове Халлия выпадает первый звук "Х", то мы видим перед собой знакомое слово <a href="http://viakviak.livejournal.com/11024.html" target="_blank">"Алла" (свет, светлый)</a> как одно из имен бога. Можно, также, прочитать "Халлия" наоборот и получим практически то же самое: Аллах.
-
 Это допущение позволяет видеть уже полученные понятие в несколько ином "свете". Точнее, понятия "длинный", "дальний", "долгий", "расстояние", "сложный" можно уже рассматривать как характеристики понятия "Свет": бесконечный, составной, невесомый, а также состояния отсутствия ожидаемого света: невидимый, пустота, глубина, спрятанный, потусторонний мир, ...
-
 С другой стороны, <a href="http://viakviak.livejournal.com/11024.html" target="_blank">компонента "Л"</а> в слове Галлы может указывать на понятие "светлый", т.е. светлокожий, бледнолицый.
 </span><span viak="reference">
 См. также:
-
 vaduhan_08: <a href="http://vaduhan-08.livejournal.com/293451.html" target="_blank">ФРАНЦИЯ... КОТОРОЙ НИ КОГДА НЕ БЫЛО?</a>
 </span><span viak="reference">
 Есть теория, что петух ("галос") - это просто символ "голоса", данному людям, чтобы славить бога (славянам): https://www.youtube.com/watch?v=JSHruCh
-
 мое мнение: <a href="http://vaduhan-08.livejournal.com/293451.html?page=3#t10671947" target="_blank">ФРАНЦИЯ... КОТОРОЙ НИ КОГДА НЕ БЫЛО?</a>
 Мне кажется что все гораздо проще.  <a href="http://viakviak.livejournal.com/11024.html" target="_blank">Звук "Л"</a> добавляет в любое слово определенный смысл: светлый, легкий, летающий, подвешенный, поддержанный. В данном случае Галка - летающая, Галлы, Англичане - светлокожие, Голос - легкий, быстрый, разносящийся, Gallus(лат: петух) - голосит с восходом солнца-света. Другие примеры: Аллах - несущий свет, Алый - светло-красный, и т.д.
-
 Древние слова обозначают набор базовых понятий, они сами себя описывают. Мы же воспринимаем их как ярлыки, и ожидаем, что один ярлык образовывает другие, что неправильно, и приводит к путанице. Мы избалованы словарями, картинками, нам всё всегда объясняют эксперты. А в древности этой роскоши не было. Поэтому слова обозначали какую-то особую черту, или особо яркое впечатление. Компоненты слов составляющие базовые понятия складывались как кубики в слово и давали возможно полное описание явления.
 </span>
 ';
@@ -4587,7 +4316,6 @@ GO
 
 exec spAddArticle 46083, N'Что в имени твоем: Чин', N'вяк, слова', N'
 <span viak="word">Чин
-
 ЧН - чин chin(англ:подбородок) China(англ:Чина, Китай)) чинить учение ученый чваниться
 НЧ - ничё ничье ничья нач(ало) ночь унич(тожить) нич(то)
 Нк - никто некто нак(лон) нек(рополь)
@@ -4609,7 +4337,6 @@ GO
 
 exec spAddArticle 46763, N'Что в имени твоем: Висла', N'вяк, имя, слова', N'
 <span viak="name">Висла
-
 ВСЛ - Висла весло веселый всласть вассал вислый Василий виселица висельник
 ЛСб - лесбиянка Лиссабон
 ВцЛ - Вацлав
@@ -4646,10 +4373,8 @@ GO
 
 exec spAddArticle 46952, N'Переход: С - Х', N'Вашкевич, вяк, переход, слова', N'
 <span viak="transition">С - Х
-
 </span><span viak="reference">
 Из Н.Н. Вашкевича:
-
 СРАТЬ – "испражняться". Праслав. *sъrati связано с чередованием с сор. (Фасмер).
        ♦ Этимология неизвестна. От ар. خرا хара: с тем же значением. Переход С/Х обычен для многих языков. Ар. слово от أخر ''ахара "оставлять сзади", آخر ''а:хар "крайний". Родственно край, икра (см.) в обоих значениях.
 </span>';
@@ -4657,7 +4382,6 @@ GO
 
 exec spAddArticle 47297, N'Что в имени твоем: Моголы', N'имя, вяк, слова, история', N'
 <span viak="name">Моголы
-
 МГЛ - моголы мо-галлы могила мгла
 ЛГМ - <a href="https://ru.wikipedia.org/wiki/Лагман" target="_blank">лагман</a>
 МхЛ - махалля Михаил
@@ -4675,7 +4399,6 @@ GO
 
 exec spAddArticle 47551, N'Что в имени твоем: Сто', N'вяк, слова, число', N'
 <span viak="word">Сто
-
 СТ - сто (де)сять сито соты сеть есть уста устье усатый тесто (ча)сто (к)уст (г)усто
 ТС - тыся(ча) тёс утес отсев таскать task(англ:задача) тесто this(англ:это)
 Сд - седой суд седьмой сидеть сад сода
@@ -4701,7 +4424,6 @@ GO
 
 exec spAddArticle 47759, N'Что в имени твоем: Ус', N'вяк, слова, тело', N'
 <span viak="word">Ус
-
 С - Ус кусок сон нос с- суй совать сеять соя сё сиё сия(ние) ас оса сосать ссать есть yes(англ:есть) вас усё всё весы Вася 
 З - узкий узник зенит зона Уза закон зов zoom(англ:увеличить) за- воз ваза виза зуав зев Уза Зевс
 Ц - цевьё цаца цеце цыц цуцик лицо
@@ -4754,9 +4476,7 @@ exec spAddArticle 48383, N'Прямой перевод: Über(нем:над,бо
 При переходе "Б - В" немецкое Über становится английским Over(англ:над,более,сверх) и русским Верх.
 </span><span viak="summary">
 Über = Over => Верх
-
 </span><span viak="word">Верх
-
 ВРХ - верх
 ХРВ - Хорив Хорватия
 бРХ - брехня брюхо бархат Борух
@@ -4799,7 +4519,6 @@ GO
 
 exec spAddArticle 48568, N'Компонента: С/З/Ц - узкий, направленный, проходящий через преграду, ускоренный, охлажденный', N'бог, вяк, компонента, слова', N'
 <span viak="component">С/З/Ц
-
 </span><span viak="summary">
 С/З/Ц - звук проходящий связь сжатые зубы (препятствие) в одном определённом направлении через узкое горло со свистящим звуком соединяющий в этот момент внутреннее с внешним. По закону Бернулли, прохождение через узкое препятствие ускоряет поток. Кроме того, быстрый поток через узкий канал охлаждает.
 "С/З/Ц" выражает понятия "узкий", "направленный", "проходящий через преграду", "тонкая связь", "ускоренный", "охлажденный".
@@ -4825,7 +4544,6 @@ exec spAddArticle 48863, N'Падение звука: Р', N'вяк, перех�
 <span viak="transition">Падение звука: "Р"
 </span><span viak="description">
 Всем известное различие между Британской и Американской весиями английского языка: в британской версии звук "Р" не проговаривается.
-
 Другие примеры:
 <a href="http://viakviak.livejournal.com/44378.html" target="_blank">мата(араб:смерть)</a> <a href="http://viakviak.livejournal.com/20390.html" target="_blank">ма(р)та</a> mortem(лат:смерть)
 маг могу(чий) ог(р)омный г(р)омадный г(р)ом
@@ -4835,7 +4553,6 @@ GO
 
 exec spAddArticle 49107, N'Что в имени твоем: Мир', N'время, вяк, слова, смерть', N'
 <span viak="word">Мир
-
 МР - мир море мор мера самурай <a href="http://viakviak.livejournal.com/20390.html" target="_blank">смерть</a> mortal(англ:смертный) морфий мортира сумерки марк марка маркграф маркиз маркет сморкать камера tumor(англ:опухоль) tomorrow(англ:завтра) шумеры Америка Самара Измир Смирна Самарканд Жмеринка бром мэр summer(англ:лето) morning(англ:утро) mourning(англ:траур)
 РМ - ром ремень рамэн(яп:лагман) армия гром греметь кромка Рим Армения Германия Померания Румыния Крым <a href="http://viakviak.livejournal.com/44584.html" target="_blank">время</a> бремя румб форма фирма рама arm(англ:рука) ремень рюмка
 </span><span viak="summary">
@@ -4965,7 +4682,6 @@ exec spAddArticle 50418, N'Компонента: МР - мера, огранич
 Компонента "МР" выражает "мера", "измеренный", "ограниченный", "познаваемый", "конечный", "конец", "пограничный", "смертный", "сонный", "опасный".
 <span><span viak="description">
 См. <a href="http://viakviak.livejournal.com/49107.html" target="_blank">"Мир"</a>, <a href="http://viakviak.livejournal.com/20390.html" target="_blank">"Smart"</a>, <a href="http://viakviak.livejournal.com/42563.html" target="_blank">"Март"</a>, <a href="http://viakviak.livejournal.com/44584.html" target="_blank">"Время"</a>
-
 Вариации:
 МР - мера мир
 РМ - Рим рум(б)
@@ -5137,7 +4853,6 @@ GO
 
 exec spAddArticle 51924, N'Прямой перевод: Delete(англ:удалить) - Direct Translation',  N'вяк, перевод, слова', N'
 <span viak="translation">Delete(англ:удалить)
-
 ДЛТ - delete(англ:удалить) удалить делить долото уделать уделить длительный дальтоник
 ТЛД - Толедо
 тЛТ - телятина Тольяти
@@ -5150,7 +4865,6 @@ GO
 
 exec spAddArticle 52134, N'Прямой перевод: Divide(англ:делить) - Direct Translation',  N'вяк, наука, перевод, слова', N'
 <span viak="translation">Divide(англ:делить)
-
 ДВД - divide(англ:делить) двад(цать) Давид два(ж)ды
 ДВт - давить удвоить удивить
 тВт - ответ tweet(англ:щебетать) туфта тавто(логия)
@@ -5168,7 +4882,6 @@ exec spAddArticle 52446, N'Прямой перевод: Multiply(англ:умн
 <span viak="translation">Multiply(англ:умножить)
 </span><span viak="description">
 Очевидно, что в слове Multiply(англ:умножить) есть корень Multi(лат:многие)
-
 МЛТ - multi(лат:многие) молот омлет мулат молоть амулет мулета Мальта melt(англ:плавить)
 МЛд - молодой mold(англ:плесень)
 дЛМ - дилемма долма
@@ -5180,7 +4893,6 @@ GO
 
 exec spAddArticle 52733, N'Что в имени твоем: Библия',  N'бог, вяк, имя, книга, слова', N'
 <span viak="word">Библия
-
 ББЛ - Библия Бабилон бабло бублик bubble(англ:пузырь)
 ввЛ - Вавилон Вавилов
 ЛБв - лоб любовь улыбка
@@ -5201,9 +4913,7 @@ exec spAddArticle 52993, N'Переход: СТ/ШТ - Щ',  N'вяк, пере�
 <span viak="transition">СТ/ШТ - Щ
 </span><span viak="description">
 Переход "СТ/ШТ - Щ" - это частный случай перехода "Щ - С", рассматриваемый наоборот. Т.к. в компоненты "СТ" и "ШТ" встречаются довольно часто, то интересно выяснить их понимание или изначалный смысл.
-
 Если же переход "не срабатывает", то интересно выяснить возможные признаки "проблем". Так, например, это ограничение может быть географическим, климатическим, бытовым (слова Шторм, Стакан и др.), что может позволить локализовать использование этого перехода.
-
 блестит - блещет, плещет
 каста - кощи, кости, определение по роду
 короста - корища, грубая кора
@@ -5218,7 +4928,6 @@ GO
 
 exec spAddArticle 53467, N'Компонента: МФ/МТ - обволакивать, объединять, окружать, тесно, объем',  N'', N'
 <span viak="component">МФ
-
 МФ - муфта muff(англ:муфта) амфора миф Мефодий амфибия амфитеатр мафия муфтий
 ФМ - family(англ:семья) fume(англ:дым) feminine(англ:женский) female(англ:матка) Фома
 Мт - мать матка мата(араб:смерть) мат метан муть омут митра метр метка мэтр матрона материя митральеза мотать meat(англ:мясо,мякоть,суть) мыть мять метить маятник
@@ -5247,7 +4956,6 @@ GO
 
 exec spAddArticle 53626, N'Что в имени твоем: Ветер',  N'вяк, слова', N'
 <span viak="word"><a href="http://viakviak.livejournal.com/35512.html" target="_blank">Ветер</a>
-
 ВТР - ветер автор ватру(шка) втереть аватар
 РТВ - ретивый
 ВдР - ведро вёдро водяра выдра
@@ -5265,7 +4973,6 @@ GO
 
 exec spAddArticle 53769, N'Компонента: ВС - высота, ввысь, сверху, выше, висящий',  N'вяк, имя, компонента, слова, тело', N'
 <span viak="component">ВС
-
 ВС - высота высь восток восход висок виски хвост авось вес все всё вассал овёс Василий восстание
 СВ - свет совет свист свой сова сев свастика свинья свинец совок совать Савва
 бС -  бастион бес босой босс Баски Бастилия boost(англ:увеличение)
@@ -5311,7 +5018,6 @@ GO
 
 exec spAddArticle 54023, N'Компонента: СТ - замедление, остановка, установка',  N'вяк, имя, компонента, слова', N'
 <span viak="component">СТ
-
 СТ - стать остановка стоянка стоять стена сатана стоп пост поступок south(англ:юг,вниз) sit(англ:сидеть) сито стон -стан post(англ:почта)
 ТС - тесать тоска тиски Тесла Атос
 Сд - сад сидеть суд сидор седина ссадина сосуд Саид Исида
@@ -5352,7 +5058,6 @@ GO
 
 exec spAddArticle 54363, N'Компонента: ВЛ - приподнять, волочить, перемещать, владеть, шевелящееся, катящееся',  N'вяк, имя, компонента, слова, тело', N'
 <span viak="component">ВЛ
-
 ВЛ - evil(англ:зло) воля вол вилы вал валять влияние Ваал вилок власть волок войлок <a href="http://viakviak.livejournal.com/25093.html" target="_blank">великий</a> волк великий великан вуаль "Владимир Ильич Ленин" wool(англ:шерсть) волос власть Велес <a href="http://viakviak.livejournal.com/25093.html" target="_blank">Волга</a> влага влагалище иволга вульгарный wild(англ:дикий) валет влечение
 ЛВ - <a href="http://viakviak.livejournal.com/22974.html" target="_blank">love(англ:любовь)</a> лев улов ловля лава олива live(англ:жить) голова главный клевер clever(англ:умный,юркий) Калевала клюв claw(англ:коготь) хлев халва халява Helvetica(англ:<a href="http://viakviak.livejournal.com/45219.html">Гельветика</a>) <b>человек</b> silver(англ:серебро) solvent(англ:растворитель) salvo(англ:залп) слава слив слива соловей сельва залив
 бЛ - боль быль бл@ть ебло яблоко обло било Болгария блог булыга <a href="http://viakviak.livejournal.com/52733.html" target="_blank">Библия</a>
@@ -5543,7 +5248,6 @@ GO
 exec spAddArticle 54989, N'Компонента: ГН - изогнутая, согнутый, извивающийся, гибкий, подчиненный, свернутый, выдутый, юный',
  N'вяк, закон, имя, книга, компонента, оружие, слова, тело, титул, этнос', N'
 <span viak="component">ГН
-
 ГН - гнутый изогнутый гнать гон огонь гиена каган регент гнев гной гнездо гнёт гнида гнильё гном гнус гинея Гондурас Гонконг Гиндукуш Гана Аргентина Ургенч гунны гуано вагон вагина Иоганн Геннадий гандон генерал гонг генератор
 НГ - нога нега нагая нагайка ангар Негус Англия негр Нигерия награда ноготь young(англ:молодой)
 кН - книга князь окно кино кон канон конь куница Каин canine(англ:собачий,клык) книксен knight(англ:всадник,кнехт) кнопка canopy(англ:навес) канд(тюрк:сахар) конституция Канада conquest(англ:завоевание) контора кантор king(англ:король) конунг Конго каннибал 
@@ -5655,7 +5359,6 @@ GO
 
 exec spAddArticle 55486, N'Что в имени твоем: Купол',  N'вяк, слова', N'
 <span viak="word">Купол
-
 КПЛ - купол купля капля акапелла
 ЛПК - лепка
 КбЛ - кабалла Кобол
@@ -5671,7 +5374,6 @@ GO
 
 exec spAddArticle 55569, N'Прямой перевод: Food stamp(англ:продовольственный талон)',  N'вяк, перевод, слова', N'
 <span viak="translation">Food stamp(англ:продовольственный талон)
-
 food - еда, продовольствие
 stamp - (ст+мп = щ+мп => пмщ) помощь
 </span><span viak="summary">
@@ -5682,7 +5384,6 @@ GO
 
 exec spAddArticle 56014, N'Прямой перевод: Platoon(англ:взвод,группа)',  N'вяк, перевод, слова', N'
 <span viak="translation">Platoon(англ:взвод,группа)
-
 </span><span viak="summary">
 Platoon(англ:взвод,группа) = <a href="http://viakviak.livejournal.com/43385.html" target="_blank">плотный</a>, сплетённый
 </span>
@@ -5691,7 +5392,6 @@ GO
 
 exec spAddArticle 56257, N'Прямой перевод: Dance(англ:танец)',  N'вяк, перевод, слова', N'
 <span viak="translation">Dance(англ:танец)
-
 ДНС - dance(англ:танец)
 СНД - сандаль sand(англ:песок)
 </span><span viak="summary">
@@ -5702,7 +5402,6 @@ GO
 
 exec spAddArticle 56395, N'Компонента: РЗ/РС - разрезать, раздвигать, раскрывать, делать просвет, проступать, насквозь, расти',  N'вяк, компонента, слова, тело', N'
 <span viak="component">Компонента: РЗ/РС
-
 РС - рас- роса рис раис рассвет крест просо Россия бросать trust(англ:доверие) береста просто брус парус красный красота кираса horse(англ:лошадь) корысть контраст конгресс крыса расстояние grass(англ:трава) grace(англ:грация) crust(англ:корка) верес
 СР - сор срать серый суровый сирый сарынь сердце середина среда средство сарацин Саратов сорок срок сорока срака сурок Саркел сироп сарай серьга серебро 
 Рц - рыцарь рцы курица крица корица
@@ -5845,7 +5544,6 @@ GO
 
 exec spAddArticle 56766, N'Прямой перевод: Crust(англ:корка)',  N'вяк, перевод, слова', N'
 <span viak="translation">Crust(англ:корка)
-
 </span><span viak="summary">
 Crust(англ:корка) = хруст, хрустит
 </span>
@@ -5854,7 +5552,6 @@ GO
 
 exec spAddArticle 57063, N'Что в имени твоем: Дрыщь',  N'вяк, слова', N'
 <span viak="word">Дрыщь
-
 ДРЩ - дрыщь дерущийся дурища дрыщущий
 ДРст - дрыстать дурость пидараст 
 стРД - страда sturdy(англ:крепкий)
@@ -5868,13 +5565,11 @@ GO
 
 exec spAddArticle 57155, N'Префих: ЧР-/КР- - разор, разрыв, разрез, разбитый, рыцарь, разворовали, разобрали, развёрнутый',  N'вяк, дом, префих, слова, тело', N'
 <span viak="prefix">ЧР-/КР-
-
 ЧР- - червоный черный черт черта чертоги черешня чур чары чиркнуть черкануть
 КР- - кровь карта красивый красный каратель картель король картофель кирпич крот крыша крошить кормить корчма курица Крым курить курень курия крупа крупный карась кривой корова корчить круглый Кир кара
 КвР - квартира Каверин аквариум ковер cover(англ:крышка)
 КбР - кабаре кубрик Акбар кобра кибер кобура 
 хбР - хибара Хабаровск hebrew(англ:иврит,еврей)
-
 РЗР - разор разрыв разорение разрушение разрешить razor(англ:бритва) resurrection(англ:воскресение)
 РцР - рыцарь
 РЗвР - разворовать разувериться разварить разврат 
@@ -5937,7 +5632,6 @@ GO
 
 exec spAddArticle 57451, N'Что в имени твоем: Угол',  N'вяк, слова', N'
 <span viak="word">Угол
-
 ГЛ - угол уголь гулять глаз голос голый glue(англ:клей) Галя Гоголь загогулина
 ЛГ - луг лягушка легкий лига
 кЛ - укол кол скол колокол ключ киль куль кал клей кляп текила лекарь
@@ -5998,7 +5692,6 @@ GO
 
 exec spAddArticle 57742, N'Прямой перевод: Money(англ:деньги)',  N'вяк, перевод, слова', N'
 <span viak="translation">Money(англ:деньги)
-
 МН - money(англ:деньги) moon(англ:луна) mine(англ:мой;мина) мне мина мена обман Маня манна many(англ:много) много мнуть карман кремень мандарин монтировать ремонт
 НМ - немой animal(англ:животное) номер нимб
 </span><span viak="summary">
@@ -6061,7 +5754,6 @@ GO
 
 exec spAddArticle 59118, N'Что в имени твоем: Банк',  N'вяк, слова', N'
 <span viak="word">Банк
-
 БНК - банк банка banks(англ:берега реки)
 КНБ - каннибал cannabis(англ:конопля)
 БНч - bench(англ:скамья)
@@ -6091,7 +5783,6 @@ GO
 
 exec spAddArticle 59118, N'Что в имени твоем: Банк',  N'вяк, слова', N'
 <span viak="word">Банк
-
 БНК - банк банка banks(англ:берега реки)
 КНБ - каннибал cannabis(англ:конопля) knob(англ:набалдашник,кнопка,ручка,выпуклость)
 БНч - bench(англ:скамья)
@@ -6127,7 +5818,6 @@ GO
 
 exec spAddArticle 59364, N'Прямой перевод: Corrosion(англ:ржавчина) - Direct Translation',  N'вяк, перевод, слова', N'
 <span viak="translation">Corrosion(англ:ржавчина)
-
 КРЗ - corrosion(англ:ржавчина) коррозия кирза креозот корзина
 ЗРК - зыркать зеркало зарок 
 гРЗ - грязь гроза гюрза груз гроздь огрызок горазд
@@ -6183,7 +5873,6 @@ GO
 
 exec spAddArticle 59525, N'Что в имени твоем: Каббала',  N'вяк, слова, эзотерика', N'
 <span viak="word">Каббала
-
 КБЛ - Каббала кобыла кобель
 ЛБК - лобок улыбка Любек
 гБЛ - гибель гоблин
@@ -6209,16 +5898,13 @@ GO
 
 exec spAddArticle 60115, N'Что в имени твоем: Выя',  N'вяк, слова', N'
 Выя - чем воют, т.е. горло, шея
-
 война - бойня, там где бьют, воют, воюют
-
 boy(англ:мальчик) - бой, боец, вой, военный, вояка
 ';
 GO
 
 exec spAddArticle 60302, N'Что в имени твоем: Молоко',  N'вяк, слова', N'
 <span viak="word">Молоко
-
 МЛК- молоко milk(англ:молоко) мелкий малик малка милка молоки 
 КЛМ - Калима клемма клымок кулёма кальмар Колумб климат клумба Клим clam(англ:моллюск) clamp(англ:зажим) calm(англ:спокойный,затишье,безветрие)
 МЛч - мелочь молочный млечный мальчик mulch(англ:мульча) молчать 
@@ -6255,7 +5941,6 @@ GO
 
 exec spAddArticle 60556, N'Что в имени твоем: Масло',  N'вяк, слова', N'
 <span viak="word">Масло
-
 МСЛ - масло мослы месили маслины мусолить
 МшЛ- мышление мешалка
 </span><span viak="summary">
@@ -6273,7 +5958,6 @@ GO
 
 exec spAddArticle 60688, N'Прямой перевод: Agile(англ:проворный)',  N'вяк, перевод, слова', N'
 <span viak="translation">Agile(англ:проворный)
-
 ЖЛ - agile(англ:проворный) жила жало жулик желчь жёлтый желе
 ЛЖ - лажа ложа лежать лужа
 гЛ - огульный Галя голый гулять гул
@@ -6289,7 +5973,6 @@ GO
 
 exec spAddArticle 60931, N'Прямой перевод: Humor(англ:юмор)',  N'вяк, перевод, слова', N'
 <span viak="translation">Humor(англ:юмор)
-
 ХМР - хмарь химера
 кМР - кумар кимерийцы камера
 МР - юмор умора мор морить умер омар море мера мир
@@ -6304,7 +5987,6 @@ GO
 
 exec spAddArticle 61597, N'Что бы это значило: Красная роза',  N'вяк, слова, эзотерика', N'
 <span viak="phrase">Красная роза
-
 </span><span viak="word">красный
 КРС - красный кираса керосин курс
 СРК - срок сорок
@@ -6314,7 +5996,6 @@ exec spAddArticle 61597, N'Что бы это значило: Красная р�
 цРК - цирк церковь царёк циркуль
 хРС - harass(англ:изводить,устрашать)
 чРз - чрезвычайный через
-
 </span><span viak="word">роза
 РЗ - роза резать разить раз- риза 
 ЗР - зарок
@@ -6324,12 +6005,9 @@ exec spAddArticle 61597, N'Что бы это значило: Красная р�
 </span><span viak="reference">
 В статье Дмитрия Галковского "<a href="http://galkovsky.livejournal.com/267547.html">F2. О ПОЛЬЗЕ ИЗУЧЕНИЯ АНТИЧНОСТИ</a>" есть такой пассаж:
 "...В Европе нового времени изображение розы носило угрожающий характер. Если хозяин доверительно беседовал с гостями на фоне гобелена, изображающего розы, это означало, что он угрожает собеседником смертью в случае разглашения конфиденциальной информации. Отсюда устойчивое выражение в немецком языке «под розой» означающий тайную встречу и молчание. Эта символика связана с Гарпократом, египетским божеством зимнего солнца, которого греки превратили в бога молчания. 
-
 Итак, что мы видим на знаке современной социал-демократии:
 <img alt="" src="http://ic.pics.livejournal.com/viakviak/75606786/4727/4727_900.jpg" title="" />
-
 Зловещая рука-кулак крепко сжимает розу – символ молчания и символ мести за болтливость. Роза покрыта шипами – внутри кулак сочится кровью. Это означает, что всех, кто раскроет тайну социал-демократии, ожидает смерть.
-
 А для непосвященных это какой-то безобидный цветочек-букетик в ручке. Настоящий символ всегда должен иметь два значения: для посвященных и для профанов. И в идеале эти значения должны быть противоположены..."
 </span><span viak="summary">
 Фраза "Красная роза" может нести значение "угроза зарезать".
@@ -6358,7 +6036,6 @@ GO
 
 exec spAddArticle 62162, N'Прямой перевод: Skid(англ:занос,буксование,юз)',  N'вяк, перевод, слова', N'
 <span viak="word">Skid(англ:занос,буксование,юз)
-
 СКД - skid(англ:занос,буксование,юз)
 СКт - скат скот аскет секта скит <a href="https://ru.wikipedia.org/wiki/Суккот" target="_blank">Суккот</a> socket(англ:разъем) скутер
 тКС - такса такси tax(англ:налог)
@@ -6381,7 +6058,6 @@ GO
 
 exec spAddArticle 62323, N'Что в имени твоем: Вода',  N'#слоВяк, вяк, слова', N'
 <span viak="word">Вода
-
 ВД - вода водить воевода ведать видеть овод вуду Овидий
 ДВ - два дева движение давить давать dove(англ:голубь) дувал давно диво 
 Вт - вот ветер вето ветка Виталий вата ваять 
@@ -6400,7 +6076,6 @@ GO
 
 exec spAddArticle 62616, N'Что в имене твоем: Снег',  N'#слоВяк, вяк, слова', N'
 <span viak="word">Снег
-
 СНГ - снег
 ГНС - Ганс гнус
 СНк - санки
@@ -6450,7 +6125,6 @@ exec spAddArticle 63337, N'Что в имени твоем: Ад',  N'#слоВ�
 Представляется, что слово Ад первоначально означало "огонь", "пламя". Это совпадает со смыслом hell(англ:ад,преисподняя) в значении "<a href="http://viakviak.livejournal.com/11024.html" target="_blank">светящийся</a>" и фразы "гиенна огненная" с удвоенным значением "огонь". Это также совпадает со смыслом слов Преисподняя, Под и Чад  со значениями "пред-ис-подняя", "под огнём" и "к огню" соответственно.
 </span><span viak="description">
 Близкие по смыслу слову Ад: "гиенна огненная", "огонь", "преисподняя", "под", "чад", hell(англ:ад,преисподняя).
-
 hell(англ:ад,преисподняя) - <a href="http://viakviak.livejournal.com/11024.html" target="_blank">светящийся</a>, предисподняя
 гиенна огненная - удвоение смысла "огонь"
 огонь - <a href="http://viakviak.livejournal.com/54989.html" target="_blank">извивающийся</a>, "извивающиеся языки пламени".
@@ -6462,7 +6136,6 @@ GO
 
 exec spAddArticle 63739, N'Прямой перевод: Copper(англ:медь)',  N'#слоВяк, вяк, перевод, слова', N'
 <span viak="translation">Copper(англ:медь)
-
 КПР - copper(англ:медь) капрал Коперник капер капор <a href="http://cyprian.name/geografiya-kipra/prirodnye-resyrsy/poleznye-iskopaemye.html" target="_blank">Кипр</a> закупорка купорос
 КП - копейка копьё копать купить копить кепка кипа купать
 ПК - пика пик пукать 
@@ -6486,7 +6159,6 @@ GO
 
 exec spAddArticle 63975, N'Что в имени твоем: Зело',  N'#слоВяк, вяк, слова', N'
 <span viak="word"><a href="https://ru.wikipedia.org/wiki/Зело" target="_blank">Зело</a>
-
 ЗЛ - зело зло зола зал <a href="http://viakviak.livejournal.com/57451.html" target="_blank">узел</a>
 ЛЗ - лаз лоза лизать
 сЛ - сила сало слив осёл село сель соль
@@ -6502,7 +6174,6 @@ GO
 
 exec spAddArticle 64026, N'Что в имени твоем: Мяч',  N'#слоВяк, вяк, слова', N'
 <span viak="word">Мяч
-
 МЧ - мяч меч моча мочить мучить мачо мочка
 ЧМ - чём чему чмо
 Мк - мука мякоть мягкий Микоян
@@ -6524,12 +6195,10 @@ GO
 
 exec spAddArticle 64445, N'Прямой перевод: Tax(англ:налог)',  N'#слоВяк, вяк, слова, шутка, экономика', N'
 <span viak="translation">Tax(англ:налог)
-
 ТхС - <a href="http://dic.academic.ru/dic.nsf/dic_synonims/181830/тухес" target="_blank">тухес</a>(идиш:жопа, задница, зад, очко, срака, попка, попа) Техас
 ТКС - tax(англ:налог) toxin(англ:яд) Texas(англ:Техас)
 СКТ - скот скит socket(англ:разъем) <a href="https://ru.wikipedia.org/wiki/Суккот" target="_blank">Суккот</a> аскет
 зКТ - закат
-
 ТК - тик так тук атака утка take(англ:брать)
 Тч - точь течь туча attach(англ:прикреплять) teach(англ:учить) touch(англ:трогать) тачать
 чТ - chat(англ:разговор) чуть cheat(англ:мошенничать) учить читать чёт учёт
@@ -6544,21 +6213,17 @@ exec spAddArticle 64445, N'Прямой перевод: Tax(англ:налог)
 Tax(англ:налог) - Тухес(идиш:жопа).
 </span><span viak="description">
 Tax(англ:налог) находится в смысловом поле take(англ:брать), скот, течь, cheat(англ:мошенничать), чуть, учёт, дача, выдача, teach(англ:учить), учить, читать.
-
 Чудная дичь: брать дачу для учета тучного скота и диких дохлых уток, выдачи удачливых худых мошенников в кедах, и чуть-чуть учить считать чёткое уходящее чадо куда-то в скит на Суккот как аскет.
 </span>
 ';
 GO
 
 /*
-
 exec spAddArticle , N'',  N'', N'
 ';
 GO
-
 <a href="http://viakviak.livejournal.com/.html" target="_blank"></a>
 <a href="" target="_blank"></a>
-
 <span viak="component">
 </span><span viak="summary">
 </span><span viak="description">
