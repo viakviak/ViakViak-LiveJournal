@@ -6258,8 +6258,33 @@ exec spAddArticle 64978, N'Компонента: Р - монотонность, 
 </span><span viak="summary">
 Представляется, что компонента Р выражает монотонность, повторяемость, постоянство
 </span><span viak="description">
-</span>';
+</span>
+';
 GO
+
+exec spAddArticle 65026, N'Прямой перевод: Repeat(англ:повторять)',  N'#слоВяк, вяк, перевод, слова', N'
+<span viak="translation">Repeat(англ:повторять)
+</span><span viak="summary">
+Repeat(англ:повторять) - это билингва "повторение-повторение" состоящая из двух частей: <a href="http://viakviak.livejournal.com/64978.html" target="_blank">частица "Re-" в смысле "повторение"</a> и русское слово Опять, тоже означающее "повторение".
+</span><span viak="description">
+</span>
+';
+GO
+
+exec spAddArticle 65355, N'Прямой перевод: Bitch(англ:сука,пакость)',  N'#слоВяк, вяк, перевод, слова', N'
+<span viak="translation"><a href="https://en.wikipedia.org/wiki/Bitch_(slang)" target="_blank">Bitch</a>(англ:<a href="https://en.wiktionary.org/wiki/сука" target="_blank">сука</a>,пакость)
+
+БЧ - бич бечёвка бочка обучать
+ЧБ - чуб Чубайс чобот 
+Бк - бок бяка бука beak(англ:клюв)  абак 
+кБ - куб кэб  кабы
+</span><span viak="summary">
+Bitch(англ:сука,пакость) = <a href="https://www.youtube.com/watch?v=dcpc2RzgZ60" target="_blank">бяка</a>
+</span><span viak="description">
+</span>
+';
+GO
+
 
 /*
 exec spAddArticle , N'',  N'', N'
