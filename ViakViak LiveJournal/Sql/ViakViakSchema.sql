@@ -36,6 +36,12 @@ GO
 IF OBJECT_ID('ComponentWord') IS NOT NULL
 	DROP VIEW dbo.ComponentWord;
 GO
+IF OBJECT_ID('RootWord') IS NOT NULL
+	DROP VIEW dbo.RootWord;
+GO
+IF OBJECT_ID('PrefixWord') IS NOT NULL
+	DROP VIEW dbo.PrefixWord;
+GO
 -- Drop functions
 IF OBJECT_ID('IsTypeOf') IS NOT NULL
 	DROP FUNCTION dbo.IsTypeOf;
@@ -195,17 +201,37 @@ GO
 CREATE VIEW dbo.ArticleWord as
 	SELECT	CollectionItemID, ItemID as ArticleID, Item2ID as WordID, CreatedOn, CreatedByID
 	FROM	dbo.CollectionItem
-	WHERE	CollectionTypeID = 10002 AND -- ArticleWord
+	WHERE	CollectionID = 10002 /*AND -- ArticleWord
+			CollectionTypeID = 6 AND -- Join
 			ItemTypeID = 101 AND -- Article
-			Item2TypeID = 103 -- Word
+			Item2TypeID = 103 -- Word*/
 GO
 
 CREATE VIEW dbo.ComponentWord as
 	SELECT	CollectionItemID, ItemID as ComponentID, Item2ID as WordID, CreatedOn, CreatedByID
 	FROM	dbo.CollectionItem
-	WHERE	CollectionTypeID = 10003 AND -- ComponentWord
+	WHERE	CollectionID = 10003 /*AND -- ComponentWord
+			CollectionTypeID = 6 AND -- Join
 			ItemTypeID = 105 AND -- Component
-			Item2TypeID = 103 -- Word
+			Item2TypeID = 103 -- Word*/
+GO
+
+CREATE VIEW dbo.RootWord as
+	SELECT	CollectionItemID, ItemID as ComponentID, ItemID as RootID, Item2ID as WordID, CreatedOn, CreatedByID
+	FROM	dbo.CollectionItem
+	WHERE	CollectionID = 10004 /*AND -- RootWord
+			CollectionTypeID = 10003 AND -- Join
+			ItemTypeID = 105 AND -- Component
+			Item2TypeID = 103 -- Word*/
+GO
+
+CREATE VIEW dbo.PrefixWord as
+	SELECT	CollectionItemID, ItemID as ComponentID, ItemID as PrefixID, Item2ID as WordID, CreatedOn, CreatedByID
+	FROM	dbo.CollectionItem
+	WHERE	CollectionID = 10005 /*AND -- PrefixWord
+			CollectionTypeID = 10003 AND -- Join
+			ItemTypeID = 105 AND -- Component
+			Item2TypeID = 103 -- Word*/
 GO
 
 -- Stored Procedures and Functions
@@ -423,11 +449,11 @@ INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (107, 105, N'Prefi
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1001, 2, N'English');
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1002, 2, N'Русский'); -- Russian
 -- Join types
-INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10001, 3, N'ArticleLabel');
-INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10002, 3, N'ArticleWord');
-INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10003, 3, N'ComponentWord');
---INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10004, 3, N'RootWord');
---INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10005, 3, N'PrefixWord');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10001, 6, N'ArticleLabel');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10002, 6, N'ArticleWord');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10003, 6, N'ComponentWord');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10004, 10003, N'RootWord');
+INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (10005, 10003, N'PrefixWord');
 
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (100000, 2, N'System');
 
