@@ -6285,6 +6285,15 @@ Bitch(англ:сука,пакость) = <a href="https://www.youtube.com/watch
 ';
 GO
 
+exec spAddArticle 65648, N'Компонента: Т/Д - тянуть, притягивать, длина, расстояние',  N'вяк, компонента, слова', N'
+<span viak="component">Т/Д
+
+</span><span viak="summary">
+Представляется, что компонента Т/Д выражает тянуть, притягивать, длина, расстояние
+</span><span viak="description">
+</span>
+';
+GO
 
 /*
 exec spAddArticle , N'',  N'', N'
