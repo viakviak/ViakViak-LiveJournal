@@ -65,7 +65,7 @@ GO
 --GO
 
 -- Tables
-/* -- Tests
+/* -- dbo.Entity Tests
 SELECT EntityID FROM dbo.Article WHERE LiveJournalID = 65648;
 GO
 SELECT EntityID FROM dbo.Article WHERE Title LIKE N'Прямой перевод:%';
@@ -81,7 +81,7 @@ CREATE TABLE dbo.Entity (
 	ModifiedOn datetime2(7) NULL,
 	ModifiedByID int NULL,
 	LanguageID int NULL, -- EntityID of language
-	Translation nvarchar(4000) NULL,
+	Translation nvarchar(446) NULL,
 	Translation2 nvarchar(max) NULL,
 	Translation3 nvarchar(max) NULL,
 	Translation4 nvarchar(max) NULL,
@@ -101,6 +101,12 @@ CREATE TABLE dbo.Entity (
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 
+/* -- CollectionItem Tests
+SELECT CollectionItemID FROM dbo.ArticleLabel WHERE ArticleID = 100294;
+GO
+SELECT CollectionItemID FROM dbo.ArticleLabel WHERE LabelID = 100038;
+GO
+*/
 CREATE TABLE dbo.CollectionItem (
 	CollectionItemID int identity(1,1) NOT NULL, -- collection item primary key
 	CollectionID int NOT NULL, -- collection EntityID
@@ -177,12 +183,13 @@ CREATE VIEW dbo.Prefix as
 GO
 
 CREATE VIEW dbo.ArticleLabel as
-	SELECT	CollectionItemID, CollectionID as ArticleLabelID, CollectionTypeID, ItemID as ArticleID, ItemTypeID as ArticleTypeID,
+	SELECT	CollectionItemID, CollectionID as ArticleLabelTypeID, CollectionTypeID, ItemID as ArticleID, ItemTypeID as ArticleTypeID,
 			Item2ID as LabelID, Item2TypeID as LabelTypeID, CreatedOn, CreatedByID
 	FROM	dbo.CollectionItem
-	WHERE	CollectionTypeID = 10001 AND -- ArticleLabel
+	WHERE	CollectionID = 10001 /*AND -- ArticleLabel
+			CollectionTypeID = 6 AND -- Join
 			ItemTypeID = 101 AND -- Article
-			Item2TypeID = 102 -- Label
+			Item2TypeID = 102 -- Label*/
 GO
 
 CREATE VIEW dbo.ArticleWord as
@@ -327,7 +334,10 @@ DECLARE @posStop int = 0;
 DECLARE @length int;
 DECLARE @lbl nvarchar(128);
 DECLARE @labelID int;
-
+DECLARE @articleLabelTypeID int = 10001;
+DECLARE @joinTypeID int = 6;
+DECLARE @articleTypeID int = 101;
+DECLARE @labelTypeID int = 102;
 SET NOCOUNT ON;
 
 SELECT @articleID = EntityID FROM dbo.Article WHERE LiveJournalID = @liveJournalID;
@@ -356,8 +366,8 @@ if @labels IS NOT NULL
 			SELECT @labelID = EntityID FROM dbo.Label WHERE LabelName = @lbl;
 			if @labelID IS NOT NULL
 				begin
-				INSERT INTO dbo.ArticleLabel(ArticleLabelID, CollectionTypeID, ArticleTypeID, LabelTypeID, ArticleID, LabelID)
-					VALUES (10001, 3, 101, 102, @articleID, @labelID);
+				INSERT INTO dbo.ArticleLabel(ArticleLabelTypeID, CollectionTypeID, ArticleTypeID, LabelTypeID, ArticleID, LabelID)
+					VALUES (@articleLabelTypeID, @joinTypeID, @articleTypeID, @labelTypeID, @articleID, @labelID);
 				end
 			end
 		SET @posStart = @posStop + 1;
@@ -367,16 +377,28 @@ end
 GO
 
 -- Indexes
-IF EXISTS(SELECT 1 FROM sys.indexes WHERE object_id = object_id('dbo.Entity') AND NAME ='IDX_Entity_TypeID_Int1')
-    DROP INDEX IDX_Entity_TypeID_Int1 ON dbo.Entity;
+IF EXISTS(SELECT 1 FROM sys.indexes WHERE object_id = object_id('dbo.CollectionItem') AND NAME ='IDX_CollectionItem_CollectionID_Item2ID')
+    DROP INDEX IDX_CollectionItem_CollectionID_Item2ID ON dbo.CollectionItem;
 GO
-CREATE NONCLUSTERED INDEX IDX_Entity_TypeID_Int1 ON dbo.Entity (TypeID, Int1)
+CREATE NONCLUSTERED INDEX IDX_CollectionItem_CollectionID_Item2ID ON dbo.CollectionItem(CollectionID, Item2ID)
+GO
+
+IF EXISTS(SELECT 1 FROM sys.indexes WHERE object_id = object_id('dbo.CollectionItem') AND NAME ='IDX_CollectionItem_CollectionID_ItemID')
+    DROP INDEX IDX_CollectionItem_CollectionID_ItemID ON dbo.CollectionItem;
+GO
+CREATE NONCLUSTERED INDEX IDX_CollectionItem_CollectionID_ItemID ON dbo.CollectionItem(CollectionID, ItemID)
 GO
 
 IF EXISTS(SELECT 1 FROM sys.indexes WHERE object_id = object_id('dbo.Entity') AND NAME ='IDX_Entity_Translation')
     DROP INDEX IDX_Entity_Translation ON dbo.Entity;
 GO
-CREATE NONCLUSTERED INDEX IDX_Entity_Translation ON dbo.Entity (Translation, TypeID)
+CREATE NONCLUSTERED INDEX IDX_Entity_Translation ON dbo.Entity (Translation, TypeID, LanguageID)
+GO
+
+IF EXISTS(SELECT 1 FROM sys.indexes WHERE object_id = object_id('dbo.Entity') AND NAME ='IDX_Entity_TypeID_Int1')
+    DROP INDEX IDX_Entity_TypeID_Int1 ON dbo.Entity;
+GO
+CREATE NONCLUSTERED INDEX IDX_Entity_TypeID_Int1 ON dbo.Entity (TypeID, Int1)
 GO
 
 -- Data
