@@ -1,4 +1,4 @@
-﻿-- ViakViak Schema
+-- ViakViak Schema
 IF OBJECT_ID(N'dbo.Entity') IS NOT NULL
 	DROP TABLE dbo.Entity;
 GO
@@ -56,13 +56,13 @@ GO
 
 -- stored procedures
 
-CREATE PROCEDURE dbo.ParseContent
-	@articleID [int],
-	@content [nvarchar](max)
-WITH EXECUTE AS CALLER
-AS
-EXTERNAL NAME [ViakViak_Sql].[StoredProcedures].[ParseContent]
-GO
+--CREATE PROCEDURE dbo.ParseContent
+--	@articleID [int],
+--	@content [nvarchar](max)
+--WITH EXECUTE AS CALLER
+--AS
+--EXTERNAL NAME [ViakViak_Sql].[StoredProcedures].[ParseContent]
+--GO
 
 -- Tables
 CREATE TABLE dbo.Entity (
@@ -73,7 +73,7 @@ CREATE TABLE dbo.Entity (
 	ModifiedOn datetime2(7) NULL,
 	ModifiedByID int NULL,
 	LanguageID int NULL, -- EntityID of language
-	Translation nvarchar(max) NULL,
+	Translation nvarchar(4000) NULL,
 	Translation2 nvarchar(max) NULL,
 	Translation3 nvarchar(max) NULL,
 	Translation4 nvarchar(max) NULL,
@@ -358,6 +358,20 @@ if @labels IS NOT NULL
 end
 GO
 
+-- Indexes
+IF EXISTS(SELECT 1 FROM sys.indexes WHERE object_id = object_id('dbo.Entity') AND NAME ='IDX_Entity_TypeID_Int1')
+    DROP INDEX IDX_Entity_TypeID_Int1 ON dbo.Entity;
+GO
+CREATE NONCLUSTERED INDEX IDX_Entity_TypeID_Int1 ON dbo.Entity (TypeID, Int1)
+GO
+
+IF EXISTS(SELECT 1 FROM sys.indexes WHERE object_id = object_id('dbo.Entity') AND NAME ='IDX_Entity_Translation')
+    DROP INDEX IDX_Entity_Translation ON dbo.Entity;
+GO
+CREATE NONCLUSTERED INDEX IDX_Entity_Translation ON dbo.Entity (Translation, TypeID)
+GO
+
+-- Data
 SET IDENTITY_INSERT dbo.Entity ON
 -- System Entity Types
 INSERT INTO dbo.Entity (EntityID, TypeID, Translation) VALUES (1, 1, N'Type');
@@ -6307,6 +6321,13 @@ GO
 </span>
 */
 
+-- Tests
+SELECT EntityID FROM dbo.Article WHERE LiveJournalID = 65648;
+GO
+SELECT EntityID FROM dbo.Article WHERE Title LIKE N'Прямой перевод:%';
+GO
+SELECT	EntityID FROM	dbo.Entity WHERE TypeID = 101;
+GO
 
 SELECT N'<a href="http://viakviak.livejournal.com/' + cast(LiveJournalID as nvarchar)+ N'.html">' + Title + N'</a>'
 FROM dbo.Article
