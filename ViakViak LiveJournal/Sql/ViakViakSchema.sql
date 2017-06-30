@@ -59,16 +59,30 @@ GO
 IF OBJECT_ID('ParseContent') IS NOT NULL
 	DROP PROCEDURE dbo.ParseContent	
 GO
+IF EXISTS (SELECT * FROM sys.assemblies WHERE [name] = 'ViakViak_Sql')
+	DROP ASSEMBLY ViakViak_Sql;
+GO
 
 -- stored procedures
+exec sp_configure 'clr enabled', 1;
+go
+reconfigure;
+go
+ALTER DATABASE ViakViak SET trustworthy ON
+go
 
---CREATE PROCEDURE dbo.ParseContent
---	@articleID [int],
---	@content [nvarchar](max)
---WITH EXECUTE AS CALLER
---AS
---EXTERNAL NAME [ViakViak_Sql].[StoredProcedures].[ParseContent]
---GO
+CREATE ASSEMBLY ViakViak_Sql
+FROM 'D:\ViakViak-LiveJournal-master\ViakViak Sql\bin\Debug\ViakViak_Sql.dll'
+WITH PERMISSION_SET = SAFE;
+GO
+
+CREATE PROCEDURE dbo.ParseContent
+	@articleID [int],
+	@content [nvarchar](max)
+WITH EXECUTE AS CALLER
+AS
+EXTERNAL NAME [ViakViak_Sql].[StoredProcedures].[ParseContent]
+GO
 
 -- Tables
 /* -- dbo.Entity Tests
@@ -403,6 +417,12 @@ end
 GO
 
 -- Indexes
+IF EXISTS(SELECT 1 FROM sys.indexes WHERE object_id = object_id('dbo.CollectionItem') AND NAME ='IDX_CollectionItem_ItemID')
+    DROP INDEX IDX_CollectionItem_ItemID ON dbo.CollectionItem;
+GO
+CREATE NONCLUSTERED INDEX IDX_CollectionItem_ItemID ON dbo.CollectionItem(ItemID, CollectionTypeID)
+GO
+
 IF EXISTS(SELECT 1 FROM sys.indexes WHERE object_id = object_id('dbo.CollectionItem') AND NAME ='IDX_CollectionItem_CollectionID_Item2ID')
     DROP INDEX IDX_CollectionItem_CollectionID_Item2ID ON dbo.CollectionItem;
 GO
