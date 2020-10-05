@@ -1247,7 +1247,7 @@ GO
 
 CREATE PROCEDURE nav.GetContent (@cutoffLineNumber int = 0, @tabNumber int = 1) as
 	DECLARE @articleCount as int;
-	declare @chunkSize int = 65000; -- 80000
+	declare @chunkSize int = 80000; --65000; -- 80000
 	declare @liveJournalIdFrom int = (@tabNumber - 1) * @chunkSize + 1;
 	declare @liveJournalIdTo int = @tabNumber * @chunkSize;
 	declare @ArticlesRef as nvarchar(2048);
@@ -1256,7 +1256,7 @@ CREATE PROCEDURE nav.GetContent (@cutoffLineNumber int = 0, @tabNumber int = 1) 
 		set @liveJournalIdTo = 999999
 
 	begin try
-		set @ArticlesRef = dbo.GetTabsHtml(@tabNumber, N'198084 Древние, 146191 Старые, 245954 Новые, 765 Последние');
+		set @ArticlesRef = dbo.GetTabsHtml(@tabNumber, N'198084 Древние, 146191 Старые, 245954 Новые, 765 Последние'); -- Допотопные
 
 		SELECT @articleCount = COUNT(*) FROM dbo.Article;
 
@@ -1482,7 +1482,8 @@ INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'еда', 10
 INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'животное', 1001);
 INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'закон', 1001);
 INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'имя', 1001);
-INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'Изобретение', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'изобретение', 1001);
+INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'искусство', 1001);
 INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'история', 1001);
 INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'книга', 1001);
 INSERT INTO dbo.Label (TypeID, LabelName, LanguageID) VALUES (102, N'компания', 1001);
@@ -10915,11 +10916,13 @@ Stilus(лат:стилус) - это калька с русского слова
 ';
 GO
 
-exec spAddArticle 87083, N'Что в имени твоем: Звук', N'вяк, слова', N'
-<h1 viak="word">Звук
-</h1><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+exec spAddArticle 87083, N'Что в имени твоем: Звук', N'вяк, наука, слова', N'
+<article><header><h1 viak="word">Звук
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Слово Звук лежит в фонетико-смысловом поле "язык", "зуб", "связь", "звон", "визг", "высота", "пустота"
-</span><lj-cut><h3><a href="https://viakviak.livejournal.com/76661.html#phonetic-sets" target="_blank">Фонетические ряды</a></h3><span viak="description">
+</span><span viak="description">
+Слово "Язык" - это подражание звуку "Ш" как к издаваемому шуму, который и является звуком при учете перехода "СК-Ш". Сравни со словом "<a href="http://viakviak.livejournal.com/188528.html" target="_blank">музыка</a>".
+</span><lj-cut><section><h3><a href="https://viakviak.livejournal.com/76661.html#phonetic-sets" target="_blank">Звуковые ряды</a></h3><span viak="description">
 ЗВК - звук зевок
 <a href="http://viakviak.livejournal.com/29208.html" target="_blank">ЗВч</a> - звучание завуч
 ЗВ - <a href="http://viakviak.livejournal.com/69930.html" target="_blank">зев</a> зов заявка звон звание звезда зуав
@@ -10937,7 +10940,7 @@ exec spAddArticle 87083, N'Что в имени твоем: Звук', N'вяк,
 пс - пися пусто спать
 <a href="http://viakviak.livejournal.com/33634.html" target="_blank">ЗП</a> - зипун запах
 ПЗ - пизда поза паз пузо
-</span><h3><a href="https://viakviak.livejournal.com/76661.html#phonetic-grid" target="_blank">Фонетико-смысловой ряд</a></h3><span viak="description">
+</span></section><section><h3><a href="https://viakviak.livejournal.com/76661.html#phonetic-grid" target="_blank">Звуко-смысловой ряд</a></h3><span viak="description">
 базар - звучный
 бас - звук
 ваза - пустая
@@ -10958,7 +10961,7 @@ exec spAddArticle 87083, N'Что в имени твоем: Звук', N'вяк,
 физика - наука о звуках
 фузея - звонкая
 хвост - подвешенный
-</span><h3>Ссылки</h3><span viak="reference">
+</span></section><section><h3>Ссылки</h3><span viak="reference">
 <a href="https://www.google.com/search?q=звук+site%3Aviakviak.livejournal.com" target="_blank">поиск "звук site:viakviak.livejournal.com"</a>
 <a href="http://viakviak.livejournal.com/29208.html" target="_blank">Переход: Ч - К</a>
 <a href="http://viakviak.livejournal.com/45219.html" target="_blank">Падение звука: В</a>
@@ -10967,11 +10970,13 @@ exec spAddArticle 87083, N'Что в имени твоем: Звук', N'вяк,
 <a href="http://viakviak.livejournal.com/78906.html" target="_blank">На тему: Тело</a>
 <a href="http://viakviak.livejournal.com/31712.html" target="_blank">Что в имени твоем: Свастика</a>
 <a href="http://viakviak.livejournal.com/48568.html" target="_blank">Компонента: С/З/Ц - узкий, направленный, проходящий через преграду, ускоренный, охлажденный</a>
-</span><span viak="footer">
+<a href="http://viakviak.livejournal.com/277272.html" target="_blank">Слово "Язык" - это калька со слова "звук"</a>
+<a href="http://viakviak.livejournal.com/277172.html" target="_blank">"Слово" - это обратная калька с "вылез" в смысле "изъявление, высказывание"</a>
+</span></section><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
 <a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
-</span>
-</lj-cut>
+</footer></lj-cut></article>
 ';
 GO
 
@@ -15724,7 +15729,7 @@ exec spAddArticle 135819, N'Что в имени твоём: Ковчег', N'в
 ';
 GO
 
-exec spAddArticle 136112, N'Что в имени твоём: Конёк', N'Изобретение, вяк, символ, слова, технология', N'
+exec spAddArticle 136112, N'Что в имени твоём: Конёк', N'изобретение, вяк, символ, слова, технология', N'
 <h1 viak="word">Конёк
 </h1><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Слово "Конёк" - это калька со слова "кинька" и лежит в звуко-смысловом поле "перекинуть, накинуть, гнать, погонный, погонка"
@@ -15744,13 +15749,13 @@ exec spAddArticle 136112, N'Что в имени твоём: Конёк', N'Из
 GO
 
 exec spAddArticle 136702, N'Прямой перевод: Parent(англ:родитель) - Direct translation', N'вяк, общество', N'
-<h1 viak="word">Parent(англ:родитель)
-</h1><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+<article><header><h1 viak="word">Parent(англ:родитель)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Английское слово "Parent" - это калька с русского слова "перенять"
 </span><span viak="description">
-Английское слово Apprentice(англ:ученик) - это калька с русского слова "переняться" в смысле "перенять опыт"
-</span><h3>Ссылки</h3><span viak="reference">
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
 <a href="https://viakviak.livejournal.com/136702.html?thread=405246#t405246" target="_blank">comment</a> by <a href="https://alvantara.livejournal.com/" target="_blank">alvantara</a>
+<a href="http://viakviak.livejournal.com/279664.html" target="_blank">Английское слово Apprentice(англ:ученик) - это калька с русского слова "переняться" в смысле "перенять опыт"</a>
 <a href="http://viakviak.livejournal.com/52134.html" target="_blank">Прямой перевод: Divide(англ:делить) - Direct Translation</a>
 <a href="http://viakviak.livejournal.com/70403.html" target="_blank">Что в имени твоем: Два</a>
 <a href="http://viakviak.livejournal.com/75026.html" target="_blank">Компонента: Д/Т - Деять, to-do(англ:делать), образователь глаголов неопределенной формы "Что делать"</a>
@@ -15762,10 +15767,12 @@ exec spAddArticle 136702, N'Прямой перевод: Parent(англ:род�
 <a href="http://viakviak.livejournal.com/54707.html" target="_blank">Компонента: МТ/МФ - окруженный, окутанный, удушающий, обмотанный, покрывающий, объединять</a>
 <a href="http://viakviak.livejournal.com/89803.html" target="_blank">Что в имени твоем: Дом</a>
 <a href="http://viakviak.livejournal.com/44378.html" target="_blank">Что в имени твоем: Time(англ:время) - what is in the name</a>
-</span><span viak="footer">
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
 <a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
-</span>
+</footer></lj-cut></article>
 ';
 GO
 
@@ -16641,7 +16648,7 @@ exec spAddArticle 150425, N'Что в имени твоём: Понтифик', 
 ';
 GO
 
-exec spAddArticle 150536, N'Что в имени твоём: Товар', N'Изобретение, вяк, компания, общество, технология, торговля, экономика', N'
+exec spAddArticle 150536, N'Что в имени твоём: Товар', N'изобретение, вяк, компания, общество, технология, торговля, экономика', N'
 <h1 viak="word">Товар
 </h1><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Слово "Товар" - это калька со слова "добро" в смысле "творение"
@@ -18352,36 +18359,48 @@ exec spAddArticle 174768, N'Чтобы это значило: Кушать - к�
 GO
 
 exec spAddArticle 175052, N'Что в имени твоём: Дым', N'вяк, дом, материя, слова, смерть', N'
-<h1 viak="word">Дым
-</h1><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+<article><header><h1 viak="word">Дым
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Слово "Дым" - это калька с компоненты "<a href="http://viakviak.livejournal.com/174768.html" target="_blank">МТ/ТМ</a>" в общем смысле "обволакивающий, удушающий"
 </span><span viak="description">
 Слово "Дым" - это калька с компоненты "<a href="http://viakviak.livejournal.com/174768.html" target="_blank">МТ/ТМ</a>" в общем смысле "обволакивающий, удушающий" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Д-Т</a>"
-</span><h3>Ссылки</h3><span viak="reference">
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
 <a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
 <a href="http://viakviak.livejournal.com/54707.html" target="_blank">Компонента: МТ/МФ - окруженный, окутанный, удушающий, обмотанный, покрывающий, объединять</a>
+<a href="http://viakviak.livejournal.com/175206.html" target="_blank">Слово "Туман" - это калька со слова "дымный"</a>
+<a href="http://viakviak.livejournal.com/214688.html" target="_blank">Слово "Тьма" - это обратная калька со слова "муть" в смысле "плохо видно"</a>
 <a href="http://viakviak.livejournal.com/65813.html" target="_blank">Прямой перевод: Hippopotamus(англ:гиппопотам,бегемот)</a>
 <a href="http://viakviak.livejournal.com/44378.html" target="_blank">Что в имени твоем: Time(англ:время) - what is in the name</a>
 <a href="http://viakviak.livejournal.com/89803.html" target="_blank">Что в имени твоем: Дом</a>
-</span><span viak="footer">
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
 <a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
-</span>
+</footer></lj-cut></article>
 ';
 GO
 
 exec spAddArticle 175206, N'Что в имени твоём: Туман', N'вяк, материя, слова', N'
-<h1 viak="word">Туман
-</h1><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+<article><header><h1 viak="word">Туман
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Слово "Туман" - это калька со слова "дымный"
 </span><span viak="description">
-Слово "Туман" - это калька со слова "дымный" при учете перехода "Т-Д".
+Слово "Туман" - это калька со слова "дымный" при учете перехода "Т-Д" и окончания принадлежности "-н".
 Слово "Туман" содержит определяющую компоненту "<a href="http://viakviak.livejournal.com/174768.html" target="_blank">МТ/ТМ</a>" в общем смысле "обволакивающий, удушающий"
-</span><h3>Ссылки</h3><span viak="reference">
-</span><span viak="footer">
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/175052.html" target="_blank">Слово "Дым" - это калька с компоненты "МТ/ТМ" в общем смысле "обволакивающий, удушающий"</a>
+<a href="http://viakviak.livejournal.com/214688.html" target="_blank">Слово "Тьма" - это обратная калька со слова "муть" в смысле "плохо видно"</a>
+<a href="http://viakviak.livejournal.com/89803.html" target="_blank">Дом - темный, с дымом(печкой)</a>
+<a href="http://viakviak.livejournal.com/264145.html" target="_blank">Слово "Дума" - это обратная калька со слова "уметь"</a>
+<a href="http://viakviak.livejournal.com/44378.html" target="_blank">Слово Time(англ:время) может иметь смысл "отматывать", "тянуть", "отмечать", "портиться", "маяться"; и связано с понятиями материи, математики и смерти</a>
+<a href="http://viakviak.livejournal.com/105441.html" target="_blank">Слово "Могила" - это калька со слова "мгла"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
 <a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
-</span>
+</footer></lj-cut></article>
 ';
 GO
 
@@ -19482,7 +19501,7 @@ exec spAddArticle 188035, N'Что в имени твоём: Оскорблен�
 ';
 GO
 
-exec spAddArticle 188397, N'Что в имени твоём: Мелодия', N'вяк, музыка, слова', N'
+exec spAddArticle 188397, N'Что в имени твоём: Мелодия', N'вяк, искусство, музыка, слова', N'
 <article><header><h1 viak="word">Мелодия
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Слово "Мелодия" - это калька со слова "молотить".
@@ -19499,12 +19518,12 @@ exec spAddArticle 188397, N'Что в имени твоём: Мелодия', N'
 ';
 GO
 
-exec spAddArticle 188528, N'Что в имени твоём: Музыка', N'вяк, музыка, слова', N'
+exec spAddArticle 188528, N'Что в имени твоём: Музыка', N'вяк, искусство, музыка, слова', N'
 <article><header><h1 viak="word">Музыка
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
-Слово музыка - это обратная калька со слова "Шум"
+Слово "Музыка" - это обратная калька со слова "Шум"
 </span><span viak="description">
-Слово музыка - это обратная калька со слова "Шум" при учете переходов "<a href="http://viakviak.livejournal.com/52993.html" target="_blank">ЗК/СК-Щ</a>" и "<a href="http://viakviak.livejournal.com/111725.html" target="_blank">Щ-Ш</a>"
+Слово "Музыка" - это обратная калька со слова "Шум" при учете переходов "<a href="http://viakviak.livejournal.com/52993.html" target="_blank">ЗК/СК-Щ</a>" и "<a href="http://viakviak.livejournal.com/111725.html" target="_blank">Щ-Ш</a>"
 </span><h3>Ссылки</h3><span viak="reference">
 <a href="http://viakviak.livejournal.com/52993.html" target="_blank">Переход: СТ/ШТ - Щ - СК/СГ/СХ/СЧ</a>
 <a href="http://viakviak.livejournal.com/111725.html" target="_blank">Переход: Щ - Ш</a>
@@ -23926,11 +23945,15 @@ GO
 exec spAddArticle 238890, N'Что в имени твоём: Качество', N'вяк, слова, чувство', N'
 <article><header><h1 viak="word">Качество
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
-Слово "качество" - это калька со слова "чистый"
+Слово "Качество" - это калька со слова "чистый"
 </span><span viak="description">
-Слово "качество" - это калька со слова "чистый" при учете <a href="http://viakviak.livejournal.com/45219.html" target="_blank">выпадения "В"</a>
+Слово "Качество" - это калька со слова "чистый" при учете <a href="http://viakviak.livejournal.com/45219.html" target="_blank">выпадения "В"</a>
 </span><h3>Ссылки</h3><span viak="reference">
 <a href="http://viakviak.livejournal.com/45219.html" target="_blank">Падение звука: В</a>
+<a href="http://viakviak.livejournal.com/276435.html" target="_blank">Слово "Каста" - это калька со слова "часть"</a>
+<a href="http://viakviak.livejournal.com/238890.html" target="_blank">Слово "качество" - это калька со слова "чистый"</a>
+<a href="http://viakviak.livejournal.com/251373.html" target="_blank">Слово "Чистый" - обратная калька со слово "стечь"</a>
+<a href="http://viakviak.livejournal.com/250813.html" target="_blank">Слово "Честь" - это калька со слова "чистый"</a>
 <a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
 </span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
@@ -24912,10 +24935,12 @@ exec spAddArticle 251373, N'Что в имени твоём: Чистый', N'в
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Слово "Чистый" - обратная калька со слово "стечь"
 </span><span viak="description">
-</span><h3>Ссылки</h3><span viak="reference">
+Слово "Чистый" - обратная калька со слово "стечь" как процедура очистки.
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
 <a href="http://viakviak.livejournal.com/126559.html" target="_blank">Компонента корня слова</a>
-<a href="http://viakviak.livejournal.com/238890.html" target="_blank">Слово "качество" - это калька со слова "чистый"</a>
+<a href="http://viakviak.livejournal.com/238890.html" target="_blank">Слово "Качество" - это калька со слова "чистый"</a>
 <a href="http://viakviak.livejournal.com/250813.html" target="_blank">Слово "Честь" - это калька со слова "чистый"</a>
+<a href="http://viakviak.livejournal.com/276435.html" target="_blank">Слово "Каста" - это калька со слова "часть"</a>
 <a href="http://viakviak.livejournal.com/30099.html" target="_blank">Слово "Час" - это калька со слова "кус" в смысле "часть" но без оттенка "частота"</a>
 <a href="http://viakviak.livejournal.com/215272.html" target="_blank">Слово "Щека" - это калька со слова "стекать" в смысле "место стекания слёз и соплей"</a>
 <a href="http://viakviak.livejournal.com/215396.html" target="_blank">Слово "Щиколотка" - это калька с возможного слова "стекалотка" в значении "стекалочка", что очевидно имеет смысл "место стекания мочи"</a>
@@ -24931,7 +24956,7 @@ exec spAddArticle 251373, N'Что в имени твоём: Чистый', N'в
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
 <a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
 <a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
-</footer></article>
+</footer></lj-cut></article>
 ';
 GO
 
@@ -25178,6 +25203,8 @@ exec spAddArticle 254395, N'Что в имени твоём: Тон', N'вяк, 
 <a href="http://viakviak.livejournal.com/254191.html" target="_blank">Слово "Нота"(rus:note) - это обратная калька со слова "тон"(rus:tone)</a>
 <a href="http://viakviak.livejournal.com/152045.html" target="_blank">Слово "Песня" - это калька со слова "писаное"</a>
 <a href="http://viakviak.livejournal.com/110918.html" target="_blank">Представляется, что "Герц" может связывать слова "сердце" и "секунда" в смысле "частота", "периодичность"</a>
+<a href="http://viakviak.livejournal.com/254787.html" target="_blank">Английское слово "Frequency"(англ:частота) - это калька с русского слова "вращения"</a>
+<a href="http://viakviak.livejournal.com/254545.html" target="_blank">Слово "Частота" - это калька со "густота"</a>
 <a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
 </span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
@@ -25959,7 +25986,7 @@ exec spAddArticle 263716, N'Что в имени твоём: Секунда', N'
 ';
 GO
 
-exec spAddArticle 264145, N'Что в имени твоём: Дума', N'Изобретение, вяк, материя, наука, слова', N'
+exec spAddArticle 264145, N'Что в имени твоём: Дума', N'изобретение, вяк, материя, наука, слова', N'
 <article><header><h1 viak="word">Дума
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Слово "Дума" - это обратная калька со слова "уметь"
@@ -25985,7 +26012,7 @@ exec spAddArticle 264145, N'Что в имени твоём: Дума', N'Изо
 ';
 GO
 
-exec spAddArticle 264366, N'Что в имени твоём: Мудрый', N'Изобретение, вяк, наука, слова', N'
+exec spAddArticle 264366, N'Что в имени твоём: Мудрый', N'изобретение, вяк, наука, слова', N'
 <article><header><h1 viak="word">Мудрый
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Слово "Мудрый" - это обратная калька со слова "думать"
@@ -26780,6 +26807,545 @@ exec spAddArticle 272906, N'Прямой перевод: Home(англ:дом,з
 ';
 GO
 
+exec spAddArticle 273164, N'Что в имени твоём: Мытарь', N'вяк, государство, деньги, слова, титул', N'
+<article><header><h1 viak="word">Мытарь
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Мытарь" - это калька от возможного слова "медяр" в смысле "собиратель медяков"
+</span><span viak="description">
+Слово "Мытарь" - это калька от возможного слова "медяр" в смысле "собиратель медяков" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Т-Д</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/223046.html" target="_blank">Слово "Медь" - это калька со слова "мять"</a>
+<a href="http://viakviak.livejournal.com/174508.html" target="_blank">Слово "Металл" - это калька со слова "мотал" в смысле "мотать" в значении "вытягивать"</a>
+<a href="http://viakviak.livejournal.com/63739.html" target="_blank">Представляется, что английское слово Copper(англ:медь) могло произойти от слова "копейка", как сделанная из меди, и от слова "копать" как процесс добычи меди с прибавлением анлийского суффикса "-er". Т.к. этот суффих используется для обозначения професс</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 273518, N'Что в имени твоём: Тамга', N'як, геральдика, государство, история, символ, слова', N'
+<article><header><h1 viak="word">Тамга
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Тамга" - это обратная калька со слова "медяк"
+</span><span viak="description">
+Слово "Там-га" - это обратная калька со слова "мед-як" при учете обратного чтения корня, сохранения суффикса "-к" и переходов "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Т-Д</a>" и "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Г-К</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/223046.html" target="_blank">Слово "Медь" - это калька со слова "мять"</a>
+<a href="http://viakviak.livejournal.com/273164.html" target="_blank">Слово "Мытарь" - это калька от возможного слова "медяр" в смысле "собиратель медяков"</a>
+<a href="http://viakviak.livejournal.com/174508.html" target="_blank">Слово "Металл" - это калька со слова "мотал" в смысле "мотать" в значении "вытягивать"</a>
+<a href="http://viakviak.livejournal.com/63739.html" target="_blank">Представляется, что английское слово Copper(англ:медь) могло произойти от слова "копейка", как сделанная из меди, и от слова "копать" как процесс добычи меди с прибавлением анлийского суффикса "-er". Т.к. этот суффих используется для обозначения професс</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 273869, N'Что в имени твоём: Пир', N'вяк, еда, слова', N'
+<article><header><h1 viak="word">Пир
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Пир" - это калька со слов "пар" в смысле "парить" и "вар" в смысле "варить"
+</span><span viak="description">
+Слово "Пир" - это калька со слов "пар" в смысле "парить" и "вар" в смысле "варить" при учете перехода "<a href="http://viakviak.livejournal.com/69930.html" target="_blank">П-В</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/69930.html" target="_blank">Переход: В - П</a>
+<a href="http://viakviak.livejournal.com/34907.html" target="_blank">Слово "Пирог" - это калька со слова "Парок" в смысле "Пар"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 274119, N'Что в имени твоём: Маска', N'вяк, слова', N'
+<article><header><h1 viak="word">Маска
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Маска" - это калька со слово "мешать" в смысле "мешать видеть лицо" с оттенком "мешок"
+</span><span viak="description">
+Слово "Маска" - это калька со слово "мешать" в смысле "мешать видеть лицо" с оттенком "мешок" при учете перехода "<a href="http://viakviak.livejournal.com/207378.html" target="_blank">СК-Ш</a>". Простейшей конструкцией маски действительно мог быть мешок с прорезями для глаз.
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/207378.html" target="_blank">Любая из букв  или [ЩшчЖ] может переходить в любое двух-буквенное сочетание из [Сзц][ТдКгх] и обратно</a>
+<a href="http://viakviak.livejournal.com/109296.html" target="_blank">Символ "Точка в круге" означает "око, глаз, видящий, зрячий, зрелый"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 274264, N'Что в имени твоём: Вензель', N'вяк, слова', N'
+<article><header><h1 viak="word">Вензель
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Вензель" - это калька с фразы "вьюн-узел"
+</span><span viak="description">
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 274491, N'Что в имени твоём: Ягода', N'вяк, еда, слова', N'
+<article><header><h1 viak="word">Ягода
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Ягода" - это калька со слов "выход, выкат" в смысле "выходящее, покатое"
+</span><span viak="description">
+Слово "Ягода" - это калька со слова "выкат" в смысле "выдающееся, покатое" при учете <a href="http://viakviak.livejournal.com/45219.html" target="_blank">выпадения "В"</a> и перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Д-Т</a>" и "<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Г-Х</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/45219.html" target="_blank">Падение звука: В</a>
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Переход Г/K - Х</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 274766, N'Что в имени твоём: Мех', N'вяк, животное, слова, тело', N'
+<article><header><h1 viak="word">Мех
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Мех" - это калька со слова "мягкий"
+</span><span viak="description">
+Слово "Мех" - это калька со слова "мягкий" при учете перехода "<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Х-Г/К</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Переход Г/K - Х</a>
+<a href="http://viakviak.livejournal.com/164591.html" target="_blank">Слово "Мокрый" - находится в звуко-смысловом поле "мочить, мягкий, размягчённый"</a>
+<a href="http://viakviak.livejournal.com/93048.html" target="_blank">Machine(англ:машина) - калька с русского слова "махание"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 275180, N'Чтобы это значило: Нежный', N'вяк, слова, чувство', N'
+<article><header><h1 viak="word">Нежный
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Нежный" - это калька со слова "нега"
+</span><span viak="description">
+Слово "Нежный" - это калька со слова "нега" при учете перехода "<a href="http://viakviak.livejournal.com/37986.html" target="_blank">Ж-Г</a>" и окончания принадлежности "<a href="http://viakviak.livejournal.com/78618.html" target="_blank">-н</a>".
+"Нежный" - это обратная калька со слова "женин" в смысле "женственный" при учете окончания принадлежности "<a href="http://viakviak.livejournal.com/78618.html" target="_blank">-н</a>"
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/37986.html" target="_blank">Переход Г - Ж</a>
+<a href="http://viakviak.livejournal.com/78618.html" target="_blank">"Н" в конце слова может означать "принадлежность", "собственность" как в случае суффихов "-ин", "ан", зависимый, новый. "Н" в начале слова может означать "нет", как в случае приставки "не-"</a>
+<a href="http://viakviak.livejournal.com/275242.html" target="_blank">Слово "Нега" - это обратная калька со слова "гнуть" в смысле "нежный, гибкий, пластичный"</a>
+<a href="http://viakviak.livejournal.com/180477.html" target="_blank">Слова "Жена" - это обратная калька со слова "носить" в смысле "способная вынашивать"</a>
+<a href="http://viakviak.livejournal.com/212327.html" target="_blank">Слово "Нож" - это калька со слова "нажать" с оттенками "носить" и "низ"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 275242, N'Что в имени твоём: Нега', N'вяк, слова', N'
+<article><header><h1 viak="word">Нега
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Нега" - это обратная калька со слова "гнуть" в смысле "нежный, гибкий, пластичный"
+</span><span viak="description">
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/54989.html" target="_blank">Компонента: ГН - изогнутая, согнутый, извивающийся, гибкий, подчиненный, свернутый, выдутый, юный</a>
+<a href="http://viakviak.livejournal.com/275180.html" target="_blank">Слово "Нежный" - это калька со слова "нега"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 275622, N'Что в имени твоём: Юмор', N'вяк, слова, чувство', N'
+<article><header><h1 viak="word">Юмор
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Юмор" - это калька со слов "умора, умер, вмер, мор" в смысле "умереть со смеху"
+</span><span viak="description">
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/60931.html" target="_blank">Прямой перевод: Humor(англ:юмор) - Direct translation</a>
+<a href="http://viakviak.livejournal.com/275792.html" target="_blank">Слово "Сатира" - это калька со слова "задира"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 275792, N'Что в имени твоём: Сатира', N'вяк, слова', N'
+<article><header><h1 viak="word">Сатира
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Сатира" - это калька со слова "задира"
+</span><span viak="description">
+Слово "Сатира" - это калька со слова "задира" при учете переходов "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">С-З</a>" и "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Т-Д</a>"
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="https://s-yaroslav.livejournal.com/" target="_blank">s_yaroslav</a> написал в <a href="https://anti-fasmer.livejournal.com/" target="_blank">anti_fasmer</a> "<a href="https://anti-fasmer.livejournal.com/351896.htm" target="_blank">Юмор и сатира</a>"
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/275622.html" target="_blank">Слово "Юмор" - это калька со слов "умора, умер, вмер, мор" в смысле "умереть со смеху"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 276435, N'Что в имени твоём: Каста', N'вяк, общество, слова', N'
+<article><header><h1 viak="word">Каста
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Каста" - это калька со слова "часть"
+</span><span viak="description">
+Слово "Каста" - это калька со слова "часть" при учете перехода "<a href="http://viakviak.livejournal.com/29208.html" target="_blank">К-Ч</a>"
+Слово "Каста" - это калька со слова "чистый" при учете перехода "<a href="http://viakviak.livejournal.com/29208.html" target="_blank">К-Ч</a>"
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/29208.html" target="_blank">Переход: Ч - К</a>
+<a href="http://viakviak.livejournal.com/251373.html" target="_blank">Слово "Чистый" - обратная калька со слово "стечь"</a>
+<a href="http://viakviak.livejournal.com/250813.html" target="_blank">Слово "Честь" - это калька со слова "чистый"</a>
+<a href="http://viakviak.livejournal.com/238890.html" target="_blank">Слово "Качество" - это калька со слова "чистый"</a>
+<a href="http://viakviak.livejournal.com/182318.html" target="_blank">Компонента: [Кчхг][Сзц]/[Сзц][Кчхг] - часть, кусок, расщепленный, сечь, отсекать, отдельный, частное</a>
+<a href="http://viakviak.livejournal.com/207378.html" target="_blank">Переход: [ЩшчЖ] - [Сзц][ТдКгх]</a>
+<a href="http://viakviak.livejournal.com/257269.html" target="_blank">Слово "Кость" - это калька со слова "часть" в смысле "часть скелета"</a>
+<a href="http://viakviak.livejournal.com/231092.html" target="_blank">Имя "Кощей" - это калька со слова "кости"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 276709, N'Чтобы это значило: Целовать', N'вяк, слова, тело', N'
+<article><header><h1 viak="word">Целовать
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Целовать" - это обратное калька с фразы "в-лицо"
+</span><span viak="description">
+Слово "Целовать" - это обратное калька с фразы "в-лицо" при учете окончания действия "<a href="http://viakviak.livejournal.com/75026.html" target="_blank">-ть</a>".
+Представляется, что слово "Поцелуй" - это существительное образованное от слова "Целовать" в исторически устоявшейся форме "целование".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/75026.html" target="_blank">Компонента: Д/Т - Деять, to-do(англ:делать), образователь глаголов неопределенной формы "Что делать"</a>
+<a href="http://viakviak.livejournal.com/78906.html" target="_blank">Разные слова обозначающие части тела или органы могут быть отнесены к одним и тем же фонетико-смысловым полям</a>
+<a href="http://viakviak.livejournal.com/208329.html" target="_blank">Слово "Облик" - это обратная калька со слова "голова" при учете переходов "Б-В" и "К-Г"</a>
+<a href="http://viakviak.livejournal.com/82281.html" target="_blank">Целибат - это калька со слов "целовать"</a>
+<a href="http://viakviak.livejournal.com/11820.html" target="_blank">Что в имени твоем: Великий</a>
+<a href="http://viakviak.livejournal.com/132405.html" target="_blank">Чело - это поверхность головы между лбом, теменем, висками и ушами</a>
+<a href="http://viakviak.livejournal.com/209342.html" target="_blank">Слово "Голова" - это обратная калька со слова "положить"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 276831, N'Что в имени твоём: Лось', N'вяк, животное, слова', N'
+<article><header><h1 viak="word">Лось
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Лось" - это калька со слова "вылез" в смысле "вылезший горб" как яркую характеристику профиля лося
+</span><span viak="description">
+Слово "Лось" - это калька со слова "вылез" в смысле "вылезший горб" как яркую характеристику профиля лося при учете <a href="http://viakviak.livejournal.com/45219.html" target="_blank">выпадения "В"</a> и перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">С-З</a>". "Вылезшими" можно также считать волосы, горбушу-лосося, и лес, например.
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/45219.html" target="_blank">Падение звука: В</a>
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/227421.html" target="_blank">Что в имени твоём: Волосы</a>
+<a href="http://viakviak.livejournal.com/215972.html" target="_blank">Слово "Железо" - это обратная калька со слова "залежь"</a>
+<a href="http://viakviak.livejournal.com/222258.html" target="_blank">Слово "Лаз" - это калька со слова "лежащий" в значении "ложбина"</a>
+<a href="http://viakviak.livejournal.com/161745.html" target="_blank">Слово "Лезвие" - это калька со слова "лезть"</a>
+<a href="http://viakviak.livejournal.com/98121.html" target="_blank">Слеза - слезла, выползла, вытекла (из глаза)</a>
+<a href="http://viakviak.livejournal.com/114389.html" target="_blank">Око - это глазное отверстие, а глаз - это глазное яблоко</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 277172, N'Что в имени твоём: Слово', N'вяк, слова', N'
+<article><header><h1 viak="word">Слово
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+"Слово" - это обратная калька с "вылез" в смысле "изъявление, высказывание"
+</span><span viak="description">
+"Слово" - это обратная калька с "вылез" в смысле "изъявление, высказывание" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">С-З</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/87083.html" target="_blank">Слово Звук лежит в фонетико-смысловом поле "язык", "зуб", "связь", "звон", "визг", "высота", "пустота"</a>
+<a href="http://viakviak.livejournal.com/277272.html" target="_blank">Слово "Язык" - это калька со слова "звук"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 277272, N'Что в имени твоем: Язык', N'вяк, слова', N'
+<article><header><h1 viak="word">Язык
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Язык" - это калька со слова "звук"
+</span><span viak="description">
+Слово "Язык" - это калька со слова "звук" при учете перехода "<a href="http://viakviak.livejournal.com/70680.html" target="_blank">Ы-В</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/70680.html" target="_blank">Существует устойчивый переход "[ЙеёюяУ] - В" и обратное "выпадение В"</a>
+<a href="http://viakviak.livejournal.com/45219.html" target="_blank">Падение звука: В</a>
+<a href="http://viakviak.livejournal.com/87083.html" target="_blank">Слово Звук лежит в фонетико-смысловом поле "язык", "зуб", "связь", "звон", "визг", "высота", "пустота"</a>
+<a href="http://viakviak.livejournal.com/277172.html" target="_blank">"Слово" - это обратная калька с "вылез" в смысле "изъявление, высказывание"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 277735, N'Что в имени твоём: Слог', N'вяк, слова', N'
+<article><header><h1 viak="word">Слог
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Слог" - это калька со слова "сложить" в смысле "ложить вместе, складывать"
+</span><span viak="description">
+Слово "Слог" - это калька со слова "сложить" в смысле "ложить вместе, складывать" при учете перехода "<a href="http://viakviak.livejournal.com/37986.html" target="_blank">Г-Ж</a>".
+Слово "Слог" - это калька со слова "слух" в смысле "услышанное" и обратная калька со слова "голос" в смысле "сказанное" при учете перехода "<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Г-Х</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Переход Г/K - Х</a>
+<a href="http://viakviak.livejournal.com/37986.html" target="_blank">Переход Г - Ж</a>
+<a href="http://viakviak.livejournal.com/277272.html" target="_blank">Слово "Язык" - это калька со слова "звук"</a>
+<a href="http://viakviak.livejournal.com/277172.html" target="_blank">"Слово" - это обратная калька с "вылез" в смысле "изъявление, высказывание"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 277769, N'Что в имени твоём: Волос', N'вяк, слова, тело', N'
+<article><header><h1 viak="word">Волос
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Волос" - это калька со слова "вылез"
+</span><span viak="description">
+Слово "Волос" - это калька со слова "вылез" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">С-З</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/227421.html" target="_blank">Слово "Волосы" - это калька со слова "близкие" в смысле "близко, плотно расположенные рядом"</a>
+<a href="http://viakviak.livejournal.com/277172.html" target="_blank">"Слово" - это обратная калька с "вылез" в смысле "изъявление, высказывание"</a>
+<a href="http://viakviak.livejournal.com/276831.html" target="_blank">Слово "Лось" - это калька со слова "вылез" в смысле "вылезший горб" как яркую характеристику профиля лося</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+<a href="http://viakviak.livejournal.com/261999.html" target="_blank">Слово "Локон" - это обратная калька с фразы "на челе"</a>
+<a href="http://viakviak.livejournal.com/225770.html" target="_blank">Слово "Пальцы" - это калька со слова "близкие" в смысле "близко, плотно расположенные"</a>
+<a href="http://viakviak.livejournal.com/227160.html" target="_blank">Слово "Полосы" - это калька со слова "близкие" в смысле "близко, плотно расположенные рядом"</a>
+<a href="http://viakviak.livejournal.com/229344.html" target="_blank">Слово "Власть" - это калька со слова "облачить" в смысле "облачить полномочиями"</a>
+<a href="http://viakviak.livejournal.com/215972.html" target="_blank">Слово "Железо" - это обратная калька со слова "залежь"</a>
+<a href="http://viakviak.livejournal.com/218498.html" target="_blank">Слово "Пляж" - это калька со слова "положить"</a>
+<a href="http://viakviak.livejournal.com/114389.html" target="_blank">Око - это глазное отверстие, а глаз - это глазное яблоко</a>
+<a href="http://viakviak.livejournal.com/78906.html" target="_blank">На тему: Тело</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 278150, N'Прямой перевод: Comedy(англ:комедия,звук:кАмэди) - Direct translation', N'вяк, искусство, слова', N'
+<article><header><h1 viak="word">Comedy(англ:комедия,звук:кАмэди)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Английское слово "Comedy"(англ:комедия,звук:кАмэди) - это обратная калька с русского "тумаки" как основной "сюжет" комедии
+</span><span viak="description">
+Английское слово "Comedy"(англ:комедия,звук:кАмэди) - это обратная калька с русского "тумаки" как основной "сюжет" комедии при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Д-Т</a>".
+Английское слово "Comedy"(англ:комедия,звук:кАмэди) - это калька с русского "с-мутить" при учете префикса "C" и перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Д-Т</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/188528.html" target="_blank">Слово "Музыка" - это обратная калька со слова "Шум"</a>
+<a href="http://viakviak.livejournal.com/188397.html" target="_blank">Слово "Мелодия" - это калька со слова "молотить"</a>
+<a href="http://viakviak.livejournal.com/195439.html" target="_blank">Слово "Вибрация" - это калька со слова "Образ"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 278284, N'Что в имени твоём: Драма', N'вяк, искусство, слова', N'
+<article><header><h1 viak="word">Драма
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Драма" - это калька со слова "мертвый"
+</span><span viak="description">
+Слово "Драма" - это обратная калька со слова "мертвый" при учете <a href="http://viakviak.livejournal.com/45219.html" target="_blank">выпадения "В"</a>.
+Слово "Драма" - это обратная калька со слова "смерть" при учете <a href="http://viakviak.livejournal.com/110322.html" target="_blank">выпадения "С"</a>.
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/45219.html" target="_blank">Падение звука: В</a>
+<a href="http://viakviak.livejournal.com/110322.html" target="_blank">Падение звука: С</a>
+<a href="http://viakviak.livejournal.com/44584.html" target="_blank">Слово Время лежит в смысловом поле "смерть", "умертвляющее"</a>
+<a href="http://viakviak.livejournal.com/42563.html" target="_blank">Слово Март находится в смысловом поле "смерть", включая Конец - "смерть" пути, Испортить - "смерть" качества, Остановить - "смерть" движения</a>
+<a href="http://viakviak.livejournal.com/271428.html" target="_blank">Слово "Тюрьма" - это обратная калька со слова "мертвый"</a>
+<a href="http://viakviak.livejournal.com/20390.html" target="_blank">Английское слово Smart(англ:Умный) напрямую означает "грамотный", но в также, как и слово Грамота находится в смысловом поле "смерть", "граница", наверное с позиции "познание смерти", "владение границами знания"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 278625, N'Что в имени твоём: Трагедия', N'вяк, искусство, слова', N'
+<article><header><h1 viak="word">Трагедия
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Траге-дия" - это калька  с фразы "тревога-деять"
+</span><span viak="description">
+Слово "Траге-дия" - это калька  с фразы "тревога-деять" при учете <a href="http://viakviak.livejournal.com/45219.html" target="_blank">выпадения "В"</a>.
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/45219.html" target="_blank">Падение звука: В</a>
+<a href="http://viakviak.livejournal.com/75026.html" target="_blank">Компонента: Д/Т - Деять, to-do(англ:делать), образователь глаголов неопределенной формы "Что делать"</a>
+<a href="http://viakviak.livejournal.com/278284.html" target="_blank">Слово "Драма" - это калька со слова "мертвый"</a>
+<a href="http://viakviak.livejournal.com/278150.html" target="_blank">Английское слово "Comedy"(англ:комедия,звук:кАмэди) - это обратная калька с русского "тумаки" как основной "сюжет" комедии</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 279381, N'Что в имени твоём: Скоморох', N'вяк, искусство, слова, титул', N'
+<article><header><h1 viak="word">Скоморох 
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Скоморох" - это калька с фразы "шум-морока"
+</span><span viak="description">
+Слово "Скоморох" - это калька с фразы "шум-морока" при учете переходов "<a href="http://viakviak.livejournal.com/52993.html" target="_blank">СК-Ш</a>" и "<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Х-К</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/52993.html" target="_blank">Переход: СТ/ШТ - Щ - СК/СГ/СХ/СЧ</a>
+<a href="http://viakviak.livejournal.com/207378.html" target="_blank">Любая из букв  или [ЩшчЖ] может переходить в любое двух-буквенное сочетание из [Сзц][ТдКгх] и обратно</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 279664, N'Прямой перевод: Apprentice(англ:ученик, звук:апрЭнтис) - Direct translation', N'english, вяк, общество, перевод, титул', N'
+<article><header><h1 viak="word">Apprentice(англ:ученик, звук:апрЭнтис)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Английское слово Apprentice(англ:ученик) - это калька с русского слова "переняться" в смысле "перенять опыт"
+</span><span viak="description">
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/136702.html" target="_blank">Английское слово "Parent" - это калька с русского слова "перенять"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 280034, N'Прямой перевод: Crop(англ:урожай,звук:крап) - Direct translation', N'english, вяк, еда, перевод, слова', N'
+<article><header><h1 viak="translation">Crop(англ:урожай,звук:крап)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Английское слово "Crop"(англ:урожай,звук:крап) - это калька с русского слова "крупа"
+</span><span viak="description">
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/218341.html" target="_blank">Английское слово "Caviar"(англ:икра) - это калька с русского слова "икра"</a>
+Английское слово "Grill"(англ:жарить,звук:грил) - это калька с русского слова "жарил" при учете перехода "Г-Ж"
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 280248, N'Что в имени твоём: Десна', N'вяк, слова, тело', N'
+<article><header><h1 viak="word">Десна
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Десна" - это калька со слова "тесно"
+</span><span viak="description">
+Слово "Десна" - это калька со слова "тесно", что прекрасно соответствует прямому назначению - плотному держанию зубов, при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Д-Т</a>".
+Слово "Десна" - это обратная калька со слова "несет" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Д-Т</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/280415.html" target="_blank">Слово "Десница" - это калька со слова "тесниться", что хорошо описывает кисть руки с плотно расположенными пальцами</a>
+<a href="http://viakviak.livejournal.com/78906.html" target="_blank">На тему: Тело</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 280415, N'Что в имени твоём: Десница', N'вяк, слова, тело', N'
+<article><header><h1 viak="word">Десница
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Десница" - это калька со слова "тесниться"
+</span><span viak="description">
+Слово "Десница" - это калька со слова "тесниться", что хорошо описывает кисть руки с плотно расположенными пальцами, при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Д-Т</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/78906.html" target="_blank">На тему: Тело</a>
+<a href="http://viakviak.livejournal.com/280248.html" target="_blank">Слово "Десна" - это калька со слова "тесно"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 280637, N'Что в имени твоём: Tennis(англ:теннис)', N'english, вяк, искусство, слова, спорт', N'
+<article><header><h1 viak="word">Tennis(англ:теннис)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Английское слово "Tennis"(англ:теннис) - это калька с русского слова "танец"
+</span><span viak="description">
+Английское слово "Tennis"(англ:теннис) - это калька с русского слова "танец" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">С-Ц</a>". Это хорошо описывает постановку основных движений в теннисе.
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/25067.html" target="_blank">Попытаемся подытожить. Игра "Святой" - это судилище человеческой души и объявление приговора в момент 666. Душа наказывается за преступления или за совершение грехов. Душа становится "святой", если человек совершает положительных поступков больше, чем отр</a>
+<a href="http://viakviak.livejournal.com/56257.html" target="_blank">Dance(англ:танец) = танец</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -26837,6 +27403,6 @@ GO
 /*
 nav.GetInvalidXmlArticles
 SELECT COUNT(*) FROM dbo.Article
-nav.FindArticles N'бог';
-nav.FindArticles N'Sovereign'; nav.FindArticlesByLabel N'Компонента'; nav.GetArticle 213434
+nav.FindArticles N'ШАХ';
+nav.FindArticles N'Прямой перевод:'; nav.FindArticlesByLabel N'english'; nav.GetArticle 254395
 */
