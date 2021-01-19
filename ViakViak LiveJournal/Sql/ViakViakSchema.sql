@@ -4354,14 +4354,23 @@ exec spAddArticle 34092, N'Что в имени твоем: Раз, два, тр
 ';
 GO
 
-exec spAddArticle 34476, N'Переход: Т - Ф', N'вяк, материя, переход, слова', N'
-<span viak="transition">Устойчивый переход: Т - Ф
+exec spAddArticle 34476, N'Символьный переход: Т-Ф', N'вяк, материя, переход, слова', N'
+<article><header><h1 viak="word">Т-Ф
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Символьный переход Т-Ф обусловлен тождественностью написания прописной "Т"(звук:тэ) и прописной "Ф"(звук:эф) при учете опускания и сворачивания концов горизонтальной перекладины "Т"
 </span><span viak="description">
 Thomas (Томас, Том) = Фома
 Bartolomeo = Варфоломей
 Th = Ф
 Ether - Эфир
-</span>
+<img src="https://ic.pics.livejournal.com/viakviak/75606786/13921/13921_900.png" alt="" title="Красивая буква Т" /> <img src="https://ic.pics.livejournal.com/viakviak/75606786/14106/14106_900.png" alt="" title="Пин на доске" />
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
 ';
 GO
 
@@ -31756,6 +31765,275 @@ exec spAddArticle 356620, N'Прямой перевод: Chimney(англ:дым
 ';
 GO
 
+exec spAddArticle 357346, N'Прямой перевод: φως(греч:свет,звук:фос) - Direct translation', N'вяк, материя, перевод, слова, технология', N'
+<article><header><h1 viak="word">φως(греч:свет,звук:фос)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Греческое слово "φως"(греч:свет,звук:фос) - это обратная калька со слова "свет"
+</span><span viak="description">
+Греческое слово "φως"(греч:свет,звук:фос) - это обратная калька со слова "свет" при учете переходов "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Ф-В</a>" и "<a href="http://viakviak.livejournal.com/34476.html" target="_blank">Ф-Т</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/34476.html" target="_blank">Переход: Т - Ф</a>
+<a href="http://viakviak.livejournal.com/45219.html" target="_blank">Падение звука: В</a>
+<a href="http://viakviak.livejournal.com/357591.html" target="_blank">Слово "Фосфор" как комбинация "фос-фор" - это калька с русской фразы "свет пёр" в смысле "несущий свет"</a>
+<a href="http://viakviak.livejournal.com/26397.html" target="_blank">София - светлая, святая</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 357591, N'Что в имени твоём: Фосфор', N'вяк, материя, перевод, слова, технология', N'
+<article><header><h1 viak="word">Фосфор
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Фосфор" как комбинация "фос-фор" - это калька с русской фразы "свет пёр" в смысле "несущий свет"
+</span><span viak="description">
+Слово "Фосфор" как комбинация "фос-фор" - это калька с русской фразы "свет пёр" в смысле "несущий свет" при учете переходов "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Ф-В</a>" и "<a href="http://viakviak.livejournal.com/69930.html" target="_blank">В-П</a>".
+Слово "Фосфор" - это калька с возможного слова "высверк" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Ф-В</a>" и окончания назначения "<a href="http://viakviak.livejournal.com/286369.html" target="_blank">-К</a>"
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/69930.html" target="_blank">Переход В - П возможен как комбинация двух переходов "В - Б" и "Б - П". С учетом известного перехода "В - Ф", возможен также и переход "П - Ф"</a>
+<a href="http://viakviak.livejournal.com/357346.html" target="_blank">Греческое слово "φως"(греч:свет,звук:фос) - это обратная калька со слова "свет"</a>
+<a href="http://viakviak.livejournal.com/286369.html" target="_blank">Окончание "-К" применяется для указания предназначения</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 357688, N'Что в имени твоём: Сковородка', N'вяк, еда, слова', N'
+<article><header><h1 viak="word">Сковородка
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Сковородка" - это калька с возможного слова "сковырятка" в смысле "сковыривать"
+</span><span viak="description">
+Слово "Сковородка" - это калька с возможного слова "сковырятка" в смысле "сковыривать" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Т-Д</a>". Возможно это указание на пригорание еды и необходимости ее отковыривать. Проверочное слово "<a href="http://viakviak.livejournal.com/358076.html" target="_blank">шкварки</a>" в смысле "сковырки".
+Слово "Сковородка" - это калька с возможного слова "швырятка" в смысле "швырять, подбрасывать" при учете переходов "<a href="http://viakviak.livejournal.com/207378.html" target="_blank">СК-Ш</a>" и "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Т-Д</a>". Возможно это указание на подскакивающие горячие "<a href="http://viakviak.livejournal.com/358076.html" target="_blank">шкварки</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/207378.html" target="_blank">Любая из букв или [ЩшчЖ] может переходить в любое двух-буквенное сочетание из [Сзц][ТдКгх] и обратно</a>
+<a href="http://viakviak.livejournal.com/52993.html" target="_blank">Переход: СТ/ШТ - Щ - СК/СГ/СХ/СЧ</a>
+<a href="http://viakviak.livejournal.com/286369.html" target="_blank">Окончание "-К" применяется для указания предназначения</a>
+<a href="http://viakviak.livejournal.com/358076.html" target="_blank">Слово "Шкварки" - это калька с возможного слова "сковырки" в смысле "со сковороды"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 358076, N'Что в имени твоём: Шкварки', N'вяк, еда, слова, феня', N'
+<article><header><h1 viak="word">Шкварки
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Шкварки" - это калька с возможного слова "сковырки" в смысле "со сковороды"
+</span><span viak="description">
+Слово "Шкварки" - это калька с возможного слова "сковырки" в смысле "со сковороды" при учете перехода "<a href="http://viakviak.livejournal.com/207378.html" target="_blank">Ш-СК</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/207378.html" target="_blank">Любая из букв или [ЩшчЖ] может переходить в любое двух-буквенное сочетание из [Сзц][ТдКгх] и обратно</a>
+<a href="http://viakviak.livejournal.com/52993.html" target="_blank">Переход: СТ/ШТ - Щ - СК/СГ/СХ/СЧ</a>
+<a href="http://viakviak.livejournal.com/357688.html" target="_blank">Слово "Сковородка" - это калька с возможного слова "сковырятка" в смысле "сковыривать"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 358163, N'Прямой перевод: Fiasco(англ:фиаско) - Direct translation', N'english, вяк, переход, слова, феня, шутка', N'
+<article><header><h1 viak="word">Fiasco(англ:фиаско)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Английское слово "Fiasco"(англ:фиаско) - это калька с русского профанного слова "писец"
+</span><span viak="description">
+Английское слово "Fiasco"(англ:фиаско) - это калька с русского профанного слова "писец" при учете переходов "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Ф-В</a>" и "<a href="http://viakviak.livejournal.com/69930.html" target="_blank">В-П</a>"
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/69930.html" target="_blank">Переход В - П возможен как комбинация двух переходов "В - Б" и "Б - П". С учетом известного перехода "В - Ф", возможен также и переход "П - Ф"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 358591, N'Что в имени твоём: Сок', N'вяк, еда, слова', N'
+<article><header><h1 viak="word">Сок
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Сок - это обратная калька со слов "кус, час" в смысле "часть"
+</span><span viak="description">
+Сок - это обратная калька со слов "кус, час" в смысле "часть" при учете перехода "<a href="http://viakviak.livejournal.com/29208.html" target="_blank">К-Ч</a>"
+Сок - это калька со слов "сеча, секут" при учете перехода "<a href="http://viakviak.livejournal.com/29208.html" target="_blank">К-Ч</a>"
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/29208.html" target="_blank">Переход: Ч - К</a>
+<a href="http://viakviak.livejournal.com/30099.html" target="_blank">Слово "Час" - это калька со слова "кус" в смысле "часть" но без оттенка "частота"</a>
+<a href="http://viakviak.livejournal.com/172864.html" target="_blank">Слово "Чесать" - это калька со слова "часть" и обратное прочтение слов "узкий" и "сечь" в смысле "рассекать на части"</a>
+<a href="http://viakviak.livejournal.com/83903.html" target="_blank">Хазария - Государство "каз-ария" без русского слово "суд" (тюрк: казы) "каз+суд+арство", напрямую соответствует слову King+DOM. Слова Хазария, Кесария и Государство находятся в звуко-смысловом поле "часть", "частный", "отсеченный", "хозяйство" в смысле</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 358706, N'Что в имени твоём: Сук', N'вяк, растение, слова', N'
+<article><header><h1 viak="word">Сук
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Сук" - это обратная калька со слов "кус, час" в смысле "часть"
+</span><span viak="description">
+Слово "Сук" - это обратная калька со слов "кус, час" в смысле "часть" при учете перехода "<a href="http://viakviak.livejournal.com/29208.html" target="_blank">К-Ч</a>"
+Слово "Сук" - это калька со слов "сеча, секут" при учете перехода "<a href="http://viakviak.livejournal.com/29208.html" target="_blank">К-Ч</a>"
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/29208.html" target="_blank">Переход: Ч - К</a>
+<a href="http://viakviak.livejournal.com/30099.html" target="_blank">Слово "Час" - это калька со слова "кус" в смысле "часть" но без оттенка "частота"</a>
+<a href="http://viakviak.livejournal.com/172864.html" target="_blank">Слово "Чесать" - это калька со слова "часть" и обратное прочтение слов "узкий" и "сечь" в смысле "рассекать на части"</a>
+<a href="http://viakviak.livejournal.com/83903.html" target="_blank">Хазария - Государство "каз-ария" без русского слово "суд" (тюрк: казы) "каз+суд+арство", напрямую соответствует слову King+DOM. Слова Хазария, Кесария и Государство находятся в звуко-смысловом поле "часть", "частный", "отсеченный", "хозяйство" в смысле</a>
+<a href="http://viakviak.livejournal.com/358591.html" target="_blank">Сок - это обратная калька со слов "кус, час" в смысле "часть"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 359040, N'Что в имени твоём: Работа', N'вяк, общество, слова, технология, экономика', N'
+<article><header><h1 viak="word">Работа
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Работа" - это обратная калька со слова "добро"
+</span><span viak="description">
+Слово "Работа" - это обратная калька со слова "добро" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Т-Д</a>"
+Слово "Работа" - это обратная калька со слова "товар" при учете символьного перехода "<a href="http://viakviak.livejournal.com/45394.html" target="_blank">Б-В</a>". Таким образом политологическое выражение "рабочая сила является товаром" - это просто прочитывание слова "работа" наоборот как "товар".
+Слово "Работа" - это обратная калька со слова "творить" при учете символьного перехода "<a href="http://viakviak.livejournal.com/45394.html" target="_blank">Б-В</a>". Это обосновывает творчество как работу.
+Слово "Работа" - это калька со слова "рубить" как например в выражении "рубить капусту" в смысле "зарабатывать деньги"
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/45394.html" target="_blank">Символьный переход В-Б обусловлен тождественностью написания кириллической прописной "в"(рус звук:вэ) и прописной латинской "b"(англ:Б, рус звук:би)</a>
+<a href="http://viakviak.livejournal.com/189015.html" target="_blank">Слово "Работа" лежит в звуко-смысловом поле "товар, творить, рубить, рвать, двор"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 359346, N'Что в имени твоём: Сбыт', N'вяк, слова, торговля', N'
+<article><header><h1 viak="word">Сбыт
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Сбыт" - это калька со слова "избавить"
+</span><span viak="description">
+Слово "Сбыт" - это калька со слова "избавить" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">С-З</a>" и <a href="http://viakviak.livejournal.com/45219.html" target="_blank">выпадения "В"</a>
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/45219.html" target="_blank">Падение звука: В</a>
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/359454.html" target="_blank">Слова "Забота" - это калька со слов "избавить, сбыть"</a>
+<a href="http://viakviak.livejournal.com/359040.html" target="_blank">Слово "Работа" - это обратная калька со слова "добро"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 359454, N'Что в имени твоём: Забота', N'вяк, общество, слова, торговля, экономика', N'
+<article><header><h1 viak="word">Забота
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слова "Забота" - это калька со слов "избавить, сбыть"
+</span><span viak="description">
+Слова "Забота" - это калька со слов "избавить, сбыть" при учете <a href="http://viakviak.livejournal.com/45219.html" target="_blank">выпадения "В"</a> или перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">З-С</a>".
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/45219.html" target="_blank">Падение звука: В</a>
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/359346.html" target="_blank">Слово "Сбыт" - это калька со слова "избавить"</a>
+<a href="http://viakviak.livejournal.com/359040.html" target="_blank">Слово "Работа" - это обратная калька со слова "добро"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 359945, N'Что в имени твоем: Ад', N'бог, вяк, слова, смерть', N'
+<article><header><h1 viak="word">Ад
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Ад" - это калька со слов "под, падать"
+</span><span viak="description">
+Слово "Ад" - это калька со слов "под, падать" при учете перехода "<a href="http://viakviak.livejournal.com/69930.html" target="_blank">П-В</a>" и <a href="http://viakviak.livejournal.com/45219.html" target="_blank">выпадения "В"</a>.
+Слово "Ад" - это калька со слова "Одр" при учете <a href="http://viakviak.livejournal.com/240885.html" target="_blank">окончания предназначения "-Р"</a>.
+Слово "Ад" - это калька со слова "вода" при учете <a href="http://viakviak.livejournal.com/45219.html" target="_blank">выпадения "В"</a>.
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/45219.html" target="_blank">Падение звука: В</a>
+<a href="http://viakviak.livejournal.com/69930.html" target="_blank">Переход В - П возможен как комбинация двух переходов "В - Б" и "Б - П". С учетом известного перехода "В - Ф", возможен также и переход "П - Ф"</a>
+<a href="http://viakviak.livejournal.com/63337.html" target="_blank">Представляется, что слово Ад первоначально означало "огонь", "пламя". Это совпадает со смыслом hell(англ:ад,преисподняя) в значении "светящийся" и фразы "гиенна огненная" с удвоенным значением "огонь". Это также совпадает со смыслом слов Преисподняя, По</a>
+<a href="http://viakviak.livejournal.com/240885.html" target="_blank">Суффих Р имеет значение "при" в смысле "обеспечивающий что-то, работающий с чем-то, делающий что-то, находящийся при чем-то, предназначенный для чего-то"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 360414, N'Что в имени твоём: Кабала', N'вяк, общество, слова, смерть', N'
+<article><header><h1 viak="word">Кабала
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Кабала" - это калька со слова "гибель" в смысле конца свободы
+</span><span viak="description">
+Слово "Кабала" - это калька со слова "гибель" в смысле конца свободы при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">К-Г</a>"
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/233441.html" target="_blank">Арабское слово Хавала - это калька с русского слова "гибель" как указатель на серьезность требований отдачи долга до конца</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 360590, N'Прямой перевод: Mitral valve(англ:митральный клапан,звук:майтрл валв) - Direct translation', N'вяк, слова, тело', N'
+<article><header><h1 viak="word">Mitral(англ:митральный,звук:майтрл)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Английское название "Mitral"(англ:митральный клапан,звук:майтрл валв) - это обратная калька со слова "ритм" при учете английского окончания прилагательного "-AL" в смысле "ритмичный"
+</span><span viak="description">
+</span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="https://ru.wikipedia.org/wiki/Митральный_клапан" target="_blank">Митра́льный кла́пан (двустворчатый клапан)</a> — ( лат. valve mitralis, valve atroiventicularis) клапан между левым предсердием и левым желудочком сердца. Представлен двумя соединительнотканными пластинками, которые предотвращают, во время систолы левого желудочка, регургитацию (обратный ток) крови в левое предсердие.
+Двухстворчатый клапан (valvula bicuspidalis seu mitralis) состоит из двух больших створок — передней и задней. Число створок может колебаться от 3 до 6. Двухстворчатый клапан имеет форму овала, открытого вниз, влево и вперед. Продольный размер её составляет 23—37 мм, а поперечный 17—33 мм. Площадь клапана у новорождённого 1,18—1,49 см2, у взрослого 4-6 см2. Изменение данного показателя в меньшую сторону называется митральным стенозом, и в большую – недостаточностью[2]. Передняя створка более развита, чем задняя. Линия прикрепления её к левому фиброзному кольцу располагается на 6 мм ниже самой нижней точки левой и задней створок клапана аорты. Во время систолы желудочка передняя створка выгибается в сторону левого венозного кольца и вместе с задней створкой закрывает его, а во время диастолы желудочка прилегает к межжелудочковой перегородке и закрывает аортальное отверстие. Задняя створка шире, чем передняя. Сухожильные хорды обеих створок отходят от двух больших сосочковых мышц.
+
+<a href="http://viakviak.livejournal.com/232496.html" target="_blank">Слово "Сердце" - это калька со слово "серёдце", потому что оно находится в середине человеческого тела</a>
+<a href="http://viakviak.livejournal.com/182265.html" target="_blank">Английское слово "Heart" - это обратная калька с русского слова "трахать" в смысле "тарахтящее"</a>
+<a href="http://viakviak.livejournal.com/78906.html" target="_blank">Разные слова обозначающие части тела или органы могут быть отнесены к одним и тем же фонетико-смысловым полям</a>
+<a href="http://viakviak.livejournal.com/110918.html" target="_blank">Представляется, что "Герц" может связывать слова "сердце" и "секунда" в смысле "частота", "периодичность"</a>
+<a href="http://viakviak.livejournal.com/249769.html" target="_blank">Слово "Грудь" - это калька со слова "ограда"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию, так и по смыслу"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -31814,9 +32092,9 @@ GO
 /*
 nav.GetInvalidXmlArticles
 SELECT COUNT(*) FROM dbo.Article
-nav.FindArticles N'амфор';
+nav.FindArticles N'сердце';
 nav.FindArticles N'fortuna';
-nav.FindArticlesByLabel N'технология'; nav.FindArticlesByLabel2 N'технология', N'english'; nav.GetArticle 106157
+nav.FindArticlesByLabel N'торговля'; nav.FindArticlesByLabel2 N'технология', N'english'; nav.GetArticle 63337
 nav.GetArticle 326466 -- Что в имени твоём: Слово
 nav.GetArticle 132405 -- Чтобы это значило: Чело
 */
