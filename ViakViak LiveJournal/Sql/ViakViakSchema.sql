@@ -110179,12 +110179,12 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'шайтан';
+nav.FindArticles N'Солнце';
 nav.FindArticles N'король';
 nav.FindInTitle N'Луч', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
 nav.FindInDescription N'Script', 0, 9999999;
-nav.FindArticlesByLabel N'эзотерика';
+nav.FindArticlesByLabel N'сказка';
 nav.FindArticlesByLabel2 N'сказка', N'бог';
 nav.GetArticle 100740
 nav.GetArticle 913560
