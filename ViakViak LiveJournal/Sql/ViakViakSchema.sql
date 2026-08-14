@@ -11108,7 +11108,7 @@ star(англ:звезда)
 ';
 GO
 
-exec spAddArticle 78141, N'Что в имени твоем: Три', N'вяк, государство, закон, имя, история, компонента, материя, перевод, слова, тело, торговля, число, экономика', N'
+exec spAddArticle 78141, N'Что в имени твоем: Три', N'вяк, государство, закон, имя, история, материя, перевод, слова, тело, торговля, число, экономика', N'
 <article><header><h1 viak="word">Три
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Три - применяет числo "пи" (3 ~ 3.14): окружение, окружать, сворачивать, у(с)траивать, строить, упорядочивать, ряд
@@ -38804,7 +38804,7 @@ exec spAddArticle 441872, N'Прямой перевод: Discipline(англ:д�
 GO
 
 exec spAddArticle 442251, N'Что в имени твоём: Alexander(англ:Александр)', N'english, бог, вяк, перевод, слова, титул', N'
-<article><header><h1 viak="word">Alexander(англ:Александр)
+<article><header><h1 viak="name">Alexander(англ:Александр)
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Имя "Alexander"(англ:Александр) - это калька с английской фразы "Allah sent"(англ:посланник бога)
 </span><span viak="description">
@@ -50381,6 +50381,7 @@ exec spAddArticle 644086, N'Прямой перевод: Viaduct(вАядакт`
 <a href="http://viakviak.livejournal.com/643817.html" target="_blank">Слово "Duct"(дакт`англ:канал) - это калька с русского слова "текёт" в смысле "течёт"</a>
 <a href="http://viakviak.livejournal.com/534730.html" target="_blank">Английское слово "Viaduct"(вАядакт`англ:виадук) - это калька с русского слова "ведущий" с буквальной огласовкой</a>
 <a href="http://viakviak.livejournal.com/69063.html" target="_blank">Представляется, что слово Душ лежит смысловом поле "плотный", "тесный"</a>
+<a href="http://viakviak.livejournal.com/830140.html" target="_blank"><b>С</b>лово "Дождь" - это калька со слова "дожидать" в форме "дожди" в значении "дождись, дожидайся"</a>
 <a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые близки как по звучанию/написанию, так и по смыслу"</a>
 </span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
@@ -110146,6 +110147,54 @@ exec spAddArticle 1494701, N'Что в имени твоём: Aspirin(Эспир
 ';
 GO
 
+exec spAddArticle 1495955, N'Что в имени твоём: Знак', N'вяк, слова', N'
+<article><header><h1 viak="word">Знак
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Знак" близко по звучанию и смыслу к слову "знать" в значении "узнаваемый, для узнавания"
+</span><span viak="description">
+Слово "Знак" близко по звучанию и смыслу к слову "знать" в значении "узнаваемый, для узнавания" при учете <a href="http://viakviak.livejournal.com/286369.html" target="_blank">окончания предназначения "К"</a>.
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/286369.html" target="_blank"><b>О</b>кончание "К" применяется для указания предназначения</a>
+<a href="http://viakviak.livejournal.com/1361282.html" target="_blank"><b>С</b>лово "Знамя" близко по звучанию и смыслу к слову "знамо" в значении "знаем, узнаваемое"</a>
+<a href="http://viakviak.livejournal.com/483151.html" target="_blank"><b>С</b>лово "Цена" - это калька со слова "знать"</a>
+<a href="http://viakviak.livejournal.com/966454.html" target="_blank"><b>С</b>лово "Cent"(сэнт`англ:цент) - это калька с русского слова "ценить" в смысле "ценность"</a>
+<a href="http://viakviak.livejournal.com/13147.html" target="_blank"><b>С</b>лово "Князь" - это обратная калька со слов "знак" с оттенком "знакомый" в смысле "знать". Князь жаловался знаком (ярлыком) на княжение</a>
+<a href="http://viakviak.livejournal.com/180147.html" target="_blank"><b>С</b>лово "Ганза" - это обратное прочтение слова "Знак". Слово "Ганза" - это калька со слова "князь"</a>
+<a href="http://viakviak.livejournal.com/22632.html" target="_blank"><b>П</b>еревод: Knowledge - залежи новых знаний</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1496216, N'Что в имени твоём: Alexander(англ:Александр)', N'english, бог, имя, слова', N'
+<article><header><h1 viak="name">Alexander(англ:Александр)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Имя "Alexander"(англ:Александр) разложенное как "Алек-сан-др" близко по звучанию и смыслу к русской фразе "Аллаха сын дар" в значении "дарованный сын бога Зевса-Амона"
+</span><span viak="description">
+Имя "Alexander"(англ:Александр) разложенное как "Алек-сан-др" близко по звучанию и смыслу к русской фразе "Аллаха сын дар" в значении "дарованный сын бога Зевса-Амона" при учете перехода "<a href="http://viakviak.livejournal.com/33360.html" target="_blank">К-Х</a>".
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="https://kulturologia.ru/blogs/210222/52593/" target="_blank">Зачем Александр Македонский посещал оракула в египетском оазисе Сива, и сбылось ли его пророчество</a>...жрец приветствовал Александра Македонского как сына Зевса-Амона и сообщил ему, что мировая империя была зарезервирована для него...
+<a href="https://www.youtube.com/channel/UCcTLB5E5d3cpvSE2fURDMSA" target="_blank">КАИ</a> <a href="https://youtu.be/YcNjctRWAKA?t=1212" target="_blank">Чей город? (Питер в Александрии)</a>.
+
+<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Переход Г/K - Х</a>
+<a href="http://viakviak.livejournal.com/775704.html" target="_blank"><b>И</b>мя "Alejandro"(алихАндро`исп:Александр) разложенное как "Али-хан-дро" - это калька с русской фразы "Бога хан дар" в смысле "Богом данный хан"</a>
+<a href="http://viakviak.livejournal.com/442251.html" target="_blank"><b>И</b>мя "Alexander"(англ:Александр) - это калька с английской фразы "Allah sent"(англ:посланник бога)</a>
+<a href="http://viakviak.livejournal.com/774714.html" target="_blank"><b>Д</b>ругое имя великого Александра Македонского "Искандер" - это калька с русской фразы "искание Дария" в смысле "ищущий, преследующий царя Дария"</a>
+<a href="http://viakviak.livejournal.com/775496.html" target="_blank"><b>Н</b>азвание собора "Исаакиевский" в смысле "имени Исаака" в значении "искать" может быть осознан как укороченное "Искандеровский" в смысле имени "собор Александра Македонского"</a>
+<a href="http://viakviak.livejournal.com/967637.html" target="_blank"><b>Ф</b>раза "Разрубить Гордиев узел" может быть осознан как "убить зло" при учете фонетической близости слов "узел" и "зло" в русском языке</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -110179,8 +110228,8 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'Солнце';
-nav.FindArticles N'король';
+nav.FindArticles N'каи';
+nav.FindArticles N'Знание';
 nav.FindInTitle N'Луч', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
 nav.FindInDescription N'Script', 0, 9999999;
