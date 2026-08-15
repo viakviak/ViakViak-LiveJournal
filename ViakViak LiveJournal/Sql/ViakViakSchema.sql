@@ -110228,7 +110228,7 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'каи';
+nav.FindArticles N'цифра';
 nav.FindArticles N'Знание';
 nav.FindInTitle N'Луч', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
