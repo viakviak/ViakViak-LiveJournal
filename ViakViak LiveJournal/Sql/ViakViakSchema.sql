@@ -29127,6 +29127,7 @@ exec spAddArticle 273164, N'Что в имени твоём: Мытарь', N'в
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
 <a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
 <a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
 </footer></lj-cut></article>
 ';
 GO
@@ -30214,6 +30215,7 @@ exec spAddArticle 288491, N'Что в имени твоём: Паразит', N'
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
 <a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
 <a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
 </footer></lj-cut></article>
 ';
 GO
@@ -69186,6 +69188,7 @@ exec spAddArticle 968097, N'Что в имени твоём: Чалма', N'"л�
 Слово "Чалма" - это калька со слова "шлем" при учете перехода "<a href="http://viakviak.livejournal.com/144591.html" target="_blank">Ч-Ш</a>".
 </span><lj-cut><h3>Ссылки</h3><span viak="reference">
 <a href="http://viakviak.livejournal.com/144591.html" target="_blank">Существует устойчивый фонетический переход от "Ч" то "Ш" или "Щ" и наоборот</a>
+<a href="http://viakviak.livejournal.com/1248607.html" target="_blank"><b>С</b>лово "Чалма" близко по звучанию и смыслу к слову "чело" на которое оно водружалось</a>
 <a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые близки как по звучанию/написанию, так и по смыслу"</a>
 </span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
@@ -110228,7 +110231,7 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'цифра';
+nav.FindArticles N'Паразит';
 nav.FindArticles N'Знание';
 nav.FindInTitle N'Луч', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
