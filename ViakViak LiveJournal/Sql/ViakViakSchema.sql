@@ -59247,10 +59247,11 @@ GO
 exec spAddArticle 762515, N'Прямой перевод: Szlachta(польск:шляхта)', N'вяк, государство, слова, титул', N'
 <article><header><h1 viak="translation">Szlachta(польск:шляхта)
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
-Слово "Szlachta"(польск:шляхта) - это калька с русского слова "служить"
+Слово "Szlachta"(польск:шляхта) близко по написанию и смыслу к русскому слову "служить"
 </span><span viak="description">
-Слово "Szlachta"(польск:шляхта) - это калька с русского слова "служить"<sub>2.2</sub> при учете переходов "<a href="http://viakviak.livejournal.com/46952.html" target="_blank">Ш-С</a>" и "<a href="http://viakviak.livejournal.com/226266.html" target="_blank">Х-Ж</a>"
+Слово "Szlachta"(польск:шляхта) близко по написанию и смыслу к русскому слову "служить" при учете перехода <a href="http://viakviak.livejournal.com/226266.html" target="_blank">"ch"(ч)-"ж"</a>.
 </span><lj-cut><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/124251.html" target="_blank"><b>П</b>ереход "Ч - Ж" можно представить как комбинацию переходов "Ч-К", "К-Г", и "Г-Ж"</a>
 <a href="http://viakviak.livejournal.com/226266.html" target="_blank">Существует устойчивый переход "[Хкгч]-[ШщЖ]" и обратно</a>
 <a href="http://viakviak.livejournal.com/33360.html" target="_blank">Переход Г/K - Х</a>
 <a href="http://viakviak.livejournal.com/37986.html" target="_blank">Переход Г - Ж</a>
@@ -59270,7 +59271,7 @@ exec spAddArticle 762515, N'Прямой перевод: Szlachta(польск:�
 <a href="http://viakviak.livejournal.com/590581.html" target="_blank">Титул "Граф" - это калька с русского слова "кровь" в смысле "знатной крови"</a>
 <a href="http://viakviak.livejournal.com/542260.html" target="_blank">Слово "Lord"(лорд`англ:господин) - это обратная калька со слова "дарил"</a>
 <a href="http://viakviak.livejournal.com/509851.html" target="_blank">Английское слово "Valet"(англ:камердинер,звук:валЭ) - это калька с русских слов "владеть" в смысле "находящийся во владении" и "платить"</a>
-<a href="http://viakviak.livejournal.com/407661.html" target="_blank">Слово "Боярин" - это калька со слова "бой" в смысле "принадлежащий бояру, из свиты бояра", где "бояр" - "боевой"</a>
+<a href="http://viakviak.livejournal.com/407661.html" target="_blank">Слово "Боярин" - это калька со слова "бой" в смысле "принадлежащий бояру"</a>
 <a href="http://viakviak.livejournal.com/390714.html" target="_blank">Титул "Король" - это обратная калька с фразы "Алла-Рик" в смысле "Святейше нареченный (рукоположенный)"</a>
 <a href="http://viakviak.livejournal.com/390391.html" target="_blank">Английское слово "Rex"(англ:правящий король,звук:рэкс) - это калька со слова "руки, речи" в смысле "нареченный, рукоположенный" и обратная калька со слова "царь"</a>
 <a href="http://viakviak.livejournal.com/378951.html" target="_blank">Английское слово "Vessel"(англ:судно,звук:вэсл) - это калька со слов "возил, вязал"</a>
@@ -59280,12 +59281,12 @@ exec spAddArticle 762515, N'Прямой перевод: Szlachta(польск:�
 <a href="http://viakviak.livejournal.com/17884.html" target="_blank">Рыцарь: Рысь-ар - всадник едущий на рысаке.  Таким образом мы видим, что слово "круг" стоит в основе смыслового поля езды и пути, как места назначения, путей сообщения и способа передвижения</a>
 <a href="http://viakviak.livejournal.com/17527.html" target="_blank">Здесь видно, что слово Sovereign(англ:суверенный) - это калька со слова "соборный" - человек, который имеет, например, право участвовать в Соборе - сборе знати на выбор царя</a>
 <a href="http://viakviak.livejournal.com/13147.html" target="_blank">Слово "Князь" - это обратная калька со слов "знак" с оттенком "знакомый" в смысле "знать". Князь жаловался знаком (ярлыком) на княжение</a>
-<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые близки как по звучанию/написанию, так и по смыслу"</a>
+<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые тождественны как по звучанию/написанию, так и по смыслу"</a>
 </span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
 <a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
 <a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
-Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>
 </footer></lj-cut></article>
 ';
 GO
@@ -110198,6 +110199,83 @@ exec spAddArticle 1496216, N'Что в имени твоём: Alexander(англ
 ';
 GO
 
+exec spAddArticle 1498327, N'Что бы это значило: Гаввах', N'"пихать", вяк, слова', N'
+<article><header><h1 viak="word">Гаввах
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Гаввах" близко по обратному звучанию и смыслу к просторечному слову "хавка" в значении "еда"
+</span><span viak="description">
+Название эзотерического понятия энергетической субматерии, выделяемой при страдании людей и животных и служащей пищей для темных сущностей, т.н. "Гаввах" является фонетическим перевертышем, близко по обратному звучанию и смыслу к просторечному слову "хавка" в значении "еда" при учете переходов "Г-Х" и "Х-К".
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/404996.html" target="_blank"><b>С</b>лово "Хавать" - это обратная калька со слова "пихать" в смысле "запихивать в рот"</a>
+<a href="http://viakviak.livejournal.com/261543.html" target="_blank"><b>П</b>рофанное слово "Хавать" - это калька со слова "хватать"</a>
+<a href="http://viakviak.livejournal.com/533827.html" target="_blank"><b>С</b>лово "Пугать" - это калька со слова "пихать"</a>
+<a href="http://viakviak.livejournal.com/88804.html" target="_blank"><b>С</b>лово "Хобот" близко по звучанию и смыслу к слову "хват" в значении "хватать"</a>
+<a href="http://viakviak.livejournal.com/505156.html" target="_blank"><b>С</b>лово "Купать" - это обратная калька со слова "пихать" в смысле "пихать в воду"</a>
+<a href="http://viakviak.livejournal.com/286194.html" target="_blank"><b>С</b>лово "Кибитка" - это калька со слова "хватать"</a>
+<a href="http://viakviak.livejournal.com/1352807.html" target="_blank"><b>С</b>лово "Пакля" близко по звучанию и смыслу к словам "пихло, пихал" в значении "пихать, запихивать, упихивать" с оттенком "пахнуть"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1499566, N'Что в имени твоём: Bessent', N'english, вяк, имя, перевод, слова, шутка, эзотерика', N'
+<article><header><h1 viak="name">Bessent
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Фамилия Министра финансов США "Bessent" может быть интерпретирована как русская фраза "без цента" в значениях "без денег или без хождения центовой монеты"
+</span><span viak="description">
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1499799, N'Прямой перевод: Guild(гилд`англ:гильдия)', N'"гулять", english, вяк, компания, наоборот, слова', N'
+<article><header><h1 viak="word">Guild(гилд`англ:гильдия)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Guild"(гилд`англ:гильдия) близко по обратному звучанию и смыслу к слову "деляга" в значении "делать, делающий"
+</span><span viak="description">
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/658060.html" target="_blank"><b>С</b>лово "Делать" - это калька со слова "делить" как обычной цели деятельности</a>
+<a href="http://viakviak.livejournal.com/657877.html" target="_blank"><b>С</b>лово "Делить" - это калька со слова "даль" в смысле "отдалять части"</a>
+<a href="http://viakviak.livejournal.com/1076885.html" target="_blank"><b>С</b>лово "Делить" близко по звучанию и смыслу к возможному слову "долить" в значении "делать доли"</a>
+<a href="http://viakviak.livejournal.com/1173732.html" target="_blank"><b>С</b>лово "Дело" близко по звучанию и смыслу к слову "деять" в значении "деяло, сделанное"</a>
+<a href="http://viakviak.livejournal.com/1289242.html" target="_blank"><b>С</b>лово "Деять" близко по звучанию и смыслу к слову "дать" в значении "давать усилие, умение, время, и др. ресурсы для получения результата"</a>
+<a href="http://viakviak.livejournal.com/1288997.html" target="_blank"><b>С</b>лово "Ладить" близко по обратному звучанию и смыслу к слову "дело" в значении "делать"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1499912, N'Прямой перевод: Otter(адЭр`англ:выдра)', N'english, вяк, животное, перевод, слова', N'
+<article><header><h1 viak="translation">Otter(адЭр`англ:выдра)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Название животного "Otter"(адЭр`англ:выдра) близко по звучанию и совпадает по смыслу с русским словом "выдра"
+</span><span viak="description">
+Название животного "Otter"(адЭр`англ:выдра) близко по звучанию и совпадает по смыслу с русским словом "выдра" при учете <a href="http://viakviak.livejournal.com/45219.html" target="_blank">выпадения "В"</a>.
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/45219.html" target="_blank">Падение звука: В</a>
+<a href="http://viakviak.livejournal.com/209030.html" target="_blank"><b>А</b>нглийское слово Beaver(англ:бобёр,звук:бивр) - это калька с русского слова "бобёр"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -110231,9 +110309,9 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'Паразит';
-nav.FindArticles N'Знание';
-nav.FindInTitle N'Луч', 0, 9999999;
+nav.FindArticles N'Oter';
+nav.FindArticles N'Beaver';
+nav.FindInTitle N'Oter', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
 nav.FindInDescription N'Script', 0, 9999999;
 nav.FindArticlesByLabel N'сказка';
