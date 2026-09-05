@@ -110276,6 +110276,87 @@ exec spAddArticle 1499912, N'Прямой перевод: Otter(адЭр`анг�
 ';
 GO
 
+exec spAddArticle 1500596, N'Что в имени твоём: Кнессет', N'jewish, вяк, государство, слова', N'
+<article><header><h1 viak="word">Кнессет
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Кнессет" близко по звучанию (кнесто) и смыслу к русскому слову "Гнездо"
+</span><span viak="description">
+Слово "Кнессет" близко по звучанию (кнесто) и смыслу к русскому слову "Гнездо" при учете переходов "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">К-Г</a>" и "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Т-Д</a>".
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/1435950.html" target="_blank"><b>С</b>лово "Гнездо" близко по звучанию и смыслу к слову "гавнище" с оттенком "настил"</a>
+<a href="http://viakviak.livejournal.com/120919.html" target="_blank"><b>А</b>нглийское слово "Nest" - это видоизменное русское слово "гнездо" Английское слово "Nest" - это калька с русского слова "настил"</a>
+<a href="http://viakviak.livejournal.com/121743.html" target="_blank"><b>А</b>нглийское слово "Guano" - это калька с русского слова "гавно"</a>
+<a href="http://viakviak.livejournal.com/1069087.html" target="_blank"><b>Н</b>азвание государства "Izrael"(Израэл`англ:Израиль) близко по звучанию и смыслу к русскому слову "царил" в значении "царство"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1500706, N'Прямой перевод: Meter(мИтэр`англ:метр)', N'english, вяк, материя, мера, наука, слова', N'
+<article><header><h1 viak="translation">Meter(мИтэр`англ:метр)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Meter"(мИтэр`англ:метр) близко по звучанию и смыслу к русскому слову "смотр"
+</span><span viak="description">
+Слово "Meter"(мИтэр`англ:метр) близко по звучанию и смыслу к русскому слову "смотр" при учете приставки "С-"
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1501054, N'Прямой перевод: Scalp(скялп`англ:скальп)', N'"лежать", english, вяк, наоборот, перевод, слова, тело', N'
+<article><header><h1 viak="translation">Scalp(скялп`англ:скальп)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Scalp"(скялп`англ:скальп) близко по обратному значению и смыслу к русскому слову "плешь"
+</span><span viak="description">
+Слово "Scalp"(скялп`англ:скальп) близко по обратному значению и смыслу к русскому слову "плешь" при учете перехода "<a href="http://viakviak.livejournal.com/207378.html" target="_blank">СК-Ш</a>"
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/207378.html" target="_blank"><b>Л</b>юбая из букв [ЩшчЖ] может переходить в любое двух-буквенное сочетание из [Сзц][ТдКгх] и обратно</a>
+<a href="http://viakviak.livejournal.com/1501217.html" target="_blank"><b>С</b>лово "Плешь" близко по звучанию и смыслу к слову "полысь" в значении "полысение"</a>
+<a href="http://viakviak.livejournal.com/296746.html" target="_blank"><b>С</b>лово "Лысый" - это обратная калька со слова "чело" в смысле "обнаженное чело"</a>
+<a href="http://viakviak.livejournal.com/132405.html" target="_blank"><b>Ч</b>ело - это поверхность головы между лбом, теменем, висками и ушами</a>
+<a href="http://viakviak.livejournal.com/692563.html" target="_blank"><b>С</b>лово "Чело" - это обратная калька со слова "лежать, ложить"</a>
+<a href="http://viakviak.livejournal.com/209342.html" target="_blank"><b>С</b>лово "Голова" - это обратная калька со слова "положить"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1501217, N'Что в имени твоём: Плешь', N'"лежать", вяк, слова, тело', N'
+<article><header><h1 viak="word">Плешь
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Плешь" близко по звучанию и смыслу к слову "полысь" в значении "полысение"
+</span><span viak="description">
+Слово "Плешь" близко по звучанию и смыслу к слову "полысь" в значении "полысение" при учете перехода "<a href="http://viakviak.livejournal.com/50841.html" target="_blank">Ш-С</a>"
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/34642.html" target="_blank">Переход: С - Ш (шепелявость)</a>
+<a href="http://viakviak.livejournal.com/1501054.html" target="_blank"><b>С</b>лово "Scalp"(скялп`англ:скальп) близко по обратному значению и смыслу к русскому слову "плешь"</a>
+<a href="http://viakviak.livejournal.com/296746.html" target="_blank"><b>С</b>лово "Лысый" - это обратная калька со слова "чело" в смысле "обнаженное чело"</a>
+<a href="http://viakviak.livejournal.com/132405.html" target="_blank"><b>Ч</b>ело - это поверхность головы между лбом, теменем, висками и ушами</a>
+<a href="http://viakviak.livejournal.com/692563.html" target="_blank"><b>С</b>лово "Чело" - это обратная калька со слова "лежать, ложить"</a>
+<a href="http://viakviak.livejournal.com/209342.html" target="_blank"><b>С</b>лово "Голова" - это обратная калька со слова "положить"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -110309,7 +110390,7 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'Oter';
+nav.FindArticles N'чело';
 nav.FindArticles N'Beaver';
 nav.FindInTitle N'Oter', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
