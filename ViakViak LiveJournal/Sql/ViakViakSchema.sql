@@ -110304,6 +110304,8 @@ exec spAddArticle 1500706, N'Прямой перевод: Meter(мИтэр`ан�
 </span><span viak="description">
 Слово "Meter"(мИтэр`англ:метр) близко по звучанию и смыслу к русскому слову "смотр" при учете приставки "С-"
 </span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/1501590.html" target="_blank"><b>С</b>лово "Мудрец" близко по звучанию и смыслу к слову "смотрец" в значении "смотрящий, видящий, повидавший"</a>
+<a href="http://viakviak.livejournal.com/1501778.html" target="_blank"><b>С</b>амоназвание народа "Мадьяр" близко по звучанию и смыслу к русскому слову "смотр" в значении "обязаный к смотру, военно-обязанный, казак"</a>
 </span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
 <a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
@@ -110357,6 +110359,143 @@ exec spAddArticle 1501217, N'Что в имени твоём: Плешь', N'"л
 ';
 GO
 
+exec spAddArticle 1501590, N'Что в имени твоём: Мудрец', N'вяк, слова', N'
+<article><header><h1 viak="word">Мудрец
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Мудрец" близко по звучанию и смыслу к слову "смотрец" в значении "смотрящий, видящий, повидавший"
+</span><span viak="description">
+Слово "Мудрец" близко по звучанию и смыслу к слову "смотрец" в значении "смотрящий, видящий, повидавший" при учете приставки "С-" и перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Д-Т</a>".
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/1500706.html" target="_blank"><b>С</b>лово "Meter"(мИтэр`англ:метр) близко по звучанию и смыслу к русскому слову "смотр"</a>
+<a href="http://viakviak.livejournal.com/1501778.html" target="_blank"><b>С</b>амоназвание народа "Мадьяр" близко по звучанию и смыслу к русскому слову "смотр" в значении "обязаный к смотру, военно-обязанный, казак"</a>
+<a href="http://viakviak.livejournal.com/232989.html" target="_blank"><b>С</b>лово "Медресе" - это калька с русского слова "мудрец"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1501778, N'Что в имени твоём: Мадьяр', N'"мять", вяк, общество, слова', N'
+<article><header><h1 viak="word">Мадьяр
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Самоназвание народа "Мадьяр" близко по звучанию и смыслу к русскому слову "смотр" в значении "обязаный к смотру, военно-обязанный, казак"
+</span><span viak="description">
+Самоназвание народа "Мадьяр" близко по звучанию и смыслу к русскому слову "смотр" в значении "обязаный к смотру, военно-обязанный, казак" при учете приставки "С-" и перехода "Д-Т".
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/1501590.html" target="_blank"><b>С</b>лово "Мудрец" близко по звучанию и смыслу к слову "смотрец" в значении "смотрящий, видящий, повидавший"</a>
+<a href="http://viakviak.livejournal.com/1500706.html" target="_blank"><b>С</b>лово "Meter"(мИтэр`англ:метр) близко по звучанию и смыслу к русскому слову "смотр"</a>
+<a href="http://viakviak.livejournal.com/441680.html" target="_blank"><b>Т</b>итул "Казак" - это калька со слова "казать" в смысле "показывающийся" в значении "военно-обязанный"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1501974, N'Прямой перевод: Symmetry(сИметри`англ:симметрия)', N'english, вяк, перевод, слова', N'
+<article><header><h1 viak="translation">Symmetry(сИметри`англ:симметрия)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Symmetry(сИметри`англ:симметрия)" близко по звучанию и смыслу к русскому слову "смотри"
+</span><span viak="description">
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/1500706.html" target="_blank"><b>С</b>лово "Meter"(мИтэр`англ:метр) близко по звучанию и смыслу к русскому слову "смотр"</a>
+<a href="http://viakviak.livejournal.com/1501590.html" target="_blank"><b>С</b>лово "Мудрец" близко по звучанию и смыслу к слову "смотрец" в значении "смотрящий, видящий, повидавший"</a>
+<a href="http://viakviak.livejournal.com/1501778.html" target="_blank"><b>С</b>амоназвание народа "Мадьяр" близко по звучанию и смыслу к русскому слову "смотр" в значении "обязаный к смотру, военно-обязанный, казак"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1502416, N'Прямой перевод: Acoustic(акУстик`англ:звуковой,слуховой)', N'"око", english, вяк, музыка, наука, перевод, слова, технология', N'
+<article><header><h1 viak="translation">Acoustic(акУстик`англ:звуковой,слуховой)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Acoustic"(акУстик`англ:звуковой,слуховой) близко по звучанию и смыслу к русской фразе "эхо стих" в значении "стихание эха"
+</span><span viak="description">
+Слово "Acoustic"(акУстик`англ:звуковой,слуховой) близко по звучанию и смыслу к русской фразе "эхо стих" в значении "стихание эха" при учете перехода "<a href="http://viakviak.livejournal.com/33360.html" target="_blank">К-Х</a>".
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+Савелий (<a href="https://moj-golos.livejournal.com/" target="_blank">moj_golos</a>) написал в <a href="https://lengvizdika.livejournal.com/" target="_blank">lengvizdika</a>: <a href="https://lengvizdika.livejournal.com/2898420.html" target="_blank">Русская этимология греческого слова Акустика.Акустика старинных допотопных зданий мира</a>. ... имеет абсолютно русское происхождение из слова Ухо ...
+
+<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Переход Г/K - Х</a>
+<a href="http://viakviak.livejournal.com/254787.html" target="_blank"><b>А</b>нглийское слово "Frequency"(англ:частота) - это калька с русского слова "вращения"</a>
+<a href="http://viakviak.livejournal.com/254545.html" target="_blank"><b>С</b>лово "Частота" - это калька с "густота"</a>
+<a href="http://viakviak.livejournal.com/1126495.html" target="_blank"><b>С</b>лово "Стихи" близко по звучанию и смыслу к словам "шаги, стуки, скакать" в значении "ритм стука шагов скакуна"</a>
+<a href="http://viakviak.livejournal.com/1114765.html" target="_blank"><b>С</b>лово "Shut"(шат`англ:закрыть) близко по звучанию и смыслу к русскому слову "тише" в обратном прочтении</a>
+<a href="http://viakviak.livejournal.com/74017.html" target="_blank"><b>С</b>лово "Тишина" близко по звучанию и смыслу к слову "дышание" в значении "тихо так, что слышно дыхание"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1502554, N'Что в имени твоём: Нахал', N'вяк, слова', N'
+<article><header><h1 viak="word">Нахал
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Нахал" близко по звучанию и смыслу к слову "нахаял" в значении "хаял, наругал, ругался"
+</span><span viak="description">
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/444807.html" target="_blank"><b>О</b>кончание "ЛО" указывает на сделанное в прошлом</a>
+<a href="http://viakviak.livejournal.com/1502888.html" target="_blank"><b>С</b>лово "Наехал" в профанном смысле "атаковал" близко по звучанию и смыслу со словом "нахал"</a>
+<a href="http://viakviak.livejournal.com/1503172.html" target="_blank"><b>С</b>лово "Наглый" близко по звучанию и смыслу к слову "нахал"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1502888, N'Что бы это значило: Наехал', N'вяк, слова, феня', N'
+<article><header><h1 viak="word">Наехал
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Наехал" в профанном смысле "атаковал" близко по звучанию и смыслу со словом "нахал"
+</span><span viak="description">
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/444807.html" target="_blank"><b>О</b>кончание "ЛО" указывает на сделанное в прошлом</a>
+<a href="http://viakviak.livejournal.com/1502554.html" target="_blank"><b>С</b>лово "Нахал" близко по звучанию и смыслу к слову "нахаял" в значении "хаял, наругал, ругался"</a>
+<a href="http://viakviak.livejournal.com/1503172.html" target="_blank"><b>С</b>лово "Наглый" близко по звучанию и смыслу к слову "нахал"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1503172, N'Что в имени твоём: Наглый', N'вяк, слова', N'
+<article><header><h1 viak="word">Наглый
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Наглый" близко по звучанию и смыслу к слову "нахал"
+</span><span viak="description">
+Слово "Наглый" близко по звучанию и смыслу к слову "нахал" при учете перехода "<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Г-Х</a>".
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Переход Г/K - Х</a>
+<a href="http://viakviak.livejournal.com/444807.html" target="_blank"><b>О</b>кончание "ЛО" указывает на сделанное в прошлом</a>
+<a href="http://viakviak.livejournal.com/1502554.html" target="_blank"><b>С</b>лово "Нахал" близко по звучанию и смыслу к слову "нахаял" в значении "хаял, наругал, ругался"</a>
+<a href="http://viakviak.livejournal.com/1502888.html" target="_blank"><b>С</b>лово "Наехал" в профанном смысле "атаковал" близко по звучанию и смыслу со словом "нахал"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -110390,8 +110529,8 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'чело';
-nav.FindArticles N'Beaver';
+nav.FindArticles N'Нахал';
+nav.FindArticles N'тихи';
 nav.FindInTitle N'Oter', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
 nav.FindInDescription N'Script', 0, 9999999;
