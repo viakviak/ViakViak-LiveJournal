@@ -110496,6 +110496,47 @@ exec spAddArticle 1503172, N'Что в имени твоём: Наглый', N'�
 ';
 GO
 
+exec spAddArticle 1503454, N'Что в имени твоём: Ceylon(сэлАн`англ:Цейлон)', N'english, вязь, история, слова, топоним, торговля', N'
+<article><header><h1 viak="word">Ceylon(силАн`англ:Цейлон)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Название острова "Ceylon"(сэлАн`англ:Цейлон) близко по звучанию и смыслу к английскому слову "sailing"(сЭйлин`англ:плавание) в значении "цель плавания"
+</span><span viak="description">
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/1503670.html" target="_blank"><b>С</b>лово "Sail"(сэйл`англ:парус) близко по звучанию и смыслу к русскому слову "сила" в значении "сила ветра"</a>
+<a href="http://viakviak.livejournal.com/162081.html" target="_blank"><b>С</b>лова "Сила" - калька со слова "жила"</a>
+<a href="http://viakviak.livejournal.com/289932.html" target="_blank"><b>С</b>лово "Жила" - это обратная калька со слова "лежать"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1503670, N'Прямой перевод: Sail(сэйл`англ:парус)', N'"лежать", english, вяк, перевод, слова, транспорт', N'
+<article><header><h1 viak="translation">Sail(сэйл`англ:парус)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Sail"(сэйл`англ:парус) близко по звучанию и смыслу к русскому слову "сила" в значении "сила ветра"
+</span><span viak="description">
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/162081.html" target="_blank"><b>С</b>лова "Сила" - калька со слова "жила"</a>
+<a href="http://viakviak.livejournal.com/289932.html" target="_blank"><b>С</b>лово "Жила" - это обратная калька со слова "лежать"</a>
+<a href="http://viakviak.livejournal.com/1503454.html" target="_blank"><b>Н</b>азвание острова "Ceylon"(сэлАн`англ:Цейлон) близко по звучанию и смыслу к английскому слову "sailing"(сЭйлин`англ:плавание) в значении "цель плавания"</a>
+<a href="http://viakviak.livejournal.com/1069762.html" target="_blank"><b>С</b>лово "Мощь" близко по звучанию и смыслу к слову "жму" в значении "способность жать, выжать"</a>
+<a href="http://viakviak.livejournal.com/691587.html" target="_blank"><b>С</b>лово "Тяга" - это обратная калька со слова "ход" как следствие применения</a>
+<a href="http://viakviak.livejournal.com/667454.html" target="_blank"><b>С</b>лово "Gravity"(грАвити`англ:сила тяжести,притяжение,гравитация) - это калька с русского слова "кривить" в смысле "искривляющее пространство-время"</a>
+<a href="http://viakviak.livejournal.com/351562.html" target="_blank"><b>А</b>нглийское слово "Power"(англ:мощность,власть;звук:пАуэр) - это калька с русского слова "поворотить" в смысле "управлять"</a>
+<a href="http://viakviak.livejournal.com/664646.html" target="_blank"><b>С</b>лово "Thrust"(тхраст`англ:толкать) - это калька с русского слова "трясти" в смысле "тряхнуть"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -110529,7 +110570,7 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'Нахал';
+nav.FindArticles N'мускул';
 nav.FindArticles N'тихи';
 nav.FindInTitle N'Oter', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
