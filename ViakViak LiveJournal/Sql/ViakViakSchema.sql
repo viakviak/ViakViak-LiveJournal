@@ -59443,9 +59443,9 @@ GO
 exec spAddArticle 764753, N'Прямой перевод: Work(уорк`англ:работа)', N'"крыть", english, вяк, деньги, общество, слова', N'
 <article><header><h1 viak="translation">Work(уорк`англ:работа)
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
-Слово "Work"(уорк`англ:работа) - это калька с русского слова "выручка" в смысле "доходное дело"
+Слово "Work"(уорк`англ:работа) - это калька с русского слова "выручка" в смысле "доходное дело" с оттенком "ворочать (делами)"
 </span><span viak="description">
-Слово "Work"(уорк`англ:работа) - это калька с русского слова "выручка"<sub>1.3</sub> в смысле "доходное дело" при учете перехода "<a href="http://viakviak.livejournal.com/29208.html" target="_blank">К-Ч</a>".
+Слово "Work"(уорк`англ:работа) - это калька с русского слова "выручка"<sub>1.3</sub> в смысле "доходное дело" с оттенком "ворочать (делами)" при учете перехода "<a href="http://viakviak.livejournal.com/29208.html" target="_blank">К-Ч</a>".
 </span><lj-cut><h3>Ссылки</h3><span viak="reference">
 Kalju Patustaja (<a href="https://new-etymology.livejournal.com/" target="_blank">new_etymology</a>) написал в <a href="https://lengvizdika.livejournal.com/" target="_blank">lengvizdika</a>: <a href="https://lengvizdika.livejournal.com/571839.html" target="_blank">... со значением "рука"...</a>
 
@@ -110570,7 +110570,7 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'мускул';
+nav.FindArticles N'work';
 nav.FindArticles N'тихи';
 nav.FindInTitle N'Oter', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
