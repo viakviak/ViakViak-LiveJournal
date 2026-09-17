@@ -35686,10 +35686,13 @@ exec spAddArticle 382806, N'Прямой перевод: Window(англ:окн�
 </span><lj-cut><h3>Ссылки</h3><span viak="reference">
 "<a href="https://lengvizdika.livejournal.com/191879.html" target="_blank">Видно ли сквозь виндоуз?</a>" by <a href="https://lengvizd.livejournal.com/" target="_blank">lengvizd</a> in <a href="https://lengvizdika.livejournal.com/" target="_blank">lengvizdika</a>.
 <a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+<a href="http://viakviak.livejournal.com/857323.html" target="_blank"><b>С</b>лово "Окно" - это калька со слова "око" в смысле "проколотое, проткнутое"</a>
+<a href="http://viakviak.livejournal.com/1181681.html" target="_blank"><b>С</b>лово "Икона" близко по звучанию и смыслу к слову "окно" в значении "как вид в окне"</a>
 <a href="http://viakviak.livejournal.com/114389.html" target="_blank">Око - это глазное отверстие, а глаз - это глазное яблоко</a>
 <a href="http://viakviak.livejournal.com/109296.html" target="_blank">Символ "Точка в круге" означает "око, глаз, видящий, зрячий, зрелый"</a>
 <a href="http://viakviak.livejournal.com/18993.html" target="_blank">Слово Глаз находится в смысловом поле "длинный", "дальний", "долгий", "долг", "расстояние", "глубокий", "сложный", "слежение"</a>
 <a href="http://viakviak.livejournal.com/341970.html" target="_blank">Слово "Анх" - это обратная калька с русского слова "окно"</a>
+<a href="http://viakviak.livejournal.com/734539.html" target="_blank"><b>С</b>лово "Ether"(Ифер`англ:эфир) - это калька с русского слова "ветер"</a>
 <a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые близки как по звучанию, так и по смыслу"</a>
 </span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
@@ -110570,7 +110573,7 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'work';
+nav.FindArticles N'wind';
 nav.FindArticles N'тихи';
 nav.FindInTitle N'Oter', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
