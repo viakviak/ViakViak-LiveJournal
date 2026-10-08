@@ -110540,6 +110540,25 @@ exec spAddArticle 1503670, N'Прямой перевод: Sail(сэйл`англ
 ';
 GO
 
+exec spAddArticle 1505429, N'Что в имени твоём: Utopia(англ:Утопия)', N'english, вяк, государство, сказка, слова', N'
+<article><header><h1 viak="name">Utopia(англ:Утопия)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Название образа идеального, совершенного общества или несбыточной, воображаемой мечты "Utopia"(англ:Утопия) близко по звучанию и смыслу к названию страны "Ефиопия"
+</span><span viak="description">
+Название образа идеального, совершенного общества или несбыточной, воображаемой мечты "Utopia"(англ:Утопия) близко по звучанию и смыслу к названию страны "Ефиопия" при переходе "<a href="http://viakviak.livejournal.com/34476.html" target="_blank">Т-Ф</a>".
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+From Wiki: <a href="https://ru.wikipedia.org/wiki/Утопия" target="_blank">Утопия</a>Уто́пия (от др.-греч. οὐ «не» + τόπος «место», то есть «место, которого нет»[1]; по другой версии от др.-греч. εὖ «благо», то есть «благое место»)
+
+<a href="http://viakviak.livejournal.com/34476.html" target="_blank"><b>С</b>имвольный переход Т-Ф обусловлен тождественностью написания прописной "Т"(звук:тэ) и прописной "Ф"(звук:эф) при учете опускания и сворачивания концов горизонтальной перекладины "Т"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
