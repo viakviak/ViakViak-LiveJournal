@@ -6457,7 +6457,7 @@ GO
 exec spAddArticle 43385, N'Что в имени твоем: Полотно', N'вяк, слова', N'
 <article><header><h1 viak="word">Полотно
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
-Слово "Полотно" - это калька со слова "плетенный"
+Слово "Полотно" - это калька со слова "плетеный"
 </span><span viak="description">
 Слово "Полотно" - это калька со слова "плотный"
 </span><lj-cut><section><h3><a href="https://viakviak.livejournal.com/76661.html#phonetic-sets" target="_blank">Звуковые ряды</a></h3><span viak="description">
@@ -10083,7 +10083,7 @@ please(англ:получать удовольствие) - польза
 плаха - полено плача для палача с широкими плечами
 плевок - летящая слюна
 плебей - один из многих, из плотной толпы, публики
-плен - плотно сплетенный
+плен - плотно сплетеный
 плетка - оплетка, сплетенная
 пломба - плотно сидящая
 плоский - ровный, дающий возможность плотного, близкого размещения или доступа
@@ -12410,7 +12410,7 @@ casa(рум:дом) - хаза, сакля, хозяйство
 счастье - доля, удачная часть <a href="http://viakviak.livejournal.com/52993.html" target="_blank">чаще</a> (шутка)
 узкий - часть усеченный
 указ - показанный, сказанный
-хаза - связанный, из связок, сплетенный дом, хозяйство
+хаза - связанный, из связок, сплетеный дом, хозяйство
 <a href="http://viakviak.livejournal.com/83903.html" target="_blank">Хазария</a> - языческая страна
 хозяин - указывающий
 хозяйство - независимая часть, отсеченное, хаза, дом хозяина, связанное, указания
@@ -28518,7 +28518,7 @@ exec spAddArticle 266692, N'Что бы это значило: Стеганны�
 <a href="http://viakviak.livejournal.com/155016.html" target="_blank">Слово "Ткань" - это калька со слова "тыканный"</a>
 <a href="http://viakviak.livejournal.com/217086.html" target="_blank">Слово "Штаны" - это калька со слова "стянуть"</a>
 <a href="http://viakviak.livejournal.com/234080.html" target="_blank">Слово "Китель" - это калька с фразы "к телу"</a>
-<a href="http://viakviak.livejournal.com/43385.html" target="_blank">Слово "Полотно" - это калька со слова "плетенный"</a>
+<a href="http://viakviak.livejournal.com/43385.html" target="_blank">Слово "Полотно" - это калька со слова "плетеный"</a>
 <a href="http://viakviak.livejournal.com/117277.html" target="_blank">Слово "Тога" - это калька со слова "одёжа"</a>
 <a href="http://viakviak.livejournal.com/235651.html" target="_blank">Слово "Халат" - это калька со слова "холодный" в смысле "легкая одежда"</a>
 <a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые близки как по звучанию, так и по смыслу"</a>
@@ -31310,7 +31310,7 @@ exec spAddArticle 305525, N'Что в имени твоём: Балдахин', 
 <a href="http://viakviak.livejournal.com/33360.html" target="_blank">Переход Г/K - Х</a>
 <a href="http://viakviak.livejournal.com/72122.html" target="_blank">П+Л - буквально: переход легко, близко болтающийся, очень близко. Имеет значения: плотный, близкий, прилегающий, плоский, полоса, плюс, польза, шарообразный, один из многих </a>
 <a href="http://viakviak.livejournal.com/237264.html" target="_blank">Слово "Болт" - это калька со слова "плотный" в смысле "уплотнять"</a>
-<a href="http://viakviak.livejournal.com/43385.html" target="_blank">Слово "Полотно" - это калька со слова "плетенный"</a>
+<a href="http://viakviak.livejournal.com/43385.html" target="_blank">Слово "Полотно" - это калька со слова "плетеный"</a>
 <a href="http://viakviak.livejournal.com/155016.html" target="_blank">Слово "Ткань" - это калька со слова "тыканный"</a>
 <a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые близки как по звучанию, так и по смыслу"</a>
 </span><footer>
@@ -49901,7 +49901,7 @@ exec spAddArticle 633996, N'Что в имени твоём: Плот', N'вяк
 </span><lj-cut><h3>Ссылки</h3><span viak="reference">
 <a href="http://viakviak.livejournal.com/45219.html" target="_blank">Падение звука: В</a>
 <a href="http://viakviak.livejournal.com/54363.html" target="_blank">Компонента [Вбпфт]Л и наоборот выражает "приподнятый, волочить, перемещать, двигать, владеть, шевелящееся, катящееся, валящий, развевающаяся, великий, большой, плотный"</a>
-<a href="http://viakviak.livejournal.com/43385.html" target="_blank">Слово "Полотно" - это калька со слова "плетенный"</a>
+<a href="http://viakviak.livejournal.com/43385.html" target="_blank">Слово "Полотно" - это калька со слова "плетеный"</a>
 <a href="http://viakviak.livejournal.com/227160.html" target="_blank">Слово "Полосы" - это калька со слова "близкие" в смысле "близко, плотно расположенные рядом"</a>
 <a href="http://viakviak.livejournal.com/225770.html" target="_blank">Слово "Пальцы" - это калька со слова "близкие" в смысле "близко, плотно расположенные"</a>
 <a href="http://viakviak.livejournal.com/332968.html" target="_blank">Слово "Пальто" - это калька со слова "плотное"</a>
@@ -61340,7 +61340,7 @@ exec spAddArticle 799544, N'Что в имени твоём: Плоть', N'вя
 Слово "Плоть" - это калька со слова "плодь" в смысле "плодись" в значении "плодящееся, из плода, плод" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Т-Д</a>".
 </span><lj-cut><h3>Ссылки</h3><span viak="reference">
 <a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
-<a href="http://viakviak.livejournal.com/43385.html" target="_blank">Слово "Полотно" - это калька со слова "плетенный"</a>
+<a href="http://viakviak.livejournal.com/43385.html" target="_blank">Слово "Полотно" - это калька со слова "плетеный"</a>
 <a href="http://viakviak.livejournal.com/512228.html" target="_blank">Слово "Платить" - это калька со слов "плодить, владеть" в смысле "приобретать права владения"</a>
 <a href="http://viakviak.livejournal.com/511917.html" target="_blank">Слово "Владеть" - это калька со слова "плодить" в смысле "право на созданный собою плод" как основа частной собственности</a>
 <a href="http://viakviak.livejournal.com/237264.html" target="_blank">Слово "Болт" - это калька со слова "плотный" в смысле "уплотнять"</a>
@@ -87125,7 +87125,7 @@ Dialogue (диалог) - от греч. διάλογος «разговор, б
 
 греч. λακίς "лоскут"
 
-греч. λωτός "вплетенный"
+греч. λωτός "вплетеный"
 
 греч. λωτίς "одежда"
 
@@ -103969,7 +103969,7 @@ exec spAddArticle 1398820, N'Что в имени твоём: Толпа', N'в�
 Слово "Толпа" близко по обратному звучанию и смыслу к слову "оплот" в значении "плотная"
 </span><span viak="description">
 </span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
-<a href="http://viakviak.livejournal.com/43385.html" target="_blank"><b>С</b>лово "Полотно" - это калька со слова "плетенный"</a>
+<a href="http://viakviak.livejournal.com/43385.html" target="_blank"><b>С</b>лово "Полотно" - это калька со слова "плетеный"</a>
 <a href="http://viakviak.livejournal.com/1398546.html" target="_blank"><b>С</b>лово "Command"(кэмЭнд`англ:команда) близко по звучанию и смыслу к английской фразе "co-manned"(кО-мЭнд`ко-оперировали) в значении "работали вместе"</a>
 <a href="http://viakviak.livejournal.com/479221.html" target="_blank"><b>А</b>нглийское слово "Group"(англ:группа,звук:груп) - это калька с русского слова "гурьба"</a>
 <a href="http://viakviak.livejournal.com/468724.html" target="_blank"><b>А</b>нглийское слово "Crowd(англ:толпа,звук:крАуд)" - это калька с русского слова "хоровод"</a>
@@ -110559,6 +110559,93 @@ From Wiki: <a href="https://ru.wikipedia.org/wiki/Утопия" target="_blank">
 ';
 GO
 
+exec spAddArticle 1505650, N'Что в имени твоём: Плед', N'вяк, одежда, слова', N'
+<article><header><h1 viak="word">Плед
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Плед" близко по звучанию и смыслу к слову "пальто" в значении "полотно, плотный, плетеный"
+</span><span viak="description">
+Слово "Плед" близко по звучанию и смыслу к слову "пальто" в значении "полотно, плотный, плетеный" при учете перехода "Д-Т".
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/332968.html" target="_blank"><b>С</b>лово "Пальто" - это калька со слова "плотное"</a>
+<a href="http://viakviak.livejournal.com/43385.html" target="_blank"><b>С</b>лово "Полотно" - это калька со слова "плетеный"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1505994, N'Прямой перевод: Smudge(смаж`англ:пятно,мазок,развод,пачкать)', N'"меж", english, вяк, перевод, слова', N'
+<article><header><h1 viak="translation">Smudge(смаж`англ:пятно,мазок,развод,пачкать)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Smudge"(смаж`англ:пятно,мазок,развод,пачкать) близко по звучанию и смыслу к русскому слову "смажу" в значении "смазать".
+</span><span viak="description">
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/274119.html" target="_blank"><b>С</b>лово "Маска" - это калька со слово "мешать" в смысле "мешать видеть лицо" с оттенком "мешок"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1506210, N'Что бы это значило: Сторицей', N'выражение, вяк, слова, число', N'
+<article><header><h1 viak="word">Сторицей
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Сторицей" в устойчивой фразе "вернуться сторицей" близко по звучанию и смыслу к фразе "сто-раз" в значении "вернуться в сто раз больше"
+</span><span viak="description">
+Слово "Сторицей" в устойчивой фразе "вернуться сторицей" близко по звучанию и смыслу к фразе "сто-раз" в значении "вернуться в сто раз больше" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Ц-З</a>".
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1506210, N'Что бы это значило: Сторицей', N'выражение, вяк, слова, число', N'
+<article><header><h1 viak="word">Сторицей
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Сторицей" в устойчивой фразе "вернуться сторицей" близко по звучанию и смыслу к фразе "сто-раз" в значении "вернуться в сто раз больше"
+</span><span viak="description">
+Слово "Сторицей" в устойчивой фразе "вернуться сторицей" близко по звучанию и смыслу к фразе "сто-раз" в значении "вернуться в сто раз больше" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Ц-З</a>".
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/47551.html" target="_blank"><b>С</b>лово Сто близко связано со словами Десять и Тысяча и является их составной частью. Близкое слово Тысяча прочитанное наоборот дает слова: часто, куст, густо со смыслом "часто", "густо", "много", "плотно". В этом же смысловом поле "плотно", "узко" д</a>
+<a href="http://viakviak.livejournal.com/34092.html" target="_blank"><b>Ц</b>ифровой ряд от 1 до 10 был наставлением молодому человеку</a>
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1506405, N'Прямой перевод: Azores(Эйзорс`англ:Азорские острова)', N'"резать", english, вяк, перевод, слова, топоним', N'
+<article><header><h1 viak="translation">Azores(Эйзорс`англ:Азорские острова)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Название вулканического архипелага "Azores"(Эйзорс`англ:Азорские острова) близко по звучанию и смыслу к русскому слову "озёра" с оттенком "царские"
+</span><span viak="description">
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/416290.html" target="_blank"><b>С</b>лово "Зеркало" - это калька с возможных слов "зыркало, зрячело" в смысле "озирать, для зрения"</a>
+<a href="http://viakviak.livejournal.com/812130.html" target="_blank"><b>Т</b>итул "Царь" - это калька со слова "зырить" в смысле "зырь, зырящий, смотрящий, наблюдающий, надзиратель"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -110592,9 +110679,9 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'wind';
-nav.FindArticles N'тихи';
-nav.FindInTitle N'Oter', 0, 9999999;
+nav.FindArticles N'зыр';
+nav.FindArticles N'маск';
+nav.FindInTitle N'раз', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
 nav.FindInDescription N'Script', 0, 9999999;
 nav.FindArticlesByLabel N'сказка';
