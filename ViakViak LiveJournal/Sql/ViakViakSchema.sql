@@ -10665,17 +10665,18 @@ nut(англ:орех) - один из множества орехов
 ';
 GO
 
-exec spAddArticle 75995, N'Прямой перевод: Capacity(англ:вместимость) - Запасти', N'вяк, перевод, слова', N'
-<span viak="translation">Capacity(англ:вместимость)
-
-Запасти, запасать
-</span><span viak="summary">
-Capacity(англ:вместимость) = Запасти
+exec spAddArticle 75995, N'Прямой перевод: Capacity(капАсити`англ:емкость,вместимость,компетенция)', N'вяк, перевод, слова', N'
+<article><header><h1 viak="translation">Capacity(капАсити`англ:емкость,вместимость,компетенция)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Capacity"(капАсити`англ:емкость,вместимость,компетенция) близко по написанию и смыслу к русскому слову "спасите" в значении "запасите"
 </span><span viak="description">
-Английское слово Capacity(англ:вместимость) - это калька с русского слова Запасти при известном переходе <a href="http://viakviak.livejournal.com/48568.html" target="_blank">"З-С"</a>.
-</span>
-<span viak="footer"><a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
-</span>
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
 ';
 GO
 
@@ -110646,6 +110647,26 @@ exec spAddArticle 1506405, N'Прямой перевод: Azores(Эйзорс`а
 ';
 GO
 
+exec spAddArticle 1506808, N'Прямой перевод: Crouch(крАуч`англ:присесть, полуприсесть, низко кланяться)', N'"крыть", english, вяк, перевод, слова', N'
+<article><header><h1 viak="translation">Crouch(крАуч`англ:присесть, полуприсесть, низко кланяться)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Crouch"(крАуч`англ:присесть, полуприсесть, низко кланяться) близко по звучанию и смыслу к русскому слову "крючить" в значении "скрючиться, крючок"
+</span><span viak="description">
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/537374.html" target="_blank"><b>H</b>ook(хук`англ:крюк) - это калька с русского слова "крюк"</a>
+<a href="http://viakviak.livejournal.com/1417937.html" target="_blank"><b>С</b>лово "Screw"(скрю`англ:шуруп,винт) близко по звучанию и смыслу к русскому слову "скривить" или по обратному звучанию "врезать, вращать"</a>
+<a href="http://viakviak.livejournal.com/1307463.html" target="_blank"><b>С</b>лово "Карачки" близко по звучанию и смыслу к слову "крючки" в значении "скрюченные ноги"</a>
+<a href="http://viakviak.livejournal.com/1474106.html" target="_blank"><b>С</b>лово "Коряга" близко по звучанию и смыслу к слову "крюк" в значении "скрюченный"</a>
+<a href="http://viakviak.livejournal.com/663430.html" target="_blank"><b>И</b>мя города "Харьков" - это калька с имен других городов "Краков", "Крюков" в смысле "крюк" в значении "на крутой извилине реки"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -110679,7 +110700,7 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'зыр';
+nav.FindArticles N'мкост';
 nav.FindArticles N'маск';
 nav.FindInTitle N'раз', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
