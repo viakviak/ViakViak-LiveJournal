@@ -114,6 +114,27 @@ Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=Tr
 
 А теперь несколько моих любых примеров. Старайтесь вслушаться своими "русскими" ушами:
 
+19 октября 2026, 18:32:09 https://lengvizdika.livejournal.com/2982178.html?thread=34796834#t34796834
+Я не ставлю ваши слова под сомнение. Я просто следую принципам своей методологии. Если другие подходы игнорируют фонетическую близость слов или не обращают внимание на соответствие смыслов в рассмариваемых словах, если факты привносятся без объяснения, если вывод базируется авторитетном мнении без провепки, ... то я отношу это к "эзотерике". Туда я отношу стихи, литературу, сказки, геральдику, пропаганду и пр. Это не пренебрежение, и у меня есть статьи посвященные этим темам, но это просто требует другого подхода и не должно быть смешано с этимологией простых слов. Если сразу отделить, то проще с этим работать впоследствии.
+
+19 октября 2026, 09:18:29 https://lengvizdika.livejournal.com/2982178.html?thread=34791970#t34791970
+"...Вот ваш Ник, например, в дешифровке обозначает..."
+Вы вольны домышлять, что вам угодно. Я взял свой ник "вяк-вяк", потому что "вяк" выл занят. "Вяк" предполагало слово "вякать", т.к. я не был уверен, что мои измышления будут кому-то интересно. После многих лет, я предлагаю другую интерпретацию: "вяк" - это и "чело-вяк" и "слоВяк", например. Мой ник йволюционирует со мной. Мы сами сдвигаем или изменяем смысл слов в пределах его звучания. Именно так, мне представляется, и шло развитие жового языка.
+
+19 октября 2026, 09:08:57 https://lengvizdika.livejournal.com/2982178.html?thread=34791714#t34791714
+"...слова это аббревиатуры и не надо искать никаких кустов и близких признаков, слова достаточно просто де шифруются и соответствуют своему значению..."
+Нет, я с этим не согласен. Слова - это не аббревиатуры, что не дало бы необходимпй сложности яыка, а скорее шарады, что добавляет степени свободы для значения слов. У меня создалось стойкое впечатление, что буквы - это вторичное и совсем не главное. Они были созданы на этапе развитой письменности, когда разговорные языки уже давно сложились. Моя методика рассматривает неогласованные корни составленные из согласных звуков - база разговорной речи.
+Корни имею свою очень гибкую этимологию (систему создания новых слов из старых). Я считаю, что слова создавались огласовкой корней и придания им близкого, но уже другого смысла. Развитие языка шло от простого к сложному - от коротких (1- согласных) корней до длинных (3-4 согласных). 
+Моя методика ищет соответствия между корнями простых слов с учетом т.н. "фонетических переходов" - устойчивых правил подмены одних согласных другими с одной стороны и соответсвия смысла с другой стороны. Для соответствия между двумя словами, оба этих условия обязаны выполняться.. Некоторые правила фонетических переходов общеизвестны, а некоторые я нашел и подтвердил многочисленными примерами сам. Это увлекательнай и долгая процедура, которой я продолжаю заниматься.
+
+19 октября 2026, 08:52:16 https://lengvizdika.livejournal.com/2982178.html?thread=34791202#t34791202
+"Но ведь мы оба предполагаем..."
+Нет, нет, не надо за меня договаривать, я этого не говорил. Прото-язык не существует, а существовал в той или иной форме - это очень возможно. Мы видим одинаковые конструкты и способы организации и создания новых слов. Современные языки (английский, например) похоже являются сильно переделанными "суржиками" содержащими базовые слова, которым нет натурального объяснения в этом же языке, нет "куста" близких слов. Создается впечатление, что их язык был когда-то взят небольшой группой и в том виде как они его понимали приспособлен для жизни.
+
+18 октября 2026 https://lengvizdika.livejournal.com/2981349.html?thread=34766821#t34766821
+То что вы называете метатезой в переходе "k-r-b ➔ b-r-k" - это просто "реверс" или "обратное прочтение". В общем случае метатеза, как призвольная рекомбинация согласных в неогласованном корне, не работает. А вот обратное прочтение - это уже совсем другое. И это очевидно, т.к. текст может быть прочитан как слева направо, так и наоборот - справа налево. В общем случае, я бы дазе и допустил прочтение "вверх тормашками", а то и зеркальное, но этому мешает обычные физические харакетристики текста.
+Я обнаружил, что есть одно важное исключение, которое может быт неправильно истолковано в пользу "метатезы". Дело в том, что пара согласных может образовывать т.н. "компоненту" - устойчивое соединение, которое не "переворачивается" когда все слово читается наоборот. Примером могут служить компоненты "СТ" и "СК", которые как я вижу читались как единый шипящий звук, "Щ", "Ш" или "Ч".
+
 10/8/2025 https://lengvizdika.livejournal.com/2263804.html?thread=29200636#t29200636
 Ну, да, конечно! Это же всем известно с детства. О чем собственно речь? О том же самом, что и в любых других сказках. Мерлин - это сказочный герой, и имя его - говорящее, как и любых другиз героев любых сказок. Люди очень внушаемы. Они уверовали, что животные в сказках реально разговаривают - ну это же жанр такой, надо же включить свою фантазию. А ведь с другой стороны, с реальной, сказки - это еще один инструмент подспудной тренировки внушаемости населения. Театр, Телевизор, блогосфера - это тоже жанры внушаемости. Мы также внушаемы и при личном общении. Реклама - еще один жанр. Почитайте Википедию, историю, литературу - все это другие жанры внушения.
 Попытайтесь и вы стряхнуть с себя это наваждение, отриньте внушаемое, внимательно вглянитесь в то что вам говорят, то что вам показывают, то что вы читаете и говорите, присмотритесь к поведению - смыслам вокруг вас.
@@ -18028,6 +18049,7 @@ exec spAddArticle 143570, N'Что в имени твоём: Зад', N'"ста�
 <a href="http://viakviak.livejournal.com/627468.html" target="_blank"><b>С</b>лово "Сосед" - это калька с фразы "со-сядь" в смысле "ссидеться, осесть, поселиться вместе"</a>
 <a href="http://viakviak.livejournal.com/755911.html" target="_blank"><b>С</b>лово "Таз" - это обратная калька со слова "зад" в смысле "сядь, сидеть"</a>
 <a href="http://viakviak.livejournal.com/494394.html" target="_blank"><b>А</b>нглийское слово "Ace"(англ:туз,звук:эйс) - это фонетическая калька с английского слова "ass"(англ:жопа задница зад,звук:эсс) также как "туз" имеет смысл "суд, сидеть, зад</a>
+<a href="http://viakviak.livejournal.com/1409825.html" target="_blank"><b>Р</b>усское слово "задница" могло быть осознано как "за донцем" в значении "донце, дно, днище"</a>
 <a href="http://viakviak.livejournal.com/522387.html" target="_blank"><b>С</b>лово "Ждать" - это калька со слов "стоять, сидеть"</a>
 <a href="http://viakviak.livejournal.com/9497.html" target="_blank">Что в имени твоем: Государство</a>
 <a href="http://viakviak.livejournal.com/81929.html" target="_blank"><b>Т</b>уз находится в фонетико-смысловом поле "суд, сидеть, весть, есть, суть, стоять, тяжелый, тужить, жуть, тяжба, судьба"</a>
@@ -30421,6 +30443,14 @@ exec spAddArticle 290902, N'Что в имени твоём: Короб', N'"к�
 <a href="http://viakviak.livejournal.com/244344.html" target="_blank">Слово "Череп" - это калька со слова "крепкий"</a>
 <a href="http://viakviak.livejournal.com/103379.html" target="_blank">Слово "Опричь" находится в фонетико-семантическом поле "прочий", "приказ", "прок", "прочный", "преграда"</a>
 <a href="http://viakviak.livejournal.com/132034.html" target="_blank">Слово "Кирпич" - это калька со слова "крепче" в смысле "крепкий"</a>
+<a href="http://viakviak.livejournal.com/1329589.html" target="_blank"><b>С</b>лово "Корябать" близко по звучанию и смыслу к слову "крепить" в значении "воздействовать крепким"</a>
+<a href="http://viakviak.livejournal.com/1448155.html" target="_blank"><b>С</b>лово "Горсть" близко по звучанию и смыслу к слову "грести" в значении "загрести"</a>
+<a href="http://viakviak.livejournal.com/1329689.html" target="_blank"><b>С</b>лово "Гребля" близко по звучанию и смыслу "крепил" в значении "укрепленное весло"</a>
+<a href="http://viakviak.livejournal.com/902293.html" target="_blank"><b>С</b>лово "Корабль" - это калька со слова "гребля"</a>
+<a href="http://viakviak.livejournal.com/563638.html" target="_blank"><b>С</b>лово "Grave"(грэйв`англ:могила) - это калька с русских слов "гравий, гроб" в смысле "погребение"</a>
+<a href="http://viakviak.livejournal.com/941760.html" target="_blank"><b>С</b>лово "Гроб" - это калька со слова "короб"</a>
+<a href="http://viakviak.livejournal.com/941911.html" target="_blank"><b>С</b>лово "Хоронить" - это калька со слова "хранить" в смысле "сохранить"</a>
+<a href="http://viakviak.livejournal.com/583386.html" target="_blank"><b>С</b>лово "Сугроб" - это калька со слова "сгрёб"</a>
 <a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые близки как по звучанию, так и по смыслу"</a>
 </span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
@@ -61126,9 +61156,9 @@ GO
 exec spAddArticle 794202, N'Прямой перевод: Rust(раст`англ:ржавчина)', N'"резать", english, вяк, перевод, слова', N'
 <article><header><h1 viak="word">Rust(раст`англ:ржавчина)
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
-Слово "Rust"(раст`англ:ржавчина) - это калька с русского слова "рыжий"
+Слово "Rust"(раст`англ:ржавчина) близко по звучанию и смыслы к русскому слову "рыжь" в значении "рыжий, рыжина, рыжеватый"
 </span><span viak="description">
-Слово "Rust"(раст`англ:ржавчина) - это калька с русского слова "рыжий" при учете перехода "<a href="http://viakviak.livejournal.com/207378.html" target="_blank">СТ-Ж</a>".
+Слово "Rust"(раст`англ:ржавчина) близко по звучанию и смыслы к русскому слову "рыжь" в значении "рыжий, рыжина, рыжеватый" при учете перехода "<a href="http://viakviak.livejournal.com/207378.html" target="_blank">СТ-Ж</a>".
 </span><lj-cut><h3>Ссылки</h3><span viak="reference">
 <a href="http://viakviak.livejournal.com/207378.html" target="_blank">Любая из букв [ЩшчЖ] может переходить в любое двух-буквенное сочетание из [Сзц][ТдКгх] и обратно</a>
 <a href="http://viakviak.livejournal.com/677395.html" target="_blank">Слово "Рыжий" - это обратная калька со слова "жир" в смысле "цвета свежего жира (с кровью)"</a>
@@ -61144,7 +61174,9 @@ exec spAddArticle 794202, N'Прямой перевод: Rust(раст`англ:
 <a href="http://viakviak.livejournal.com/217316.html" target="_blank">Английское слово Red(англ:красный,рыжий) - это калька с русского слова "рыжий"</a>
 <a href="http://viakviak.livejournal.com/392576.html" target="_blank">Английское слово "Crimson"(англ:малиновый,звук:крымзн) - это калька с с русской фразы "икро-мясный"</a>
 <a href="http://viakviak.livejournal.com/503035.html" target="_blank">Английское слово "Citrus"(сИтрэс`англ:цитрусовые) - это обратная калька с русского слова "рыжий" при учете перехода "СТ-Ж" и латинского окончания "-УС"</a>
-<a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые близки как по звучанию/написанию, так и по смыслу"</a>
+<a href="http://viakviak.livejournal.com/1108866.html" target="_blank"><b>С</b>лово "Orange"(Орандж`англ:апельсин) близко по звучанию и смыслу к возможному русскому слову "ранистый" в значении "цвета раны"</a>
+<a href="http://viakviak.livejournal.com/560166.html" target="_blank"><b>Ц</b>вет "Багряный" - это калька с возможного слова "выкровянный" в смысле оттенка "крови"</a>
+<a href="http://viakviak.livejournal.com/1006355.html" target="_blank"><b>С</b>лово "Зарево" близко по звучанию и смыслу к слову "изорвать" в интерпретации заката солнца как его жестокой "смерти", а красное небо как его кровь</a>
 </span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
 <a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
@@ -102824,7 +102856,7 @@ exec spAddArticle 1384396, N'Что в имени твоём: Макулатур
 ';
 GO
 
-exec spAddArticle 1384677, N'Что в имени твоём: Сено', N'"основа", вяк, растение, слова', N'
+exec spAddArticle 1384677, N'Что в имени твоём: Сено', N'вяк, растение, слова', N'
 <article><header><h1 viak="word">Сено
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Слово "Сено" близко по звучанию и смыслу к возможному слову "съяно" в значении "изъян, снять, снятое, изъятое, скошенное"
@@ -104823,7 +104855,7 @@ exec spAddArticle 1409540, N'Прямой перевод: Hoof(хуф`англ:�
 ';
 GO
 
-exec spAddArticle 1409825, N'Почему "зад" по-английски "дно" (бАдам`рус:bottom)?', N'"бить", "основа", english, вяк, слова, тело', N'
+exec spAddArticle 1409825, N'Почему "зад" по-английски "дно" (бАдам`рус:bottom)?', N'"бить", english, вяк, слова, тело', N'
 <article><header><h1 viak="word">Bottom(бАдам`англ:дно)
 </h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
 Русское слово "задница" могло быть осознано как "за донцем" в значении "донце, дно, днище"
@@ -110667,6 +110699,38 @@ exec spAddArticle 1506808, N'Прямой перевод: Crouch(крАуч`ан
 ';
 GO
 
+exec spAddArticle 1506857, N'Прямой перевод: Man(мэн`англ:мужчина, человек)', N'english, вяк, перевод, слова', N'
+<article><header><h1 viak="translation">Man(мэн`англ:мужчина, человек)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Man"(мэн`англ:мужчина, человек) близко по звучанию и смыслу к русским словам "умён, имение" в значении "умение, специалист,  домовладелец"
+</span><span viak="description">
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
+exec spAddArticle 1509172, N'Что бы это значило: Авось', N'вяк, слова', N'
+<article><header><h1 viak="word">Авось
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Авось" близко по звучанию и смыслу к восклицанию "а-вези!" в значении "везти везет повезет"
+</span><span viak="description">
+Слово "Авось" близко по звучанию и смыслу к восклицанию "а-вези!" в значении "везти везет повезет" при учете перехода "<a href="http://viakviak.livejournal.com/33634.html" target="_blank">С-З</a>".
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -110700,15 +110764,15 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'мкост';
+nav.FindArticles N'кирпич';
 nav.FindArticles N'маск';
-nav.FindInTitle N'раз', 0, 9999999;
+nav.FindInTitle N'КоРоБ', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
 nav.FindInDescription N'Script', 0, 9999999;
 nav.FindArticlesByLabel N'сказка';
 nav.FindArticlesByLabel2 N'сказка', N'бог';
 nav.GetArticle 100740
-nav.GetArticle 913560
+nav.GetArticle 794202
 nav.GetRandom;
 nav.RefCount 126559
  exec nav.GetSpecialArticles;
