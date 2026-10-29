@@ -110743,6 +110743,27 @@ exec spAddArticle 1509172, N'Что бы это значило: Авось', N'�
 ';
 GO
 
+exec spAddArticle 1509538, N'Что в имени твоём: Кшатрии', N'"зов", вяк, государство, общество, слова', N'
+<article><header><h1 viak="word">Кшатрии
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Название воинской касты "Кшатрии" близко по звучанию и смыслу к возможному сокращению "кскатрии" в значении "казаки Татарии"
+</span><span viak="description">
+Название воинской касты "Кшатрии" близко по звучанию и смыслу к возможному сокращению "кскатрии" в значении "казаки Татарии" при учете перехода "Ш-СК".
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/441680.html" target="_blank"><b>Т</b>итул "Казак" - это калька со слова "казать" в смысле "показывающийся" в значении "военно-обязанный"</a>
+<a href="http://viakviak.livejournal.com/83903.html" target="_blank"><b>Х</b>азария - Государство "каз-ария" без русского слово "суд" (тюрк: казы) "каз+суд+арство", напрямую соответствует слову King+DOM. Слова Хазария, Кесария и Государство находятся в звуко-смысловом поле "часть", "частный", "отсеченный", "хозяйство" в см</a>
+<a href="http://viakviak.livejournal.com/594554.html" target="_blank"><b>С</b>лово "Козырь" - это обратная калька со слова "резак" в смысле "резатель, резник, резня"</a>
+<a href="http://viakviak.livejournal.com/1501778.html" target="_blank"><b>С</b>амоназвание народа "Мадьяр" близко по звучанию и смыслу к русскому слову "смотр" в значении "обязаный к смотру, военно-обязанный, казак"</a>
+<a href="http://viakviak.livejournal.com/762515.html" target="_blank"><b>С</b>лово "Szlachta"(польск:шляхта) близко по написанию и смыслу к русскому слову "служить"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -110776,9 +110797,9 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'кирпич';
+nav.FindArticles N'казак';
 nav.FindArticles N'маск';
-nav.FindInTitle N'КоРоБ', 0, 9999999;
+nav.FindInTitle N'Лира', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
 nav.FindInDescription N'Script', 0, 9999999;
 nav.FindArticlesByLabel N'сказка';
