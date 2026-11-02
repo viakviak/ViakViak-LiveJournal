@@ -110764,6 +110764,28 @@ exec spAddArticle 1509538, N'Что в имени твоём: Кшатрии', N
 ';
 GO
 
+exec spAddArticle 1510067, N'Что в имени твоём: Шах', N'вяк, слова, титул', N'
+<article><header><h1 viak="word">Шах
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Титул "Шах" близок по звучанию и смыслу к слову "стяг" в значении "держатель флага, знаменосец, предводитель"
+</span><span viak="description">
+Титул "Шах" близок по звучанию и смыслу к слову "стяг" в значении "держатель флага, знаменосец, предводитель" при учете переходов "<a href="http://viakviak.livejournal.com/207378.html" target="_blank">Ш-СТ</a>" и "<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Х-Г</a>"
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/207378.html" target="_blank"><b>Л</b>юбая из букв [ЩшчЖ] может переходить в любое двух-буквенное сочетание из [Сзц][ТдКгх] и обратно</a>
+<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Переход Г/K - Х</a>
+<a href="http://viakviak.livejournal.com/250982.html" target="_blank"><b>С</b>лово "Стяг" происходит от слова "стягивать"</a>
+<a href="http://viakviak.livejournal.com/1361282.html" target="_blank"><b>С</b>лово "Знамя" близко по звучанию и смыслу к слову "знамо" в значении "знаем, узнаваемое"</a>
+<a href="http://viakviak.livejournal.com/151170.html" target="_blank"><b>И</b>мя "Тугарин" означает "Знаменцев"</a>
+<a href="http://viakviak.livejournal.com/96527.html" target="_blank"><b>С</b>лово "Флаг" - это обратная калька со слова "глава" в смысле "главное полотнище"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -110797,7 +110819,7 @@ nav.FindArticles N'карбован'
 
 SELECT COUNT(*) FROM dbo.Article  
 
-nav.FindArticles N'казак';
+nav.FindArticles N'Парнас';
 nav.FindArticles N'маск';
 nav.FindInTitle N'Лира', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
