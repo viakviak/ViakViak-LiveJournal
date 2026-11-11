@@ -99,6 +99,14 @@ Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=Tr
 
 <lj-poll name="Пожалуйста ответьте!" whovote="all" whoview="all"><br /><lj-pq type="radio">Согласны ли вы с предположением?<br /><lj-pi>Полная ерунда--</lj-pi><lj-pi>Нет</lj-pi><lj-pi>Пожалуй Нет</lj-pi><lj-pi> Не знаю </lj-pi><lj-pi>Пожалуй Да</lj-pi><lj-pi>Да</lj-pi><lj-pi>Превосходно++</lj-pi></lj-pq></lj-poll>
 
+https://viakviak.livejournal.com/1509172.html?thread=1406772#t1406772
+Ваша система для меня не достаточно проста. Я не сторонник сложных композиций. Я представляю слово-образование не как программирование взятым ниоткуда готовым и сложным "ассемблером", а живое творчество масс идущее от простейщего к более сложному. Мне интересно познание логики этого процесса.
+
+7 ноября 2026, 16:47:13
+"...все люди в какой-то степени сумасшедшие..."
+Люди создающие слова не могут быть сумасшедшими. Это труженики, созидатели, наблюдатели, организаторы. Люди - пользователи слов - слагатели песен, герольды, историки, писатели, и т.п. могут не понимать то, что видят или читают, т.к. они не являются специалистами. И они тоже не являются сумасшедшими. Они просто неадекватны. А вот уже неадекватность создает ту атмосферу "с сумасшедшинкой", о которой упомянуто выше.
+
+---
 Это ваше мнение, насильно мил не будешь. Я, конечно же, не этимолог, как вы правильно заметили. По образованию я инженер связи и электроники, по специальности - программист, свободно владею русским и английским языками.
 Моя методика имеет правила которым я следую:
 1. Проверяется все, никакой веры и никаких авторитетов - только логика и опыт.
@@ -17919,39 +17927,48 @@ exec spAddArticle 140922, N'Что в имени твоём: Пердеть', N'
 GO
 
 exec spAddArticle 141266, N'Прямой перевод: Dinosaur(англ:динозавр)', N'вяк, животное, история, слова', N'
-<h1 viak="translation">Dinosaur(англ:динозавр)
-</h1><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+<article><header><h1 viak="translation">Dinosaur(англ:динозавр)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Dinosaur"(дАйносор`англ:динозавр) разложенное как "Dino-saur" близко по звучанию и смыслу к русской фразе "тонный ящер" в значении "многотонный ящер"
+</span><span viak="description">
 Английское слово "Dinosaur" - это композиция из двух слов: "Dino" и "Saur". Слово "Saur" - это калька с русского слова "ящер"
 Слово "Saur"(звук:сор) - это калька с русского слова "ящер" при учете перехода "<a href="http://viakviak.livejournal.com/50841.html" target="_blank">С-Щ</a>".
-
 дино - тонна
 динозавр - тонновый ящер
-</span><h3>Ссылки</h3><span viak="reference">
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
 <a href="http://viakviak.livejournal.com/33634.html" target="_blank">Переход "звонкий-глухой"</a>
 <a href="http://viakviak.livejournal.com/50841.html" target="_blank">Переход: Щ - С</a>
-</span><span viak="footer">
+<a href="http://viakviak.livejournal.com/141483.html" target="_blank"><b>С</b>лово "Ящер" - это калька со слов "востёр", "острый", "щерить" с оттенком scary(скери`англ:жуткий)</a>
+<a href="http://viakviak.livejournal.com/766242.html" target="_blank"><b>Н</b>азвание доисторического ящера "Dinosaur"(дАйносор`англ:динозавр) разложенное как "dine-saur" можно интерпретировать как "обедает ящером" в смысле "ящероядный"</a>
+<a href="http://viakviak.livejournal.com/766136.html" target="_blank"><b>О</b>кончания названий вымерших рептилий "-Saur"(сор`англ:вымершая рептилия) - это калька с русского слова "ящер"</a>
+</span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
 <a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
-</span>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
 ';
 GO
 
 exec spAddArticle 141483, N'Что в имени твоём: Ящер', N'english, вяк, животное, история, слова, тело', N'
-<h1 viak="word">Ящер
-</h1><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
-Слово "Ящер" - это калька со слов "востёр", "острый", "щерить"
+<article><header><h1 viak="word">Ящер
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Ящер" - это калька со слов "востёр", "острый", "щерить" с оттенком scary(скери`англ:жуткий)
 </span><span viak="description">
 Слово "Ящер" - это калька со слов "востёр", "острый", "щерить" при учете переходов "<a href="http://viakviak.livejournal.com/70680.html" target="_blank">Я-В</a>" и "<a href="http://viakviak.livejournal.com/52993.html" target="_blank">СТ-Щ</a>" с возможным смыслом "острозубый" и "ощерившийся".
-</span><span viak="description">
-scary(англ:жуткий,звук:скери) - калька с русского слова "ящер" при учете перехода "Щ-СК"
-</span><h3>Ссылки</h3><span viak="reference">
+scary(англ:жуткий,звук:скери) - калька с русского слова "ящер" при учете перехода "<a href="http://viakviak.livejournal.com/52993.html" target="_blank">Щ-СК</a>"
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
 <a href="http://viakviak.livejournal.com/70680.html" target="_blank">Переход: Й/Я/Е/Ё/Ю - В</a>
 <a href="http://viakviak.livejournal.com/52993.html" target="_blank">Переход: СТ/ШТ - Щ - СК/СГ/СХ/СЧ</a>
-<a href="http://viakviak.livejournal.com/141266.html" target="_blank">Прямой перевод: Dinosaur(англ:динозавр)</a>
-</span><span viak="footer">
+<a href="http://viakviak.livejournal.com/141266.html" target="_blank"><b>С</b>лово "Dinosaur"(дАйносор`англ:динозавр) разложенное как "Dino-saur" близко по звучанию и смыслу к русской фразе "тонный ящер" в значении "многотонный ящер"</a>
+<a href="http://viakviak.livejournal.com/766242.html" target="_blank"><b>Н</b>азвание доисторического ящера "Dinosaur"(дАйносор`англ:динозавр) разложенное как "dine-saur" можно интерпретировать как "обедает ящером" в смысле "ящероядный"</a>
+<a href="http://viakviak.livejournal.com/766136.html" target="_blank"><b>О</b>кончания названий вымерших рептилий "-Saur"(сор`англ:вымершая рептилия) - это калька с русского слова "ящер"</a>
+</span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
 <a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
-</span>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
 ';
 GO
 
@@ -59599,7 +59616,7 @@ exec spAddArticle 766136, N'Прямой перевод: -Saur(сор`англ:�
 Окончания названий вымерших рептилий "-Saur"(сор`англ:вымершая рептилия) - это калька с русского слова "ящер" при учете перехода "<a href="http://viakviak.livejournal.com/46952.html" target="_blank">С-Щ</a>"
 </span><lj-cut><h3>Ссылки</h3><span viak="reference">
 <a href="http://viakviak.livejournal.com/46952.html" target="_blank">Существует устойчивый фонетический переход от любой буквы из [Сзц] в любую из [Хкгчщшж] и обратно</a>
-<a href="http://viakviak.livejournal.com/141483.html" target="_blank">Слово "Ящер" - это калька со слов "востёр", "острый", "щерить"</a>
+<a href="http://viakviak.livejournal.com/141483.html" target="_blank"><b>С</b>лово "Ящер" - это калька со слов "востёр", "острый", "щерить" с оттенком scary(скери`англ:жуткий)</a>
 <a href="http://viakviak.livejournal.com/766242.html" target="_blank">Название доисторического ящера "Dinosaur"(дАйносор`англ:динозавр) разложенное как "dine-saur" можно интерпретировать как "обедает ящером" в смысле "ящероядный"</a>
 <a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые близки как по звучанию/написанию, так и по смыслу"</a>
 </span><footer>
@@ -59619,7 +59636,7 @@ exec spAddArticle 766242, N'Что в имени твоём: Dinosaur(дАйно
 </span><lj-cut><h3>Ссылки</h3><span viak="reference">
 <a href="http://viakviak.livejournal.com/765905.html" target="_blank">Слово "Dinner"(дИнэр`англ:обед, главная еда дня) - это калька с русского слова "день" в смысле "дневной"</a>
 <a href="http://viakviak.livejournal.com/766136.html" target="_blank">Окончания названий вымерших рептилий "-Saur"(сор`англ:вымершая рептилия) - это калька с русского слова "ящер"</a>
-<a href="http://viakviak.livejournal.com/141483.html" target="_blank"><b>С</b>лово "Ящер" - это калька со слов "востёр", "острый", "щерить"</a>
+<a href="http://viakviak.livejournal.com/141483.html" target="_blank"><b>С</b>лово "Ящер" - это калька со слов "востёр", "острый", "щерить" с оттенком scary(скери`англ:жуткий)</a>
 <a href="http://viakviak.livejournal.com/172318.html" target="_blank">Я использую выражение "одно слово - это калька с другого слова" в значении "слова, которые близки как по звучанию/написанию, так и по смыслу"</a>
 </span><footer>
 <a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
@@ -110786,6 +110803,31 @@ exec spAddArticle 1510067, N'Что в имени твоём: Шах', N'вяк,
 ';
 GO
 
+exec spAddArticle 1510328, N'Что в имени твоём: Шахматы', N'"мять", вяк, игра, слова', N'
+<article><header><h1 viak="word">Шахматы
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Слово "Шахматы" разложенное как "шах-маты" близко по звучанию и смыслу к фразе "стяг мять" в значении "замятня за стяг, битва за флаг"
+</span><span viak="description">
+Слово "Шахматы" разложенное как "шах-маты" близко по звучанию и смыслу к фразе "стяг мять" в значении "замятня за стяг, битва за флаг" при учете переходов "<a href="http://viakviak.livejournal.com/207378.html" target="_blank">Ш-СТ</a>" и "<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Х-Г</a>"
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/54707.html" target="_blank"><b>К</b>омпонента "М[Тдф]" имеет смысл "мять мотать томить тьма" как в прямом направлении, так и в обратном прочтении</a>
+<a href="http://viakviak.livejournal.com/207378.html" target="_blank"><b>Л</b>юбая из букв [ЩшчЖ] может переходить в любое двух-буквенное сочетание из [Сзц][ТдКгх] и обратно</a>
+<a href="http://viakviak.livejournal.com/33360.html" target="_blank">Переход Г/K - Х</a>
+<a href="http://viakviak.livejournal.com/1510067.html" target="_blank"><b>Т</b>итул "Шах" близок по звучанию и смыслу к слову "стяг" в значении "держатель флага, знаменосец, предводитель"</a>
+<a href="http://viakviak.livejournal.com/1236820.html" target="_blank"><b>С</b>лово "مات"(мЭта`араб:умер,мат) близко по звучанию и смыслу к русскому слову "мять" в значении "смерть без пролития крови"</a>
+<a href="http://viakviak.livejournal.com/1384929.html" target="_blank"><b>С</b>лово "Суматоха" близко по звучанию и смыслу к слову "смятка" в значении "смятение"</a>
+<a href="http://viakviak.livejournal.com/39064.html" target="_blank"><b>С</b>лово "Пешка" - это калька со слова "пустяк"</a>
+<a href="http://viakviak.livejournal.com/250982.html" target="_blank"><b>С</b>лово "Стяг" происходит от слова "стягивать"</a>
+<a href="http://viakviak.livejournal.com/96527.html" target="_blank"><b>С</b>лово "Флаг" - это обратная калька со слова "глава" в смысле "главное полотнище"</a>
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -110820,14 +110862,14 @@ nav.FindArticles N'карбован'
 SELECT COUNT(*) FROM dbo.Article  
 
 nav.FindArticles N'Парнас';
-nav.FindArticles N'маск';
+nav.FindArticles N'Ящер';
 nav.FindInTitle N'Лира', 0, 9999999;
 nav.FindInSummary N'тур', 0, 9999999
 nav.FindInDescription N'Script', 0, 9999999;
 nav.FindArticlesByLabel N'сказка';
 nav.FindArticlesByLabel2 N'сказка', N'бог';
 nav.GetArticle 100740
-nav.GetArticle 794202
+nav.GetArticle 141266
 nav.GetRandom;
 nav.RefCount 126559
  exec nav.GetSpecialArticles;
