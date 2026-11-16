@@ -100874,6 +100874,7 @@ exec spAddArticle 1354657, N'Что в имени твоём: Полено', N'�
 Слово "Полено" близко по звучанию и смыслу к слову "паление" в значении "для паления, сгорания" с оттенком "половина"
 </span><span viak="description">
 </span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+<a href="http://viakviak.livejournal.com/727042.html" target="_blank"><b>С</b>лово "Полено" - это калька со слова "половина" в смысле "половина бревна"</a>
 <a href="http://viakviak.livejournal.com/660205.html" target="_blank">Слово "Бревно" - это калька со слова "вырвано"</a>
 <a href="http://viakviak.livejournal.com/726374.html" target="_blank">Слово "Дрова" - это калька со слова "древа" в смысле "деревянные"</a>
 <a href="http://viakviak.livejournal.com/156378.html" target="_blank">Слово "Доска" - это калька со слова "Таскать" и находится в звуко-смысловом поле "тащить, точить" как необходимые технологические операции по изготовлению</a>
@@ -110862,9 +110863,9 @@ nav.FindArticles N'карбован'
 SELECT COUNT(*) FROM dbo.Article  
 
 nav.FindArticles N'Парнас';
-nav.FindArticles N'Ящер';
-nav.FindInTitle N'Лира', 0, 9999999;
-nav.FindInSummary N'тур', 0, 9999999
+nav.FindArticles N'ПОЛ';
+nav.FindInTitle N'ПОЛ', 0, 9999999;
+nav.FindInSummary N'ПОЛ', 0, 9999999
 nav.FindInDescription N'Script', 0, 9999999;
 nav.FindArticlesByLabel N'сказка';
 nav.FindArticlesByLabel2 N'сказка', N'бог';
