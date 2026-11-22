@@ -110829,6 +110829,22 @@ exec spAddArticle 1510328, N'Что в имени твоём: Шахматы', N
 ';
 GO
 
+exec spAddArticle 1511412, N'Что в имени твоём: Jensen Huang(англ: Женсин Хуанг)', N'english, вяк, имя, слова, эзотерика', N'
+<article><header><h1 viak="word">Jensen Huang(англ: Женсин Хуанг)
+</h1></header><h3><a href="https://viakviak.livejournal.com/76661.html#method" target="_blank">Предположение</a></h3><span viak="summary">
+Имя президента NVIDIA "Jensen Huang"(англ: Женсин Хуянг) - говорящее имя в его скандальной "сказочной истории"
+</span><span viak="description">
+Имя президента NVIDIA "Jensen Huang"(англ: Женсин Хуянг) - говорящее имя в его скандальной "сказочной истории": как его отношение к женщинам и сотрудникам, а также за что его хотели бы подвесить вкладчики его компании.
+</span><lj-cut><br/><h3>Ссылки</h3><span viak="reference">
+</span><footer>
+<a href="https://viakviak.livejournal.com/76661.html" target="_blank">[Метод анализа образования простых слов]</a>
+<a href="http://viakviak.livejournal.com/242198.html" target="_blank">[Обобщенная схема звуко-переходов]</a>
+<a href="https://viakviak.livejournal.com/765.html" target="_blank">[Главная страница]</a>
+Словарик: <a href="http://viakviak.livejournal.com/527046.html" target="_blank">A...</a> | <a href="http://viakviak.livejournal.com/780346.html" target="_blank">D...</a> | <a href="http://viakviak.livejournal.com/527264.html" target="_blank">G...</a> | <a href="http://viakviak.livejournal.com/1102529.html" target="_blank">N...</a> | <a href="http://viakviak.livejournal.com/527436.html" target="_blank">S...</a> | <a href="http://viakviak.livejournal.com/527864.html" target="_blank">А...</a> | <a href="http://viakviak.livejournal.com/527934.html" target="_blank">Г...</a> | <a href="http://viakviak.livejournal.com/528263.html" target="_blank">К...</a> | <a href="http://viakviak.livejournal.com/528472.html" target="_blank">М...</a> | <a href="http://viakviak.livejournal.com/528727.html" target="_blank">П...</a> | <a href="http://viakviak.livejournal.com/529029.html" target="_blank">С...</a> | <a href="http://viakviak.livejournal.com/1102721.html" target="_blank">Т...</a> | <a href="http://viakviak.livejournal.com/529350.html" target="_blank">У...</a>   <sub><i>Jul  4 2024  6:33PM</i></sub><br/>
+</footer></lj-cut></article>
+';
+GO
+
 /*
 
 exec spAddArticle , N'', N'', N'
@@ -110863,7 +110879,7 @@ nav.FindArticles N'карбован'
 SELECT COUNT(*) FROM dbo.Article  
 
 nav.FindArticles N'Парнас';
-nav.FindArticles N'ПОЛ';
+nav.FindArticles N'искра';
 nav.FindInTitle N'ПОЛ', 0, 9999999;
 nav.FindInSummary N'ПОЛ', 0, 9999999
 nav.FindInDescription N'Script', 0, 9999999;
